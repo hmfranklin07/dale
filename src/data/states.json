@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "illinois",
+    "name": "Illinois",
+    "abbr": "IL",
+    "lat": 40.6331,
+    "lng": -89.3985
+  },
+  {
+    "slug": "nebraska",
+    "name": "Nebraska",
+    "abbr": "NE",
+    "lat": 41.4925,
+    "lng": -99.9018
+  },
+  {
+    "slug": "idaho",
+    "name": "Idaho",
+    "abbr": "ID",
+    "lat": 44.3509,
+    "lng": -114.613
+  },
+  {
+    "slug": "arkansas",
+    "name": "Arkansas",
+    "abbr": "AR",
+    "lat": 35.201,
+    "lng": -91.8318
+  },
+  {
+    "slug": "florida",
+    "name": "Florida",
+    "abbr": "FL",
+    "lat": 27.6648,
+    "lng": -81.5158
+  }
+]

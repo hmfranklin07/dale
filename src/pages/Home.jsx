@@ -1,107 +1,113 @@
 import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
-import towns from '../data/towns.json'
+import SocialLinks from '../components/SocialLinks'
+import states from '../data/states.json'
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
       <section className="relative bg-gradient-to-b from-sage-100 to-sage-50 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
             <span className="badge-rust mb-4 inline-block">Summer 2026</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-earth-900 mb-6 leading-tight">
               STEM on the Road
             </h1>
-            <p className="text-lg sm:text-xl text-earth-600 leading-relaxed mb-8">
-              Even when access expands, rural students still don't pursue STEM
-              at the same rate as their urban and suburban peers. This summer,
-              we're driving across America to find out why — visiting rural
-              high schools, talking to teachers and students, and documenting
-              what we discover.
+            <p className="text-lg sm:text-xl text-earth-600 leading-relaxed">
+              A summer of stops across five states: short interviews, long conversations, and what it
+              actually feels like in rural high schools that rarely make the news.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/about"
-                className="inline-flex items-center px-6 py-3 bg-rust-600 text-white rounded-xl font-medium hover:bg-rust-700 transition-colors shadow-sm"
-              >
-                Learn More
-                <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-              <Link
-                to="/documentary"
-                className="inline-flex items-center px-6 py-3 bg-white text-earth-700 rounded-xl font-medium hover:bg-sage-50 transition-colors border border-sage-200 shadow-sm"
-              >
-                Watch the Documentary
-              </Link>
+            <div className="flex flex-wrap gap-2 mt-8">
+              {states.map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/${s.slug}`}
+                  className="inline-flex items-center px-3 py-1.5 bg-white/90 text-earth-800 rounded-lg text-sm font-medium border border-sage-200 hover:border-sage-400 transition-colors"
+                >
+                  {s.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
+        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
           <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-400 to-transparent" />
         </div>
       </section>
 
-      {/* Interactive Map */}
+      {/* Interactive map */}
       <section className="page-container">
         <div className="text-center mb-8">
-          <h2 className="section-title">Where I'm Going</h2>
+          <h2 className="section-title">Interactive U.S. map</h2>
           <p className="section-subtitle">
-            Click a pin to explore what we found in each community
+            Each pin opens the Illinois, Nebraska, Idaho, Arkansas, or Florida page—field notes, written
+            interviews, and reflections for that state.
           </p>
         </div>
 
         <div className="card p-4 sm:p-6">
           <USMap />
         </div>
+      </section>
 
-        {/* Town List (below map for mobile) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-          {towns.map((town) => (
-            <Link
-              key={town.slug}
-              to={`/towns/${town.slug}`}
-              className="card card-body group"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-display text-lg text-earth-900 group-hover:text-sage-700 transition-colors">
-                    {town.name}, {town.state}
-                  </h3>
-                  <p className="text-sm text-earth-500 mt-1 line-clamp-2">{town.summary}</p>
-                </div>
-                <svg className="w-5 h-5 text-earth-300 group-hover:text-sage-600 transition-colors shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          ))}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+        <div>
+          <h2 className="font-display text-2xl text-earth-900 mb-4">Project statement</h2>
+          <div className="prose prose-lg text-earth-700 space-y-4">
+            <p>
+              This site documents a research road trip through rural America. In each state I sit down
+              with students, teachers, and people who make schools run—less to “fix” a narrative and
+              more to show what it looks like on the ground when you ask honest questions about STEM
+              access, identity, and aspiration.
+            </p>
+            <p>
+              You’ll find a mix: quick field notes, longer written interviews, and my own reflections as
+              the trip keeps moving. Everything is built around consent, accuracy, and respect for the
+              places that welcome the project.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-display text-2xl text-earth-900 mb-4">Project inspiration</h2>
+          <div className="prose prose-lg text-earth-700 space-y-4">
+            <p>
+              The project grew out of class readings and data that don’t line up with how generous and
+              curious so many small-town students are. On paper, access to information keeps improving;
+              in person, the gap in who sees themselves in STEM is still there. I wanted to leave the
+              paper behind and go listen.
+            </p>
+            <p>
+              I’m also inspired by teachers doing multiple jobs at once—one person covering every
+              science class, writing grants, and still showing up for kids after the bell. Their stories
+              are at the center of the trip.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-display text-2xl text-earth-900 mb-4">Project aspirations</h2>
+          <div className="prose prose-lg text-earth-700 space-y-4">
+            <p>
+              I hope the site can be a useful slice of the summer: clear enough for policy readers,
+              human enough for anyone who’s lived a version of this, and open enough that new interviews
+              and reflections can be added as we go.
+            </p>
+            <p>
+              In the end, I want to return with not just a folder of recordings but a fair accounting of
+              what I heard—especially from students who are still deciding who they can become.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="bg-earth-900 text-white py-16 mt-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="font-display text-4xl text-rust-400 mb-2">{towns.length}</div>
-              <div className="text-earth-300 text-sm">Towns Visited</div>
-            </div>
-            <div>
-              <div className="font-display text-4xl text-rust-400 mb-2">10k+</div>
-              <div className="text-earth-300 text-sm">Miles Driven</div>
-            </div>
-            <div>
-              <div className="font-display text-4xl text-rust-400 mb-2">50+</div>
-              <div className="text-earth-300 text-sm">People Interviewed</div>
-            </div>
-            <div>
-              <div className="font-display text-4xl text-rust-400 mb-2">1</div>
-              <div className="text-earth-300 text-sm">Documentary</div>
-            </div>
-          </div>
+      <section className="bg-earth-900 text-white py-14 sm:py-16 mt-4">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl mb-3">Follow the trip</h2>
+          <p className="text-earth-300 mb-8 max-w-xl mx-auto">
+            The same short-form and vlog content as on the Vlog page—wherever you post first.
+          </p>
+          <SocialLinks size="large" />
         </div>
       </section>
     </>

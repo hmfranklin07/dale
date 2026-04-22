@@ -1,28 +1,20 @@
 [
   {
-    "slug": "pine-bluff-ar",
-    "name": "Pine Bluff",
-    "state": "Arkansas",
-    "lat": 34.2284,
-    "lng": -92.0032,
-    "summary": "A small city in southeastern Arkansas exploring how limited broadband access shapes STEM aspirations.",
-    "date": "2026-06-15",
-    "image": "/images/towns/placeholder.jpg"
-  },
-  {
-    "slug": "rural-retreat-va",
-    "name": "Rural Retreat",
-    "state": "Virginia",
-    "lat": 36.8935,
-    "lng": -81.2748,
-    "summary": "Nestled in the Appalachian mountains, this town's high school has one science teacher for all grades.",
-    "date": "2026-06-22",
+    "slug": "pana-il",
+    "name": "Pana",
+    "state": "Illinois",
+    "stateSlug": "illinois",
+    "lat": 39.3884,
+    "lng": -89.0801,
+    "summary": "Placeholder: add your town notes for this Illinois visit—community context, school size, and what you want to explore in STEM access.",
+    "date": "2026-05-20",
     "image": "/images/towns/placeholder.jpg"
   },
   {
     "slug": "broken-bow-ne",
     "name": "Broken Bow",
     "state": "Nebraska",
+    "stateSlug": "nebraska",
     "lat": 41.4019,
     "lng": -99.6393,
     "summary": "In the heart of the Sandhills, students here drive over an hour to reach the nearest community college.",
@@ -30,23 +22,36 @@
     "image": "/images/towns/placeholder.jpg"
   },
   {
-    "slug": "marfa-tx",
-    "name": "Marfa",
-    "state": "Texas",
-    "lat": 30.3087,
-    "lng": -104.0214,
-    "summary": "A tiny West Texas town where art thrives but STEM resources remain scarce.",
-    "date": "2026-07-10",
-    "image": "/images/towns/placeholder.jpg"
-  },
-  {
     "slug": "salmon-id",
     "name": "Salmon",
     "state": "Idaho",
+    "stateSlug": "idaho",
     "lat": 45.1766,
     "lng": -113.8957,
     "summary": "Surrounded by wilderness, Salmon's students are resourceful but face geographic isolation from STEM opportunities.",
     "date": "2026-07-20",
+    "image": "/images/towns/placeholder.jpg"
+  },
+  {
+    "slug": "pine-bluff-ar",
+    "name": "Pine Bluff",
+    "state": "Arkansas",
+    "stateSlug": "arkansas",
+    "lat": 34.2284,
+    "lng": -92.0032,
+    "summary": "A small city in southeastern Arkansas exploring how limited broadband access shapes STEM aspirations.",
+    "date": "2026-06-15",
+    "image": "/images/towns/placeholder.jpg"
+  },
+  {
+    "slug": "immokalee-fl",
+    "name": "Immokalee",
+    "state": "Florida",
+    "stateSlug": "florida",
+    "lat": 26.4166,
+    "lng": -81.4176,
+    "summary": "Placeholder: update with your South Florida / rural visit details and interview plans.",
+    "date": "2026-08-10",
     "image": "/images/towns/placeholder.jpg"
   }
 ]

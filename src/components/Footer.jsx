@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import social from '../data/social.json'
+import states from '../data/states.json'
 
 export default function Footer() {
   return (
@@ -11,35 +13,64 @@ export default function Footer() {
               <span className="font-display text-xl text-white">STEM on the Road</span>
             </div>
             <p className="text-sm leading-relaxed">
-              Driving across rural America to understand why STEM dreams
-              fade where highways end. A summer research project exploring
-              the gap between access and aspiration.
+              Field interviews and reflections from a summer 2026 road trip through five states, built to
+              document rural STEM access with care and context.
             </p>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <a
+                href={social.youtubeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-rust-300 hover:text-rust-200"
+              >
+                {social.youtubeLabel}
+              </a>
+              <span className="text-earth-600">·</span>
+              <a
+                href={social.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-rust-300 hover:text-rust-200"
+              >
+                {social.instagramLabel}
+              </a>
+            </div>
           </div>
 
           <div>
-            <h4 className="font-display text-white text-lg mb-4">Explore</h4>
+            <h4 className="font-display text-white text-lg mb-4">By state</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-white transition-colors">The Project</Link></li>
-              <li><Link to="/shorts" className="hover:text-white transition-colors">Road Updates</Link></li>
-              <li><Link to="/vlogs" className="hover:text-white transition-colors">Vlogs & Reflections</Link></li>
-              <li><Link to="/interviews" className="hover:text-white transition-colors">Interviews</Link></li>
-              <li><Link to="/documentary" className="hover:text-white transition-colors">Documentary</Link></li>
+              {states.map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/${s.slug}`} className="hover:text-white transition-colors">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="font-display text-white text-lg mb-2 mt-6">Vlog</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/vlog" className="hover:text-white transition-colors">
+                  Vlog & B‑roll
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display text-white text-lg mb-4">About This Project</h4>
+            <h4 className="font-display text-white text-lg mb-4">About the site</h4>
             <p className="text-sm leading-relaxed">
-              This site documents a summer 2026 road trip research project.
-              All interviews and content were gathered with consent from
-              participants across rural communities in the United States.
+              Content is shared with consent. Short-form, written Q&amp;As, and personal reflections are
+              labeled by state and town as the trip continues.
             </p>
           </div>
         </div>
 
         <div className="border-t border-earth-700 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} STEM on the Road. Built for education, not profit.</p>
+          <p>
+            &copy; {new Date().getFullYear()} STEM on the Road. Built for education, not profit.
+          </p>
         </div>
       </div>
     </footer>
