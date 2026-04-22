@@ -37,7 +37,7 @@ export default function Navbar() {
             ))}
             {states.map((s) => (
               <NavLink key={s.slug} to={`/${s.slug}`} className={linkClass}>
-                {s.abbr}
+                {s.name}
               </NavLink>
             ))}
           </div>
@@ -73,7 +73,7 @@ export default function Navbar() {
           ))}
           {states.map((s) => (
             <NavLink key={s.slug} to={`/${s.slug}`} onClick={() => setOpen(false)} className={linkClass}>
-              {s.abbr}
+              {s.name}
             </NavLink>
           ))}
         </div>
