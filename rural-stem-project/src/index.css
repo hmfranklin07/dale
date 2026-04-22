@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-earth-900 bg-sage-50 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+
+  .section-title {
+    @apply font-display text-3xl sm:text-4xl text-earth-900 mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-earth-600 text-lg mb-8;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden
+           hover:shadow-md transition-shadow duration-300;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .badge-sage {
+    @apply badge bg-sage-100 text-sage-700;
+  }
+
+  .badge-rust {
+    @apply badge bg-rust-100 text-rust-700;
+  }
+
+  .badge-earth {
+    @apply badge bg-earth-100 text-earth-700;
+  }
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "townSlug": "pine-bluff-ar",
+    "date": "2026-06-16",
+    "personName": "Marcus Williams",
+    "role": "11th Grade Student",
+    "school": "Pine Bluff High School",
+    "photo": "",
+    "questions": [
+      {
+        "q": "Do you see yourself going into a STEM field?",
+        "a": "I like science a lot, especially when we get to do experiments. But honestly, I don't really know what jobs are out there. Like, I know 'engineer' and 'doctor,' but what does an engineer actually do every day? Nobody around here does that."
+      },
+      {
+        "q": "What's your experience been like with science classes here?",
+        "a": "We have good teachers, but we don't have a lot of equipment. Most of our labs are watching videos of experiments instead of doing them. It's hard to get excited about something you can only watch."
+      },
+      {
+        "q": "If you could change one thing about STEM education here, what would it be?",
+        "a": "I'd want to meet people who actually work in science. Like, have them come talk to us or let us visit where they work. I think that would make it feel real instead of just something in a textbook."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "townSlug": "pine-bluff-ar",
+    "date": "2026-06-16",
+    "personName": "Dr. Linda Chen",
+    "role": "Science Teacher",
+    "school": "Pine Bluff High School",
+    "photo": "",
+    "questions": [
+      {
+        "q": "What's the biggest challenge you face teaching STEM here?",
+        "a": "Funding, without question. I write grants constantly. Last year I got a small one for lab supplies, but it covered maybe two months of experiments. The rest of the year, we improvise."
+      },
+      {
+        "q": "Do your students express interest in STEM careers?",
+        "a": "Some do, but there's a disconnect. They're interested in the ideas but can't picture themselves in those careers. They don't see representation — nobody in their family or community works in STEM. It's an abstract concept."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "townSlug": "rural-retreat-va",
+    "date": "2026-06-23",
+    "personName": "Sarah Patterson",
+    "role": "Science Department (Solo Teacher)",
+    "school": "Rural Retreat High School",
+    "photo": "",
+    "questions": [
+      {
+        "q": "You teach all the science courses here. How do you manage that?",
+        "a": "Lots of coffee and very little sleep. I prep for four different subjects every night. I love my students, but I can't give each subject the depth it deserves. Physics especially suffers because it needs the most hands-on work and I just don't have the time."
+      },
+      {
+        "q": "What would help the most?",
+        "a": "Another teacher, honestly. But barring that, partnerships with universities. If we could get college students to come mentor, even virtually, it would change everything. My kids need to see that the path from here to a STEM career is possible."
+      }
+    ]
+  }
+]
