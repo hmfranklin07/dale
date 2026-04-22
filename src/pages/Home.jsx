@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
-import states from '../data/states.json'
 
 export default function Home() {
   return (
@@ -17,36 +15,24 @@ export default function Home() {
               A summer of stops across five states: short interviews, long conversations, and what it
               actually feels like in rural high schools that rarely make the news.
             </p>
-            <div className="flex flex-wrap gap-2 mt-8">
-              {states.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/${s.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 bg-white/90 text-earth-800 rounded-lg text-sm font-medium border border-sage-200 hover:border-sage-400 transition-colors"
-                >
-                  {s.name}
-                </Link>
-              ))}
+          </div>
+
+          <div className="mt-10 sm:mt-12">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="section-title">Interactive U.S. map</h2>
+              <p className="text-earth-600 text-lg max-w-2xl mx-auto">
+                Each pin opens the Illinois, Nebraska, Idaho, Arkansas, or Florida page—field notes,
+                written interviews, and reflections for that state.
+              </p>
+            </div>
+
+            <div className="card p-4 sm:p-6">
+              <USMap />
             </div>
           </div>
         </div>
         <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
           <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-400 to-transparent" />
-        </div>
-      </section>
-
-      {/* Interactive map */}
-      <section className="page-container">
-        <div className="text-center mb-8">
-          <h2 className="section-title">Interactive U.S. map</h2>
-          <p className="section-subtitle">
-            Each pin opens the Illinois, Nebraska, Idaho, Arkansas, or Florida page—field notes, written
-            interviews, and reflections for that state.
-          </p>
-        </div>
-
-        <div className="card p-4 sm:p-6">
-          <USMap />
         </div>
       </section>
 
