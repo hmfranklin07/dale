@@ -9,11 +9,10 @@ export default function Home() {
           <div className="max-w-3xl">
             <span className="badge-rust mb-4 inline-block">Summer 2026</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-earth-900 mb-6 leading-tight">
-              STEM on the Road
+              STEM Across Rural America
             </h1>
             <p className="text-lg sm:text-xl text-earth-600 leading-relaxed">
-              A summer of stops across five states: short interviews, long conversations, and what it
-              actually feels like in rural high schools that rarely make the news.
+            Exploring the experiences of students and educators in rural high schools across the nation.
             </p>
           </div>
 
