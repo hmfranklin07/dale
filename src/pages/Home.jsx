@@ -4,14 +4,13 @@ import SocialLinks from '../components/SocialLinks'
 export default function Home() {
   return (
     <>
-      <section className="relative bg-gradient-to-b from-sage-100 to-sage-50 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-sage-200/60 to-sage-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
-            <span className="badge-rust mb-4 inline-block">Summer 2026</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-earth-900 mb-6 leading-tight">
               STEM Across Rural America
             </h1>
-            <p className="text-lg sm:text-xl text-earth-600 leading-relaxed">
+            <p className="text-lg sm:text-xl text-earth-700 leading-relaxed">
             Exploring the experiences of students and educators in rural high schools across the nation.
             </p>
           </div>
@@ -19,14 +18,14 @@ export default function Home() {
           <div className="mt-10 sm:mt-12">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="section-title">Interactive U.S. map</h2>
-              <p className="text-earth-600 text-lg max-w-2xl mx-auto">
+              <p className="text-earth-700 text-lg max-w-2xl mx-auto">
                 Each pin opens the Illinois, Nebraska, Idaho, Arkansas, or Florida page—field notes,
                 written interviews, and reflections for that state.
               </p>
             </div>
 
             <div className="w-full">
-              <div className="card border-earth-200/80 bg-gradient-to-b from-sage-50/80 to-earth-100/50 p-2 sm:p-4">
+              <div className="card border-sage-400/50 bg-gradient-to-b from-sage-50 to-earth-100/40 p-2 sm:p-4">
                 <USMap />
               </div>
             </div>
@@ -40,7 +39,7 @@ export default function Home() {
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
         <div>
           <h2 className="font-display text-2xl text-earth-900 mb-4">Project statement</h2>
-          <div className="prose prose-lg text-earth-700 space-y-4">
+          <div className="prose prose-lg text-earth-800 space-y-4">
             <p>
               This site documents a research road trip through rural America. In each state I sit down
               with students, teachers, and people who make schools run—less to “fix” a narrative and
@@ -57,7 +56,7 @@ export default function Home() {
 
         <div>
           <h2 className="font-display text-2xl text-earth-900 mb-4">Project inspiration</h2>
-          <div className="prose prose-lg text-earth-700 space-y-4">
+          <div className="prose prose-lg text-earth-800 space-y-4">
             <p>
               The project grew out of class readings and data that don’t line up with how generous and
               curious so many small-town students are. On paper, access to information keeps improving;
@@ -74,7 +73,7 @@ export default function Home() {
 
         <div>
           <h2 className="font-display text-2xl text-earth-900 mb-4">Project aspirations</h2>
-          <div className="prose prose-lg text-earth-700 space-y-4">
+          <div className="prose prose-lg text-earth-800 space-y-4">
             <p>
               I hope the site can be a useful slice of the summer: clear enough for policy readers,
               human enough for anyone who’s lived a version of this, and open enough that new interviews
@@ -91,7 +90,7 @@ export default function Home() {
       <section className="bg-earth-900 text-white py-14 sm:py-16 mt-4">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-2xl sm:text-3xl mb-3">Follow the trip</h2>
-          <p className="text-earth-300 mb-8 max-w-xl mx-auto">
+          <p className="text-sage-200/95 mb-8 max-w-xl mx-auto">
             The same short-form and vlog content as on the Vlog page—wherever you post first.
           </p>
           <SocialLinks size="large" />

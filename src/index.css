@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-body text-earth-900 bg-sage-50 antialiased;
+    @apply font-body text-earth-800 bg-sage-100/70 antialiased;
   }
 
   h1, h2, h3, h4 {
@@ -22,11 +22,11 @@
   }
 
   .section-subtitle {
-    @apply text-earth-600 text-lg mb-8;
+    @apply text-earth-700 text-lg mb-8;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden
+    @apply bg-white rounded-2xl shadow border border-sage-300/90 overflow-hidden
            hover:shadow-md transition-shadow duration-300;
   }
 
@@ -39,14 +39,14 @@
   }
 
   .badge-sage {
-    @apply badge bg-sage-100 text-sage-700;
+    @apply badge bg-sage-200/90 text-sage-900;
   }
 
   .badge-rust {
-    @apply badge bg-rust-100 text-rust-700;
+    @apply badge bg-rust-200/90 text-rust-900;
   }
 
   .badge-earth {
-    @apply badge bg-earth-100 text-earth-700;
+    @apply badge bg-earth-200/80 text-earth-900;
   }
 }

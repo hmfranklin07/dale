@@ -4,7 +4,7 @@ import states from '../data/states.json'
 
 export default function Footer() {
   return (
-    <footer className="bg-earth-900 text-earth-300 mt-auto">
+    <footer className="bg-earth-900 text-sage-200/95 mt-auto">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -25,7 +25,9 @@ export default function Footer() {
               >
                 {social.youtubeLabel}
               </a>
-              <span className="text-earth-600">·</span>
+              <span className="text-sage-400/90" aria-hidden>
+                ·
+              </span>
               <a
                 href={social.instagramUrl}
                 target="_blank"
@@ -67,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-earth-700 mt-8 pt-8 text-center text-sm">
+        <div className="border-t border-earth-500/50 mt-8 pt-8 text-center text-sm text-sage-200/90">
           <p>
             &copy; {new Date().getFullYear()} STEM on the Road. Built for education, not profit.
           </p>

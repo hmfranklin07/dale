@@ -21,13 +21,13 @@ export default function ContentCard({ title, date, text, badge, badgeClass, link
       <div className="card-body">
         <div className="flex items-center gap-3 mb-3">
           {badge && <span className={badgeClass || 'badge-sage'}>{badge}</span>}
-          <time className="text-xs text-earth-400">{formattedDate}</time>
+          <time className="text-xs text-earth-500">{formattedDate}</time>
         </div>
         <h3 className="font-display text-xl text-earth-900 mb-2 group-hover:text-sage-700 transition-colors">
           {title}
         </h3>
         {text && (
-          <p className="text-earth-600 text-sm leading-relaxed line-clamp-3">{text}</p>
+          <p className="text-earth-700 text-sm leading-relaxed line-clamp-3">{text}</p>
         )}
       </div>
     </article>

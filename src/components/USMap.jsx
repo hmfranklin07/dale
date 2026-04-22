@@ -5,10 +5,10 @@ import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Warm field / parchment tones — read as “paper on a wooden desk”
-const FILL = '#d8cfc0'
-const FILL_HOVER = '#b9ad9a'
-const STROKE = '#c4b6a2'
+// Warm field / parchment — slightly higher-contrast state edges
+const FILL = '#d0c5b3'
+const FILL_HOVER = '#a99a86'
+const STROKE = '#7a6b5a'
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ export default function USMap() {
 
   return (
     <div className="relative w-full">
-      <div className="rounded-2xl border-2 border-earth-300/90 bg-gradient-to-b from-earth-100 via-[#e9e1d4] to-earth-200/50 shadow-[inset_0_1px_0_0_rgba(255,252,245,0.5),0_2px_12px_rgba(87,68,57,0.08)] overflow-hidden p-1 sm:p-1.5">
+      <div className="rounded-2xl border-2 border-earth-400/80 bg-gradient-to-b from-earth-100 via-[#e4dcd0] to-earth-200/60 shadow-[inset_0_1px_0_0_rgba(255,252,245,0.5),0_2px_12px_rgba(20,20,20,0.1)] overflow-hidden p-1 sm:p-1.5">
         <ComposableMap
           width={1200}
           height={700}
@@ -32,7 +32,7 @@ export default function USMap() {
                   geography={geo}
                   fill={FILL}
                   stroke={STROKE}
-                  strokeWidth={0.6}
+                  strokeWidth={0.85}
                   style={{
                     default: { outline: 'none' },
                     hover: { fill: FILL_HOVER, outline: 'none' },
@@ -74,8 +74,8 @@ export default function USMap() {
               {', '}
               {hovered.abbr}
             </p>
-            <p className="text-xs uppercase tracking-wider text-earth-400 mt-0.5">{hovered.name}</p>
-            <p className="text-sm text-earth-300/95 mt-2">Click for field notes &amp; interviews</p>
+            <p className="text-xs uppercase tracking-wider text-sage-200/90 mt-0.5">{hovered.name}</p>
+            <p className="text-sm text-sage-100/85 mt-2">Click for field notes &amp; interviews</p>
           </div>
         </div>
       )}
