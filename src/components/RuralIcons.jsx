@@ -30,33 +30,49 @@ export function IconHills({ className = 'h-7 w-7' }) {
 }
 
 /**
- * Large, low-contrast icons behind section content (not for small inline use).
- * density: "soft" = hero/lighter; "fill" = more coverage for white sections
+ * Large, low-contrast edge markers only — a few big shapes bleeding off the left and right
+ * (no center clutter). "fill" is slightly more visible; "soft" a touch lighter.
  */
 export function RuralFieldBackground({ density = 'soft' }) {
   const subtle =
     density === 'fill'
-      ? 'text-sage-600/[0.12] sm:text-sage-600/[0.16]'
-      : 'text-sage-500/[0.1] sm:text-sage-500/[0.13]'
+      ? 'text-sage-600/[0.1] sm:text-sage-600/[0.13]'
+      : 'text-sage-500/[0.08] sm:text-sage-500/[0.1]'
+
+  const sizeLg = 'h-36 w-36 sm:h-48 sm:w-48 md:h-56 md:w-56'
+  const sizeMd = 'h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48'
+
   return (
     <div
       className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none"
       aria-hidden
     >
       <div className={`absolute inset-0 ${subtle}`}>
-        <IconBarn className="absolute -left-6 -top-4 h-44 w-44 sm:h-56 sm:w-56 rotate-[-14deg] scale-110" />
-        <IconFence className="absolute right-[-4%] top-[6%] h-52 w-52 sm:h-64 sm:w-64 rotate-[10deg]" />
-        <IconHills className="absolute left-[8%] bottom-[-5%] h-40 w-40 sm:h-52 sm:w-52 rotate-[-4deg]" />
-        <IconFence className="absolute right-[20%] bottom-[12%] h-36 w-36 sm:h-44 sm:w-44 rotate-[-8deg] opacity-80" />
-        <IconBarn className="absolute left-[40%] top-[18%] h-28 w-28 sm:h-36 sm:w-36 rotate-[6deg] opacity-70" />
-        <IconHills className="absolute right-[-2%] bottom-[-6%] h-48 w-48 sm:h-60 sm:w-60 rotate-[12deg]" />
-        {density === 'fill' && (
+        {/* “Soft” hero: one large mark per side only */}
+        {density === 'soft' ? (
           <>
-            <IconBarn className="absolute right-[35%] top-[-3%] h-24 w-24 sm:h-32 sm:w-32 rotate-[-6deg] opacity-60" />
-            <IconFence className="absolute left-[12%] top-[35%] h-32 w-32 sm:h-40 sm:w-40 rotate-[14deg] opacity-50" />
-            <IconHills className="absolute right-[8%] top-[42%] h-20 w-20 sm:h-28 sm:w-28 opacity-50" />
-            <IconBarn className="absolute left-[-2%] top-[55%] h-32 w-32 rotate-[9deg] opacity-55" />
-            <IconHills className="absolute left-[30%] bottom-[8%] h-24 w-24 sm:h-32 sm:w-32 rotate-[-11deg] opacity-55" />
+            <IconBarn
+              className={`-left-8 sm:-left-5 top-[6%] sm:top-[8%] absolute ${sizeLg} rotate-[-12deg]`}
+            />
+            <IconHills
+              className={`-right-6 sm:-right-4 bottom-[8%] sm:bottom-[10%] absolute ${sizeLg} rotate-[9deg]`}
+            />
+          </>
+        ) : (
+          <>
+            {/* “Fill” sections: two per side, top and bottom, bleeding into margins (none in the center) */}
+            <IconBarn
+              className={`-left-8 sm:-left-5 -top-2 sm:top-[3%] absolute ${sizeLg} rotate-[-10deg]`}
+            />
+            <IconFence
+              className={`-left-6 sm:-left-3 bottom-[-3%] sm:bottom-[5%] absolute ${sizeMd} rotate-[5deg] opacity-90`}
+            />
+            <IconHills
+              className={`-right-4 sm:-right-2 -top-1 sm:top-[5%] absolute ${sizeLg} rotate-[7deg]`}
+            />
+            <IconBarn
+              className={`-right-8 sm:-right-6 -bottom-4 sm:bottom-[0%] absolute ${sizeLg} rotate-[-4deg] opacity-90`}
+            />
           </>
         )}
       </div>
