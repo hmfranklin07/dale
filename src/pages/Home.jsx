@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <section className="relative bg-gradient-to-b from-sage-100 to-sage-50 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
             <span className="badge-rust mb-4 inline-block">Summer 2026</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-earth-900 mb-6 leading-tight">
@@ -26,8 +26,10 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="card p-4 sm:p-6">
-              <USMap />
+            <div className="w-full">
+              <div className="card border-earth-200/80 bg-gradient-to-b from-sage-50/80 to-earth-100/50 p-2 sm:p-4">
+                <USMap />
+              </div>
             </div>
           </div>
         </div>
