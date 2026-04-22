@@ -17,10 +17,9 @@ export default function Home() {
 
           <div className="mt-10 sm:mt-12">
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="section-title">Interactive U.S. map</h2>
+              <h2 className="section-title">Interview Sites</h2>
               <p className="text-earth-700 text-lg max-w-2xl mx-auto">
-                Each pin opens the Illinois, Nebraska, Idaho, Arkansas, or Florida page—field notes,
-                written interviews, and reflections for that state.
+                Click on a pin to explore updates in each town.
               </p>
             </div>
 
