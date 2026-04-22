@@ -63,7 +63,7 @@ Set the `youtubeId` field to just the ID from the URL (the part after `v=`), not
 ## Deployment
 
 - GitHub repo: TyMcMan/DaleWebsite
-- Vercel Root Directory must be set to `rural-stem-project` (the project is in a subfolder of the repo)
+- Vercel uses the repository root (no subfolder) — no Root Directory override needed
 - Push to `main` triggers automatic Vercel redeploy
 
 ## Important Notes
