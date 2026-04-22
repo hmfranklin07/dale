@@ -47,7 +47,7 @@ export default function Home() {
       {/* Interactive Map */}
       <section className="page-container">
         <div className="text-center mb-8">
-          <h2 className="section-title">Where We're Going</h2>
+          <h2 className="section-title">Where I'm Going</h2>
           <p className="section-subtitle">
             Click a pin to explore what we found in each community
           </p>
