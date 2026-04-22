@@ -1,0 +1,74 @@
+---
+description: Core project context, architecture, and content system for the STEM on the Road website
+alwaysApply: true
+---
+
+# STEM on the Road — Project Context
+
+## What This Project Is
+
+A website for a summer 2026 research project exploring why rural high school students don't pursue STEM careers at the same rate as urban/suburban peers — even when access to internet and universities is increased. The researcher is driving across the country visiting rural high schools, interviewing teachers, students, and community members.
+
+## The Research Question
+
+Even when access to online resources and universities is expanded in rural areas, rural high school students still do not pursue college and careers in STEM as much as their urban and suburban counterparts. This project investigates why through on-the-ground interviews and observations.
+
+## Site Structure
+
+- **Home** (`/`) — Hero section + interactive US map with clickable pins for each town visited
+- **The Project** (`/about`) — Research inspiration, methodology, and researcher bio
+- **Road Updates** (`/shorts`) — Short-form dispatches from the road (timeline feed)
+- **Vlogs & Reflections** (`/vlogs`) — Video diaries with YouTube embeds + written reflections
+- **Interviews** (`/interviews`) — Full Q&A format interviews with students, teachers, community members
+- **Documentary** (`/documentary`) — Landing page for the final long-form film (YouTube embed)
+- **Town Pages** (`/towns/:slug`) — Per-town pages aggregating all related content (updates, vlogs, interviews)
+
+## Tech Stack
+
+- React 18 + Vite
+- React Router for navigation
+- react-simple-maps for the interactive US map (requires React 18, NOT 19)
+- Tailwind CSS with custom earth-tone color palette (sage, earth, rust)
+- Fonts: DM Serif Display (headings), Inter (body)
+- YouTube embeds for all video content
+- Deployed on Vercel (auto-deploys from GitHub)
+
+## Content System (JSON-based)
+
+All content lives in `src/data/` as JSON files. This is intentionally simple so non-developers can add content.
+
+| File | Purpose |
+|------|---------|
+| `src/data/towns.json` | Town map pins — name, state, lat/lng, slug, summary, date |
+| `src/data/shorts.json` | Road updates — linked to towns via `townSlug` |
+| `src/data/vlogs.json` | Vlogs — YouTube ID + written reflection, linked via `townSlug` |
+| `src/data/interviews.json` | Interviews — person info + Q&A array, linked via `townSlug` |
+
+### Key pattern: `townSlug` links everything
+
+Every piece of content has a `townSlug` field that matches a town's `slug` in `towns.json`. This is how town pages aggregate related content.
+
+### Adding a YouTube video
+
+Set the `youtubeId` field to just the ID from the URL (the part after `v=`), not the full URL.
+
+## Design System
+
+- Color palette: sage greens, warm earth tones, rust accents
+- Cards use `.card` and `.card-body` utility classes
+- Badges use `.badge-sage`, `.badge-rust`, `.badge-earth`
+- All pages have a gradient hero section at the top
+- Responsive: mobile-first with sm/md/lg breakpoints
+
+## Deployment
+
+- GitHub repo: TyMcMan/DaleWebsite
+- Vercel Root Directory must be set to `rural-stem-project` (the project is in a subfolder of the repo)
+- Push to `main` triggers automatic Vercel redeploy
+
+## Important Notes
+
+- Do NOT upgrade to React 19 — react-simple-maps requires React 18
+- The `[Your Name]`, `[your major]`, `[your university]`, `[Class Name]` placeholders in About.jsx and Documentary.jsx need to be filled in with real info
+- The documentary YouTube ID in Documentary.jsx is empty until the final film is uploaded
+- Sample/placeholder content exists for 5 towns (Pine Bluff AR, Rural Retreat VA, Broken Bow NE, Marfa TX, Salmon ID) — replace with real data as the trip progresses
