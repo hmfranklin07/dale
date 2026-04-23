@@ -15,7 +15,7 @@ export default function Home() {
           src="/images/hero-sunset.png"
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-[center_58%]"
+          className="absolute inset-0 h-full w-full object-cover object-[center_68%]"
         />
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/18"
