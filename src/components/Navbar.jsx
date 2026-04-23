@@ -21,12 +21,12 @@ export default function Navbar() {
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-sage-200/60 bg-gradient-to-r from-amber-50/40 via-white/95 to-sage-100/50 shadow-sm shadow-earth-900/5 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-sage-200/50 bg-gradient-to-r from-amber-50/55 via-white/95 to-sage-100/60 shadow-sm shadow-earth-900/5 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <span className="text-2xl">🔬</span>
-            <span className="font-display bg-gradient-to-r from-earth-900 via-sage-800 to-rust-800 bg-clip-text text-lg text-transparent sm:text-xl">
+            <span className="font-display bg-gradient-to-r from-earth-900 to-sage-800 bg-clip-text text-lg text-transparent sm:text-xl">
               STEM on the Road
             </span>
           </Link>
