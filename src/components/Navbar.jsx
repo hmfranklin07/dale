@@ -27,7 +27,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <span className="text-2xl">🔬</span>
             <span className="font-display bg-gradient-to-r from-earth-900 to-sage-800 bg-clip-text text-lg text-transparent sm:text-xl">
-              STEM on the Road
+              STEM Across Rural America
             </span>
           </Link>
 

@@ -20,7 +20,7 @@ export default function Home() {
               </h1>
               <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
                 <p>
-                This site serves to document how STEM education is experienced in rural high schools across the United States.  Through conversations with students, educators, and administrators, I seek to share what STEM looks like in high schools; how it is taught, experienced, and how it connects to students’ lives, identities, and communities.  This project highlights voices from 5 different regions, capturing a wide range of perspectives and lived experiences.
+                This site serves to document how STEM education is experienced in rural high schools across the United States.  Through conversations with students, educators, and administrators, I seek to share what STEM looks like in high schools; how it is taught, experienced, and how it connects to students’ lives, identities, and communities.  This project highlights voices from 6 different regions, capturing a wide range of perspectives and lived experiences.
                 </p>
                 <p>
                   You’ll find a mix of videos, interviews, reflections, transcriptions, and personal blogs that document stories from across the country.
