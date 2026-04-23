@@ -1,3 +1,6 @@
+/** Light sage band behind state page intro hero */
+export const STATE_HERO_BAND_BG = '#DBDDD0'
+
 /** US map marker colors — shared with SocialLinks inline icons */
 export const PIN_BODY_DEFAULT = '#c24e32'
 export const PIN_BODY_HOVER = '#d85f3f'

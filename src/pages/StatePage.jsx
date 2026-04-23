@@ -7,7 +7,7 @@ import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
 import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
-import { PIN_BODY_DEFAULT } from '../config/mapPinColors'
+import { STATE_HERO_BAND_BG } from '../config/mapPinColors'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
@@ -105,8 +105,8 @@ export default function StatePage() {
   return (
     <>
       <section
-        className="relative overflow-hidden border-b border-rust-900/25"
-        style={{ backgroundColor: PIN_BODY_DEFAULT }}
+        className="relative overflow-hidden border-b border-sage-400/40"
+        style={{ backgroundColor: STATE_HERO_BAND_BG }}
       >
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>

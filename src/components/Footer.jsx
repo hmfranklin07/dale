@@ -31,10 +31,9 @@ export default function Footer() {
               </a>
             </div>
 
-            <div className="md:flex md:justify-end md:text-right">
-              <p className="text-sm font-medium leading-snug text-white/95 sm:text-base">
-                {siteMeta.researcherLine}
-              </p>
+            <div className="md:text-right">
+              <h2 className="font-display mb-3 text-base text-white sm:text-lg">{siteMeta.researcherName}</h2>
+              <p className="text-sm leading-relaxed text-sage-200/90">{siteMeta.affiliation}</p>
             </div>
           </div>
         </div>
