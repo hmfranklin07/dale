@@ -5,6 +5,8 @@ import { PageHeroPanel } from '../components/PageHeroPanel'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
+/** Slightly roomier side insets for mid-page narrative sections */
+const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
 export default function Home() {
   return (
@@ -43,10 +45,12 @@ export default function Home() {
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-100/45">
         <SectionAmbience variant="paper" />
-        <div className={`relative z-10 ${shell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
-          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_23rem] md:grid-rows-[auto_auto] md:gap-x-8 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_25.5rem]">
-            <div className="min-w-0 md:col-start-1 md:row-start-1 md:pr-1">
-              <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
+        <div className={`relative z-10 ${sectionShell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_23rem] md:grid-rows-[auto_auto] md:gap-x-3 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_25.5rem] lg:gap-x-4">
+            <div className="min-w-0 md:col-start-1 md:row-start-1 md:flex md:justify-end">
+              <div className="w-full md:max-w-[36rem]">
+                <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
+              </div>
             </div>
 
             <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
@@ -61,19 +65,21 @@ export default function Home() {
               </div>
             </figure>
 
-            <div className="min-w-0 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:col-start-1 md:row-start-2 md:pr-1">
-              <p>
-                I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
-                in a small farm town in New York, and for most of my life, I didn’t think I could get
-                to where I am now. Education often felt disconnected from the rest of my life, and many
-                of the opportunities that existed beyond my community didn’t feel within reach.
-              </p>
-              <p>
-                I know there are so many rural students with remarkable potential, even when certain
-                opportunities or possibilities may not feel as visible. This project comes from a desire
-                to better understand how students and educators think about education in their own
-                communities through conversations and shared stories.
-              </p>
+            <div className="min-w-0 md:col-start-1 md:row-start-2 md:flex md:justify-end">
+              <div className="w-full space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:max-w-[36rem]">
+                <p>
+                  I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
+                  in a small farm town in New York, and for most of my life, I didn’t think I could get
+                  to where I am now. Education often felt disconnected from the rest of my life, and many
+                  of the opportunities that existed beyond my community didn’t feel within reach.
+                </p>
+                <p>
+                  I know there are so many rural students with remarkable potential, even when certain
+                  opportunities or possibilities may not feel as visible. This project comes from a desire
+                  to better understand how students and educators think about education in their own
+                  communities through conversations and shared stories.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -82,7 +88,7 @@ export default function Home() {
       {/* 3. Aspirations */}
       <section className="relative overflow-hidden border-b border-sage-200/50 bg-gradient-to-br from-sage-200/60 via-amber-50/40 to-rust-100/45">
         <SectionAmbience variant="sage" />
-        <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
+        <div className={`relative z-10 ${sectionShell} py-10 sm:py-12`}>
           <SectionHeading>Project aspirations</SectionHeading>
           <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
             <p>
