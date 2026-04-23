@@ -5,10 +5,18 @@ import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Warm field / parchment — slightly higher-contrast state edges
-const FILL = '#d0c5b3'
-const FILL_HOVER = '#a99a86'
-const STROKE = '#7a6b5a'
+// Aligned with Tailwind sage/earth in tailwind.config.js
+const FILL = '#d8e1d0'
+const FILL_HOVER = '#b3bea3'
+const STROKE = '#5c6d4d'
+const PIN_DEFAULT = '#cf5733' // rust-600
+const PIN_HOVER = '#e2724d' // rust-500
+const PIN_STROKE = '#f6f7f4' // sage-50
+
+// Pin path is ~24 units tall; scale 1.85 and translate so tip stays on lat/lng
+const PIN_SCALE = 1.85
+const PIN_TX = -20
+const PIN_TY = -40
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -16,13 +24,16 @@ export default function USMap() {
 
   return (
     <div className="relative w-full">
-      <div className="rounded-2xl border-2 border-earth-400/80 bg-gradient-to-b from-earth-100 via-[#e4dcd0] to-earth-200/60 shadow-[inset_0_1px_0_0_rgba(255,252,245,0.5),0_2px_12px_rgba(20,20,20,0.1)] overflow-hidden p-1 sm:p-1.5">
+      <div
+        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-50/95 via-amber-50/25 to-sage-100/70 p-1.5 shadow-lg shadow-rust-900/8 ring-1 ring-amber-100/60 sm:p-2"
+        style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
+      >
         <ComposableMap
           width={1200}
           height={700}
           projection="geoAlbersUsa"
-          projectionConfig={{ scale: 1400 }}
-          className="w-full h-auto block"
+          projectionConfig={{ scale: 1480 }}
+          className="h-auto w-full block"
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
@@ -32,7 +43,7 @@ export default function USMap() {
                   geography={geo}
                   fill={FILL}
                   stroke={STROKE}
-                  strokeWidth={0.85}
+                  strokeWidth={0.65}
                   style={{
                     default: { outline: 'none' },
                     hover: { fill: FILL_HOVER, outline: 'none' },
@@ -52,14 +63,22 @@ export default function USMap() {
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
             >
-              <g transform="translate(-15, -28) scale(1.15)">
+              <g transform={`translate(${PIN_TX}, ${PIN_TY}) scale(${PIN_SCALE})`}>
+                {/* Large hit area so pins are easy to click / tap */}
+                <circle
+                  cx={12}
+                  cy={6}
+                  r={18}
+                  fill="rgba(0,0,0,0)"
+                  className="cursor-pointer"
+                />
                 <path
                   d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8z"
-                  fill={hovered?.slug === s.slug ? '#b94828' : '#8f3b24'}
-                  stroke="#f0ece4"
-                  strokeWidth={1.6}
+                  fill={hovered?.slug === s.slug ? PIN_HOVER : PIN_DEFAULT}
+                  stroke={PIN_STROKE}
+                  strokeWidth={2.2}
                 />
-                <circle cx={12} cy={8} r={2.6} fill="#faf8f5" />
+                <circle cx={12} cy={8} r={3.2} fill="#fffdf9" className="pointer-events-none" />
               </g>
             </Marker>
           ))}
@@ -67,15 +86,17 @@ export default function USMap() {
       </div>
 
       {hovered && (
-        <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 max-w-sm w-[min(100%,20rem)] pointer-events-none z-10">
-          <div className="rounded-lg border-2 border-earth-400/70 bg-[#2f2a25] px-4 py-3 text-center shadow-lg">
-            <p className="font-display text-lg text-earth-100 leading-tight">
+        <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 w-[min(100%,20rem)] max-w-sm -translate-x-1/2 sm:bottom-5">
+          <div
+            className="rounded-xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-900/95 to-earth-900/98 px-4 py-3 text-center shadow-lg shadow-earth-900/20 ring-1 ring-amber-200/20"
+          >
+            <p className="font-display text-lg leading-tight text-amber-50/95">
               {hovered.place}
               {', '}
               {hovered.abbr}
             </p>
-            <p className="text-xs uppercase tracking-wider text-sage-200/90 mt-0.5">{hovered.name}</p>
-            <p className="text-sm text-sage-100/85 mt-2">Click for field notes &amp; interviews</p>
+            <p className="mt-0.5 text-xs uppercase tracking-wider text-sage-300/95">{hovered.name}</p>
+            <p className="mt-2 text-sm text-sage-200/90">Click for field notes &amp; interviews</p>
           </div>
         </div>
       )}

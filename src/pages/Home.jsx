@@ -131,10 +131,8 @@ export default function Home() {
               Click a pin to explore updates in each town.
             </p>
           </div>
-          <div className="w-full">
-            <div className="card border-rust-200/40 bg-gradient-to-b from-rust-50/50 to-sage-100/30 p-1.5 shadow-xl shadow-earth-900/10 ring-1 ring-sage-300/50 sm:p-3">
-              <USMap />
-            </div>
+          <div className="w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.4rem]">
+            <USMap />
           </div>
         </div>
       </section>
