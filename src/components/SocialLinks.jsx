@@ -27,18 +27,19 @@ export default function SocialLinks({ className = '', size = 'default', variant 
 
   if (variant === 'inline') {
     const linkClass =
-      'group inline-flex items-center gap-2.5 text-rust-400 transition-colors hover:text-orange-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sage-900 rounded-sm'
+      'group inline-flex items-center gap-2.5 text-rust-400 transition-colors hover:text-rust-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-sage-900 rounded-sm'
     const textClass =
-      'font-medium text-white underline decoration-rust-400/70 underline-offset-[0.2em] group-hover:decoration-orange-300/90'
+      'font-medium text-white underline decoration-rust-400/70 underline-offset-[0.2em] group-hover:decoration-rust-300/90'
+    const iconClass = 'h-7 w-7 shrink-0 text-rust-400 group-hover:text-rust-300'
 
     return (
-      <div className={`flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-10 ${className}`}>
+      <div className={`flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-8 ${className}`}>
         <a href={youtubeHref} target="_blank" rel="noreferrer" className={linkClass}>
-          <YoutubeIcon className="h-7 w-7 shrink-0 text-orange-400 group-hover:text-orange-300" />
+          <YoutubeIcon className={iconClass} />
           <span className={textClass}>{social.youtubeLabel}</span>
         </a>
         <a href={social.instagramUrl} target="_blank" rel="noreferrer" className={linkClass}>
-          <InstagramIcon className="h-7 w-7 shrink-0 text-orange-400 group-hover:text-orange-300" />
+          <InstagramIcon className={iconClass} />
           <span className={textClass}>{social.instagramLabel}</span>
         </a>
       </div>

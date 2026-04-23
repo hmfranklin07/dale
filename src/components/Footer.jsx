@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import social from '../data/social.json'
+import siteMeta from '../data/siteMeta.json'
 import states from '../data/states.json'
 import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
 import { SectionAmbience } from './SectionAmbience'
@@ -74,10 +75,21 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-display mb-4 text-lg text-white">About the site</h4>
+              <p className="mb-4 text-sm font-medium leading-snug text-white/95">{siteMeta.researcherLine}</p>
+              <h4 className="font-display mb-3 text-lg text-white">About this site</h4>
               <p className="text-sm leading-relaxed text-sage-200/90">
-                Content is shared with consent. Short-form, written Q&amp;As, and personal reflections are
-                labeled by state and town as the trip continues.
+                Everything published here is shared only with participants&rsquo;{' '}
+                <span className="text-sage-100/95">informed consent</span>. Quotes, recordings, and written
+                material are offered with care for privacy and context as the trip continues.
+              </p>
+              <p className="mt-4 text-sm">
+                <a
+                  href={`mailto:${siteMeta.contactEmail}`}
+                  title={`Email ${siteMeta.contactEmail}`}
+                  className="font-medium text-rust-200 underline decoration-rust-400/50 underline-offset-2 transition-colors hover:text-amber-100/95 hover:decoration-amber-200/60"
+                >
+                  Contact me
+                </a>
               </p>
             </div>
           </div>
