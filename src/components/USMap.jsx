@@ -75,8 +75,8 @@ const PIN_INNER_FILL = '#fff8f5'
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
-const PIN_TX = -23
-const PIN_TY = -47
+const PIN_TIP_X = 12
+const PIN_TIP_Y = 24
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 const STOP_LABELS_BY_SLUG = {
   'new-york': 'Stop 1',
@@ -141,12 +141,14 @@ const ROUTE_CONTROL_POINTS = [
   [-95.2, 35.8], // E Oklahoma
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Continue south arc: Arkansas pin -> southern Alabama -> south Georgia / north Florida -> Florida pin
+  // Continue south arc: Arkansas pin -> top of Mississippi -> Alabama -> south Georgia / north Florida -> Florida pin
   [-92.3, 35.2], // Central AR bend
   [-90.05, 35.15], // Memphis corridor
-  [-88.04, 30.69], // Mobile corridor (southern Alabama)
-  [-86.3, 31.2], // South Alabama inland bend
-  [-84.39, 31.22], // Dothan corridor
+  [-89.6, 34.35], // N Mississippi
+  [-88.2, 34.1], // NE Mississippi
+  [-86.95, 33.9], // N Alabama
+  [-86.0, 32.95], // Central Alabama
+  [-85.2, 31.85], // South Alabama / Dothan corridor
   [-83.28, 30.83], // Valdosta / south Georgia
   [-82.32, 30.5], // North Florida approach
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
@@ -157,9 +159,9 @@ const ROUTE_CONTROL_POINTS = [
   [-78.64, 35.78], // Raleigh
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
-  [-76.88, 40.27], // Harrisburg corridor
-  [-76.15, 41.15], // N Pennsylvania corridor
-  [-75.95, 41.9], // Southern NY return arc (approach from southwest)
+  [-76.5, 40.5], // Central Pennsylvania
+  [-76.1, 41.15], // N Pennsylvania corridor
+  [-75.8, 41.8], // Southern NY return arc (approach from southwest)
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
@@ -260,7 +262,7 @@ export default function USMap() {
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
             >
-              <g transform={`translate(${PIN_TX}, ${PIN_TY}) scale(${PIN_SCALE})`}>
+              <g transform={`translate(${-PIN_TIP_X * PIN_SCALE}, ${-PIN_TIP_Y * PIN_SCALE}) scale(${PIN_SCALE})`}>
                 {/* Large hit area so pins are easy to click / tap */}
                 <circle
                   cx={12}
@@ -285,20 +287,21 @@ export default function USMap() {
                   strokeWidth={PIN_RIM_WIDTH}
                   className="pointer-events-none"
                 />
-                {STOP_LABELS_BY_SLUG[s.slug] && (
-                  <text
-                    x={12}
-                    y={-8}
-                    textAnchor="middle"
-                    className="pointer-events-none select-none fill-rust-900 font-body text-[4.7px] font-semibold tracking-wide"
-                    paintOrder="stroke"
-                    stroke="#fffaf3"
-                    strokeWidth="0.75"
-                  >
-                    {STOP_LABELS_BY_SLUG[s.slug]}
-                  </text>
-                )}
               </g>
+              {STOP_LABELS_BY_SLUG[s.slug] && (
+                <text
+                  x={0}
+                  y={34}
+                  textAnchor="middle"
+                  className="pointer-events-none select-none fill-rust-900 font-body text-[11px] font-semibold"
+                  paintOrder="stroke"
+                  stroke="#fffaf3"
+                  strokeWidth="2.4"
+                  letterSpacing="0.2px"
+                >
+                  {STOP_LABELS_BY_SLUG[s.slug]}
+                </text>
+              )}
             </Marker>
           ))}
         </ComposableMap>
