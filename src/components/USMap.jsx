@@ -91,7 +91,7 @@ const STOP_LABELS_BY_SLUG = {
 const ROUTE_CONTROL_POINTS = [
   // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-76.9, 42.15], // Southern tier arc
+  [-78.2, 42.0], // Immediate westbound departure from NY pin
   [-78.2, 41.95], // Western NY corridor (well south of lake edge)
   [-80.0, 41.75], // NW Pennsylvania arc
   [-81.69, 41.5], // Cleveland corridor
@@ -162,9 +162,9 @@ const ROUTE_CONTROL_POINTS = [
   [-78.64, 35.78], // Raleigh
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
-  [-76.5, 40.5], // Central Pennsylvania
-  [-77.1, 41.2], // N Pennsylvania corridor (west side approach)
-  [-78.0, 41.85], // Southern NY return arc (approach from southwest)
+  [-75.6, 40.6], // East-side PA corridor
+  [-75.3, 41.35], // Right-side approach arc toward NY
+  [-76.2, 41.95], // Enter NY from east/right side
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
@@ -294,22 +294,26 @@ export default function USMap() {
               {STOP_LABELS_BY_SLUG[s.slug] && (
                 <g className="pointer-events-none select-none" transform="translate(0 28)">
                   <rect
-                    x={-24}
+                    x={-26}
                     y={-11}
-                    width={48}
-                    height={16}
-                    rx={7}
-                    fill="rgba(255, 250, 243, 0.95)"
+                    width={52}
+                    height={18}
+                    rx={8}
+                    fill="rgba(255, 251, 245, 0.98)"
                     stroke="rgba(223, 143, 114, 0.95)"
-                    strokeWidth={1}
+                    strokeWidth={1.1}
                   />
                   <text
                     x={0}
-                    y={0.5}
+                    y={-0.2}
                     textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="fill-rust-800 font-body text-[12.5px] font-semibold"
-                    letterSpacing="0.2px"
+                    dominantBaseline="central"
+                    alignmentBaseline="middle"
+                    fill="#8f3b24"
+                    fontFamily="Inter, system-ui, sans-serif"
+                    fontSize="12.5"
+                    fontWeight="700"
+                    letterSpacing="0.2"
                   >
                     {STOP_LABELS_BY_SLUG[s.slug]}
                   </text>
