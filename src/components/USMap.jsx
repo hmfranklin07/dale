@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { geoAlbersUsa } from 'd3-geo'
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
@@ -205,10 +205,27 @@ const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
 
 export default function USMap() {
   const navigate = useNavigate()
+  const mapWrapRef = useRef(null)
   const [hovered, setHovered] = useState(null)
+  const [pointer, setPointer] = useState({ x: 0, y: 0 })
+
+  const updatePointer = (e) => {
+    if (e.clientX == null || e.clientY == null) return
+    const el = mapWrapRef.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    setPointer({ x: e.clientX - r.left, y: e.clientY - r.top })
+  }
 
   return (
-    <div className="relative w-full">
+    <div
+      ref={mapWrapRef}
+      className="relative w-full"
+      onMouseMove={updatePointer}
+      onMouseLeave={() => {
+        setHovered(null)
+      }}
+    >
       <div
         className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-white/98 via-sage-50/95 to-sage-100/75 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/60 sm:p-2"
         style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
@@ -284,7 +301,10 @@ export default function USMap() {
               key={s.slug}
               coordinates={[s.lng, s.lat]}
               onClick={() => navigate(`/${s.slug}`)}
-              onMouseEnter={() => setHovered(s)}
+              onMouseEnter={(e) => {
+                setHovered(s)
+                updatePointer(e)
+              }}
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
             >
@@ -359,22 +379,25 @@ export default function USMap() {
       </div>
 
       {hovered && (
-        <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 w-[min(100%,20rem)] max-w-sm -translate-x-1/2 sm:bottom-5">
-          <div
-            className="rounded-xl border-2 border-amber-200/50 bg-gradient-to-b from-rust-600/95 via-rust-800/98 to-rust-950/98 px-4 py-3 text-center shadow-lg shadow-rust-900/35 ring-1 ring-amber-200/40"
-          >
-            <p className="font-display text-lg leading-tight text-amber-50/95">
-              {hovered.place}
-              {!hovered.mapLabelPlaceOnly && (
-                <>
-                  {', '}
-                  {hovered.abbr}
-                </>
-              )}
-            </p>
-            <p className="mt-0.5 text-xs uppercase tracking-wider text-amber-200/90">{hovered.name}</p>
-            <p className="mt-2 text-sm text-amber-100/90">Click for field notes &amp; interviews</p>
-          </div>
+        <div
+          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm rounded-xl border-2 border-rust-400 bg-white px-4 py-3 text-center shadow-lg shadow-rust-900/20"
+          style={{
+            left: pointer.x,
+            top: pointer.y + 14,
+            transform: 'translate(-50%, 0)',
+          }}
+        >
+          <p className="font-display text-lg leading-tight text-earth-900">
+            {hovered.place}
+            {!hovered.mapLabelPlaceOnly && (
+              <>
+                {', '}
+                {hovered.abbr}
+              </>
+            )}
+          </p>
+          <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-rust-800">{hovered.name}</p>
+          <p className="mt-2 text-sm text-earth-700">Click for field notes &amp; interviews</p>
         </div>
       )}
     </div>

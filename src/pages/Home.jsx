@@ -12,24 +12,10 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden border-b border-sage-200/50 bg-earth-900">
-        <img
-          src="/images/hero-sunset.png"
-          alt=""
-          aria-hidden
-          width={1024}
-          height={761}
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[center_82%] sm:object-[center_86%] md:object-bottom"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/10"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden border-b border-sage-900/35 bg-sage-800">
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="bg-white/84">
+            <PageHeroPanel className="!bg-white shadow-xl shadow-black/20 ring-1 ring-sage-200/70">
               <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
                 <span className={pageTitleClass}>STEM Across Rural America</span>
               </h1>
@@ -91,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* 3. Map */}
-      <section className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
+      <section className="relative overflow-visible border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div className="mb-6 sm:mb-8 text-center">
@@ -104,7 +90,7 @@ export default function Home() {
               Click a pin to explore each area!
             </p>
           </div>
-          <div className="w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.4rem]">
+          <div className="w-full overflow-visible rounded-[1.25rem] sm:rounded-[1.4rem]">
             <USMap />
           </div>
         </div>
