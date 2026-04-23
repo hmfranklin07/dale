@@ -36,6 +36,7 @@
     "name": "Florida",
     "abbr": "FL",
     "place": "North Florida",
+    "mapLabelPlaceOnly": true,
     "lat": 30.3322,
     "lng": -81.6557
   }

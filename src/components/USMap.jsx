@@ -92,8 +92,12 @@ export default function USMap() {
           >
             <p className="font-display text-lg leading-tight text-amber-50/95">
               {hovered.place}
-              {', '}
-              {hovered.abbr}
+              {!hovered.mapLabelPlaceOnly && (
+                <>
+                  {', '}
+                  {hovered.abbr}
+                </>
+              )}
             </p>
             <p className="mt-0.5 text-xs uppercase tracking-wider text-sage-300/95">{hovered.name}</p>
             <p className="mt-2 text-sm text-sage-200/90">Click for field notes &amp; interviews</p>

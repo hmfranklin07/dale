@@ -71,7 +71,7 @@ export default function Vlog() {
                               to={`/${town.stateSlug}`}
                               className="badge-sage transition-colors hover:bg-sage-300/90"
                             >
-                              {town.name}, {town.state}
+                              {town.isRegion ? town.name : `${town.name}, ${town.state}`}
                             </Link>
                           )}
                           <time className="text-xs text-earth-500">{formatDate(v.date)}</time>

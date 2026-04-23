@@ -46,6 +46,7 @@
   {
     "slug": "north-florida-fl",
     "name": "North Florida",
+    "isRegion": true,
     "state": "Florida",
     "stateSlug": "florida",
     "lat": 30.3322,
