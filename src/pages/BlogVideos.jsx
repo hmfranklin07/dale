@@ -32,26 +32,30 @@ export default function BlogVideos() {
             Videos will show up here when you add entries in vlogs.json.
           </div>
         ) : (
-          <div className="space-y-10">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {sortedVlogs.map((v) => {
               const town = townBySlug[v.townSlug]
               return (
-                <article key={v.id} className="card overflow-hidden">
+                <article key={v.id} className="card flex h-full min-w-0 flex-col overflow-hidden">
                   <YouTubeEmbed youtubeId={v.youtubeId} title={v.title} />
-                  <div className="card-body">
-                    <div className="mb-2 flex flex-wrap items-center gap-3">
+                  <div className="card-body flex flex-1 flex-col">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
                       {town && (
                         <Link
                           to={`/${town.stateSlug}`}
-                          className="badge-sage transition-colors hover:bg-sage-300/90"
+                          className="badge-sage max-w-full truncate text-[0.65rem] transition-colors hover:bg-sage-300/90"
                         >
                           {town.isRegion ? town.name : `${town.name}, ${town.state}`}
                         </Link>
                       )}
                       <time className="text-xs text-earth-500">{formatDate(v.date)}</time>
                     </div>
-                    <h2 className="font-display text-2xl text-earth-900 mb-3">{v.title}</h2>
-                    <p className="text-earth-800 leading-relaxed whitespace-pre-line">{v.reflection}</p>
+                    <h2 className="font-display mb-2 text-xl leading-snug text-earth-900 lg:text-[1.35rem]">
+                      {v.title}
+                    </h2>
+                    <p className="flex-1 text-sm leading-relaxed text-earth-800 whitespace-pre-line">
+                      {v.reflection}
+                    </p>
                   </div>
                 </article>
               )
