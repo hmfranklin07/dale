@@ -106,9 +106,9 @@ export default function Home() {
               className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-400/70 via-amber-300/60 to-sage-500/50"
               aria-hidden
             />
-            <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Interview sites</h2>
+            <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Sites</h2>
             <p className="text-earth-600 mx-auto mt-2 max-w-2xl text-base sm:text-lg">
-              Click a pin to explore updates in each town.
+              Click a pin to explore each area!
             </p>
           </div>
           <div className="w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.4rem]">
