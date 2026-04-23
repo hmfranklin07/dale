@@ -262,7 +262,7 @@ export default function USMap() {
         >
           <defs>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#fffdf8" />
+              <stop offset="0%" stopColor="#faf9f5" />
               <stop offset="100%" stopColor="#f9efe7" />
             </linearGradient>
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
@@ -377,7 +377,7 @@ export default function USMap() {
                     height={15.6}
                     rx={8.2}
                     fill="none"
-                    stroke="rgba(255,255,255,0.65)"
+                    stroke="rgba(250,249,245,0.65)"
                     strokeWidth={0.7}
                   />
                   <text

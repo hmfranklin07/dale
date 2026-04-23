@@ -1,6 +1,6 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
-import { homeHeroBandSectionClass } from '../config/mapPinColors'
+import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       {/* 1. Hero */}
       <section
-        className={`relative overflow-hidden border-b border-sage-900/45 ${homeHeroBandSectionClass}`}
+        className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
       >
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>

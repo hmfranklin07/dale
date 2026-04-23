@@ -7,6 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        /** Replaces default #fff site-wide — cards, panels, text-on-dark, gradient stops */
+        white: '#faf9f5',
         sage: {
           50: '#f6f7f4',
           100: '#e8ebe3',
