@@ -99,8 +99,8 @@ export default function Home() {
       {/* 4. Follow */}
       <section className="relative overflow-hidden bg-sage-900 py-12 text-white sm:py-16">
         <div className={`relative z-10 ${shell} text-center`}>
-          <h2 className="font-display mb-3 text-2xl text-white sm:text-3xl">Follow the trip!</h2>
-          <SocialLinks size="large" />
+          <h2 className="font-display mb-6 text-2xl text-white sm:mb-8 sm:text-3xl">Follow the Trip!</h2>
+          <SocialLinks variant="inline" />
         </div>
       </section>
     </>
