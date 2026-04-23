@@ -62,7 +62,7 @@ export default function Home() {
               </p>
             </div>
 
-            <figure className="order-1 mx-auto w-full max-w-sm md:order-2 md:mx-0">
+            <figure className="order-1 mx-auto w-full max-w-sm md:-mt-6 md:order-2 md:mx-0">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
@@ -117,8 +117,7 @@ export default function Home() {
       </section>
 
       {/* 5. Follow */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-earth-950 via-rust-950 to-rust-900 py-12 text-white sm:py-16">
-        <SectionAmbience variant="dark" />
+      <section className="relative overflow-hidden bg-rust-950 py-12 text-white sm:py-16">
         <div className={`relative z-10 ${shell} text-center`}>
           <h2 className="font-display mb-3 text-2xl text-amber-50 sm:text-3xl">Follow the trip</h2>
           <p className="mx-auto mb-8 max-w-2xl text-base text-amber-100/95 sm:text-lg">

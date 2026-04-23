@@ -12,12 +12,12 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }) =>
     `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
-      isActive ? 'bg-gradient-to-r from-rust-100 to-amber-100 text-rust-900 ring-1 ring-rust-300/40' : 'text-earth-800 hover:text-rust-900 hover:bg-amber-100/85'
+      isActive ? 'bg-rust-200 text-rust-900 ring-1 ring-rust-300/50' : 'text-earth-800 hover:text-rust-900 hover:bg-amber-100/85'
     }`
 
   const mobileLink = ({ isActive }) =>
     `block px-3 py-2.5 text-sm font-medium rounded-lg ${
-      isActive ? 'bg-gradient-to-r from-rust-100 to-amber-100 text-rust-900 ring-1 ring-rust-300/40' : 'text-earth-800 hover:bg-amber-100/85'
+      isActive ? 'bg-rust-200 text-rust-900 ring-1 ring-rust-300/50' : 'text-earth-800 hover:bg-amber-100/85'
     }`
 
   return (

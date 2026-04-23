@@ -82,11 +82,6 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-sage-200/85">
-            <p>
-              &copy; {new Date().getFullYear()} STEM on the Road. Built for education, not profit.
-            </p>
-          </div>
         </div>
       </div>
     </footer>
