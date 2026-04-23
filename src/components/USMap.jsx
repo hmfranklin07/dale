@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ComposableMap, Geographies, Geography, Marker, Line } from 'react-simple-maps'
+import { geoAlbersUsa } from 'd3-geo'
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -173,6 +174,38 @@ function chaikinSmooth(points, iterations = 2) {
 }
 
 const ROUTE_WAYPOINTS = chaikinSmooth(ROUTE_CONTROL_POINTS, 2)
+const ROUTE_PROJECTION = geoAlbersUsa().scale(1480).translate([600, 350])
+
+function routePathD(points) {
+  const projected = points
+    .map((pt) => ROUTE_PROJECTION(pt))
+    .filter(Boolean)
+    .map(([x, y]) => ({ x, y }))
+
+  if (projected.length < 2) return ''
+  if (projected.length === 2) {
+    const [a, b] = projected
+    return `M ${a.x.toFixed(2)} ${a.y.toFixed(2)} L ${b.x.toFixed(2)} ${b.y.toFixed(2)}`
+  }
+
+  let d = `M ${projected[0].x.toFixed(2)} ${projected[0].y.toFixed(2)}`
+  for (let i = 0; i < projected.length - 1; i++) {
+    const p0 = i === 0 ? projected[0] : projected[i - 1]
+    const p1 = projected[i]
+    const p2 = projected[i + 1]
+    const p3 = i + 2 < projected.length ? projected[i + 2] : p2
+
+    const cp1x = p1.x + (p2.x - p0.x) / 6
+    const cp1y = p1.y + (p2.y - p0.y) / 6
+    const cp2x = p2.x - (p3.x - p1.x) / 6
+    const cp2y = p2.y - (p3.y - p1.y) / 6
+
+    d += ` C ${cp1x.toFixed(2)} ${cp1y.toFixed(2)}, ${cp2x.toFixed(2)} ${cp2y.toFixed(2)}, ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`
+  }
+  return d
+}
+
+const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -213,22 +246,19 @@ export default function USMap() {
             }
           </Geographies>
 
-          {ROUTE_WAYPOINTS.slice(0, -1).map((from, idx) => {
-            const to = ROUTE_WAYPOINTS[idx + 1]
-            return (
-              <Line
-                key={`route-segment-${idx}`}
-                from={from}
-                to={to}
-                stroke="#b44b2d"
-                strokeWidth={1.8}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeDasharray="5 3"
-                style={{ pointerEvents: 'none' }}
-              />
-            )
-          })}
+          {ROUTE_PATH_D && (
+            <path
+              d={ROUTE_PATH_D}
+              fill="none"
+              stroke="#b44b2d"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeDasharray="5 3"
+              opacity={0.92}
+              style={{ pointerEvents: 'none' }}
+            />
+          )}
 
           {states.map((s) => (
             <Marker
