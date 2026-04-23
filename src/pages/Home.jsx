@@ -91,12 +91,12 @@ export default function Home() {
       </section>
 
       {/* 3. Map */}
-      <section className="relative overflow-hidden border-t border-sage-300/50 bg-gradient-to-b from-sage-700/52 via-amber-50/32 to-sage-900/14">
+      <section className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
         <SectionAmbience variant="map" />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
+        <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div className="mb-6 sm:mb-8 text-center">
             <div
-              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
+              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-500 via-rust-400 to-amber-300"
               aria-hidden
             />
             <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Sites</h2>
