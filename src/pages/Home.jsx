@@ -83,26 +83,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Aspirations */}
-      <section className="relative overflow-hidden border-b border-sage-200/50 bg-gradient-to-br from-sage-200/60 via-amber-50/40 to-rust-100/45">
-        <SectionAmbience variant="sage" />
-        <div className={`relative z-10 ${sectionShell} py-10 sm:py-12`}>
-          <SectionHeading>Project aspirations</SectionHeading>
-          <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
-            <p>
-              I hope the site can be a useful slice of the summer: clear enough for policy readers,
-              human enough for anyone who’s lived a version of this, and open enough that new interviews
-              and reflections can be added as we go.
-            </p>
-            <p>
-              In the end, I want to return with not just a folder of recordings but a fair accounting of
-              what I heard—especially from students who are still deciding who they can become.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Map */}
+      {/* 3. Map */}
       <section className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
@@ -122,7 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Follow */}
+      {/* 4. Follow */}
       <section className="relative overflow-hidden bg-sage-900 py-12 text-white sm:py-16">
         <div className={`relative z-10 ${shell} text-center`}>
           <h2 className="font-display mb-3 text-2xl text-white sm:text-3xl">Follow the trip</h2>
