@@ -3,19 +3,19 @@
  * No icons — just depth, warmth, and a little rust/sage/amber so pages aren’t “flat beige.”
  */
 const mesh = {
-  hero: 'from-amber-100/45 via-sage-200/32 to-rust-200/28',
-  paper: 'from-white/90 via-amber-50/48 to-sage-100/42',
-  sage: 'from-sage-300/38 via-amber-50/32 to-rust-100/28',
-  map: 'from-sage-200/38 via-earth-200/28 to-amber-50/32',
-  dark: 'from-sage-900/50 via-earth-900/30 to-rust-950/32',
+  hero: 'from-amber-200/58 via-sage-300/44 to-rust-300/42',
+  paper: 'from-white/95 via-amber-100/60 to-sage-200/52',
+  sage: 'from-sage-400/52 via-amber-100/46 to-rust-200/42',
+  map: 'from-sage-300/50 via-earth-200/36 to-amber-100/44',
+  dark: 'from-sage-900/58 via-earth-900/40 to-rust-950/45',
 }
 
 const tones = {
-  hero: { t: 'bg-sage-400/40', br: 'bg-rust-400/32', tr: 'bg-amber-200/38', bl: 'bg-sage-500/28' },
-  paper: { t: 'bg-amber-200/40', br: 'bg-sage-300/36', tr: 'bg-rust-200/30', bl: 'bg-white/40' },
-  sage: { t: 'bg-sage-500/28', br: 'bg-rust-300/28', tr: 'bg-amber-200/28', bl: 'bg-sage-400/24' },
-  map: { t: 'bg-sage-400/30', br: 'bg-earth-300/28', tr: 'bg-amber-200/32', bl: 'bg-rust-200/22' },
-  dark: { t: 'bg-sage-600/32', br: 'bg-rust-800/32', tr: 'bg-amber-900/22', bl: 'bg-sage-800/24' },
+  hero: { t: 'bg-sage-500/48', br: 'bg-rust-500/42', tr: 'bg-amber-300/45', bl: 'bg-sage-600/36' },
+  paper: { t: 'bg-amber-300/46', br: 'bg-sage-400/42', tr: 'bg-rust-300/36', bl: 'bg-white/44' },
+  sage: { t: 'bg-sage-600/38', br: 'bg-rust-400/36', tr: 'bg-amber-300/36', bl: 'bg-sage-500/30' },
+  map: { t: 'bg-sage-500/38', br: 'bg-earth-300/34', tr: 'bg-amber-300/38', bl: 'bg-rust-300/30' },
+  dark: { t: 'bg-sage-700/40', br: 'bg-rust-800/40', tr: 'bg-amber-900/28', bl: 'bg-sage-800/30' },
 }
 
 export function SectionAmbience({ variant = 'sage' }) {

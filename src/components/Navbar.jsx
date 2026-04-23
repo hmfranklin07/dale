@@ -12,16 +12,16 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }) =>
     `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
-      isActive ? 'bg-sage-200 text-sage-900' : 'text-earth-800 hover:text-earth-900 hover:bg-sage-100/90'
+      isActive ? 'bg-gradient-to-r from-rust-100 to-amber-100 text-rust-900 ring-1 ring-rust-300/40' : 'text-earth-800 hover:text-rust-900 hover:bg-amber-100/85'
     }`
 
   const mobileLink = ({ isActive }) =>
     `block px-3 py-2.5 text-sm font-medium rounded-lg ${
-      isActive ? 'bg-sage-200 text-sage-900' : 'text-earth-800 hover:bg-sage-100/90'
+      isActive ? 'bg-gradient-to-r from-rust-100 to-amber-100 text-rust-900 ring-1 ring-rust-300/40' : 'text-earth-800 hover:bg-amber-100/85'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-sage-200/50 bg-gradient-to-r from-amber-50/55 via-white/95 to-sage-100/60 shadow-sm shadow-earth-900/5 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-rust-200/35 bg-gradient-to-r from-amber-100/75 via-white/95 to-sage-200/70 shadow-sm shadow-earth-900/8 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">

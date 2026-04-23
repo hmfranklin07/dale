@@ -37,9 +37,9 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-sage-200/90 overflow-hidden shadow-md
-           shadow-rust-900/5 ring-1 ring-amber-100/30 transition-shadow duration-300
-           hover:shadow-lg hover:shadow-rust-900/10;
+    @apply bg-white rounded-2xl border border-sage-300/80 overflow-hidden shadow-md
+           shadow-rust-900/10 ring-1 ring-amber-200/45 transition-shadow duration-300
+           hover:shadow-lg hover:shadow-rust-900/20;
   }
 
   .card-body {
@@ -51,14 +51,14 @@
   }
 
   .badge-sage {
-    @apply badge bg-sage-200/90 text-sage-900;
+    @apply badge bg-sage-300/90 text-sage-900;
   }
 
   .badge-rust {
-    @apply badge bg-rust-200/90 text-rust-900;
+    @apply badge bg-rust-300/90 text-rust-900;
   }
 
   .badge-earth {
-    @apply badge bg-earth-200/80 text-earth-900;
+    @apply badge bg-amber-200/85 text-earth-900;
   }
 }
