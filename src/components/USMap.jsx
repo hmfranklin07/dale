@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
+import { ComposableMap, Geographies, Geography, Marker, Line } from 'react-simple-maps'
 import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -76,6 +76,29 @@ const PIN_INNER_FILL = '#fff8f5'
 const PIN_SCALE = 2.15
 const PIN_TX = -23
 const PIN_TY = -47
+const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
+
+const ROUTE_WAYPOINTS = [
+  stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat], // New York pin
+  [-82.9988, 39.9612], // Ohio (Columbus)
+  [-86.1581, 39.7684], // Indiana (Indianapolis)
+  stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat], // Illinois pin
+  [-93.625, 41.5868], // Iowa (Des Moines)
+  stateBySlug.nebraska && [stateBySlug.nebraska.lng, stateBySlug.nebraska.lat], // Nebraska pin
+  [-100.351, 44.3683], // South Dakota (Pierre)
+  [-106.3131, 42.8501], // Wyoming (Casper area)
+  stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat], // Idaho pin
+  [-119.5383, 37.8651], // Yosemite
+  [-118.2437, 34.0522], // Los Angeles
+  [-112.1401, 36.0544], // Grand Canyon
+  [-101.8313, 35.222], // Amarillo
+  [-97.5164, 35.4676], // Oklahoma City
+  stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat], // Arkansas pin
+  [-86.8104, 33.5186], // Alabama (Birmingham)
+  stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat], // Florida pin
+  [-77.0369, 38.9072], // Washington, DC
+  stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat], // Back to New York pin
+].filter(Boolean)
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -115,6 +138,23 @@ export default function USMap() {
               })
             }
           </Geographies>
+
+          {ROUTE_WAYPOINTS.slice(0, -1).map((from, idx) => {
+            const to = ROUTE_WAYPOINTS[idx + 1]
+            return (
+              <Line
+                key={`route-segment-${idx}`}
+                from={from}
+                to={to}
+                stroke="#b44b2d"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="5 3"
+                style={{ pointerEvents: 'none' }}
+              />
+            )
+          })}
 
           {states.map((s) => (
             <Marker
