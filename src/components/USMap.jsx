@@ -6,11 +6,11 @@ import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Aligned with Tailwind sage/earth in tailwind.config.js — four related sage shades (same hue family)
-// Index 0 = lightest … 3 = darkest
-const STATE_FILLS = ['#e5ebdd', '#d8e1d0', '#cbd7c3', '#becdb6']
-const FILL_HOVER = '#b3bea3'
-const STROKE = '#5c6d4d'
+// Four sage steps — collectively darker than before so the map sits closer to sage-900 accents
+// Index 0 = lightest … 3 = darkest (still well above sage-900 #333c2e for legibility)
+const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
+const FILL_HOVER = '#9daa84'
+const STROKE = '#3c4735'
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
