@@ -83,8 +83,8 @@ const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 const ROUTE_CONTROL_POINTS = [
   // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-75.6, 42.55], // Southern tier arc
-  [-77.6, 42.2], // Buffalo corridor (inland, south of lake edge)
+  [-76.6, 42.35], // Southern tier arc
+  [-78.0, 42.15], // Buffalo corridor (inland, south of lake edge)
   [-79.8, 41.95], // NW Pennsylvania arc
   [-81.69, 41.5], // Cleveland corridor
   [-82.9988, 39.9612], // Ohio (Columbus)
@@ -134,13 +134,14 @@ const ROUTE_CONTROL_POINTS = [
   [-95.2, 35.8], // E Oklahoma
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Continue south arc: Arkansas pin -> Alabama -> Florida pin
+  // Continue south arc: Arkansas pin -> southern Alabama -> south Georgia / north Florida -> Florida pin
   [-92.3, 35.2], // Central AR bend
   [-90.05, 35.15], // Memphis corridor
-  [-88.5, 34.2], // N Mississippi / AL approach
-  [-86.81, 33.52], // Birmingham (Alabama)
-  [-84.39, 33.75], // Atlanta corridor
-  [-82.8, 32.6], // South Georgia
+  [-88.04, 30.69], // Mobile corridor (southern Alabama)
+  [-86.3, 31.2], // South Alabama inland bend
+  [-84.39, 31.22], // Dothan corridor
+  [-83.28, 30.83], // Valdosta / south Georgia
+  [-82.32, 30.5], // North Florida approach
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
 
   // Swing back north-east: Florida pin -> DC -> New York pin
@@ -150,30 +151,13 @@ const ROUTE_CONTROL_POINTS = [
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
   [-76.88, 40.27], // Harrisburg corridor
-  [-75.91, 41.25], // Scranton corridor
-  [-75.3, 42.1], // Southern NY return arc
+  [-76.2, 41.2], // N Pennsylvania corridor
+  [-76.8, 41.9], // Southern NY return arc (approach from southwest)
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
-function chaikinSmooth(points, iterations = 2) {
-  if (points.length < 3) return points
-  let current = points
-  for (let iter = 0; iter < iterations; iter++) {
-    const next = [current[0]]
-    for (let i = 0; i < current.length - 1; i++) {
-      const p0 = current[i]
-      const p1 = current[i + 1]
-      const q = [0.75 * p0[0] + 0.25 * p1[0], 0.75 * p0[1] + 0.25 * p1[1]]
-      const r = [0.25 * p0[0] + 0.75 * p1[0], 0.25 * p0[1] + 0.75 * p1[1]]
-      next.push(q, r)
-    }
-    next.push(current[current.length - 1])
-    current = next
-  }
-  return current
-}
-
-const ROUTE_WAYPOINTS = chaikinSmooth(ROUTE_CONTROL_POINTS, 2)
+// Keep exact control points so the curve passes through destination pin tips.
+const ROUTE_WAYPOINTS = ROUTE_CONTROL_POINTS
 const ROUTE_PROJECTION = geoAlbersUsa().scale(1480).translate([600, 350])
 
 function routePathD(points) {
