@@ -45,9 +45,12 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 13)) | 0
   return (h >>> 0) & 3
 }
-const PIN_DEFAULT = '#cf5733' // rust-600
-const PIN_HOVER = '#e2724d' // rust-500
-const PIN_STROKE = '#f6f7f4' // sage-50
+// Rust fills with a darker rim so pins read clearly on sage map fills (light stroke was washing out)
+const PIN_DEFAULT = '#c24e32' // slightly deeper rust
+const PIN_HOVER = '#d85f3f'
+const PIN_STROKE = '#3a3028' // warm earth — strong contrast on sage/amber map
+const PIN_INNER_FILL = '#fff4ea'
+const PIN_INNER_STROKE = '#5c4a3d'
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
@@ -115,9 +118,18 @@ export default function USMap() {
                   d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8z"
                   fill={hovered?.slug === s.slug ? PIN_HOVER : PIN_DEFAULT}
                   stroke={PIN_STROKE}
-                  strokeWidth={2.45}
+                  strokeWidth={2.55}
+                  strokeLinejoin="round"
                 />
-                <circle cx={12} cy={8} r={3.5} fill="#fffdf9" className="pointer-events-none" />
+                <circle
+                  cx={12}
+                  cy={8}
+                  r={3.5}
+                  fill={PIN_INNER_FILL}
+                  stroke={PIN_INNER_STROKE}
+                  strokeWidth={1}
+                  className="pointer-events-none"
+                />
               </g>
             </Marker>
           ))}
