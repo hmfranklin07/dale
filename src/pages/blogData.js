@@ -6,7 +6,7 @@ export const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
 export const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 
-function sortDateValue(d) {
+export function sortDateValue(d) {
   if (d === 'Date' || d == null || d === '') return 0
   const t = new Date(String(d) + 'T00:00:00').getTime()
   return Number.isNaN(t) ? 0 : t

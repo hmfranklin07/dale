@@ -1,15 +1,13 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
-import interviews from '../data/interviews.json'
-import shorts from '../data/shorts.json'
-import vlogs from '../data/vlogs.json'
-import YouTubeEmbed from '../components/YouTubeEmbed'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
-import { formatDate, vlogLocationLabel } from './blogData'
+import StateVideoTeaser from '../components/StateVideoTeaser'
+import { excerpt, formatDate } from './blogData'
+import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
@@ -22,18 +20,14 @@ export default function StatePage() {
   }
 
   const state = states.find((s) => s.slug === stateSlug)
-  const stateTowns = towns.filter((t) => t.stateSlug === stateSlug)
-  const townSlugs = new Set(stateTowns.map((t) => t.slug))
+  const stateVlogs = vlogsForState(stateSlug)
+  const stateInterviews = interviewsForState(stateSlug)
+  const stateReflections = reflectionsForState(stateSlug)
 
-  const stateShorts = shorts
-    .filter((s) => townSlugs.has(s.townSlug))
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-  const stateInterviews = interviews
-    .filter((i) => townSlugs.has(i.townSlug))
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-  const stateVlogs = vlogs
-    .filter((v) => townSlugs.has(v.townSlug))
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
+  const videoSlots = [stateVlogs[0], stateVlogs[1], stateVlogs[2]]
+  const hasAnyVideo = stateVlogs.length > 0
+  const latestInterview = stateInterviews[0]
+  const latestReflection = stateReflections[0]
 
   return (
     <>
@@ -44,7 +38,7 @@ export default function StatePage() {
             <PageHeroPanel className="bg-white/84">
               <Link
                 to="/"
-                className="text-sage-900 hover:text-rust-800 text-sm font-medium mb-4 inline-flex items-center gap-1.5 rounded-lg transition-colors"
+                className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -52,14 +46,22 @@ export default function StatePage() {
                 Back to home &amp; map
               </Link>
               <h1
-                className={`font-display mt-1 mb-3 sm:mb-4 text-4xl leading-tight sm:text-5xl ${pageTitleClass}`}
+                className={`font-display mt-1 mb-3 text-4xl leading-tight sm:mb-4 sm:text-5xl ${pageTitleClass}`}
               >
                 {state.name}
               </h1>
-              <p className="text-base text-earth-800 leading-relaxed sm:text-lg">
+              <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
                 {state.heroIntro
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
+              </p>
+              <p className="mt-5 text-base text-earth-800 sm:text-lg">
+                <Link
+                  to={`/blog/state/${state.slug}`}
+                  className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"
+                >
+                  See {state.name} blogs and vlogs here
+                </Link>
               </p>
             </PageHeroPanel>
           </div>
@@ -67,123 +69,144 @@ export default function StatePage() {
       </section>
 
       <PageContentBand>
-        <div className="space-y-20">
+        <div className="space-y-16 sm:space-y-20">
           <section>
-            <SectionHeading>Short-form content</SectionHeading>
-            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
-              Individual interview clips and a little about each town.
+            <SectionHeading>Latest videos</SectionHeading>
+            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
+              Conversations and interviews from this stop.
             </p>
-            {stateTowns.length === 0 ? (
-              <p className="text-earth-600">Towns for this state will be listed here.</p>
-            ) : (
-              <div className="space-y-10">
-                {stateTowns.map((town) => {
-                  const townSh = stateShorts.filter((s) => s.townSlug === town.slug)
-                  return (
-                    <div key={town.slug} className="card card-body">
-                      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-                        <div>
-                          <h3 className="font-display text-xl text-earth-900">
-                            {town.name}
-                          </h3>
-                          <p className="text-sm text-earth-600">Visited {formatDate(town.date)}</p>
-                        </div>
-                      </div>
-                      <p className="text-earth-800 mb-4 leading-relaxed">{town.summary}</p>
-                      {townSh.length > 0 ? (
-                        <div className="space-y-3 border-t border-sage-200/80 pt-4">
-                          {townSh.map((s) => (
-                            <div key={s.id}>
-                              <p className="text-xs text-earth-500 mb-1">{formatDate(s.date)}</p>
-                              <h4 className="font-medium text-earth-900">{s.title}</h4>
-                              <p className="text-sm text-earth-800 mt-1">{s.text}</p>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-sm text-earth-600 border-t border-sage-200/80 pt-4">
-                          Road updates and short interview clips for {town.name} will appear here.
+            {hasAnyVideo ? (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
+                  {videoSlots.map((vlog, idx) =>
+                    vlog ? (
+                      <StateVideoTeaser key={vlog.id} vlog={vlog} stateSlug={stateSlug} />
+                    ) : (
+                      <div
+                        key={`video-slot-${idx}`}
+                        className="flex min-h-[12rem] flex-col items-center justify-center rounded-2xl border border-dashed border-rust-400/65 bg-gradient-to-b from-rust-50/90 via-white to-sage-100/40 p-5 text-center ring-1 ring-rust-200/50"
+                      >
+                        <span className="text-xs font-semibold uppercase tracking-wide text-rust-800">Open slot</span>
+                        <p className="mt-2 text-sm text-earth-600">
+                          Add another vlog for a town in {state.name} in vlogs.json to fill this column.
                         </p>
-                      )}
-                    </div>
-                  )
-                })}
+                      </div>
+                    ),
+                  )}
+                </div>
+                <div className="flex justify-start">
+                  <Link
+                    to={`/${stateSlug}/videos`}
+                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                  >
+                    View all videos
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
+            ) : (
+              <p className="text-earth-600 sm:text-lg">
+                Videos for {state.name} will show here when you add vlogs tied to towns in this state.
+              </p>
             )}
           </section>
 
           <section>
-            <SectionHeading>Written interviews &amp; statements</SectionHeading>
-            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
-              Longer sit-downs and Q&amp;A, transcribed and edited for the site.
+            <SectionHeading>Latest transcriptions</SectionHeading>
+            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
+              Written interviews and conversations from this stop.
             </p>
-            {stateInterviews.length === 0 ? (
-              <div className="card card-body text-center text-earth-600">
-                <p>Written interviews and statements for {state.name} will be published as visits wrap up.</p>
-              </div>
-            ) : (
-              <div className="space-y-8">
-                {stateInterviews.map((interview) => {
-                  const t = townBySlug[interview.townSlug]
-                  return (
-                    <article key={interview.id} className="card card-body">
-                      <div className="mb-6">
-                        {(interview.townLabel || t) && (
-                          <span className="badge-sage mb-2 inline-block">
-                            {interview.townLabel ?? t?.name}
+            {latestInterview ? (
+              <div className="space-y-6">
+                <Link
+                  to={`/${stateSlug}/transcriptions`}
+                  className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                >
+                  <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                    <div className="card-body sm:p-8">
+                      <div className="flex flex-col items-start gap-2">
+                        {(latestInterview.townLabel || townBySlug[latestInterview.townSlug]) && (
+                          <span className="badge-sage inline-block w-fit max-w-full">
+                            {latestInterview.townLabel ?? townBySlug[latestInterview.townSlug]?.name}
                           </span>
                         )}
-                        <h3 className="font-display text-2xl text-earth-900">{interview.personName}</h3>
-                        <p className="text-earth-600 text-sm">
-                          {interview.role} · {interview.school}
-                        </p>
-                        <time className="text-xs text-earth-500">{formatDate(interview.date)}</time>
+                        <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
                       </div>
-                      <div className="space-y-5">
-                        {interview.questions.map((qa, idx) => (
-                          <div key={idx}>
-                            <p className="text-sm font-semibold text-sage-700 mb-1">Q: {qa.q}</p>
-                            <blockquote className="text-earth-800 pl-4 text-sm sm:text-base leading-relaxed border-l-2 border-rust-300/50">
-                              “{qa.a}”
-                            </blockquote>
-                          </div>
-                        ))}
-                      </div>
-                    </article>
-                  )
-                })}
+                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                        {latestInterview.personName}
+                      </h2>
+                      <p className="mt-2 text-sm text-earth-600">
+                        {latestInterview.role} · {latestInterview.school}
+                      </p>
+                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
+                        {excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 320)}
+                      </p>
+                      <p className="mt-4 text-sm font-semibold text-rust-800">All transcriptions in this state →</p>
+                    </div>
+                  </article>
+                </Link>
+                <div className="flex justify-start">
+                  <Link
+                    to={`/${stateSlug}/transcriptions`}
+                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                  >
+                    View all transcriptions
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
+            ) : (
+              <p className="text-earth-600 sm:text-lg">
+                Transcriptions for {state.name} will show here when you add interviews for towns in this state.
+              </p>
             )}
           </section>
 
           <section>
             <SectionHeading>Reflections</SectionHeading>
-            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
-              Room to process the trip: what stood out, what I’m still thinking about.
+            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
+              Longer written notes from the road while they are still fresh.
             </p>
-            {stateVlogs.length === 0 ? (
-              <div className="card card-body text-center text-earth-600">
-                <p>Reflections tied to {state.name} (including vlog context when available) will go here.</p>
+            {latestReflection ? (
+              <div className="space-y-6">
+                <Link
+                  to={`/${stateSlug}/reflections`}
+                  className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                >
+                  <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                    <div className="card-body sm:p-8">
+                      <time className="block text-xs text-earth-500">{formatDate(latestReflection.date)}</time>
+                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                        {latestReflection.title}
+                      </h2>
+                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">{excerpt(latestReflection.text, 320)}</p>
+                      <p className="mt-4 text-sm font-semibold text-rust-800">All reflections in this state →</p>
+                    </div>
+                  </article>
+                </Link>
+                <div className="flex justify-start">
+                  <Link
+                    to={`/${stateSlug}/reflections`}
+                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                  >
+                    View all reflections
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
             ) : (
-              <div className="space-y-8">
-                {stateVlogs.map((v) => {
-                  const t = townBySlug[v.townSlug]
-                  return (
-                    <div key={v.id} className="card overflow-hidden">
-                      {v.youtubeId && (
-                        <YouTubeEmbed youtubeId={v.youtubeId} title={v.title} />
-                      )}
-                      <div className="card-body">
-                        <p className="text-xs text-earth-600 mb-1">
-                          {vlogLocationLabel(v)} · {formatDate(v.date)}
-                        </p>
-                        <h3 className="font-display text-xl text-earth-900 mb-3">{v.title}</h3>
-                        <p className="text-earth-800 leading-relaxed whitespace-pre-line">{v.reflection}</p>
-                      </div>
-                    </div>
-                  )
-                })}
+              <div className="space-y-4">
+                <p className="text-earth-600 sm:text-lg">
+                  Reflections for {state.name} live in reflections.json (use <code className="text-sm">stateSlug</code>{' '}
+                  <code className="text-sm">{stateSlug}</code>). You can still open the archive now:
+                </p>
+                <Link
+                  to={`/${stateSlug}/reflections`}
+                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                >
+                  Reflections archive
+                  <span aria-hidden>→</span>
+                </Link>
               </div>
             )}
           </section>

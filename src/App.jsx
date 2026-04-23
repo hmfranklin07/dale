@@ -4,6 +4,9 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import StatePage from './pages/StatePage'
+import StateVideos from './pages/StateVideos'
+import StateTranscriptions from './pages/StateTranscriptions'
+import StateReflections from './pages/StateReflections'
 import Blog from './pages/Blog'
 import BlogPosts from './pages/BlogPosts'
 import BlogVideos from './pages/BlogVideos'
@@ -24,6 +27,9 @@ export default function App() {
           <Route path="/blog/state/:stateSlug" element={<BlogStateHub />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/vlog" element={<Navigate to="/blog" replace />} />
+          <Route path="/:stateSlug/videos" element={<StateVideos />} />
+          <Route path="/:stateSlug/transcriptions" element={<StateTranscriptions />} />
+          <Route path="/:stateSlug/reflections" element={<StateReflections />} />
           <Route path="/:stateSlug" element={<StatePage />} />
         </Routes>
       </main>
