@@ -9,8 +9,12 @@ const shell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'
 export default function Footer() {
   return (
     <footer className="relative mt-auto overflow-hidden">
-      <div className="bg-gradient-to-br from-earth-950 via-sage-900 to-rust-900 text-sage-200/95">
+      <div className="relative from-zinc-950 via-earth-900 to-sage-900/98 bg-gradient-to-br text-sage-100/90">
         <SectionAmbience variant="dark" />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/50 to-black/20"
+          aria-hidden
+        />
         <div className={`relative z-10 ${shell} py-12`}>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div>
@@ -78,7 +82,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-sage-500/35 pt-8 text-center text-sm text-sage-200/80">
+          <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-sage-200/85">
             <p>
               &copy; {new Date().getFullYear()} STEM on the Road. Built for education, not profit.
             </p>

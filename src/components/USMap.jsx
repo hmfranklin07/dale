@@ -45,14 +45,12 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 13)) | 0
   return (h >>> 0) & 3
 }
-// Rust pin body + thin lighter-rust rim; center dot uses same family (slightly thicker dot outline only)
+// Rust pin body + same light-orange rim on teardrop and center dot (matched color + stroke width)
 const PIN_DEFAULT = '#c24e32'
 const PIN_HOVER = '#d85f3f'
-const PIN_STROKE = '#df8f72'
-const PIN_OUTLINE_WIDTH = 1.05
+const PIN_RIM_COLOR = '#df8f72'
+const PIN_RIM_WIDTH = 1.05
 const PIN_INNER_FILL = '#fff8f5'
-const PIN_INNER_STROKE = '#e29a82'
-const PIN_INNER_OUTLINE_WIDTH = 0.72
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
@@ -119,8 +117,8 @@ export default function USMap() {
                 <path
                   d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8z"
                   fill={hovered?.slug === s.slug ? PIN_HOVER : PIN_DEFAULT}
-                  stroke={PIN_STROKE}
-                  strokeWidth={PIN_OUTLINE_WIDTH}
+                  stroke={PIN_RIM_COLOR}
+                  strokeWidth={PIN_RIM_WIDTH}
                   strokeLinejoin="round"
                 />
                 <circle
@@ -128,8 +126,8 @@ export default function USMap() {
                   cy={8}
                   r={3.5}
                   fill={PIN_INNER_FILL}
-                  stroke={PIN_INNER_STROKE}
-                  strokeWidth={PIN_INNER_OUTLINE_WIDTH}
+                  stroke={PIN_RIM_COLOR}
+                  strokeWidth={PIN_RIM_WIDTH}
                   className="pointer-events-none"
                 />
               </g>
