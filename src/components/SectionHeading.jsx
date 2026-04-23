@@ -1,6 +1,6 @@
-export default function SectionHeading({ children, align = 'left' }) {
+export default function SectionHeading({ children, align = 'left', className = '' }) {
   return (
-    <div className={`mb-6 sm:mb-8 ${align === 'center' ? 'text-center' : ''}`}>
+    <div className={`mb-6 sm:mb-8 ${align === 'center' ? 'text-center' : ''} ${className}`.trim()}>
       <h2
         className={`font-display flex gap-3 text-2xl text-earth-900 sm:gap-4 sm:text-3xl ${
           align === 'center' ? 'mx-auto max-w-3xl justify-center' : 'items-start'

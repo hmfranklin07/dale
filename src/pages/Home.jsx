@@ -43,10 +43,10 @@ export default function Home() {
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-100/45">
         <SectionAmbience variant="paper" />
-        <div className={`relative z-10 ${shell} py-8 sm:py-10`}>
-          <SectionHeading>Project inspiration</SectionHeading>
+        <div className={`relative z-10 ${shell} pt-8 pb-3 sm:pt-9 sm:pb-4`}>
+          <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
 
-          <div className="grid items-start gap-6 sm:gap-8 md:grid-cols-[1fr_min(260px,32%)] md:gap-10">
+          <div className="grid items-start gap-5 sm:gap-6 md:grid-cols-[1fr_min(220px,30%)] md:gap-8 md:items-start">
             <div className="order-2 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1">
               <p>
                 I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
@@ -62,8 +62,8 @@ export default function Home() {
               </p>
             </div>
 
-            <figure className="order-1 mx-auto w-full max-w-sm md:-mt-6 md:order-2 md:mx-0">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40">
+            <figure className="order-1 mx-auto w-full max-w-[13.5rem] sm:max-w-sm md:order-2 md:mx-0 md:-mt-[4.5rem] lg:-mt-[5.25rem] md:justify-self-end">
+              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(72vw,17.5rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40 sm:max-h-[19rem] md:aspect-auto md:h-[15.5rem] md:max-h-none md:w-[11.75rem] md:max-w-none">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
                     src="/images/researcher.png"
