@@ -64,8 +64,9 @@ export default function StatePage() {
                 {state.name}
               </h1>
               <p className="text-base text-earth-800 leading-relaxed sm:text-lg">
-                Short-form field notes, sit-down interviews, and reflections from the towns we visit
-                in {state.name}. Content updates as the trip goes on.
+                {state.heroIntro
+                  ? state.heroIntro
+                  : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
             </PageHeroPanel>
           </div>
