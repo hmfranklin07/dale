@@ -18,7 +18,7 @@ export default function Home() {
       >
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="!bg-white shadow-xl shadow-black/20 ring-1 ring-sage-200/70">
+            <PageHeroPanel className="!bg-white shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50">
               <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
                 <span className={pageTitleClass}>STEM Across Rural America</span>
               </h1>

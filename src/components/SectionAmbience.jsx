@@ -2,12 +2,13 @@
  * Multi-layer section backgrounds: soft mesh + blurred color orbs.
  * No icons — just depth, warmth, and a little rust/sage/amber so pages aren’t “flat beige.”
  */
-/** Base wash: darker on the left, lighter toward the right */
+/** Base wash: darker left → lighter right (except `map`, diagonal below). */
 const mesh = {
   hero: 'from-sage-800/55 via-sage-400/42 to-amber-100/55',
   paper: 'from-sage-600/72 via-orange-100/65 to-white/95',
   sage: 'from-sage-700/58 via-amber-100/48 to-rust-200/52',
-  map: 'from-sage-600/55 via-earth-200/40 to-amber-100/55',
+  /** Softer diagonal wash behind the home map — keep separate from page-top L→R bands */
+  map: 'from-sage-300/50 via-earth-200/36 to-amber-100/44',
   dark: 'from-sage-900/78 via-earth-900/55 to-rust-500/38',
 }
 
@@ -22,13 +23,14 @@ const tones = {
 export function SectionAmbience({ variant = 'sage' }) {
   const c = tones[variant] || tones.sage
   const m = mesh[variant] || mesh.sage
+  const meshDirClass = variant === 'map' ? 'bg-gradient-to-br' : 'bg-gradient-to-r'
 
   return (
     <div
       className="absolute inset-0 z-0 pointer-events-none select-none"
       aria-hidden
     >
-      <div className={`absolute inset-0 bg-gradient-to-r opacity-100 ${m}`} />
+      <div className={`absolute inset-0 ${meshDirClass} opacity-100 ${m}`} />
       <div
         className={`-left-1/4 -top-1/3 absolute h-[min(100%,30rem)] w-[min(100%,30rem)] max-h-[95vw] max-w-[95vw] rounded-full ${c.t} opacity-90 blur-3xl sm:h-[36rem] sm:w-[36rem]`}
       />

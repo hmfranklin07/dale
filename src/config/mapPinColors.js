@@ -7,17 +7,17 @@ export const STATE_HERO_BAND_BG = '#CED6C4'
  */
 /** Dark on the left → light on the right */
 export const stateHeroBandSectionClass =
-  'bg-gradient-to-r from-sage-600/95 via-sage-400 to-sage-50'
+  'bg-gradient-to-r from-sage-600/95 via-sage-400 to-sage-200'
 
 /** Dark sage gradient behind home page top hero. */
 export const homeHeroBandSectionClass =
   'bg-gradient-to-r from-sage-900 via-sage-700 to-sage-400'
 
 /**
- * Inner page headers (posts, lists, state subpages).
+ * Inner page headers — right stop stays sage-tinted so white content blocks don’t disappear into it.
  */
 export const innerPageTopBandSectionClass =
-  'bg-gradient-to-r from-sage-600/90 via-sage-300/85 to-white'
+  'bg-gradient-to-r from-sage-600/90 via-sage-300/85 to-sage-200'
 
 /** Hero panel left bar + navbar accents — matches Tailwind `rust-500` (blog hero stripe) */
 export const HERO_ACCENT_RUST = '#e2724d'

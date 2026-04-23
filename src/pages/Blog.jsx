@@ -58,7 +58,7 @@ export default function Blog() {
       >
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
+            <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-sm">
               <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
                 Blog
               </span>
