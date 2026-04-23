@@ -22,6 +22,12 @@ const SHADE_OVERRIDES = {
   kansas: 3, // darker
 }
 
+/** Relative one-step tweaks from the computed shade index (clamped 0..3). */
+const SHADE_ADJUSTMENTS = {
+  arkansas: +1, // one shade darker
+  missouri: -1, // one shade lighter
+}
+
 function normalizedStateName(geo) {
   const p = geo.properties || {}
   const n = p.name || p.NAME
@@ -46,7 +52,11 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 16)) | 0
   h = Math.imul(h, 2246822507) | 0
   h = (h ^ (h >>> 13)) | 0
-  return (h >>> 0) & 3
+  const base = (h >>> 0) & 3
+  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_ADJUSTMENTS, stateName)) {
+    return Math.max(0, Math.min(3, base + SHADE_ADJUSTMENTS[stateName]))
+  }
+  return base
 }
 // Rust pin body + same light-orange rim on teardrop and center dot (matched color + stroke width)
 const PIN_DEFAULT = '#c24e32'
