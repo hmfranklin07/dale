@@ -10,10 +10,20 @@ const STATE_FILLS = ['#e5ebdd', '#d8e1d0', '#cbd7c3', '#becdb6']
 const FILL_HOVER = '#b3bea3'
 const STROKE = '#5c6d4d'
 
-/** Stable 0..3 from state FIPS so each state keeps the same fill across renders */
+/**
+ * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
+ * are scattered across the map instead of clumping by region.
+ */
 function stateShadeIndex(geo) {
-  const id = geo.id != null ? Number(geo.id) : 0
-  return Number.isNaN(id) ? 0 : id % 4
+  const p = geo.properties || {}
+  const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
+  if (!label) return 0
+  let h = 2166136261
+  for (let i = 0; i < label.length; i++) h = Math.imul(h ^ label.charCodeAt(i), 16777619)
+  h = (h ^ (h >>> 16)) | 0
+  h = Math.imul(h, 2246822507) | 0
+  h = (h ^ (h >>> 13)) | 0
+  return (h >>> 0) & 3
 }
 const PIN_DEFAULT = '#cf5733' // rust-600
 const PIN_HOVER = '#e2724d' // rust-500
