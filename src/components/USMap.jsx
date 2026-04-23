@@ -302,24 +302,24 @@ export default function USMap() {
                 />
               </g>
               {STOP_LABELS_BY_SLUG[s.slug] && (
-                <g className="pointer-events-none select-none" transform="translate(0 27)">
+                <g className="pointer-events-none select-none" transform="translate(0 23.5)">
                   <rect
-                    x={-24}
-                    y={-10}
-                    width={48}
-                    height={17}
-                    rx={8.5}
+                    x={-27}
+                    y={-11}
+                    width={54}
+                    height={19}
+                    rx={9.5}
                     fill="url(#stopBadgeFill)"
                     stroke="#e8a188"
                     strokeWidth={1}
                     filter="url(#stopBadgeShadow)"
                   />
                   <rect
-                    x={-22.5}
-                    y={-8.5}
-                    width={45}
-                    height={14}
-                    rx={7.2}
+                    x={-25.3}
+                    y={-9.3}
+                    width={50.6}
+                    height={15.6}
+                    rx={8.2}
                     fill="none"
                     stroke="rgba(255,255,255,0.65)"
                     strokeWidth={0.7}
@@ -332,7 +332,7 @@ export default function USMap() {
                     alignmentBaseline="middle"
                     fill="#8f3b24"
                     fontFamily="'DM Serif Display', Georgia, serif"
-                    fontSize="10.9"
+                    fontSize="12.2"
                     fontWeight="400"
                     letterSpacing="0.15"
                   >
