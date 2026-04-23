@@ -12,21 +12,25 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }) =>
     `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
-      isActive ? 'bg-rust-200 text-rust-900 ring-1 ring-rust-300/50' : 'text-earth-800 hover:text-rust-900 hover:bg-amber-100/85'
+      isActive
+        ? 'bg-sage-900 text-white shadow-sm shadow-sage-900/25 ring-1 ring-sage-700/50'
+        : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
     }`
 
   const mobileLink = ({ isActive }) =>
     `block px-3 py-2.5 text-sm font-medium rounded-lg ${
-      isActive ? 'bg-rust-200 text-rust-900 ring-1 ring-rust-300/50' : 'text-earth-800 hover:bg-amber-100/85'
+      isActive
+        ? 'bg-sage-900 text-white ring-1 ring-sage-700/50'
+        : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-rust-200/35 bg-gradient-to-r from-amber-100/75 via-white/95 to-sage-200/70 shadow-sm shadow-earth-900/8 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <span className="text-2xl">🔬</span>
-            <span className="font-display bg-gradient-to-r from-earth-900 to-sage-800 bg-clip-text text-lg text-transparent sm:text-xl">
+            <span className="font-display bg-gradient-to-r from-earth-900 via-sage-900 to-sage-700 bg-clip-text text-lg text-transparent sm:text-xl">
               STEM Across Rural America
             </span>
           </Link>
@@ -47,7 +51,7 @@ export default function Navbar() {
           <div className="lg:hidden">
             <button
               onClick={() => setOpen(!open)}
-              className="p-2 rounded-lg text-earth-800 hover:bg-sage-100/90"
+              className="p-2 rounded-lg text-earth-800 hover:bg-sage-200/80 hover:text-sage-900"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +65,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="hidden md:flex lg:hidden border-t border-sage-200/90 py-2 overflow-x-auto gap-1">
+        <div className="hidden md:flex lg:hidden border-t border-sage-800/15 bg-sage-900/5 py-2 overflow-x-auto gap-1">
           {primary.map((link) => (
             <NavLink
               key={link.to}
@@ -82,7 +86,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-sage-200/90 bg-white max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-sage-800/15 bg-gradient-to-b from-white to-sage-50/95 max-h-[80vh] overflow-y-auto">
           <div className="px-4 py-3 space-y-0.5">
             {primary.map((link) => (
               <NavLink
@@ -95,7 +99,7 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <p className="pt-2 pb-1 px-1 text-xs font-semibold text-earth-500 uppercase tracking-wide">States</p>
+            <p className="pt-2 pb-1 px-1 text-xs font-semibold text-sage-800 uppercase tracking-wide">States</p>
             {states.map((s) => (
               <NavLink
                 key={s.slug}

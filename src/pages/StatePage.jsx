@@ -10,7 +10,7 @@ import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 
-const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
+const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
@@ -44,14 +44,14 @@ export default function StatePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-200/50 bg-gradient-to-b from-amber-50/90 via-sage-100/75 to-sage-200/55">
-        <SectionAmbience variant="hero" />
+      <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-200/55">
+        <SectionAmbience variant="paper" />
         <div className="relative z-10">
-          <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel>
+          <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
+            <PageHeroPanel className="bg-white/84">
               <Link
                 to="/"
-                className="text-sage-800 hover:text-rust-800 text-sm font-medium mb-4 inline-flex items-center gap-1.5 rounded-lg transition-colors"
+                className="text-sage-900 hover:text-rust-800 text-sm font-medium mb-4 inline-flex items-center gap-1.5 rounded-lg transition-colors"
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
