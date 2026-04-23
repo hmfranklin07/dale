@@ -61,8 +61,10 @@ export default function Blog() {
       <section className="relative overflow-hidden border-b border-sage-900/40 bg-sage-800">
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
-              <span className="badge-rust mb-4 inline-block">Blog</span>
+            <PageHeroPanel className="!border-l-rust-500 !bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
+              <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
+                Blog
+              </span>
               <h1 className="font-display mb-4 sm:mb-5 text-4xl leading-tight sm:text-5xl">
                 <span className={pageTitleClass}>Field notes from the road</span>
               </h1>
