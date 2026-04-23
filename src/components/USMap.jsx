@@ -18,6 +18,7 @@ const SHADE_OVERRIDES = {
   indiana: 0, // lighter
   idaho: 3, // darker
   washington: 0, // lighter
+  nevada: 0, // lightest shade
   wisconsin: 0, // lighter
   'south dakota': 0, // lighter
   kansas: 3, // darker
@@ -32,7 +33,6 @@ const SHADE_ADJUSTMENTS = {
   'new york': +2, // two shades darker
   massachusetts: +1, // one shade darker
   'south carolina': -1, // one shade lighter
-  nevada: -1, // one shade lighter
 }
 
 function normalizedStateName(geo) {
