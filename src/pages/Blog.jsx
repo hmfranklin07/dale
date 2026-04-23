@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
-import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -19,7 +18,7 @@ function BlogVideoTeaser({ vlog }) {
       to="/blog/videos"
       className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
-      <article className="card group flex h-full flex-col overflow-hidden transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+      <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
         <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5 ring-1 ring-sage-200/40">
           {vlog.youtubeId ? (
             <img
@@ -59,11 +58,7 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-900/30 bg-gradient-to-br from-sage-600 via-sage-800 to-sage-950">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_50%_-20%,rgba(253,246,243,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_100%,rgba(237,148,115,0.14),transparent_50%)]"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden border-b border-sage-900/40 bg-sage-800">
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
@@ -80,7 +75,7 @@ export default function Blog() {
         </div>
       </section>
 
-      <PageContentBand>
+      <PageContentBand wash="rust">
         <div className="space-y-16 sm:space-y-20">
           <section>
             <SectionHeading>Latest</SectionHeading>
@@ -90,7 +85,7 @@ export default function Blog() {
                   to={`/blog/post/${latestBlog.id}`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                  <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
                     <div className="card-body sm:p-8">
                       <div className="flex flex-col items-start gap-2">
                         {latestBlog.townLabel && (
@@ -111,7 +106,7 @@ export default function Blog() {
                 <div className="flex justify-start">
                   <Link
                     to="/blog/posts"
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-amber-200/40 transition-colors hover:border-rust-300/70 hover:bg-orange-50/90 hover:text-rust-900"
+                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
                   >
                     View more
                     <span aria-hidden>→</span>
@@ -137,9 +132,9 @@ export default function Blog() {
                     ) : (
                       <div
                         key={`video-slot-${idx}`}
-                        className="flex min-h-[12rem] flex-col items-center justify-center rounded-2xl border border-dashed border-orange-300/60 bg-gradient-to-b from-orange-50/50 via-white to-sage-100/40 p-5 text-center ring-1 ring-sage-200/50"
+                        className="flex min-h-[12rem] flex-col items-center justify-center rounded-2xl border border-dashed border-rust-400/65 bg-gradient-to-b from-rust-50/90 via-white to-sage-100/40 p-5 text-center ring-1 ring-rust-200/50"
                       >
-                        <span className="text-xs font-semibold uppercase tracking-wide text-orange-700/90">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-rust-800">
                           Open slot
                         </span>
                         <p className="mt-2 text-sm text-earth-600">
@@ -156,7 +151,7 @@ export default function Blog() {
                 <div className="flex justify-start">
                   <Link
                     to="/blog/videos"
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-amber-200/40 transition-colors hover:border-rust-300/70 hover:bg-orange-50/90 hover:text-rust-900"
+                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
                   >
                     View more
                     <span aria-hidden>→</span>
@@ -180,19 +175,19 @@ export default function Blog() {
                   to={`/blog/state/${s.slug}`}
                   className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card texture-dots relative flex min-h-[7.75rem] flex-col items-center justify-center p-6 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-gradient-to-r before:from-rust-500 before:via-orange-400 before:to-sage-600 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-orange-300/55 sm:min-h-[8.75rem] sm:p-8">
+                  <article className="card texture-dots relative flex min-h-[7.75rem] flex-col items-center justify-center !ring-rust-300/45 p-6 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-rust-400/55 sm:min-h-[8.75rem] sm:p-8">
                     <span className="relative z-10 font-display text-xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
                       {s.name}
                     </span>
                     <span className="relative z-10 mt-2.5 inline-flex items-center gap-1.5 text-sm text-earth-700">
                       <span
-                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400 ring-2 ring-orange-200/80"
+                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-rust-500 ring-2 ring-rust-300/70"
                         aria-hidden
                       />
                       <span>
                         <span className="font-medium text-sage-800">Blogs</span>
                         <span className="text-earth-500"> &amp; </span>
-                        <span className="font-medium text-orange-800/90">videos</span>
+                        <span className="font-medium text-rust-800">videos</span>
                         <span className="text-earth-500"> from this stop</span>
                       </span>
                     </span>
