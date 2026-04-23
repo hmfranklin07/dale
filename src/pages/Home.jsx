@@ -15,16 +15,15 @@ export default function Home() {
           src="/images/hero-sunset.png"
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-earth-950/45 via-earth-900/30 to-earth-900/55"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/18"
           aria-hidden
         />
-        <SectionAmbience variant="hero" />
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel>
+            <PageHeroPanel className="bg-white/72">
               <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
                 <span className={pageTitleClass}>STEM Across Rural America</span>
               </h1>
