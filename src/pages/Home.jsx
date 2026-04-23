@@ -92,7 +92,6 @@ export default function Home() {
 
       {/* 3. Map */}
       <section className="relative overflow-hidden border-t border-orange-200/40 bg-gradient-to-b from-orange-100/90 via-amber-50/70 to-white">
-        <SectionAmbience variant="paper" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
           <div className="mb-6 sm:mb-8 text-center">
             <div
