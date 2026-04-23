@@ -58,9 +58,8 @@ export default function StatePage() {
                 </svg>
                 Back to home &amp; map
               </Link>
-              <span className="badge-sage mb-3 inline-block">{state.abbr}</span>
               <h1
-                className={`font-display mb-3 sm:mb-4 text-4xl leading-tight sm:text-5xl ${pageTitleClass}`}
+                className={`font-display mt-1 mb-3 sm:mb-4 text-4xl leading-tight sm:text-5xl ${pageTitleClass}`}
               >
                 {state.name}
               </h1>
