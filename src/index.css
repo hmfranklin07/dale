@@ -4,7 +4,12 @@
 
 @layer base {
   body {
-    @apply font-body text-earth-800 bg-sage-100/70 antialiased;
+    @apply font-body text-earth-800 antialiased;
+    background-color: #eef0e7;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 100% -20%, rgba(206, 87, 51, 0.07), transparent 50%),
+      radial-gradient(ellipse 80% 50% at 0% 100%, rgba(118, 137, 99, 0.12), transparent 45%),
+      linear-gradient(180deg, #faf7f1 0%, #eef1e8 50%, #e4e8dc 100%);
   }
 
   h1, h2, h3, h4 {
@@ -19,6 +24,12 @@
 
   .section-title {
     @apply font-display text-3xl sm:text-4xl text-earth-900 mb-2;
+  }
+
+  /* Dotted “paper” texture — very subtle, not beige flat */
+  .texture-dots {
+    background-image: radial-gradient(rgba(80, 70, 55, 0.055) 1.2px, transparent 1.2px);
+    background-size: 14px 14px;
   }
 
   .section-subtitle {
