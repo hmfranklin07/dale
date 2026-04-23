@@ -141,7 +141,7 @@ const ROUTE_CONTROL_POINTS = [
   [-95.2, 35.8], // E Oklahoma
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Continue south arc: Arkansas pin -> top of Mississippi -> Alabama -> south Georgia / north Florida -> Florida pin
+  // Continue south arc: Arkansas pin -> top of Mississippi -> Alabama -> smoother Florida panhandle -> Florida pin
   [-92.3, 35.2], // Central AR bend
   [-90.05, 35.15], // Memphis corridor
   [-89.6, 34.35], // N Mississippi
@@ -149,11 +149,11 @@ const ROUTE_CONTROL_POINTS = [
   [-87.1, 33.55], // W Alabama
   [-86.3, 32.45], // Central Alabama
   [-85.5, 31.25], // SE Alabama / Dothan corridor
-  [-85.35, 30.55], // Enter Florida panhandle
-  [-85.66, 30.16], // Panama City Beach
-  [-84.9, 30.26], // Panhandle eastbound
-  [-84.1, 30.34], // I-10 / Tallahassee corridor
-  [-82.95, 30.42], // North Florida east
+  [-86.15, 30.95], // Enter Florida panhandle (west)
+  [-85.45, 30.62], // Panhandle curve
+  [-84.75, 30.48], // Panhandle eastbound
+  [-84.0, 30.4], // Tallahassee corridor
+  [-83.15, 30.35], // North Florida east
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
 
   // Swing back north-east: Florida pin -> DC -> New York pin
@@ -294,26 +294,26 @@ export default function USMap() {
               {STOP_LABELS_BY_SLUG[s.slug] && (
                 <g className="pointer-events-none select-none" transform="translate(0 28)">
                   <rect
-                    x={-26}
-                    y={-11}
-                    width={52}
-                    height={18}
+                    x={-22}
+                    y={-10}
+                    width={44}
+                    height={16}
                     rx={8}
-                    fill="rgba(255, 251, 245, 0.98)"
-                    stroke="rgba(223, 143, 114, 0.95)"
-                    strokeWidth={1.1}
+                    fill="rgba(255, 253, 249, 0.98)"
+                    stroke="rgba(229, 148, 115, 0.92)"
+                    strokeWidth={0.9}
                   />
                   <text
                     x={0}
-                    y={-0.2}
+                    y={-0.1}
                     textAnchor="middle"
                     dominantBaseline="central"
                     alignmentBaseline="middle"
-                    fill="#8f3b24"
+                    fill="#8a3722"
                     fontFamily="Inter, system-ui, sans-serif"
-                    fontSize="12.5"
-                    fontWeight="700"
-                    letterSpacing="0.2"
+                    fontSize="10.5"
+                    fontWeight="600"
+                    letterSpacing="0.1"
                   >
                     {STOP_LABELS_BY_SLUG[s.slug]}
                   </text>
