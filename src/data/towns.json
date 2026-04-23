@@ -44,13 +44,13 @@
     "image": "/images/towns/placeholder.jpg"
   },
   {
-    "slug": "jacksonville-fl",
-    "name": "Jacksonville (Jax)",
+    "slug": "north-florida-fl",
+    "name": "North Florida",
     "state": "Florida",
     "stateSlug": "florida",
     "lat": 30.3322,
     "lng": -81.6557,
-    "summary": "Jacksonville: a big city with rural-adjacent districts—stories of access, college pathways, and STEM identity in the South.",
+    "summary": "North Florida: a big city with rural-adjacent districts—stories of access, college pathways, and STEM identity in the South.",
     "date": "2026-08-10",
     "image": "/images/towns/placeholder.jpg"
   }
