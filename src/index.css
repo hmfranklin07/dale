@@ -19,7 +19,7 @@
 
 @layer components {
   .page-container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+    @apply max-w-3xl mx-auto px-2.5 sm:px-4 py-10 sm:py-12;
   }
 
   .section-title {
@@ -37,8 +37,9 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow border border-sage-300/90 overflow-hidden
-           hover:shadow-md transition-shadow duration-300;
+    @apply bg-white rounded-2xl border border-sage-200/90 overflow-hidden shadow-md
+           shadow-rust-900/5 ring-1 ring-amber-100/30 transition-shadow duration-300
+           hover:shadow-lg hover:shadow-rust-900/10;
   }
 
   .card-body {

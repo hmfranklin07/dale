@@ -1,28 +1,10 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
+import { PageHeroPanel } from '../components/PageHeroPanel'
+import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
-
-function SectionHeading({ children, align = 'left' }) {
-  return (
-    <div className={`mb-6 sm:mb-8 ${align === 'center' ? 'text-center' : ''}`}>
-      <h2
-        className={`font-display flex gap-3 text-2xl text-earth-900 sm:gap-4 sm:text-3xl ${
-          align === 'center' ? 'mx-auto max-w-3xl justify-center' : 'items-start'
-        }`}
-      >
-        {align === 'left' && (
-          <span
-            className="mt-0.5 h-9 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-rust-400 to-rust-600"
-            aria-hidden
-          />
-        )}
-        <span className="min-w-0 text-left leading-tight">{children}</span>
-      </h2>
-    </div>
-  )
-}
 
 export default function Home() {
   return (
@@ -32,11 +14,9 @@ export default function Home() {
         <SectionAmbience variant="hero" />
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <div className="texture-dots rounded-3xl border border-white/60 border-l-4 border-l-rust-400/50 bg-white/40 p-6 shadow-2xl shadow-rust-900/5 ring-1 ring-sage-200/50 backdrop-blur-md sm:p-8 md:p-10">
+            <PageHeroPanel>
               <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
-                <span className="bg-gradient-to-r from-earth-900 via-sage-800/95 to-sage-700 bg-clip-text text-transparent">
-                  STEM Across Rural America
-                </span>
+                <span className={pageTitleClass}>STEM Across Rural America</span>
               </h1>
               <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
                 <p>
@@ -51,7 +31,7 @@ export default function Home() {
                   places that welcome the project.
                 </p>
               </div>
-            </div>
+            </PageHeroPanel>
           </div>
         </div>
       </section>

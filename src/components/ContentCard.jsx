@@ -23,7 +23,7 @@ export default function ContentCard({ title, date, text, badge, badgeClass, link
           {badge && <span className={badgeClass || 'badge-sage'}>{badge}</span>}
           <time className="text-xs text-earth-500">{formattedDate}</time>
         </div>
-        <h3 className="font-display text-xl text-earth-900 mb-2 group-hover:text-sage-700 transition-colors">
+        <h3 className="font-display text-xl text-earth-900 mb-2 transition-colors group-hover:text-rust-800">
           {title}
         </h3>
         {text && (

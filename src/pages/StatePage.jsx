@@ -5,7 +5,12 @@ import interviews from '../data/interviews.json'
 import shorts from '../data/shorts.json'
 import vlogs from '../data/vlogs.json'
 import YouTubeEmbed from '../components/YouTubeEmbed'
+import { SectionAmbience } from '../components/SectionAmbience'
+import { PageHeroPanel } from '../components/PageHeroPanel'
+import PageContentBand from '../components/PageContentBand'
+import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 
+const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
@@ -39,34 +44,42 @@ export default function StatePage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-sage-200/50 to-sage-100/90 py-16 sm:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            to="/"
-            className="text-sage-800 hover:text-sage-900 text-sm font-medium mb-4 inline-flex items-center gap-1"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to home & map
-          </Link>
-          <span className="badge-sage mb-3 inline-block">
-            {state.abbr} · {stateTowns.length} {stateTowns.length === 1 ? 'stop' : 'stops'}
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl text-earth-900 mb-3">{state.name}</h1>
-          <p className="text-lg text-earth-700 leading-relaxed">
-            Short-form field notes, sit-down interviews, and reflections from the towns we visit
-            in {state.name}. Content updates as the trip goes on.
-          </p>
+      <section className="relative overflow-hidden border-b border-sage-200/50 bg-gradient-to-b from-amber-50/90 via-sage-100/75 to-sage-200/55">
+        <SectionAmbience variant="hero" />
+        <div className="relative z-10">
+          <div className={`${shell} py-12 sm:py-16 md:py-20`}>
+            <PageHeroPanel>
+              <Link
+                to="/"
+                className="text-sage-800 hover:text-rust-800 text-sm font-medium mb-4 inline-flex items-center gap-1.5 rounded-lg transition-colors"
+              >
+                <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to home &amp; map
+              </Link>
+              <span className="badge-sage mb-3 inline-block">
+                {state.abbr} · {stateTowns.length} {stateTowns.length === 1 ? 'stop' : 'stops'}
+              </span>
+              <h1
+                className={`font-display mb-3 sm:mb-4 text-4xl leading-tight sm:text-5xl ${pageTitleClass}`}
+              >
+                {state.name}
+              </h1>
+              <p className="text-base text-earth-800 leading-relaxed sm:text-lg">
+                Short-form field notes, sit-down interviews, and reflections from the towns we visit
+                in {state.name}. Content updates as the trip goes on.
+              </p>
+            </PageHeroPanel>
+          </div>
         </div>
       </section>
 
-      <div className="page-container">
-        <div className="max-w-3xl mx-auto space-y-20">
-          {/* Towns + short-form */}
+      <PageContentBand>
+        <div className="space-y-20">
           <section>
-            <h2 className="font-display text-2xl text-earth-900 mb-2">Short-form content</h2>
-            <p className="text-earth-700 mb-8">
+            <SectionHeading>Short-form content</SectionHeading>
+            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
               Individual interview clips and a little about each town.
             </p>
             {stateTowns.length === 0 ? (
@@ -77,7 +90,7 @@ export default function StatePage() {
                   const townSh = stateShorts.filter((s) => s.townSlug === town.slug)
                   return (
                     <div key={town.slug} className="card card-body">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+                      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
                         <div>
                           <h3 className="font-display text-xl text-earth-900">
                             {town.name}
@@ -85,19 +98,19 @@ export default function StatePage() {
                           <p className="text-sm text-earth-600">Visited {formatDate(town.date)}</p>
                         </div>
                       </div>
-                      <p className="text-earth-700 leading-relaxed mb-4">{town.summary}</p>
+                      <p className="text-earth-800 mb-4 leading-relaxed">{town.summary}</p>
                       {townSh.length > 0 ? (
-                        <div className="space-y-3 border-t border-sage-200/90 pt-4">
+                        <div className="space-y-3 border-t border-sage-200/80 pt-4">
                           {townSh.map((s) => (
                             <div key={s.id}>
                               <p className="text-xs text-earth-500 mb-1">{formatDate(s.date)}</p>
                               <h4 className="font-medium text-earth-900">{s.title}</h4>
-                              <p className="text-sm text-earth-700 mt-1">{s.text}</p>
+                              <p className="text-sm text-earth-800 mt-1">{s.text}</p>
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <p className="text-sm text-earth-600 border-t border-sage-200/90 pt-4">
+                        <p className="text-sm text-earth-600 border-t border-sage-200/80 pt-4">
                           Road updates and short interview clips for {town.name} will appear here.
                         </p>
                       )}
@@ -108,10 +121,11 @@ export default function StatePage() {
             )}
           </section>
 
-          {/* Written interviews / statements */}
           <section>
-            <h2 className="font-display text-2xl text-earth-900 mb-2">Written interviews & statements</h2>
-            <p className="text-earth-700 mb-8">Longer sit-downs and Q&amp;A, transcribed and edited for the site.</p>
+            <SectionHeading>Written interviews &amp; statements</SectionHeading>
+            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
+              Longer sit-downs and Q&amp;A, transcribed and edited for the site.
+            </p>
             {stateInterviews.length === 0 ? (
               <div className="card card-body text-center text-earth-600">
                 <p>Written interviews and statements for {state.name} will be published as visits wrap up.</p>
@@ -134,7 +148,7 @@ export default function StatePage() {
                         {interview.questions.map((qa, idx) => (
                           <div key={idx}>
                             <p className="text-sm font-semibold text-sage-700 mb-1">Q: {qa.q}</p>
-                            <blockquote className="text-earth-800 leading-relaxed pl-4 border-l-2 border-sage-300 text-sm sm:text-base">
+                            <blockquote className="text-earth-800 pl-4 text-sm sm:text-base leading-relaxed border-l-2 border-rust-300/50">
                               “{qa.a}”
                             </blockquote>
                           </div>
@@ -147,10 +161,11 @@ export default function StatePage() {
             )}
           </section>
 
-          {/* Reflections */}
           <section>
-            <h2 className="font-display text-2xl text-earth-900 mb-2">Reflections</h2>
-            <p className="text-earth-700 mb-8">Room to process the trip: what stood out, what I’m still thinking about.</p>
+            <SectionHeading>Reflections</SectionHeading>
+            <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
+              Room to process the trip: what stood out, what I’m still thinking about.
+            </p>
             {stateVlogs.length === 0 ? (
               <div className="card card-body text-center text-earth-600">
                 <p>Reflections tied to {state.name} (including vlog context when available) will go here.</p>
@@ -171,7 +186,7 @@ export default function StatePage() {
                           </p>
                         )}
                         <h3 className="font-display text-xl text-earth-900 mb-3">{v.title}</h3>
-                        <p className="text-earth-700 leading-relaxed whitespace-pre-line">{v.reflection}</p>
+                        <p className="text-earth-800 leading-relaxed whitespace-pre-line">{v.reflection}</p>
                       </div>
                     </div>
                   )
@@ -180,7 +195,7 @@ export default function StatePage() {
             )}
           </section>
         </div>
-      </div>
+      </PageContentBand>
     </>
   )
 }
