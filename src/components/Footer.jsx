@@ -1,99 +1,46 @@
-import { Link } from 'react-router-dom'
-import social from '../data/social.json'
 import siteMeta from '../data/siteMeta.json'
-import states from '../data/states.json'
-import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
-import { SectionAmbience } from './SectionAmbience'
 
 const shell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'
 
 export default function Footer() {
+  const mailto = `mailto:${siteMeta.contactEmail}`
+
   return (
     <footer className="relative mt-auto overflow-hidden">
-      <div className="relative from-zinc-950 via-earth-900 to-sage-900/98 bg-gradient-to-br text-sage-100/90">
-        <SectionAmbience variant="dark" />
+      <div className="relative bg-gradient-to-br from-zinc-950 via-earth-900 to-sage-900/98 text-sage-100/90">
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/50 to-black/20"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/45 to-black/15"
           aria-hidden
         />
-        <div className={`relative z-10 ${shell} py-12`}>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div>
-              <div className="mb-4 flex items-center gap-2">
-                <span className="text-2xl">🔬</span>
-                <span className="font-display text-xl text-white">STEM on the Road</span>
-              </div>
+        <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
+          <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-6 md:text-left">
+            <div className="md:pr-4">
+              <h2 className="font-display mb-3 text-base text-white sm:text-lg">About this site</h2>
               <p className="text-sm leading-relaxed text-sage-200/90">
-                Field interviews and reflections from a summer 2026 road trip through six states, built to
-                document rural STEM access with care and context.
+                Everything published here is shared only with informed consent.
               </p>
-              <div className="mt-4 flex flex-wrap gap-3 text-sm">
+            </div>
+
+            <div className="flex justify-center md:justify-center">
               <a
-                href={YOUTUBE_CHANNEL_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="text-rust-200 transition-colors hover:text-amber-100/95"
+                href={mailto}
+                className="group inline-flex flex-col items-center text-center transition-colors hover:text-rust-200"
               >
-                  {social.youtubeLabel}
-                </a>
-                <span className="text-sage-500/80" aria-hidden>
-                  ·
-                </span>
-                <a
-                  href={social.instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-rust-200 transition-colors hover:text-amber-100/95"
-                >
-                  {social.instagramLabel}
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-display mb-4 text-lg text-white">By state</h4>
-              <ul className="space-y-2 text-sm">
-                {states.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      to={`/${s.slug}`}
-                      className="text-sage-200/90 transition-colors hover:text-white"
-                    >
-                      {s.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <h4 className="font-display mb-2 mt-6 text-lg text-white">Blog</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link to="/blog" className="text-sage-200/90 transition-colors hover:text-white">
-                    Latest posts &amp; videos
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="mb-4 text-sm font-medium leading-snug text-white/95">{siteMeta.researcherLine}</p>
-              <h4 className="font-display mb-3 text-lg text-white">About this site</h4>
-              <p className="text-sm leading-relaxed text-sage-200/90">
-                Everything published here is shared only with participants&rsquo;{' '}
-                <span className="text-sage-100/95">informed consent</span>. Quotes, recordings, and written
-                material are offered with care for privacy and context as the trip continues.
-              </p>
-              <p className="mt-4 text-sm">
-                <a
-                  href={`mailto:${siteMeta.contactEmail}`}
-                  title={`Email ${siteMeta.contactEmail}`}
-                  className="font-medium text-rust-200 underline decoration-rust-400/50 underline-offset-2 transition-colors hover:text-amber-100/95 hover:decoration-amber-200/60"
-                >
+                <span className="font-display text-base text-white group-hover:text-rust-200 sm:text-lg">
                   Contact me
-                </a>
+                </span>
+                <span className="mt-1.5 text-sm text-rust-200/95 underline decoration-rust-400/45 underline-offset-[0.2em] group-hover:text-amber-100/90 group-hover:decoration-amber-200/50">
+                  {siteMeta.contactEmail}
+                </span>
+              </a>
+            </div>
+
+            <div className="md:flex md:justify-end md:text-right">
+              <p className="text-sm font-medium leading-snug text-white/95 sm:text-base">
+                {siteMeta.researcherLine}
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </footer>

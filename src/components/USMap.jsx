@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { geoAlbersUsa } from 'd3-geo'
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import states from '../data/states.json'
+import {
+  PIN_BODY_DEFAULT,
+  PIN_BODY_HOVER,
+  PIN_INNER_FILL,
+  PIN_RIM_COLOR,
+  PIN_RIM_WIDTH,
+} from '../config/mapPinColors'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
@@ -66,12 +73,8 @@ function stateShadeIndex(geo) {
   }
   return base
 }
-// Rust pin body + same light-orange rim on teardrop and center dot (matched color + stroke width)
-const PIN_DEFAULT = '#c24e32'
-const PIN_HOVER = '#d85f3f'
-const PIN_RIM_COLOR = '#df8f72'
-const PIN_RIM_WIDTH = 1.05
-const PIN_INNER_FILL = '#fff8f5'
+const PIN_DEFAULT = PIN_BODY_DEFAULT
+const PIN_HOVER = PIN_BODY_HOVER
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
@@ -407,16 +410,13 @@ export default function USMap() {
             transform: 'translate(-50%, 0)',
           }}
         >
-          <p className="font-display text-lg leading-tight text-earth-900">
-            {hovered.place}
-            {!hovered.mapLabelPlaceOnly && (
-              <>
-                {', '}
-                {hovered.abbr}
-              </>
-            )}
+          <p className="font-display text-lg leading-tight text-earth-900">{hovered.place}</p>
+          <p
+            className="mt-1 font-display text-base font-semibold leading-snug sm:text-lg"
+            style={{ color: PIN_BODY_DEFAULT }}
+          >
+            {hovered.name}
           </p>
-          <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-rust-800">{hovered.name}</p>
           <p className="mt-2 text-sm text-earth-700">Click for field notes &amp; interviews</p>
         </div>
       )}

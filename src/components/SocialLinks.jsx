@@ -1,5 +1,6 @@
 import social from '../data/social.json'
 import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
+import { PIN_BODY_DEFAULT, PIN_BODY_HOVER } from '../config/mapPinColors'
 
 function YoutubeIcon({ className = 'h-6 w-6' }) {
   return (
@@ -26,19 +27,24 @@ export default function SocialLinks({ className = '', size = 'default', variant 
       : 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors'
 
   if (variant === 'inline') {
+    const pinIconStyle = {
+      '--pin-icon': PIN_BODY_DEFAULT,
+      '--pin-icon-hover': PIN_BODY_HOVER,
+    }
     const linkClass =
-      'group inline-flex items-center gap-2.5 text-rust-400 transition-colors hover:text-rust-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-sage-900 rounded-sm'
+      'group inline-flex items-center gap-2.5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--pin-icon)]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-sage-900 rounded-sm'
     const textClass =
-      'font-medium text-white underline decoration-rust-400/70 underline-offset-[0.2em] group-hover:decoration-rust-300/90'
-    const iconClass = 'h-7 w-7 shrink-0 text-rust-400 group-hover:text-rust-300'
+      'font-medium text-white underline underline-offset-[0.2em] decoration-white/35 group-hover:decoration-white/55'
+    const iconClass =
+      'h-7 w-7 shrink-0 text-[color:var(--pin-icon)] transition-colors group-hover:text-[color:var(--pin-icon-hover)]'
 
     return (
       <div className={`flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-8 ${className}`}>
-        <a href={youtubeHref} target="_blank" rel="noreferrer" className={linkClass}>
+        <a href={youtubeHref} target="_blank" rel="noreferrer" className={linkClass} style={pinIconStyle}>
           <YoutubeIcon className={iconClass} />
           <span className={textClass}>{social.youtubeLabel}</span>
         </a>
-        <a href={social.instagramUrl} target="_blank" rel="noreferrer" className={linkClass}>
+        <a href={social.instagramUrl} target="_blank" rel="noreferrer" className={linkClass} style={pinIconStyle}>
           <InstagramIcon className={iconClass} />
           <span className={textClass}>{social.instagramLabel}</span>
         </a>
