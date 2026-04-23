@@ -46,8 +46,8 @@ export default function Home() {
         <div className={`relative z-10 ${shell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
           <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
 
-          <div className="grid items-start gap-5 sm:gap-6 md:grid-cols-[1fr_min(220px,30%)] md:gap-8 md:items-start">
-            <div className="order-2 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1">
+          <div className="grid items-start gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:gap-7 md:items-start lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-8">
+            <div className="order-2 min-w-0 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1 md:pr-1">
               <p>
                 I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
                 in a small farm town in New York, and for most of my life, I didn’t think I could get
@@ -62,8 +62,8 @@ export default function Home() {
               </p>
             </div>
 
-            <figure className="order-1 mx-auto w-full max-w-[13.5rem] sm:max-w-sm md:order-2 md:mx-0 md:self-center md:justify-self-end">
-              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(72vw,17.5rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40 sm:max-h-[19rem] md:aspect-auto md:h-[15.5rem] md:max-h-none md:w-[11.75rem] md:max-w-none">
+            <figure className="order-1 mx-auto w-full max-w-[15rem] sm:max-w-[17rem] md:order-2 md:mx-0 md:w-full md:max-w-none md:self-center md:justify-self-end">
+              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(78vw,19rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40 sm:max-h-[21rem] md:aspect-auto md:h-[18.25rem] md:max-h-none md:w-[13.25rem] lg:h-[19.25rem] lg:w-[14rem]">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
                     src="/images/researcher.png"
