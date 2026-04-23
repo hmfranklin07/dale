@@ -76,6 +76,7 @@ const PIN_INNER_FILL = '#fff8f5'
 const PIN_SCALE = 2.15
 const PIN_TX = -23
 const PIN_TY = -47
+const USE_ELEVATION_TEXTURE = true
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -94,23 +95,73 @@ export default function USMap() {
           projectionConfig={{ scale: 1480 }}
           className="h-auto w-full block"
         >
+          <defs>
+            {/* Subtle contour lines to evoke topographic map texture */}
+            <pattern id="topoContours" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+              <path d="M0 3.5H14" stroke="#56654a" strokeWidth="0.45" opacity="0.22" />
+              <path d="M0 8H14" stroke="#56654a" strokeWidth="0.55" opacity="0.16" />
+              <path d="M0 12H14" stroke="#56654a" strokeWidth="0.45" opacity="0.2" />
+            </pattern>
+
+            {/* Directional light/shadow pass to mimic relief shading */}
+            <linearGradient id="reliefTint" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f9fbf6" stopOpacity="0.26" />
+              <stop offset="45%" stopColor="#c7d3ba" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#4d5e40" stopOpacity="0.16" />
+            </linearGradient>
+
+            {/* Fine grain so fills feel like paper/elevation substrate */}
+            <filter id="terrainNoise">
+              <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="1" seed="11" />
+              <feColorMatrix type="saturate" values="0" />
+              <feComponentTransfer>
+                <feFuncA type="table" tableValues="0 0.05" />
+              </feComponentTransfer>
+            </filter>
+          </defs>
+
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => {
                 const fill = STATE_FILLS[stateShadeIndex(geo)]
                 return (
-                <Geography
-                  key={geo.rsmKey || geo.id}
-                  geography={geo}
-                  fill={fill}
-                  stroke={STROKE}
-                  strokeWidth={0.65}
-                  style={{
-                    default: { outline: 'none' },
-                    hover: { fill: FILL_HOVER, outline: 'none' },
-                    pressed: { outline: 'none' },
-                  }}
-                />
+                  <g key={geo.rsmKey || geo.id}>
+                    <Geography
+                      geography={geo}
+                      fill={fill}
+                      stroke={STROKE}
+                      strokeWidth={0.65}
+                      style={{
+                        default: { outline: 'none' },
+                        hover: { fill: FILL_HOVER, outline: 'none' },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                    {USE_ELEVATION_TEXTURE && (
+                      <>
+                        <Geography
+                          geography={geo}
+                          fill="url(#reliefTint)"
+                          stroke="none"
+                          style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
+                        />
+                        <Geography
+                          geography={geo}
+                          fill="url(#topoContours)"
+                          stroke="none"
+                          style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
+                        />
+                        <Geography
+                          geography={geo}
+                          fill="#000"
+                          filter="url(#terrainNoise)"
+                          opacity={0.18}
+                          stroke="none"
+                          style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
+                        />
+                      </>
+                    )}
+                  </g>
                 )
               })
             }
