@@ -210,7 +210,7 @@ export default function USMap() {
   return (
     <div className="relative w-full">
       <div
-        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-50/95 via-amber-50/25 to-sage-100/70 p-1.5 shadow-lg shadow-rust-900/8 ring-1 ring-amber-100/60 sm:p-2"
+        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-300/70 via-amber-50/30 to-sage-100/75 p-1.5 shadow-lg shadow-rust-900/8 ring-1 ring-amber-100/60 sm:p-2"
         style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
       >
         <ComposableMap
@@ -253,17 +253,30 @@ export default function USMap() {
           </Geographies>
 
           {ROUTE_PATH_D && (
-            <path
-              d={ROUTE_PATH_D}
-              fill="none"
-              stroke="#b44b2d"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeDasharray="5 3"
-              opacity={0.92}
-              style={{ pointerEvents: 'none' }}
-            />
+            <>
+              {/* faint halo so the dashed route reads on darker sage state fills */}
+              <path
+                d={ROUTE_PATH_D}
+                fill="none"
+                stroke="rgba(255, 248, 240, 0.55)"
+                strokeWidth={4.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="5 3"
+                style={{ pointerEvents: 'none' }}
+              />
+              <path
+                d={ROUTE_PATH_D}
+                fill="none"
+                stroke="#f97316"
+                strokeWidth={2.6}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="5 3"
+                opacity={0.98}
+                style={{ pointerEvents: 'none' }}
+              />
+            </>
           )}
 
           {states.map((s) => (
