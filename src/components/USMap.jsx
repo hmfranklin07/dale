@@ -6,9 +6,25 @@ import states from '../data/states.json'
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
 // Aligned with Tailwind sage/earth in tailwind.config.js — four related sage shades (same hue family)
+// Index 0 = lightest … 3 = darkest
 const STATE_FILLS = ['#e5ebdd', '#d8e1d0', '#cbd7c3', '#becdb6']
 const FILL_HOVER = '#b3bea3'
 const STROKE = '#5c6d4d'
+
+/** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
+const SHADE_OVERRIDES = {
+  maine: 3, // darker
+  indiana: 0, // lighter
+  idaho: 3, // darker
+  washington: 0, // lighter
+}
+
+function normalizedStateName(geo) {
+  const p = geo.properties || {}
+  const n = p.name || p.NAME
+  if (n == null || n === '') return null
+  return String(n).trim().toLowerCase()
+}
 
 /**
  * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
@@ -16,6 +32,10 @@ const STROKE = '#5c6d4d'
  */
 function stateShadeIndex(geo) {
   const p = geo.properties || {}
+  const stateName = normalizedStateName(geo)
+  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
+    return SHADE_OVERRIDES[stateName]
+  }
   const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
   if (!label) return 0
   let h = 2166136261
