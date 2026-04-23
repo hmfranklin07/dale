@@ -78,14 +78,22 @@ const PIN_SCALE = 2.15
 const PIN_TX = -23
 const PIN_TY = -47
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
+const STOP_LABELS_BY_SLUG = {
+  'new-york': 'Stop 1',
+  illinois: 'Stop 2',
+  nebraska: 'Stop 3',
+  idaho: 'Stop 4',
+  arkansas: 'Stop 5',
+  florida: 'Stop 6',
+}
 
 // Route control points: follows requested destinations, then smoothed for natural curvature.
 const ROUTE_CONTROL_POINTS = [
   // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-76.6, 42.35], // Southern tier arc
-  [-78.0, 42.15], // Buffalo corridor (inland, south of lake edge)
-  [-79.8, 41.95], // NW Pennsylvania arc
+  [-76.9, 42.15], // Southern tier arc
+  [-78.2, 41.95], // Western NY corridor (well south of lake edge)
+  [-80.0, 41.75], // NW Pennsylvania arc
   [-81.69, 41.5], // Cleveland corridor
   [-82.9988, 39.9612], // Ohio (Columbus)
   [-84.9, 39.7], // Ohio/Indiana bend
@@ -105,11 +113,10 @@ const ROUTE_CONTROL_POINTS = [
   [-98.8, 42.7], // Lift north out of Nebraska
   [-99.7, 44.0], // S South Dakota bend
   [-100.35, 44.37], // Pierre (South Dakota)
-  [-102.5, 43.8], // W South Dakota
-  [-104.1, 43.1], // NE Wyoming
-  [-105.8, 42.8], // Wyoming ridge line
-  [-107.8, 42.9], // Central Wyoming
-  [-110.0, 43.2], // W Wyoming
+  [-103.23, 44.08], // Rapid City
+  [-105.6, 44.3], // Northern Wyoming corridor
+  [-108.2, 44.1], // Northern Wyoming / Montana border corridor
+  [-110.3, 43.8], // NW Wyoming toward Idaho
   [-112.2, 43.3], // Idaho Falls corridor
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
@@ -151,8 +158,8 @@ const ROUTE_CONTROL_POINTS = [
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
   [-76.88, 40.27], // Harrisburg corridor
-  [-76.2, 41.2], // N Pennsylvania corridor
-  [-76.8, 41.9], // Southern NY return arc (approach from southwest)
+  [-76.15, 41.15], // N Pennsylvania corridor
+  [-75.95, 41.9], // Southern NY return arc (approach from southwest)
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
@@ -278,6 +285,19 @@ export default function USMap() {
                   strokeWidth={PIN_RIM_WIDTH}
                   className="pointer-events-none"
                 />
+                {STOP_LABELS_BY_SLUG[s.slug] && (
+                  <text
+                    x={12}
+                    y={-8}
+                    textAnchor="middle"
+                    className="pointer-events-none select-none fill-rust-900 font-body text-[4.7px] font-semibold tracking-wide"
+                    paintOrder="stroke"
+                    stroke="#fffaf3"
+                    strokeWidth="0.75"
+                  >
+                    {STOP_LABELS_BY_SLUG[s.slug]}
+                  </text>
+                )}
               </g>
             </Marker>
           ))}
