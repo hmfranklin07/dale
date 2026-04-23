@@ -5,6 +5,10 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import StatePage from './pages/StatePage'
 import Blog from './pages/Blog'
+import BlogPosts from './pages/BlogPosts'
+import BlogVideos from './pages/BlogVideos'
+import BlogPost from './pages/BlogPost'
+import BlogStateHub from './pages/BlogStateHub'
 
 export default function App() {
   return (
@@ -14,6 +18,10 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog/posts" element={<BlogPosts />} />
+          <Route path="/blog/videos" element={<BlogVideos />} />
+          <Route path="/blog/post/:postId" element={<BlogPost />} />
+          <Route path="/blog/state/:stateSlug" element={<BlogStateHub />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/vlog" element={<Navigate to="/blog" replace />} />
           <Route path="/:stateSlug" element={<StatePage />} />
