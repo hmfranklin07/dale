@@ -78,65 +78,74 @@ const PIN_TX = -23
 const PIN_TY = -47
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 
-// Route sketched along major interstate-style corridors so segments look natural and continuous.
+// Route intentionally shaped like the sketched pink path:
+// north arc outbound (NY -> ID), south arc return (ID -> FL -> DC -> NY).
 const ROUTE_WAYPOINTS = [
-  // New York pin -> Ohio -> Indiana -> Illinois pin
+  // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-75.5, 42.6], // Southern NY arc
-  [-77.61, 43.16], // Rochester corridor
-  [-78.88, 42.89], // Buffalo
-  [-80.1, 42.13], // Erie
-  [-81.69, 41.5], // Cleveland
-  [-82.99, 39.96], // Columbus (Ohio)
-  [-84.2, 39.76], // I-70 westbound bend
-  [-86.16, 39.77], // Indianapolis (Indiana)
-  [-87.63, 41.88], // Chicago approach
+  [-75.0, 42.9], // Upstate NY bend
+  [-77.2, 43.1], // Rochester corridor
+  [-79.1, 42.8], // Western NY
+  [-81.3, 41.9], // Lake Erie arc
+  [-82.9988, 39.9612], // Ohio (Columbus)
+  [-84.8, 39.8], // Ohio/Indiana bend
+  [-86.1581, 39.7684], // Indiana (Indianapolis)
+  [-87.7, 41.5], // N Illinois bend
   stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat],
 
-  // Illinois pin -> Iowa -> Nebraska pin
-  [-90.57, 41.52], // Quad Cities
-  [-91.53, 41.66], // Iowa City
+  // Continue north arc: Illinois pin -> Iowa -> Nebraska pin
+  [-90.8, 41.9], // Mississippi crossing bend
+  [-92.1, 42.0], // N Iowa sweep
   [-93.62, 41.59], // Des Moines (Iowa)
-  [-95.93, 41.26], // Omaha
+  [-95.2, 41.8], // W Iowa bend
+  [-96.0, 41.6], // Omaha corridor
   stateBySlug.nebraska && [stateBySlug.nebraska.lng, stateBySlug.nebraska.lat],
 
-  // Nebraska pin -> South Dakota -> Wyoming -> Idaho pin
-  [-99.08, 40.7], // Across Nebraska
+  // Continue north arc: Nebraska pin -> South Dakota -> Wyoming -> Idaho pin
+  [-98.8, 42.7], // Lift north out of Nebraska
+  [-99.7, 44.0], // S South Dakota bend
   [-100.35, 44.37], // Pierre (South Dakota)
-  [-103.23, 44.08], // Rapid City
-  [-104.82, 41.14], // Cheyenne (Wyoming)
-  [-106.31, 42.85], // Casper
-  [-108.5, 41.59], // Rock Springs
-  [-110.76, 42.87], // Western Wyoming
-  [-112.44, 42.87], // Pocatello corridor
+  [-102.5, 43.8], // W South Dakota
+  [-104.1, 43.3], // NE Wyoming
+  [-105.8, 42.9], // Wyoming ridge line
+  [-107.8, 43.0], // Central Wyoming
+  [-110.0, 43.2], // W Wyoming
+  [-112.2, 43.3], // Idaho Falls corridor
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
-  // Idaho pin -> Yosemite -> LA -> Grand Canyon -> Amarillo -> Oklahoma City -> Arkansas pin
-  [-116.2, 43.61], // Boise
-  [-119.81, 39.53], // Reno
-  [-120.2, 38.1], // Sierra approach
+  // Return south arc: Idaho pin -> Yosemite -> LA -> Grand Canyon -> Amarillo -> Oklahoma City -> Arkansas pin
+  [-116.8, 43.2], // Boise area
+  [-118.7, 41.4], // N Nevada
+  [-119.81, 39.53], // Reno corridor
+  [-120.2, 38.5], // Sierra crest approach
   [-119.54, 37.87], // Yosemite
-  [-118.24, 34.05], // Los Angeles
-  [-116.54, 33.83], // Inland SoCal bend
-  [-114.62, 35.19], // Kingman corridor
+  [-118.8, 36.3], // Central CA descent
+  [-118.2437, 34.0522], // Los Angeles
+  [-116.4, 34.4], // Mojave bend
+  [-114.7, 35.2], // AZ border corridor
   [-112.14, 36.05], // Grand Canyon
+  [-110.9, 35.3], // E Arizona
   [-109.56, 35.08], // Flagstaff / I-40 eastbound
   [-106.65, 35.08], // Albuquerque
-  [-103.02, 35.2], // Eastern NM
+  [-104.2, 35.2], // E New Mexico
   [-101.83, 35.22], // Amarillo
-  [-99.5, 35.4], // Western OK
+  [-99.7, 35.3], // W Oklahoma
   [-97.52, 35.47], // Oklahoma City
-  [-95.99, 35.47], // Eastern OK
+  [-95.2, 35.8], // E Oklahoma
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Arkansas pin -> Alabama -> Florida pin -> DC -> back to New York pin
-  [-90.05, 35.15], // Memphis
-  [-88.04, 30.69], // Mobile corridor
+  // Continue south arc: Arkansas pin -> Alabama -> Florida pin
+  [-92.3, 35.2], // Central AR bend
+  [-90.05, 35.15], // Memphis corridor
+  [-88.5, 34.2], // N Mississippi / AL approach
   [-86.81, 33.52], // Birmingham (Alabama)
-  [-84.39, 33.75], // Atlanta
+  [-84.39, 33.75], // Atlanta corridor
+  [-82.8, 32.6], // South Georgia
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
-  [-81.1, 32.08], // Savannah corridor
-  [-79.93, 32.78], // Charleston
+
+  // Swing back north-east: Florida pin -> DC -> New York pin
+  [-81.1, 32.08], // Savannah
+  [-79.93, 32.78], // Charleston corridor
   [-78.64, 35.78], // Raleigh
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
