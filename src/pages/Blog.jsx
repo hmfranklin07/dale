@@ -3,7 +3,7 @@ import states from '../data/states.json'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
-import SectionHeading from '../components/SectionHeading'
+import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, townBySlug } from './blogData'
 
 function townLabelFromSlug(townSlug) {
@@ -57,20 +57,19 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-orange-100/40 to-sage-200/55">
-        <SectionAmbience variant="paper" />
+      <section className="relative overflow-hidden border-b border-sage-900/30 bg-gradient-to-br from-sage-600 via-sage-800 to-sage-950">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_50%_-20%,rgba(253,246,243,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_100%,rgba(237,148,115,0.14),transparent_50%)]"
+          aria-hidden
+        />
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel tone="sageDark" className="text-center">
-              <span className="badge mb-4 inline-block bg-orange-200/95 text-earth-900 ring-1 ring-orange-100/80">
-                Blog
-              </span>
+            <PageHeroPanel className="bg-white/92 text-center shadow-xl shadow-black/25 ring-1 ring-white/70">
+              <span className="badge-rust mb-4 inline-block">Blog</span>
               <h1 className="font-display mb-4 sm:mb-5 text-4xl leading-tight sm:text-5xl">
-                <span className="bg-gradient-to-r from-orange-50 via-amber-100 to-orange-50 bg-clip-text text-transparent">
-                  Field notes from the road
-                </span>
+                <span className={pageTitleClass}>Field notes from the road</span>
               </h1>
-              <p className="mx-auto max-w-2xl text-base text-sage-100 sm:text-lg leading-relaxed">
+              <p className="mx-auto max-w-2xl text-base text-earth-800 sm:text-lg leading-relaxed">
                 Longer written posts and video check-ins from each stop—organized so you can read the
                 latest first, browse by state, or open full lists on their own pages.
               </p>
@@ -177,16 +176,19 @@ export default function Blog() {
                   to={`/blog/state/${s.slug}`}
                   className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="relative flex min-h-[7.75rem] flex-col items-center justify-center overflow-hidden rounded-2xl border border-orange-200/55 bg-gradient-to-br from-white via-orange-50/45 to-sage-200/55 p-6 text-center shadow-lg shadow-sage-900/10 ring-2 ring-orange-100/70 transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-rust-500/90 before:via-orange-400/95 before:to-sage-600/85 after:pointer-events-none after:absolute after:-right-8 after:-top-8 after:h-24 after:w-24 after:rounded-full after:bg-orange-200/25 after:blur-2xl group-hover:-translate-y-1 group-hover:border-orange-300/70 group-hover:shadow-xl group-hover:shadow-orange-200/30 sm:min-h-[8.75rem] sm:p-8">
-                    <span className="relative font-display text-xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
+                  <article className="card texture-dots relative flex min-h-[7.75rem] flex-col items-center justify-center p-6 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-gradient-to-r before:from-rust-500 before:via-orange-400 before:to-sage-600 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-orange-300/55 sm:min-h-[8.75rem] sm:p-8">
+                    <span className="relative z-10 font-display text-xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
                       {s.name}
                     </span>
-                    <span className="relative mt-2.5 inline-flex items-center gap-1.5 text-sm text-sage-800">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400 shadow-sm shadow-orange-300/50" aria-hidden />
+                    <span className="relative z-10 mt-2.5 inline-flex items-center gap-1.5 text-sm text-earth-700">
+                      <span
+                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400 ring-2 ring-orange-200/80"
+                        aria-hidden
+                      />
                       <span>
-                        <span className="font-medium text-orange-800/90">Blogs</span>
+                        <span className="font-medium text-sage-800">Blogs</span>
                         <span className="text-earth-500"> &amp; </span>
-                        <span className="text-sage-800">videos</span>
+                        <span className="font-medium text-orange-800/90">videos</span>
                         <span className="text-earth-500"> from this stop</span>
                       </span>
                     </span>
