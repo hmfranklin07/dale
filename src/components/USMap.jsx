@@ -5,10 +5,16 @@ import states from '../data/states.json'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Aligned with Tailwind sage/earth in tailwind.config.js
-const FILL = '#d8e1d0'
+// Aligned with Tailwind sage/earth in tailwind.config.js — four related sage shades (same hue family)
+const STATE_FILLS = ['#e5ebdd', '#d8e1d0', '#cbd7c3', '#becdb6']
 const FILL_HOVER = '#b3bea3'
 const STROKE = '#5c6d4d'
+
+/** Stable 0..3 from state FIPS so each state keeps the same fill across renders */
+function stateShadeIndex(geo) {
+  const id = geo.id != null ? Number(geo.id) : 0
+  return Number.isNaN(id) ? 0 : id % 4
+}
 const PIN_DEFAULT = '#cf5733' // rust-600
 const PIN_HOVER = '#e2724d' // rust-500
 const PIN_STROKE = '#f6f7f4' // sage-50
@@ -37,11 +43,13 @@ export default function USMap() {
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
-              geographies.map((geo) => (
+              geographies.map((geo) => {
+                const fill = STATE_FILLS[stateShadeIndex(geo)]
+                return (
                 <Geography
                   key={geo.rsmKey || geo.id}
                   geography={geo}
-                  fill={FILL}
+                  fill={fill}
                   stroke={STROKE}
                   strokeWidth={0.65}
                   style={{
@@ -50,7 +58,8 @@ export default function USMap() {
                     pressed: { outline: 'none' },
                   }}
                 />
-              ))
+                )
+              })
             }
           </Geographies>
 
