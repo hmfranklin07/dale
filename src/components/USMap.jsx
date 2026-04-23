@@ -78,67 +78,70 @@ const PIN_TX = -23
 const PIN_TY = -47
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 
-// Route approximates real interstate-style travel corridors so the path bends naturally.
+// Route sketched along major interstate-style corridors so segments look natural and continuous.
 const ROUTE_WAYPOINTS = [
   // New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-76.1474, 43.0481], // Syracuse
-  [-78.8784, 42.8864], // Buffalo
-  [-80.0851, 42.1292], // Erie
-  [-81.6944, 41.4993], // Cleveland
-  [-82.9988, 39.9612], // Columbus
-  [-84.512, 39.1031], // Cincinnati area
-  [-86.1581, 39.7684], // Indianapolis
-  [-87.6298, 41.8781], // Chicago area
+  [-75.5, 42.6], // Southern NY arc
+  [-77.61, 43.16], // Rochester corridor
+  [-78.88, 42.89], // Buffalo
+  [-80.1, 42.13], // Erie
+  [-81.69, 41.5], // Cleveland
+  [-82.99, 39.96], // Columbus (Ohio)
+  [-84.2, 39.76], // I-70 westbound bend
+  [-86.16, 39.77], // Indianapolis (Indiana)
+  [-87.63, 41.88], // Chicago approach
   stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat],
 
   // Illinois pin -> Iowa -> Nebraska pin
-  [-90.1994, 38.627], // St. Louis corridor
-  [-91.6656, 41.9779], // Cedar Rapids
-  [-93.625, 41.5868], // Des Moines
-  [-95.9345, 41.2565], // Omaha
+  [-90.57, 41.52], // Quad Cities
+  [-91.53, 41.66], // Iowa City
+  [-93.62, 41.59], // Des Moines (Iowa)
+  [-95.93, 41.26], // Omaha
   stateBySlug.nebraska && [stateBySlug.nebraska.lng, stateBySlug.nebraska.lat],
 
   // Nebraska pin -> South Dakota -> Wyoming -> Idaho pin
-  [-100.7837, 46.8083], // Bismarck
-  [-100.351, 44.3683], // Pierre
-  [-103.231, 44.0805], // Rapid City
-  [-104.8202, 41.14], // Cheyenne
-  [-106.3131, 42.8501], // Casper
-  [-108.5007, 45.7833], // Billings corridor
-  [-111.0436, 45.677], // Bozeman corridor
-  [-112.0391, 43.4917], // Idaho Falls
+  [-99.08, 40.7], // Across Nebraska
+  [-100.35, 44.37], // Pierre (South Dakota)
+  [-103.23, 44.08], // Rapid City
+  [-104.82, 41.14], // Cheyenne (Wyoming)
+  [-106.31, 42.85], // Casper
+  [-108.5, 41.59], // Rock Springs
+  [-110.76, 42.87], // Western Wyoming
+  [-112.44, 42.87], // Pocatello corridor
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
   // Idaho pin -> Yosemite -> LA -> Grand Canyon -> Amarillo -> Oklahoma City -> Arkansas pin
-  [-116.2023, 43.615], // Boise
-  [-119.8138, 39.5296], // Reno
-  [-120.7401, 37.6391], // Central valley approach
-  [-119.5383, 37.8651], // Yosemite
-  [-118.2437, 34.0522], // Los Angeles
-  [-115.1398, 36.1699], // Las Vegas corridor
-  [-112.1401, 36.0544], // Grand Canyon
-  [-110.9747, 32.2226], // Tucson corridor
-  [-106.6504, 35.0844], // Albuquerque
-  [-101.8313, 35.222], // Amarillo
-  [-97.5164, 35.4676], // Oklahoma City
-  [-94.5786, 39.0997], // KC corridor bend east
+  [-116.2, 43.61], // Boise
+  [-119.81, 39.53], // Reno
+  [-120.2, 38.1], // Sierra approach
+  [-119.54, 37.87], // Yosemite
+  [-118.24, 34.05], // Los Angeles
+  [-116.54, 33.83], // Inland SoCal bend
+  [-114.62, 35.19], // Kingman corridor
+  [-112.14, 36.05], // Grand Canyon
+  [-109.56, 35.08], // Flagstaff / I-40 eastbound
+  [-106.65, 35.08], // Albuquerque
+  [-103.02, 35.2], // Eastern NM
+  [-101.83, 35.22], // Amarillo
+  [-99.5, 35.4], // Western OK
+  [-97.52, 35.47], // Oklahoma City
+  [-95.99, 35.47], // Eastern OK
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
   // Arkansas pin -> Alabama -> Florida pin -> DC -> back to New York pin
-  [-90.049, 35.1495], // Memphis corridor
-  [-86.8104, 33.5186], // Birmingham
-  [-84.388, 33.749], // Atlanta corridor
+  [-90.05, 35.15], // Memphis
+  [-88.04, 30.69], // Mobile corridor
+  [-86.81, 33.52], // Birmingham (Alabama)
+  [-84.39, 33.75], // Atlanta
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
-  [-80.1918, 25.7617], // South Florida swing
-  [-81.3792, 28.5383], // Orlando corridor
-  [-81.6557, 30.3322], // Jacksonville corridor
-  [-79.9311, 32.7765], // Charleston
-  [-78.6382, 35.7796], // Raleigh
-  [-77.436, 37.5407], // Richmond
-  [-77.0369, 38.9072], // Washington, DC
-  [-75.1652, 39.9526], // Philadelphia
-  [-74.006, 40.7128], // NYC
+  [-81.1, 32.08], // Savannah corridor
+  [-79.93, 32.78], // Charleston
+  [-78.64, 35.78], // Raleigh
+  [-77.44, 37.54], // Richmond
+  [-77.04, 38.91], // Washington, DC
+  [-75.17, 39.95], // Philadelphia
+  [-74.01, 40.71], // NYC
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
