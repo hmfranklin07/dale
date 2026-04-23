@@ -67,9 +67,9 @@ export default function Home() {
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
-                    src="/images/researcher.jpg"
-                    alt="Portrait of the project researcher"
-                    className="h-full w-full object-cover"
+                    src="/images/researcher.png"
+                    alt="Portrait of the project researcher, outdoors with two dogs"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
               </div>
