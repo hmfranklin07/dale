@@ -45,12 +45,14 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 13)) | 0
   return (h >>> 0) & 3
 }
-// Rust pin body + very light peach/rust rims (same hue family as fill, not a dark outline)
+// Rust pin body + thin rim: a step lighter than the fill (same orange family, not brown/black)
 const PIN_DEFAULT = '#c24e32'
 const PIN_HOVER = '#d85f3f'
-const PIN_STROKE = '#fcefed' // whisper of rust / pale peach on outer edge
-const PIN_INNER_FILL = '#fff8f4'
-const PIN_INNER_STROKE = '#f2ddd4' // soft peach ring on the inner dot
+const PIN_STROKE = '#df8f72' // softer rust / coral — darker than paper, clearly lighter than PIN_DEFAULT
+const PIN_OUTLINE_WIDTH = 1.05
+const PIN_INNER_FILL = '#fff8f5'
+const PIN_INNER_STROKE = '#e29a82'
+const PIN_INNER_OUTLINE_WIDTH = 0.65
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
@@ -118,7 +120,7 @@ export default function USMap() {
                   d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8z"
                   fill={hovered?.slug === s.slug ? PIN_HOVER : PIN_DEFAULT}
                   stroke={PIN_STROKE}
-                  strokeWidth={2.85}
+                  strokeWidth={PIN_OUTLINE_WIDTH}
                   strokeLinejoin="round"
                 />
                 <circle
@@ -127,7 +129,7 @@ export default function USMap() {
                   r={3.5}
                   fill={PIN_INNER_FILL}
                   stroke={PIN_INNER_STROKE}
-                  strokeWidth={1}
+                  strokeWidth={PIN_INNER_OUTLINE_WIDTH}
                   className="pointer-events-none"
                 />
               </g>
