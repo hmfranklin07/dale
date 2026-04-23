@@ -171,21 +171,9 @@ export default function Blog() {
                   to={`/blog/state/${s.slug}`}
                   className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card texture-dots relative flex min-h-[7.75rem] flex-col items-center justify-center !ring-rust-300/45 p-6 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-rust-400/55 sm:min-h-[8.75rem] sm:p-8">
-                    <span className="relative z-10 font-display text-xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
+                  <article className="card texture-dots relative flex min-h-[11rem] flex-col items-center justify-center !ring-rust-300/45 px-6 py-10 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1.5 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-1 group-hover:border-sage-400/85 group-hover:ring-rust-400/50 sm:min-h-[12rem] sm:px-8 sm:py-12">
+                    <span className="relative z-10 px-1 font-display text-3xl leading-[1.05] tracking-tight text-earth-900 transition-colors duration-300 group-hover:text-rust-800 sm:text-4xl lg:text-[2.65rem]">
                       {s.name}
-                    </span>
-                    <span className="relative z-10 mt-2.5 inline-flex items-center gap-1.5 text-sm text-earth-700">
-                      <span
-                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-rust-500 ring-2 ring-rust-300/70"
-                        aria-hidden
-                      />
-                      <span>
-                        <span className="font-medium text-sage-800">Blogs</span>
-                        <span className="text-earth-500"> &amp; </span>
-                        <span className="font-medium text-rust-800">videos</span>
-                        <span className="text-earth-500"> from this stop</span>
-                      </span>
                     </span>
                   </article>
                 </Link>
