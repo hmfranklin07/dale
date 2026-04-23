@@ -1,6 +1,6 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
-import { RuralFieldBackground } from '../components/RuralIcons'
+import { SectionAmbience } from '../components/SectionAmbience'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 
@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       {/* 1. Title + project overview */}
-      <section className="relative bg-gradient-to-b from-sage-200/60 to-sage-100 overflow-hidden">
-        <RuralFieldBackground density="soft" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-sage-200/70 via-sage-100/80 to-sage-50/90">
+        <SectionAmbience variant="hero" />
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16`}>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-earth-900 mb-5 sm:mb-6 leading-tight">
@@ -30,14 +30,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none z-0">
-          <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-400 to-transparent" />
-        </div>
       </section>
 
       {/* 2. Inspiration + a little about me + photo */}
-      <section className="relative bg-white/95 border-y border-sage-300/60 overflow-hidden">
-        <RuralFieldBackground density="fill" />
+      <section className="relative overflow-hidden border-y border-sage-200/80 bg-gradient-to-b from-white via-sage-50/40 to-earth-50/30">
+        <SectionAmbience variant="paper" />
         <div className={`relative z-10 ${shell} py-10 sm:py-14`}>
           <h2 className="font-display text-2xl sm:text-3xl text-earth-900 mb-5 sm:mb-6">Project inspiration</h2>
 
@@ -63,11 +60,11 @@ export default function Home() {
             </div>
 
             <figure className="order-1 md:order-2 w-full max-w-md mx-auto md:max-w-none md:mx-0">
-              <div className="relative rounded-2xl border-2 border-sage-200/90 shadow-md overflow-hidden bg-earth-100 aspect-[3/4]">
+              <div className="relative overflow-hidden rounded-2xl border border-sage-200/90 bg-earth-100 shadow-lg shadow-earth-900/5 ring-1 ring-earth-200/20 aspect-[3/4]">
                 <img
                   src="/images/researcher.jpg"
                   alt="Portrait of the project researcher"
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </figure>
@@ -76,11 +73,11 @@ export default function Home() {
       </section>
 
       {/* 3. Project aspirations */}
-      <section className="relative overflow-hidden bg-sage-100/50">
-        <RuralFieldBackground density="fill" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-sage-100/80 via-sage-50/60 to-earth-100/40">
+        <SectionAmbience variant="sage" />
         <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
           <h2 className="font-display text-2xl sm:text-3xl text-earth-900 mb-5 sm:mb-6">Project aspirations</h2>
-          <div className="space-y-4 text-base sm:text-lg text-earth-800 leading-relaxed max-w-none">
+          <div className="max-w-none space-y-4 text-base sm:text-lg text-earth-800 leading-relaxed">
             <p>
               I hope the site can be a useful slice of the summer: clear enough for policy readers,
               human enough for anyone who’s lived a version of this, and open enough that new interviews
@@ -95,26 +92,28 @@ export default function Home() {
       </section>
 
       {/* 4. Map */}
-      <section className="bg-sage-100/50 border-t border-sage-300/50">
-        <div className="max-w-7xl mx-auto px-2 sm:px-3 py-10 sm:py-14">
-          <div className="text-center mb-5 sm:mb-6">
+      <section className="relative overflow-hidden border-t border-sage-200/80 bg-gradient-to-b from-earth-100/30 via-sage-100/40 to-sage-100/30">
+        <SectionAmbience variant="map" />
+        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-3 py-10 sm:py-14">
+          <div className="mb-5 text-center sm:mb-6">
             <h2 className="section-title">Interview sites</h2>
-            <p className="text-earth-700 text-base sm:text-lg max-w-3xl mx-auto px-1">
+            <p className="text-earth-700 max-w-3xl mx-auto px-1 text-base sm:text-lg">
               Click a pin to explore updates in each town.
             </p>
           </div>
           <div className="w-full">
-            <div className="card border-sage-400/50 bg-gradient-to-b from-sage-50 to-earth-100/40 p-1.5 sm:p-3">
+            <div className="card border-sage-300/80 bg-gradient-to-b from-sage-50/90 to-earth-100/50 p-1.5 sm:p-3 shadow-lg shadow-earth-900/5">
               <USMap />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-earth-900 text-white py-12 sm:py-16">
-        <div className={`${shell} text-center`}>
+      <section className="relative overflow-hidden bg-earth-900 text-white py-12 sm:py-16">
+        <SectionAmbience variant="dark" />
+        <div className={`relative z-10 ${shell} text-center`}>
           <h2 className="font-display text-2xl sm:text-3xl mb-3">Follow the trip</h2>
-          <p className="text-sage-200/95 mb-8 max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-sage-200/95 max-w-2xl mx-auto mb-8 text-base sm:text-lg">
             The same short-form and vlog content as on the Vlog page—wherever you post first.
           </p>
           <SocialLinks size="large" />
