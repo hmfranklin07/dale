@@ -104,7 +104,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div className="mb-6 sm:mb-8 text-center">
             <div
-              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-400/70 via-amber-300/60 to-sage-500/50"
+              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-500 via-rust-400 to-amber-300"
               aria-hidden
             />
             <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Sites</h2>
@@ -119,11 +119,11 @@ export default function Home() {
       </section>
 
       {/* 5. Follow */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-earth-950 via-sage-900 to-rust-900 py-12 text-white sm:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-br from-earth-950 via-rust-950 to-rust-900 py-12 text-white sm:py-16">
         <SectionAmbience variant="dark" />
         <div className={`relative z-10 ${shell} text-center`}>
-          <h2 className="font-display mb-3 text-2xl sm:text-3xl">Follow the trip</h2>
-          <p className="text-sage-200/95 mx-auto mb-8 max-w-2xl text-base sm:text-lg">
+          <h2 className="font-display mb-3 text-2xl text-amber-50 sm:text-3xl">Follow the trip</h2>
+          <p className="mx-auto mb-8 max-w-2xl text-base text-amber-100/95 sm:text-lg">
             The same short-form and vlog content as on the Vlog page—wherever you post first.
           </p>
           <SocialLinks size="large" />
