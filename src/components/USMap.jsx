@@ -109,10 +109,10 @@ const ROUTE_CONTROL_POINTS = [
   [-96.0, 41.6], // Omaha corridor
   stateBySlug.nebraska && [stateBySlug.nebraska.lng, stateBySlug.nebraska.lat],
 
-  // Continue north arc: Nebraska pin -> South Dakota -> Wyoming -> Idaho pin
-  [-98.8, 42.7], // Lift north out of Nebraska
-  [-99.7, 44.0], // S South Dakota bend
-  [-100.35, 44.37], // Pierre (South Dakota)
+  // Continue north arc: Nebraska pin -> west through Nebraska -> up to Rapid City -> WY -> Idaho pin
+  [-99.2, 41.9], // West-central Nebraska
+  [-101.0, 41.6], // Central-west Nebraska
+  [-103.0, 41.5], // Western Nebraska
   [-103.23, 44.08], // Rapid City
   [-105.6, 44.3], // Northern Wyoming corridor
   [-108.2, 44.1], // Northern Wyoming / Montana border corridor
@@ -146,12 +146,14 @@ const ROUTE_CONTROL_POINTS = [
   [-90.05, 35.15], // Memphis corridor
   [-89.6, 34.35], // N Mississippi
   [-88.2, 34.1], // NE Mississippi
-  [-86.95, 33.9], // N Alabama
-  [-86.0, 32.95], // Central Alabama
-  [-85.2, 31.85], // South Alabama / Dothan corridor
+  [-87.1, 33.55], // W Alabama
+  [-86.3, 32.45], // Central Alabama
+  [-85.5, 31.25], // SE Alabama / Dothan corridor
+  [-85.35, 30.55], // Enter Florida panhandle
   [-85.66, 30.16], // Panama City Beach
-  [-83.28, 30.83], // Valdosta / south Georgia
-  [-82.32, 30.5], // North Florida approach
+  [-84.9, 30.26], // Panhandle eastbound
+  [-84.1, 30.34], // I-10 / Tallahassee corridor
+  [-82.95, 30.42], // North Florida east
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
 
   // Swing back north-east: Florida pin -> DC -> New York pin
@@ -161,8 +163,8 @@ const ROUTE_CONTROL_POINTS = [
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
   [-76.5, 40.5], // Central Pennsylvania
-  [-76.1, 41.15], // N Pennsylvania corridor
-  [-75.8, 41.8], // Southern NY return arc (approach from southwest)
+  [-77.1, 41.2], // N Pennsylvania corridor (west side approach)
+  [-78.0, 41.85], // Southern NY return arc (approach from southwest)
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
@@ -290,18 +292,28 @@ export default function USMap() {
                 />
               </g>
               {STOP_LABELS_BY_SLUG[s.slug] && (
-                <text
-                  x={0}
-                  y={28}
-                  textAnchor="middle"
-                  className="pointer-events-none select-none fill-rust-800 font-body text-[13px] font-semibold"
-                  paintOrder="stroke"
-                  stroke="#fffaf3"
-                  strokeWidth="2.6"
-                  letterSpacing="0.2px"
-                >
-                  {STOP_LABELS_BY_SLUG[s.slug]}
-                </text>
+                <g className="pointer-events-none select-none" transform="translate(0 28)">
+                  <rect
+                    x={-24}
+                    y={-11}
+                    width={48}
+                    height={16}
+                    rx={7}
+                    fill="rgba(255, 250, 243, 0.95)"
+                    stroke="rgba(223, 143, 114, 0.95)"
+                    strokeWidth={1}
+                  />
+                  <text
+                    x={0}
+                    y={0.5}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className="fill-rust-800 font-body text-[12.5px] font-semibold"
+                    letterSpacing="0.2px"
+                  >
+                    {STOP_LABELS_BY_SLUG[s.slug]}
+                  </text>
+                </g>
               )}
             </Marker>
           ))}
