@@ -208,14 +208,18 @@ export default function USMap() {
   const [hovered, setHovered] = useState(null)
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <ComposableMap
-        width={1200}
-        height={700}
-        projection="geoAlbersUsa"
-        projectionConfig={{ scale: 1480 }}
-        className="h-auto w-full block"
+    <div className="relative w-full">
+      <div
+        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-600/72 via-amber-50/28 to-sage-100/72 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/60 sm:p-2"
+        style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
       >
+        <ComposableMap
+          width={1200}
+          height={700}
+          projection="geoAlbersUsa"
+          projectionConfig={{ scale: 1480 }}
+          className="h-auto w-full block"
+        >
           <defs>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#fffdf8" />
@@ -351,7 +355,8 @@ export default function USMap() {
               )}
             </Marker>
           ))}
-      </ComposableMap>
+        </ComposableMap>
+      </div>
 
       {hovered && (
         <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 w-[min(100%,20rem)] max-w-sm -translate-x-1/2 sm:bottom-5">
