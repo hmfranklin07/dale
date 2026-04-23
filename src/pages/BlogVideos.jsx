@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import YouTubeEmbed from '../components/YouTubeEmbed'
+import { innerPageTopBandSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -9,7 +10,9 @@ import { formatDate, sectionShell, sortedVlogs, townBySlug, vlogLocationLabel } 
 export default function BlogVideos() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-orange-100/35 to-sage-200/50">
+      <section
+        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass}`}
+      >
         <SectionAmbience variant="paper" />
         <div className="relative z-10">
           <div className={`${sectionShell} py-8 sm:py-10`}>
