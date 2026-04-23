@@ -170,7 +170,14 @@ const ROUTE_CONTROL_POINTS = [
 
 // Keep exact control points so the curve passes through destination pin tips.
 const ROUTE_WAYPOINTS = ROUTE_CONTROL_POINTS
-const ROUTE_PROJECTION = geoAlbersUsa().scale(1480).translate([600, 350])
+/** Must match ComposableMap: translate(center) then scale (see react-simple-maps makeProjection). */
+const MAP_W = 1200
+const MAP_H = 700
+const MAP_SCALE = 1480
+const MAP_PROJECTION = geoAlbersUsa().translate([MAP_W / 2, MAP_H / 2]).scale(MAP_SCALE)
+
+/** Route curve uses the same centering so it lines up with pins. */
+const ROUTE_PROJECTION = MAP_PROJECTION
 
 function routePathD(points) {
   const projected = points
@@ -210,16 +217,24 @@ export default function USMap() {
   /** Center-x and top-y (px) for tooltip under the hovered pin, relative to map wrap. */
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
 
-  const placeTooltipUnderPin = (e) => {
+  /** Pin anchor from lat/lng → SVG viewBox coords, then map to CSS px under the marker (not cursor). */
+  const placeTooltipForState = (s) => {
     const wrap = mapWrapRef.current
     if (!wrap) return
-    const el = e.currentTarget
-    if (!(el instanceof Element)) return
-    const pin = el.getBoundingClientRect()
-    const r = wrap.getBoundingClientRect()
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+    const projected = MAP_PROJECTION([s.lng, s.lat])
+    if (!projected) return
+    const [mx, my] = projected
+    const svgRect = svg.getBoundingClientRect()
+    const wrapRect = wrap.getBoundingClientRect()
+    const sx = svgRect.width / MAP_W
+    const sy = svgRect.height / MAP_H
+    // Marker `<g>` is anchored at the pin tip; offset down past teardrop + optional stop badge.
+    const belowTipSvg = 52
     setTooltipPos({
-      x: pin.left - r.left + pin.width / 2,
-      y: pin.bottom - r.top + 6,
+      x: svgRect.left - wrapRect.left + mx * sx,
+      y: svgRect.top - wrapRect.top + (my + belowTipSvg) * sy,
     })
   }
 
@@ -306,9 +321,9 @@ export default function USMap() {
               key={s.slug}
               coordinates={[s.lng, s.lat]}
               onClick={() => navigate(`/${s.slug}`)}
-              onMouseEnter={(e) => {
+              onMouseEnter={() => {
                 setHovered(s)
-                placeTooltipUnderPin(e)
+                requestAnimationFrame(() => placeTooltipForState(s))
               }}
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
