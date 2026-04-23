@@ -43,28 +43,26 @@ export default function Home() {
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-100/45">
         <SectionAmbience variant="paper" />
-        <div className={`relative z-10 ${shell} py-10 sm:py-14`}>
+        <div className={`relative z-10 ${shell} py-8 sm:py-10`}>
           <SectionHeading>Project inspiration</SectionHeading>
 
           <div className="grid items-start gap-6 sm:gap-8 md:grid-cols-[1fr_min(260px,32%)] md:gap-10">
             <div className="order-2 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1">
               <p>
-                
+                I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
+                in a small farm town in New York, and for most of my life, I didn’t think I could get
+                to where I am now. Education often felt disconnected from the rest of my life, and many
+                of the opportunities that existed beyond my community didn’t feel within reach.
               </p>
               <p>
-                I’m also inspired by teachers doing multiple jobs at once—one person covering every
-                science class, writing grants, and still showing up for kids after the bell. Their
-                stories are at the center of the trip.
-              </p>
-              <p>
-                <span className="font-display text-rust-800 text-lg">A little about me. </span>
-                I’m the researcher behind this project—[add your name, your school or program, and
-                a sentence on what brought you to rural STEM and this road trip]. You’ll see my voice
-                in the field notes, interviews, and reflections as the summer unfolds.
+                I know there are so many rural students with remarkable potential, even when certain
+                opportunities or possibilities may not feel as visible. This project comes from a desire
+                to better understand how students and educators think about education in their own
+                communities through conversations and shared stories.
               </p>
             </div>
 
-            <figure className="order-1 mx-auto w-full max-w-md md:order-2 md:mx-0">
+            <figure className="order-1 mx-auto w-full max-w-sm md:order-2 md:mx-0">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
@@ -104,7 +102,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div className="mb-6 sm:mb-8 text-center">
             <div
-              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-500 via-rust-400 to-amber-300"
+              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
               aria-hidden
             />
             <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Sites</h2>
