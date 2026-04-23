@@ -78,19 +78,18 @@ const PIN_TX = -23
 const PIN_TY = -47
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 
-// Route intentionally shaped like the sketched pink path:
-// north arc outbound (NY -> ID), south arc return (ID -> FL -> DC -> NY).
-const ROUTE_WAYPOINTS = [
+// Route control points: follows requested destinations, then smoothed for natural curvature.
+const ROUTE_CONTROL_POINTS = [
   // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-75.0, 42.9], // Upstate NY bend
-  [-77.2, 43.1], // Rochester corridor
-  [-79.1, 42.8], // Western NY
-  [-81.3, 41.9], // Lake Erie arc
+  [-75.6, 42.55], // Southern tier arc
+  [-77.6, 42.2], // Buffalo corridor (inland, south of lake edge)
+  [-79.8, 41.95], // NW Pennsylvania arc
+  [-81.69, 41.5], // Cleveland corridor
   [-82.9988, 39.9612], // Ohio (Columbus)
-  [-84.8, 39.8], // Ohio/Indiana bend
+  [-84.9, 39.7], // Ohio/Indiana bend
   [-86.1581, 39.7684], // Indiana (Indianapolis)
-  [-87.7, 41.5], // N Illinois bend
+  [-87.7, 40.9], // Illinois bend
   stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat],
 
   // Continue north arc: Illinois pin -> Iowa -> Nebraska pin
@@ -106,9 +105,9 @@ const ROUTE_WAYPOINTS = [
   [-99.7, 44.0], // S South Dakota bend
   [-100.35, 44.37], // Pierre (South Dakota)
   [-102.5, 43.8], // W South Dakota
-  [-104.1, 43.3], // NE Wyoming
-  [-105.8, 42.9], // Wyoming ridge line
-  [-107.8, 43.0], // Central Wyoming
+  [-104.1, 43.1], // NE Wyoming
+  [-105.8, 42.8], // Wyoming ridge line
+  [-107.8, 42.9], // Central Wyoming
   [-110.0, 43.2], // W Wyoming
   [-112.2, 43.3], // Idaho Falls corridor
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
@@ -149,10 +148,31 @@ const ROUTE_WAYPOINTS = [
   [-78.64, 35.78], // Raleigh
   [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
-  [-75.17, 39.95], // Philadelphia
-  [-74.01, 40.71], // NYC
+  [-76.88, 40.27], // Harrisburg corridor
+  [-75.91, 41.25], // Scranton corridor
+  [-75.3, 42.1], // Southern NY return arc
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
+
+function chaikinSmooth(points, iterations = 2) {
+  if (points.length < 3) return points
+  let current = points
+  for (let iter = 0; iter < iterations; iter++) {
+    const next = [current[0]]
+    for (let i = 0; i < current.length - 1; i++) {
+      const p0 = current[i]
+      const p1 = current[i + 1]
+      const q = [0.75 * p0[0] + 0.25 * p1[0], 0.75 * p0[1] + 0.25 * p1[1]]
+      const r = [0.25 * p0[0] + 0.75 * p1[0], 0.25 * p0[1] + 0.75 * p1[1]]
+      next.push(q, r)
+    }
+    next.push(current[current.length - 1])
+    current = next
+  }
+  return current
+}
+
+const ROUTE_WAYPOINTS = chaikinSmooth(ROUTE_CONTROL_POINTS, 2)
 
 export default function USMap() {
   const navigate = useNavigate()
