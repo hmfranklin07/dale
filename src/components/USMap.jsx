@@ -149,6 +149,7 @@ const ROUTE_CONTROL_POINTS = [
   [-86.95, 33.9], // N Alabama
   [-86.0, 32.95], // Central Alabama
   [-85.2, 31.85], // South Alabama / Dothan corridor
+  [-85.66, 30.16], // Panama City Beach
   [-83.28, 30.83], // Valdosta / south Georgia
   [-82.32, 30.5], // North Florida approach
   stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
@@ -291,12 +292,12 @@ export default function USMap() {
               {STOP_LABELS_BY_SLUG[s.slug] && (
                 <text
                   x={0}
-                  y={34}
+                  y={28}
                   textAnchor="middle"
-                  className="pointer-events-none select-none fill-rust-900 font-body text-[11px] font-semibold"
+                  className="pointer-events-none select-none fill-rust-800 font-body text-[13px] font-semibold"
                   paintOrder="stroke"
                   stroke="#fffaf3"
-                  strokeWidth="2.4"
+                  strokeWidth="2.6"
                   letterSpacing="0.2px"
                 >
                   {STOP_LABELS_BY_SLUG[s.slug]}
