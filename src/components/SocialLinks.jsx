@@ -1,4 +1,5 @@
 import social from '../data/social.json'
+import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
 
 export default function SocialLinks({ className = '', size = 'default' }) {
   const btn =
@@ -9,7 +10,7 @@ export default function SocialLinks({ className = '', size = 'default' }) {
   return (
     <div className={`flex flex-wrap items-center justify-center gap-3 ${className}`}>
       <a
-        href={social.youtubeUrl}
+        href={YOUTUBE_CHANNEL_URL}
         target="_blank"
         rel="noreferrer"
         className={`${btn} bg-red-600 text-white hover:bg-red-700 shadow-sm`}

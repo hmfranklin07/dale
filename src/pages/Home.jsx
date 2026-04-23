@@ -20,10 +20,7 @@ export default function Home() {
               </h1>
               <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
                 <p>
-                  This site documents a research road trip through rural America. In each state I sit down
-                  with students, teachers, and people who make schools run—less to “fix” a narrative and
-                  more to show what it looks like on the ground when you ask honest questions about STEM
-                  access, identity, and aspiration.
+                This site serves to document how STEM education is experienced in rural communities across the United States.  Through conversations with students, educators, and administrators, I seek to share what STEM looks like in high schools; how it is taught, experienced, and how it connects to students’ lives, identities, and communities.  This project highlights voices from 5 different regions, capturing a wide range of perspectives and lived experiences.
                 </p>
                 <p>
                   You’ll find a mix: quick field notes, longer written interviews, and my own reflections as
@@ -45,10 +42,7 @@ export default function Home() {
           <div className="grid items-start gap-6 sm:gap-8 md:grid-cols-[1fr_min(260px,32%)] md:gap-10">
             <div className="order-2 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1">
               <p>
-                The project grew out of class readings and data that don’t line up with how generous and
-                curious so many small-town students are. On paper, access to information keeps improving;
-                in person, the gap in who sees themselves in STEM is still there. I wanted to leave the
-                paper behind and go listen.
+                
               </p>
               <p>
                 I’m also inspired by teachers doing multiple jobs at once—one person covering every

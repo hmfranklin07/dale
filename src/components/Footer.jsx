@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import social from '../data/social.json'
 import states from '../data/states.json'
+import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
 import { SectionAmbience } from './SectionAmbience'
 
 const shell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'
@@ -22,12 +23,12 @@ export default function Footer() {
                 document rural STEM access with care and context.
               </p>
               <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                <a
-                  href={social.youtubeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-rust-200 transition-colors hover:text-amber-100/95"
-                >
+              <a
+                href={YOUTUBE_CHANNEL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-rust-200 transition-colors hover:text-amber-100/95"
+              >
                   {social.youtubeLabel}
                 </a>
                 <span className="text-sage-500/80" aria-hidden>

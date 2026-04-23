@@ -1,3 +1,5 @@
+import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
+
 export default function YouTubeEmbed({ youtubeId, title }) {
   if (!youtubeId) {
     return (
@@ -8,6 +10,14 @@ export default function YouTubeEmbed({ youtubeId, title }) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <p className="text-sm font-medium">Video coming soon</p>
+          <a
+            href={YOUTUBE_CHANNEL_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-block text-sm font-semibold text-rust-800 underline decoration-rust-400/70 underline-offset-2 hover:text-rust-950"
+          >
+            Open @HannahFranklin07 on YouTube
+          </a>
         </div>
       </div>
     )
