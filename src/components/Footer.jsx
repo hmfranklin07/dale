@@ -19,7 +19,7 @@ export default function Footer() {
                 <span className="font-display text-xl text-white">STEM on the Road</span>
               </div>
               <p className="text-sm leading-relaxed text-sage-200/90">
-                Field interviews and reflections from a summer 2026 road trip through five states, built to
+                Field interviews and reflections from a summer 2026 road trip through six states, built to
                 document rural STEM access with care and context.
               </p>
               <div className="mt-4 flex flex-wrap gap-3 text-sm">

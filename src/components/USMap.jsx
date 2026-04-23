@@ -49,10 +49,10 @@ const PIN_DEFAULT = '#cf5733' // rust-600
 const PIN_HOVER = '#e2724d' // rust-500
 const PIN_STROKE = '#f6f7f4' // sage-50
 
-// Pin path is ~24 units tall; scale 1.85 and translate so tip stays on lat/lng
-const PIN_SCALE = 1.85
-const PIN_TX = -20
-const PIN_TY = -40
+// Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
+const PIN_SCALE = 2.15
+const PIN_TX = -23
+const PIN_TY = -47
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -107,7 +107,7 @@ export default function USMap() {
                 <circle
                   cx={12}
                   cy={6}
-                  r={18}
+                  r={21}
                   fill="rgba(0,0,0,0)"
                   className="cursor-pointer"
                 />
@@ -115,9 +115,9 @@ export default function USMap() {
                   d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8z"
                   fill={hovered?.slug === s.slug ? PIN_HOVER : PIN_DEFAULT}
                   stroke={PIN_STROKE}
-                  strokeWidth={2.2}
+                  strokeWidth={2.45}
                 />
-                <circle cx={12} cy={8} r={3.2} fill="#fffdf9" className="pointer-events-none" />
+                <circle cx={12} cy={8} r={3.5} fill="#fffdf9" className="pointer-events-none" />
               </g>
             </Marker>
           ))}

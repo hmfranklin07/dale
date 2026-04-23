@@ -1,5 +1,16 @@
 [
   {
+    "slug": "arkport-ny",
+    "name": "Arkport",
+    "state": "New York",
+    "stateSlug": "new-york",
+    "lat": 42.3934,
+    "lng": -77.6964,
+    "summary": "Western New York near the southern Finger Lakes: small-community schools, place-based STEM, and how rural districts connect to the wider research trip.",
+    "date": "2026-05-25",
+    "image": "/images/towns/placeholder.jpg"
+  },
+  {
     "slug": "bradford-il",
     "name": "Bradford",
     "state": "Illinois",
