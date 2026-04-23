@@ -91,8 +91,8 @@ export default function Home() {
       </section>
 
       {/* 3. Map */}
-      <section className="relative overflow-hidden border-t border-sage-300/50 bg-gradient-to-b from-sage-700/52 via-amber-50/32 to-sage-900/14">
-        <SectionAmbience variant="map" />
+      <section className="relative overflow-hidden border-t border-orange-200/40 bg-gradient-to-b from-orange-100/90 via-amber-50/70 to-white">
+        <SectionAmbience variant="paper" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
           <div className="mb-6 sm:mb-8 text-center">
             <div
@@ -104,7 +104,7 @@ export default function Home() {
               Click a pin to explore each area!
             </p>
           </div>
-          <div className="w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.4rem]">
+          <div className="w-full">
             <USMap />
           </div>
         </div>
