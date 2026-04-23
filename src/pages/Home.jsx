@@ -23,9 +23,7 @@ export default function Home() {
                 This site serves to document how STEM education is experienced in rural communities across the United States.  Through conversations with students, educators, and administrators, I seek to share what STEM looks like in high schools; how it is taught, experienced, and how it connects to students’ lives, identities, and communities.  This project highlights voices from 5 different regions, capturing a wide range of perspectives and lived experiences.
                 </p>
                 <p>
-                  You’ll find a mix: quick field notes, longer written interviews, and my own reflections as
-                  the trip keeps moving. Everything is built around consent, accuracy, and respect for the
-                  places that welcome the project.
+                  You’ll find a mix of videos, interviews, reflections, transcriptions, and personal blogs that document stories from across the country.
                 </p>
               </div>
             </PageHeroPanel>
