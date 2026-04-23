@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
-import { STATE_HERO_BAND_BG } from '../config/mapPinColors'
+import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -54,8 +54,7 @@ export default function Blog() {
   return (
     <>
       <section
-        className="relative overflow-hidden border-b border-sage-400/40"
-        style={{ backgroundColor: STATE_HERO_BAND_BG }}
+        className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
       >
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>

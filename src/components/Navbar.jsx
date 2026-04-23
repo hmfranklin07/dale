@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
-            <span className="font-display bg-gradient-to-r from-earth-900 via-sage-900 to-sage-700 bg-clip-text text-lg text-transparent sm:text-xl">
+            <span className="font-display text-lg text-earth-900 sm:text-xl">
               STEM Across Rural America
             </span>
           </Link>

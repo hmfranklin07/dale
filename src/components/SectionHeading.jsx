@@ -19,5 +19,5 @@ export default function SectionHeading({ children, align = 'left', className = '
   )
 }
 
-export const pageTitleClass =
-  'bg-gradient-to-r from-earth-900 via-sage-800/95 to-sage-700 bg-clip-text text-transparent'
+/** Main page / hero titles — solid dark text (no green gradient). */
+export const pageTitleClass = 'text-earth-900'

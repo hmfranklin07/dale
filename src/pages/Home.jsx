@@ -1,5 +1,6 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
+import { homeHeroBandSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -12,7 +13,9 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden border-b border-sage-900/35 bg-sage-800">
+      <section
+        className={`relative overflow-hidden border-b border-sage-900/45 ${homeHeroBandSectionClass}`}
+      >
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel className="!bg-white shadow-xl shadow-black/20 ring-1 ring-sage-200/70">
@@ -33,8 +36,7 @@ export default function Home() {
       </section>
 
       {/* 2. Inspiration */}
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-orange-100/45 to-sage-100/45">
-        <SectionAmbience variant="paper" />
+      <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100">
         <div className={`relative z-10 ${sectionShell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
           <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
@@ -42,7 +44,7 @@ export default function Home() {
             </div>
 
             <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
-              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-orange-200/45 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-400 via-rust-500 to-rust-700 p-1.5 shadow-xl shadow-rust-900/20 ring-1 ring-rust-300/60 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
                 <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                   <img
                     src="/images/researcher.png"
