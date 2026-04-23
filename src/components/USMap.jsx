@@ -45,17 +45,14 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 13)) | 0
   return (h >>> 0) & 3
 }
-// Rust pin body + thin rims (lighter coral than body); inner dot has outer + inner ring
+// Rust pin body + thin lighter-rust rim; center dot uses same family (slightly thicker dot outline only)
 const PIN_DEFAULT = '#c24e32'
 const PIN_HOVER = '#d85f3f'
-const PIN_STROKE = '#ebb19e' // lighter coral outline on teardrop
+const PIN_STROKE = '#df8f72'
 const PIN_OUTLINE_WIDTH = 1.05
 const PIN_INNER_FILL = '#fff8f5'
-const PIN_INNER_STROKE = '#efd5c9' // outer ring on center dot
-const PIN_INNER_OUTLINE_WIDTH = 0.7
-const PIN_INNER_RING_STROKE = '#f5e1d8' // second, lighter ring inside the dot
-const PIN_INNER_RING_WIDTH = 0.64
-const PIN_INNER_RING_R = 2.05
+const PIN_INNER_STROKE = '#e29a82'
+const PIN_INNER_OUTLINE_WIDTH = 0.72
 
 // Pin path is ~24 units tall; scale + translate anchor the tip on lat/lng
 const PIN_SCALE = 2.15
@@ -133,15 +130,6 @@ export default function USMap() {
                   fill={PIN_INNER_FILL}
                   stroke={PIN_INNER_STROKE}
                   strokeWidth={PIN_INNER_OUTLINE_WIDTH}
-                  className="pointer-events-none"
-                />
-                <circle
-                  cx={12}
-                  cy={8}
-                  r={PIN_INNER_RING_R}
-                  fill="none"
-                  stroke={PIN_INNER_RING_STROKE}
-                  strokeWidth={PIN_INNER_RING_WIDTH}
                   className="pointer-events-none"
                 />
               </g>
