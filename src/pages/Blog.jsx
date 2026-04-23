@@ -171,7 +171,7 @@ export default function Blog() {
                   to={`/blog/state/${s.slug}`}
                   className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card texture-dots relative flex min-h-[9.5rem] flex-col items-center justify-center !ring-rust-300/45 px-6 py-8 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-rust-400/55 sm:min-h-[10.25rem] sm:px-8 sm:py-9">
+                  <article className="card relative flex min-h-[9.5rem] flex-col items-center justify-center !ring-rust-300/45 px-6 py-8 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-rust-400/55 sm:min-h-[10.25rem] sm:px-8 sm:py-9">
                     <span className="relative z-10 font-display text-2xl leading-tight tracking-tight text-earth-900 transition-colors duration-300 group-hover:text-rust-800 sm:text-3xl">
                       {s.name}
                     </span>

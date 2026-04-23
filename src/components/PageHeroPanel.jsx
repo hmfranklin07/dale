@@ -2,8 +2,8 @@ import { PIN_BODY_DEFAULT } from '../config/mapPinColors'
 
 const toneClass = {
   paper:
-    'texture-dots rounded-3xl border border-white/60 border-l-4 border-l-rust-400/50 bg-white/40 p-6 shadow-2xl shadow-rust-900/5 ring-1 ring-sage-200/50 backdrop-blur-md sm:p-8 md:p-10',
-  /** State page intro: solid white card, pin-rust left bar (no dot texture). */
+    'rounded-3xl border border-white/60 border-l-4 border-l-rust-400/50 bg-white/40 p-6 shadow-2xl shadow-rust-900/5 ring-1 ring-sage-200/50 backdrop-blur-md sm:p-8 md:p-10',
+  /** State page intro: solid white card, pin-rust left bar. */
   statePage:
     'rounded-3xl border border-sage-200/85 border-l-4 bg-white p-6 shadow-2xl shadow-black/15 ring-1 ring-sage-200/55 sm:p-8 md:p-10',
   sageDark:
