@@ -10,7 +10,17 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden border-b border-sage-200/50 bg-gradient-to-b from-amber-50/90 via-sage-100/75 to-sage-200/55">
+      <section className="relative overflow-hidden border-b border-sage-200/50 bg-earth-900">
+        <img
+          src="/images/hero-sunset.png"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-earth-950/45 via-earth-900/30 to-earth-900/55"
+          aria-hidden
+        />
         <SectionAmbience variant="hero" />
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
