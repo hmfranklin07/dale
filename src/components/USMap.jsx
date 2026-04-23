@@ -14,18 +14,25 @@ const STROKE = '#5c6d4d'
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
   maine: 3, // darker
+  alaska: 3, // darker
   indiana: 0, // lighter
   idaho: 3, // darker
   washington: 0, // lighter
   wisconsin: 0, // lighter
   'south dakota': 0, // lighter
   kansas: 3, // darker
+  california: 3, // darkest shade
 }
 
 /** Relative one-step tweaks from the computed shade index (clamped 0..3). */
 const SHADE_ADJUSTMENTS = {
   arkansas: +1, // one shade darker
   missouri: -1, // one shade lighter
+  'new jersey': +1, // one shade darker
+  'new york': +2, // two shades darker
+  massachusetts: +1, // one shade darker
+  'south carolina': -1, // one shade lighter
+  nevada: -1, // one shade lighter
 }
 
 function normalizedStateName(geo) {
