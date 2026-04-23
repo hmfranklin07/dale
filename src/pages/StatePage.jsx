@@ -1,13 +1,13 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
-import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
 import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
+import { PIN_BODY_DEFAULT } from '../config/mapPinColors'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
@@ -104,11 +104,13 @@ export default function StatePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-200/55">
-        <SectionAmbience variant="paper" />
+      <section
+        className="relative overflow-hidden border-b border-rust-900/25"
+        style={{ backgroundColor: PIN_BODY_DEFAULT }}
+      >
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="bg-white/84">
+            <PageHeroPanel tone="statePage">
               <Link
                 to="/"
                 className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"

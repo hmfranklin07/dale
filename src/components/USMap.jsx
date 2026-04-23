@@ -412,7 +412,7 @@ export default function USMap() {
         >
           <p className="font-display text-lg leading-tight text-earth-900">{hovered.place}</p>
           <p
-            className="mt-1 font-display text-base font-semibold leading-snug sm:text-lg"
+            className="mt-0.5 font-display text-[13px] font-semibold uppercase leading-tight tracking-wider sm:text-sm sm:leading-tight"
             style={{ color: PIN_BODY_DEFAULT }}
           >
             {hovered.name}

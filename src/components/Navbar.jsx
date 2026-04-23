@@ -7,6 +7,20 @@ const primary = [
   { to: '/blog', label: 'Blog' },
 ]
 
+/** Solid microscope silhouette (matches site sage tones). */
+function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-sage-900' }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M3 19.5h18v2.5H3v-2.5z" />
+      <path d="M8 19.5V9h3.5v10.5H8z" />
+      <path d="M5.5 16h12v2H5.5v-2z" />
+      <path d="M10 6.5h8.5v3.5H10V6.5z" />
+      <path d="M15.5 3.5h4.5v5.5h-4.5V3.5z" />
+      <path d="M16.5 10.5h3.5v2.5h-3.5v-2.5z" />
+    </svg>
+  )
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
@@ -29,7 +43,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <span className="text-2xl">🔬</span>
+            <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-sage-900 sm:h-8 sm:w-8" />
             <span className="font-display bg-gradient-to-r from-earth-900 via-sage-900 to-sage-700 bg-clip-text text-lg text-transparent sm:text-xl">
               STEM Across Rural America
             </span>

@@ -7,11 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="relative mt-auto overflow-hidden">
-      <div className="relative bg-gradient-to-br from-zinc-950 via-earth-900 to-sage-900/98 text-sage-100/90">
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/45 to-black/15"
-          aria-hidden
-        />
+      <div className="relative bg-earth-900 text-sage-100/90">
         <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
           <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-6 md:text-left">
             <div className="md:pr-4">
