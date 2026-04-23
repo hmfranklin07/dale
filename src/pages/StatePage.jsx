@@ -13,6 +13,80 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
+/** Generic slot when fewer than three vlogs exist for this state (same shape as a real teaser). */
+function StateVideoSlot({ vlog, stateSlug }) {
+  if (vlog) {
+    return <StateVideoTeaser vlog={vlog} stateSlug={stateSlug} />
+  }
+  return (
+    <Link
+      to={`/${stateSlug}/videos`}
+      className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+    >
+      <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+        <div className="relative flex aspect-video shrink-0 items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 ring-1 ring-sage-200/40">
+          <span className="text-xs font-medium uppercase tracking-wide text-earth-500">Video</span>
+        </div>
+        <div className="flex flex-1 flex-col p-4 sm:p-5">
+          <div className="flex flex-col items-start gap-2">
+            <span className="badge-sage inline-block text-[0.65rem]">Location</span>
+            <time className="block text-[0.65rem] text-earth-500">Date</time>
+          </div>
+          <h3 className="font-display mt-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
+            Title
+          </h3>
+          <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-earth-600">Text</p>
+          <p className="mt-3 text-xs font-semibold text-rust-800">View all videos →</p>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
+function TranscriptionFillerCard({ stateSlug }) {
+  return (
+    <Link
+      to={`/${stateSlug}/transcriptions`}
+      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+    >
+      <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+        <div className="card-body sm:p-8">
+          <div className="flex flex-col items-start gap-2">
+            <span className="badge-sage inline-block w-fit">Location</span>
+            <time className="block text-xs text-earth-500">Date</time>
+          </div>
+          <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+            Title
+          </h2>
+          <p className="mt-2 text-sm text-earth-600">Text · Text</p>
+          <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">Text</p>
+          <p className="mt-4 text-sm font-semibold text-rust-800">View all transcriptions →</p>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
+function ReflectionFillerCard({ stateSlug }) {
+  return (
+    <Link
+      to={`/${stateSlug}/reflections`}
+      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+    >
+      <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+        <div className="card-body sm:p-8">
+          <time className="block text-xs text-earth-500">Date</time>
+          <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+            Title
+          </h2>
+          <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">Text</p>
+          <p className="mt-4 text-sm font-semibold text-rust-800">View all reflections →</p>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
 export default function StatePage() {
   const { stateSlug } = useParams()
   if (!stateSlugs.has(stateSlug)) {
@@ -25,7 +99,6 @@ export default function StatePage() {
   const stateReflections = reflectionsForState(stateSlug)
 
   const videoSlots = [stateVlogs[0], stateVlogs[1], stateVlogs[2]]
-  const hasAnyVideo = stateVlogs.length > 0
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
@@ -75,40 +148,22 @@ export default function StatePage() {
             <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
               Conversations and interviews from this stop.
             </p>
-            {hasAnyVideo ? (
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
-                  {videoSlots.map((vlog, idx) =>
-                    vlog ? (
-                      <StateVideoTeaser key={vlog.id} vlog={vlog} stateSlug={stateSlug} />
-                    ) : (
-                      <div
-                        key={`video-slot-${idx}`}
-                        className="flex min-h-[12rem] flex-col items-center justify-center rounded-2xl border border-dashed border-rust-400/65 bg-gradient-to-b from-rust-50/90 via-white to-sage-100/40 p-5 text-center ring-1 ring-rust-200/50"
-                      >
-                        <span className="text-xs font-semibold uppercase tracking-wide text-rust-800">Open slot</span>
-                        <p className="mt-2 text-sm text-earth-600">
-                          Add another vlog for a town in {state.name} in vlogs.json to fill this column.
-                        </p>
-                      </div>
-                    ),
-                  )}
-                </div>
-                <div className="flex justify-start">
-                  <Link
-                    to={`/${stateSlug}/videos`}
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                  >
-                    View all videos
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
+                {videoSlots.map((vlog, idx) => (
+                  <StateVideoSlot key={vlog ? vlog.id : `filler-${idx}`} vlog={vlog} stateSlug={stateSlug} />
+                ))}
               </div>
-            ) : (
-              <p className="text-earth-600 sm:text-lg">
-                Videos for {state.name} will show here when you add vlogs tied to towns in this state.
-              </p>
-            )}
+              <div className="flex justify-start">
+                <Link
+                  to={`/${stateSlug}/videos`}
+                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                >
+                  View all videos
+                  <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </div>
           </section>
 
           <section>
@@ -116,8 +171,8 @@ export default function StatePage() {
             <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
               Written interviews and conversations from this stop.
             </p>
-            {latestInterview ? (
-              <div className="space-y-6">
+            <div className="space-y-6">
+              {latestInterview ? (
                 <Link
                   to={`/${stateSlug}/transcriptions`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
@@ -145,21 +200,19 @@ export default function StatePage() {
                     </div>
                   </article>
                 </Link>
-                <div className="flex justify-start">
-                  <Link
-                    to={`/${stateSlug}/transcriptions`}
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                  >
-                    View all transcriptions
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
+              ) : (
+                <TranscriptionFillerCard stateSlug={stateSlug} />
+              )}
+              <div className="flex justify-start">
+                <Link
+                  to={`/${stateSlug}/transcriptions`}
+                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                >
+                  View all transcriptions
+                  <span aria-hidden>→</span>
+                </Link>
               </div>
-            ) : (
-              <p className="text-earth-600 sm:text-lg">
-                Transcriptions for {state.name} will show here when you add interviews for towns in this state.
-              </p>
-            )}
+            </div>
           </section>
 
           <section>
@@ -167,8 +220,8 @@ export default function StatePage() {
             <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
               Longer written notes from the road while they are still fresh.
             </p>
-            {latestReflection ? (
-              <div className="space-y-6">
+            <div className="space-y-6">
+              {latestReflection ? (
                 <Link
                   to={`/${stateSlug}/reflections`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
@@ -184,31 +237,19 @@ export default function StatePage() {
                     </div>
                   </article>
                 </Link>
-                <div className="flex justify-start">
-                  <Link
-                    to={`/${stateSlug}/reflections`}
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                  >
-                    View all reflections
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <p className="text-earth-600 sm:text-lg">
-                  Reflections for {state.name} live in reflections.json (use <code className="text-sm">stateSlug</code>{' '}
-                  <code className="text-sm">{stateSlug}</code>). You can still open the archive now:
-                </p>
+              ) : (
+                <ReflectionFillerCard stateSlug={stateSlug} />
+              )}
+              <div className="flex justify-start">
                 <Link
                   to={`/${stateSlug}/reflections`}
                   className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
                 >
-                  Reflections archive
+                  View all reflections
                   <span aria-hidden>→</span>
                 </Link>
               </div>
-            )}
+            </div>
           </section>
         </div>
       </PageContentBand>
