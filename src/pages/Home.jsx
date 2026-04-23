@@ -87,7 +87,7 @@ export default function Home() {
               className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
               aria-hidden
             />
-            <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Sites</h2>
+            <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
             <p className="text-earth-600 mx-auto mt-2 max-w-2xl text-base sm:text-lg">
               Click a pin to explore each area!
             </p>
