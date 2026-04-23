@@ -88,7 +88,7 @@ export default function USMap() {
       {hovered && (
         <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 w-[min(100%,20rem)] max-w-sm -translate-x-1/2 sm:bottom-5">
           <div
-            className="rounded-xl border-2 border-rust-200/50 bg-gradient-to-b from-sage-900/95 to-earth-900/98 px-4 py-3 text-center shadow-lg shadow-earth-900/20 ring-1 ring-amber-200/20"
+            className="rounded-xl border-2 border-amber-200/50 bg-gradient-to-b from-rust-600/95 via-rust-800/98 to-rust-950/98 px-4 py-3 text-center shadow-lg shadow-rust-900/35 ring-1 ring-amber-200/40"
           >
             <p className="font-display text-lg leading-tight text-amber-50/95">
               {hovered.place}
@@ -99,8 +99,8 @@ export default function USMap() {
                 </>
               )}
             </p>
-            <p className="mt-0.5 text-xs uppercase tracking-wider text-sage-300/95">{hovered.name}</p>
-            <p className="mt-2 text-sm text-sage-200/90">Click for field notes &amp; interviews</p>
+            <p className="mt-0.5 text-xs uppercase tracking-wider text-amber-200/90">{hovered.name}</p>
+            <p className="mt-2 text-sm text-amber-100/90">Click for field notes &amp; interviews</p>
           </div>
         </div>
       )}
