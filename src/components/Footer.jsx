@@ -63,11 +63,11 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              <h4 className="font-display mb-2 mt-6 text-lg text-white">Vlog</h4>
+              <h4 className="font-display mb-2 mt-6 text-lg text-white">Blog</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link to="/vlog" className="text-sage-200/90 transition-colors hover:text-white">
-                    Vlog & B‑roll
+                  <Link to="/blog" className="text-sage-200/90 transition-colors hover:text-white">
+                    Latest posts &amp; videos
                   </Link>
                 </li>
               </ul>

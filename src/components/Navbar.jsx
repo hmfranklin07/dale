@@ -4,7 +4,7 @@ import states from '../data/states.json'
 
 const primary = [
   { to: '/', label: 'Home' },
-  { to: '/vlog', label: 'Vlog' },
+  { to: '/blog', label: 'Blog' },
 ]
 
 export default function Navbar() {

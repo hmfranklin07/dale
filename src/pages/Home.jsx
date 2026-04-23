@@ -115,7 +115,7 @@ export default function Home() {
         <div className={`relative z-10 ${shell} text-center`}>
           <h2 className="font-display mb-3 text-2xl text-white sm:text-3xl">Follow the trip</h2>
           <p className="mx-auto mb-8 max-w-2xl text-base text-sage-100 sm:text-lg">
-            The same short-form and vlog content as on the Vlog page—wherever you post first.
+            The same short-form and video content as on the Blog page—wherever you post first.
           </p>
           <SocialLinks size="large" />
         </div>
