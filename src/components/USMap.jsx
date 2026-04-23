@@ -207,21 +207,26 @@ export default function USMap() {
   const navigate = useNavigate()
   const mapWrapRef = useRef(null)
   const [hovered, setHovered] = useState(null)
-  const [pointer, setPointer] = useState({ x: 0, y: 0 })
+  /** Center-x and top-y (px) for tooltip under the hovered pin, relative to map wrap. */
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
 
-  const updatePointer = (e) => {
-    if (e.clientX == null || e.clientY == null) return
-    const el = mapWrapRef.current
-    if (!el) return
-    const r = el.getBoundingClientRect()
-    setPointer({ x: e.clientX - r.left, y: e.clientY - r.top })
+  const placeTooltipUnderPin = (e) => {
+    const wrap = mapWrapRef.current
+    if (!wrap) return
+    const el = e.currentTarget
+    if (!(el instanceof Element)) return
+    const pin = el.getBoundingClientRect()
+    const r = wrap.getBoundingClientRect()
+    setTooltipPos({
+      x: pin.left - r.left + pin.width / 2,
+      y: pin.bottom - r.top + 6,
+    })
   }
 
   return (
     <div
       ref={mapWrapRef}
       className="relative w-full"
-      onMouseMove={updatePointer}
       onMouseLeave={() => {
         setHovered(null)
       }}
@@ -303,7 +308,7 @@ export default function USMap() {
               onClick={() => navigate(`/${s.slug}`)}
               onMouseEnter={(e) => {
                 setHovered(s)
-                updatePointer(e)
+                placeTooltipUnderPin(e)
               }}
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
@@ -382,8 +387,8 @@ export default function USMap() {
         <div
           className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm rounded-xl border-2 border-rust-400 bg-white px-4 py-3 text-center shadow-lg shadow-rust-900/20"
           style={{
-            left: pointer.x,
-            top: pointer.y + 14,
+            left: tooltipPos.x,
+            top: tooltipPos.y,
             transform: 'translate(-50%, 0)',
           }}
         >
