@@ -44,10 +44,24 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-sage-200/60 bg-gradient-to-b from-white via-amber-50/40 to-sage-100/45">
         <SectionAmbience variant="paper" />
         <div className={`relative z-10 ${shell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
-          <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_23rem] md:grid-rows-[auto_auto] md:gap-x-8 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_25.5rem]">
+            <div className="min-w-0 md:col-start-1 md:row-start-1 md:pr-1">
+              <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
+            </div>
 
-          <div className="grid items-start gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:gap-7 md:items-start lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-8">
-            <div className="order-2 min-w-0 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:order-1 md:pr-1">
+            <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
+              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+                <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
+                  <img
+                    src="/images/researcher.png"
+                    alt="Portrait of the project researcher, outdoors with two dogs"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              </div>
+            </figure>
+
+            <div className="min-w-0 space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed md:col-start-1 md:row-start-2 md:pr-1">
               <p>
                 I’m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up
                 in a small farm town in New York, and for most of my life, I didn’t think I could get
@@ -61,18 +75,6 @@ export default function Home() {
                 communities through conversations and shared stories.
               </p>
             </div>
-
-            <figure className="order-1 mx-auto w-full max-w-[15rem] sm:max-w-[17rem] md:order-2 md:mx-0 md:w-full md:max-w-none md:self-center md:justify-self-end">
-              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(78vw,19rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-200/60 to-sage-300/45 p-1.5 shadow-xl shadow-rust-900/10 ring-1 ring-amber-200/40 sm:max-h-[21rem] md:aspect-auto md:h-[18.25rem] md:max-h-none md:w-[13.25rem] lg:h-[19.25rem] lg:w-[14rem]">
-                <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
-                  <img
-                    src="/images/researcher.png"
-                    alt="Portrait of the project researcher, outdoors with two dogs"
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </figure>
           </div>
         </div>
       </section>
