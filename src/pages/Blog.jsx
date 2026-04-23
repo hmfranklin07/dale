@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
+import { STATE_HERO_BAND_BG } from '../config/mapPinColors'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -52,10 +53,13 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sage-900/40 bg-sage-800">
+      <section
+        className="relative overflow-hidden border-b border-sage-400/40"
+        style={{ backgroundColor: STATE_HERO_BAND_BG }}
+      >
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="!border-l-rust-500 !bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
+            <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
               <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
                 Blog
               </span>

@@ -1,9 +1,9 @@
-import { PIN_BODY_DEFAULT } from '../config/mapPinColors'
+import { HERO_ACCENT_RUST } from '../config/mapPinColors'
 
 const toneClass = {
   paper:
-    'rounded-3xl border border-white/60 border-l-4 border-l-rust-400/50 bg-white/40 p-6 shadow-2xl shadow-rust-900/5 ring-1 ring-sage-200/50 backdrop-blur-md sm:p-8 md:p-10',
-  /** State page intro: solid white card, pin-rust left bar. */
+    'rounded-3xl border border-white/60 border-l-4 bg-white/40 p-6 shadow-2xl shadow-rust-900/5 ring-1 ring-sage-200/50 backdrop-blur-md sm:p-8 md:p-10',
+  /** State page intro: solid white card, rust-500 left bar (same as blog / home heroes). */
   statePage:
     'rounded-3xl border border-sage-200/85 border-l-4 bg-white p-6 shadow-2xl shadow-black/15 ring-1 ring-sage-200/55 sm:p-8 md:p-10',
   sageDark:
@@ -13,7 +13,8 @@ const toneClass = {
 /* Frosted / paper panel used in Home hero — reuse on Vlog + state intro */
 export function PageHeroPanel({ children, className = '', tone = 'paper' }) {
   const base = toneClass[tone] ?? toneClass.paper
-  const barStyle = tone === 'statePage' ? { borderLeftColor: PIN_BODY_DEFAULT } : undefined
+  const barStyle =
+    tone === 'statePage' || tone === 'paper' ? { borderLeftColor: HERO_ACCENT_RUST } : undefined
   return (
     <div className={`${base} ${className}`.trim()} style={barStyle}>
       {children}

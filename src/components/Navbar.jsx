@@ -8,7 +8,7 @@ const primary = [
 ]
 
 /** Microscope outline — paths from Lucide (ISC). https://lucide.dev/icons/microscope */
-function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-sage-700' }) {
+function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-rust-500' }) {
   return (
     <svg
       className={className}
@@ -37,14 +37,14 @@ export default function Navbar() {
   const linkClass = ({ isActive }) =>
     `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
       isActive
-        ? 'bg-sage-900 text-white shadow-sm shadow-sage-900/25 ring-1 ring-sage-700/50'
+        ? 'bg-rust-500 text-white shadow-sm shadow-rust-900/20 ring-1 ring-rust-700/45'
         : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
     }`
 
   const mobileLink = ({ isActive }) =>
     `block px-3 py-2.5 text-sm font-medium rounded-lg ${
       isActive
-        ? 'bg-sage-900 text-white ring-1 ring-sage-700/50'
+        ? 'bg-rust-500 text-white ring-1 ring-rust-700/45'
         : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
     }`
 
@@ -53,7 +53,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-sage-700 sm:h-8 sm:w-8" />
+            <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
             <span className="font-display bg-gradient-to-r from-earth-900 via-sage-900 to-sage-700 bg-clip-text text-lg text-transparent sm:text-xl">
               STEM Across Rural America
             </span>
