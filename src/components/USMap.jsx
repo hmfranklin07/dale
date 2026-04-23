@@ -220,6 +220,16 @@ export default function USMap() {
           projectionConfig={{ scale: 1480 }}
           className="h-auto w-full block"
         >
+          <defs>
+            <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#fffdf8" />
+              <stop offset="100%" stopColor="#f9efe7" />
+            </linearGradient>
+            <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
+              <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
+            </filter>
+          </defs>
+
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => {
@@ -292,28 +302,39 @@ export default function USMap() {
                 />
               </g>
               {STOP_LABELS_BY_SLUG[s.slug] && (
-                <g className="pointer-events-none select-none" transform="translate(0 28)">
+                <g className="pointer-events-none select-none" transform="translate(0 27)">
                   <rect
-                    x={-22}
+                    x={-24}
                     y={-10}
-                    width={44}
-                    height={16}
-                    rx={8}
-                    fill="rgba(255, 253, 249, 0.98)"
-                    stroke="rgba(229, 148, 115, 0.92)"
-                    strokeWidth={0.9}
+                    width={48}
+                    height={17}
+                    rx={8.5}
+                    fill="url(#stopBadgeFill)"
+                    stroke="#e8a188"
+                    strokeWidth={1}
+                    filter="url(#stopBadgeShadow)"
+                  />
+                  <rect
+                    x={-22.5}
+                    y={-8.5}
+                    width={45}
+                    height={14}
+                    rx={7.2}
+                    fill="none"
+                    stroke="rgba(255,255,255,0.65)"
+                    strokeWidth={0.7}
                   />
                   <text
                     x={0}
-                    y={-0.1}
+                    y={-0.15}
                     textAnchor="middle"
                     dominantBaseline="central"
                     alignmentBaseline="middle"
-                    fill="#8a3722"
-                    fontFamily="Inter, system-ui, sans-serif"
-                    fontSize="10.5"
-                    fontWeight="600"
-                    letterSpacing="0.1"
+                    fill="#8f3b24"
+                    fontFamily="'DM Serif Display', Georgia, serif"
+                    fontSize="10.9"
+                    fontWeight="400"
+                    letterSpacing="0.15"
                   >
                     {STOP_LABELS_BY_SLUG[s.slug]}
                   </text>
