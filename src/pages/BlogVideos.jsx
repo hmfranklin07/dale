@@ -39,7 +39,7 @@ export default function BlogVideos() {
                 <article key={v.id} className="card flex h-full min-w-0 flex-col overflow-hidden">
                   <YouTubeEmbed youtubeId={v.youtubeId} title={v.title} />
                   <div className="card-body flex flex-1 flex-col">
-                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                    <div className="mb-2 flex flex-col items-start gap-2">
                       {town && (
                         <Link
                           to={`/${town.stateSlug}`}
@@ -48,7 +48,7 @@ export default function BlogVideos() {
                           {town.isRegion ? town.name : `${town.name}, ${town.state}`}
                         </Link>
                       )}
-                      <time className="text-xs text-earth-500">{formatDate(v.date)}</time>
+                      <time className="block text-xs text-earth-500">{formatDate(v.date)}</time>
                     </div>
                     <h2 className="font-display mb-2 text-xl leading-snug text-earth-900 lg:text-[1.35rem]">
                       {v.title}

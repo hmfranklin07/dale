@@ -35,11 +35,13 @@ function BlogVideoTeaser({ vlog }) {
           )}
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-5">
-          {townLabel && (
-            <span className="badge-sage mb-2 inline-block max-w-full truncate text-[0.65rem]">{townLabel}</span>
-          )}
-          <time className="text-[0.65rem] text-earth-500">{formatDate(vlog.date)}</time>
-          <h3 className="font-display mt-1.5 line-clamp-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
+          <div className="flex flex-col items-start gap-2">
+            {townLabel && (
+              <span className="badge-sage inline-block max-w-full truncate text-[0.65rem]">{townLabel}</span>
+            )}
+            <time className="block text-[0.65rem] text-earth-500">{formatDate(vlog.date)}</time>
+          </div>
+          <h3 className="font-display mt-2 line-clamp-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
             {vlog.title}
           </h3>
           <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-earth-600">{excerpt(vlog.reflection, 120)}</p>
@@ -64,7 +66,7 @@ export default function Blog() {
         />
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="bg-white/92 text-center shadow-xl shadow-black/25 ring-1 ring-white/70">
+            <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/25 ring-1 ring-sage-200/60 backdrop-blur-sm">
               <span className="badge-rust mb-4 inline-block">Blog</span>
               <h1 className="font-display mb-4 sm:mb-5 text-4xl leading-tight sm:text-5xl">
                 <span className={pageTitleClass}>Field notes from the road</span>
@@ -90,11 +92,13 @@ export default function Blog() {
                 >
                   <article className="card group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
                     <div className="card-body sm:p-8">
-                      {latestBlog.townLabel && (
-                        <span className="badge-sage mb-3 inline-block">{latestBlog.townLabel}</span>
-                      )}
-                      <time className="text-xs text-earth-500">{formatDate(latestBlog.date)}</time>
-                      <h2 className="font-display mt-2 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                      <div className="flex flex-col items-start gap-2">
+                        {latestBlog.townLabel && (
+                          <span className="badge-sage inline-block w-fit max-w-full">{latestBlog.townLabel}</span>
+                        )}
+                        <time className="block text-xs text-earth-500">{formatDate(latestBlog.date)}</time>
+                      </div>
+                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
                         {latestBlog.title}
                       </h2>
                       <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
