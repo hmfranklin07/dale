@@ -2,17 +2,17 @@
   {
     "id": "1",
     "townSlug": "cave-springs-ar",
-    "date": "2026-06-15",
-    "title": "Day 1: Hitting the road",
-    "text": "Packed up the car and heading south. First stop: the Cave Springs area, Arkansas. The excitement is real—and so are the nerves. What will we find when we start asking students about their STEM dreams?",
+    "date": "Date",
+    "title": "Title",
+    "text": "Text",
     "image": ""
   },
   {
     "id": "2",
     "townSlug": "cave-springs-ar",
-    "date": "2026-06-16",
-    "title": "First impressions of the Cave Springs area",
-    "text": "The school is smaller than I expected. One hallway, a few classrooms, and a science lab that doubles as storage. But the students? Incredibly sharp and curious. More to come.",
+    "date": "Date",
+    "title": "Title",
+    "text": "Text",
     "image": ""
   }
 ]

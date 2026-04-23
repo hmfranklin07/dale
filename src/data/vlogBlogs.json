@@ -1,9 +1,9 @@
 [
   {
     "id": "1",
-    "date": "2026-06-18",
-    "title": "What I’m learning in each small town",
-    "townLabel": "On the road",
-    "text": "This is a placeholder for your travel blog. Replace it with your own written posts about experiences in each town—what surprised you, what you’ll remember, and how the trip is shaping your project."
+    "date": "Date",
+    "title": "Title",
+    "townLabel": "Location",
+    "text": "Text"
   }
 ]

@@ -4,7 +4,7 @@ import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import BlogBackLink from '../components/BlogBackLink'
-import { formatDate, sectionShell, sortedVlogs, townBySlug } from './blogData'
+import { formatDate, sectionShell, sortedVlogs, townBySlug, vlogLocationLabel } from './blogData'
 
 export default function BlogVideos() {
   return (
@@ -45,7 +45,7 @@ export default function BlogVideos() {
                           to={`/${town.stateSlug}`}
                           className="badge-sage max-w-full truncate text-[0.65rem] transition-colors hover:bg-sage-300/90"
                         >
-                          {town.isRegion ? town.name : `${town.name}, ${town.state}`}
+                          {vlogLocationLabel(v)}
                         </Link>
                       )}
                       <time className="block text-xs text-earth-500">{formatDate(v.date)}</time>

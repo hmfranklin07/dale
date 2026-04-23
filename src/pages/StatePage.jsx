@@ -9,18 +9,11 @@ import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import { formatDate, vlogLocationLabel } from './blogData'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
-
-function formatDate(d) {
-  return new Date(d + 'T00:00:00').toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
 
 export default function StatePage() {
   const { stateSlug } = useParams()
@@ -135,7 +128,11 @@ export default function StatePage() {
                   return (
                     <article key={interview.id} className="card card-body">
                       <div className="mb-6">
-                        {t && <span className="badge-sage mb-2 inline-block">{t.name}</span>}
+                        {(interview.townLabel || t) && (
+                          <span className="badge-sage mb-2 inline-block">
+                            {interview.townLabel ?? t?.name}
+                          </span>
+                        )}
                         <h3 className="font-display text-2xl text-earth-900">{interview.personName}</h3>
                         <p className="text-earth-600 text-sm">
                           {interview.role} · {interview.school}
@@ -178,11 +175,9 @@ export default function StatePage() {
                         <YouTubeEmbed youtubeId={v.youtubeId} title={v.title} />
                       )}
                       <div className="card-body">
-                        {t && (
-                          <p className="text-xs text-earth-600 mb-1">
-                            {t.name} · {formatDate(v.date)}
-                          </p>
-                        )}
+                        <p className="text-xs text-earth-600 mb-1">
+                          {vlogLocationLabel(v)} · {formatDate(v.date)}
+                        </p>
                         <h3 className="font-display text-xl text-earth-900 mb-3">{v.title}</h3>
                         <p className="text-earth-800 leading-relaxed whitespace-pre-line">{v.reflection}</p>
                       </div>

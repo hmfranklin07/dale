@@ -3,16 +3,10 @@ import states from '../data/states.json'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
-import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, townBySlug } from './blogData'
-
-function townLabelFromSlug(townSlug) {
-  const town = townBySlug[townSlug]
-  if (!town) return null
-  return town.isRegion ? town.name : `${town.name}, ${town.state}`
-}
+import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
 
 function BlogVideoTeaser({ vlog }) {
-  const townLabel = townLabelFromSlug(vlog.townSlug)
+  const townLabel = vlogLocationLabel(vlog)
   return (
     <Link
       to="/blog/videos"
