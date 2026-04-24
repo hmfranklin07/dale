@@ -129,7 +129,7 @@ export default function StatePage() {
               />
             </div>
             <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/30 via-sage-900/10 to-sage-950/45"
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/15 via-transparent to-sage-950/25"
               aria-hidden
             />
           </>
