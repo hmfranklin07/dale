@@ -12,6 +12,9 @@ import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
+
+/** Same hero band floor for every state; NY centers a shorter glass panel inside it. */
+const STATE_HERO_MIN_H = 'min-h-[19rem] sm:min-h-[24rem] md:min-h-[28rem]'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
@@ -109,8 +112,8 @@ export default function StatePage() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${
-          isNyPhotoHero ? 'bg-sage-900' : stateHeroBandSectionClass
+        className={`relative overflow-hidden border-b border-sage-400/45 ${STATE_HERO_MIN_H} ${
+          isNyPhotoHero ? `flex flex-col bg-sage-900` : stateHeroBandSectionClass
         }`}
       >
         {isNyPhotoHero && (
@@ -132,7 +135,13 @@ export default function StatePage() {
             />
           </>
         )}
-        <div className="relative z-10">
+        <div
+          className={
+            isNyPhotoHero
+              ? 'relative z-10 flex min-h-0 flex-1 flex-col justify-center'
+              : 'relative z-10'
+          }
+        >
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
