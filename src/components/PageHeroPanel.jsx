@@ -13,9 +13,9 @@ const toneClass = {
     'rounded-3xl border border-white/10 border-l-4 border-l-orange-400/85 bg-gradient-to-br from-sage-800 via-sage-800 to-sage-950 p-6 shadow-2xl shadow-black/30 ring-1 ring-orange-200/25 sm:p-8 md:p-10',
 }
 
-/** White wash inside NY text panel only; fades before ~half the panel width (photo shows through right side). */
+/** White wash inside NY text panel; stays strong across most lines, then fades for photo on the right. */
 const NY_TEXTBOX_GRADIENT =
-  'linear-gradient(to right, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.72) 14%, rgba(255,255,255,0.38) 30%, rgba(255,255,255,0.1) 44%, transparent 52%)'
+  'linear-gradient(to right, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.82) 22%, rgba(255,255,255,0.58) 45%, rgba(255,255,255,0.22) 68%, rgba(255,255,255,0.06) 82%, transparent 92%)'
 
 /** Frosted / paper panel for Home + blog + state intros. */
 export function PageHeroPanel({ children, className = '', tone = 'paper' }) {

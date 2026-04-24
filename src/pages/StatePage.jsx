@@ -122,7 +122,7 @@ export default function StatePage() {
                 src={nyHeroUrl}
                 alt=""
                 sizes="100vw"
-                className="h-full min-h-[14rem] w-full object-cover object-[62%_40%] sm:object-[64%_38%]"
+                className="h-full min-h-[14rem] w-full object-cover object-[70%_40%] sm:object-[72%_38%]"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -138,7 +138,7 @@ export default function StatePage() {
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
-              className={isNyPhotoHero ? 'max-w-2xl' : ''}
+              className={isNyPhotoHero ? 'max-w-3xl' : ''}
             >
               <Link
                 to="/"
