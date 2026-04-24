@@ -135,10 +135,20 @@ export default function StatePage() {
           </>
         )}
         <div className="relative z-10">
-          <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
+          <div
+            className={
+              isNyPhotoHero
+                ? `${sectionShell} flex min-h-[18rem] items-stretch py-10 sm:min-h-[22rem] sm:py-12 md:min-h-[26rem] md:py-14`
+                : `${sectionShell} py-12 sm:py-16 md:py-20`
+            }
+          >
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
-              className={isNyPhotoHero ? 'max-w-3xl' : ''}
+              className={
+                isNyPhotoHero
+                  ? 'max-w-[min(21rem,90vw)] w-full flex flex-col justify-center self-stretch sm:max-w-[22rem]'
+                  : ''
+              }
             >
               <Link
                 to="/"
