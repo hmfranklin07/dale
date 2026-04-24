@@ -13,6 +13,8 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
+const NY_HERO_IMAGE = '/images/hero-new-york.png'
+
 /** Generic slot when fewer than three vlogs exist for this state (same shape as a real teaser). */
 function StateVideoSlot({ vlog, stateSlug }) {
   if (vlog) {
@@ -102,14 +104,37 @@ export default function StatePage() {
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
+  const isNyPhotoHero = stateSlug === 'new-york'
+
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
+        className={`relative overflow-hidden border-b border-sage-400/45 ${
+          isNyPhotoHero
+            ? 'min-h-[19rem] bg-sage-900 sm:min-h-[24rem] md:min-h-[28rem]'
+            : stateHeroBandSectionClass
+        }`}
       >
+        {isNyPhotoHero && (
+          <>
+            <div className="absolute inset-0 z-0">
+              <img
+                src={NY_HERO_IMAGE}
+                alt=""
+                className="h-full min-h-[14rem] w-full object-cover object-[center_40%] sm:object-[center_38%]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/30 via-sage-900/10 to-sage-950/45"
+              aria-hidden
+            />
+          </>
+        )}
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel tone="statePage">
+            <PageHeroPanel tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}>
               <Link
                 to="/"
                 className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
