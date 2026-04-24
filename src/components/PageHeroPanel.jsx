@@ -6,9 +6,9 @@ const toneClass = {
   /** State page intro: solid white card, rust-500 left bar (same as blog / home heroes). */
   statePage:
     'rounded-3xl border border-sage-300/90 border-l-4 bg-white p-6 shadow-2xl shadow-black/[0.1] ring-2 ring-sage-400/50 sm:p-8 md:p-10',
-  /** State page over a photo hero — frosted white glass: lighter fill + strong blur = white + see-through. */
+  /** State page over photo — like home “paper” hero: milky white fill + light blur, still a bit see-through. */
   statePageGlass:
-    'rounded-3xl border-0 border-l-4 border-solid bg-white/52 p-6 shadow-none backdrop-blur-xl backdrop-saturate-125 sm:p-8 md:p-10',
+    'rounded-3xl border-0 border-l-4 border-solid bg-white/78 p-6 shadow-none backdrop-blur-md sm:p-8 md:p-10',
   sageDark:
     'rounded-3xl border border-white/10 border-l-4 border-l-orange-400/85 bg-gradient-to-br from-sage-800 via-sage-800 to-sage-950 p-6 shadow-2xl shadow-black/30 ring-1 ring-orange-200/25 sm:p-8 md:p-10',
 }
