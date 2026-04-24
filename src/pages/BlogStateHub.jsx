@@ -3,6 +3,7 @@ import states from '../data/states.json'
 import towns from '../data/towns.json'
 import YouTubeEmbed from '../components/YouTubeEmbed'
 import { innerPageTopBandSectionClass } from '../config/mapPinColors'
+import RouteDoodleBackground from '../components/RouteDoodleBackground'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -30,6 +31,7 @@ export default function BlogStateHub() {
         className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass}`}
       >
         <SectionAmbience variant="paper" />
+        <RouteDoodleBackground />
         <div className="relative z-10">
           <div className={`${sectionShell} py-8 sm:py-10`}>
             <BlogBackLink />

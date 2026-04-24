@@ -55,4 +55,77 @@
   .badge-earth {
     @apply badge bg-amber-200/85 text-earth-900;
   }
+
+  /* Blog / state hero: animated dashed “route” lines */
+  .route-doodle-wrap {
+    animation: route-doodle-breathe 9s ease-in-out infinite;
+  }
+
+  .route-doodle-svg {
+    opacity: 0.85;
+  }
+
+  .route-doodle-svg--rust {
+    animation: route-doodle-breathe 11s ease-in-out infinite 1.2s;
+    opacity: 0.75;
+  }
+
+  .route-doodle-path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 7 16;
+    stroke-dashoffset: 0;
+    animation: route-doodle-dash 26s linear infinite;
+  }
+
+  .route-doodle-path--b {
+    animation-duration: 34s;
+    animation-direction: reverse;
+    stroke-dasharray: 6 14;
+    stroke-width: 1.35;
+    opacity: 0.8;
+  }
+
+  .route-doodle-path--c {
+    animation-duration: 20s;
+    stroke-dasharray: 5 12;
+    stroke-width: 1.15;
+    opacity: 0.55;
+  }
+
+  .route-doodle-path--d {
+    animation-duration: 30s;
+    animation-direction: reverse;
+    stroke-dasharray: 5 13;
+    stroke-width: 1.2;
+  }
+
+  .route-doodle-path--e {
+    animation-duration: 22s;
+    stroke-dasharray: 4 11;
+    stroke-width: 1;
+    opacity: 0.65;
+  }
+}
+
+@keyframes route-doodle-dash {
+  to {
+    stroke-dashoffset: -420;
+  }
+}
+
+@keyframes route-doodle-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  40% {
+    opacity: 0.88;
+  }
+  60% {
+    opacity: 0.72;
+  }
 }

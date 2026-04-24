@@ -41,6 +41,7 @@ const SHADE_ADJUSTMENTS = {
   'new york': +2, // two shades darker
   massachusetts: +1, // one shade darker
   'south carolina': -1, // one shade lighter
+  delaware: -1, // one shade lighter
 }
 
 function normalizedStateName(geo) {
