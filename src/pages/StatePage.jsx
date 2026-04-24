@@ -122,7 +122,7 @@ export default function StatePage() {
                 src={nyHeroUrl}
                 alt=""
                 sizes="100vw"
-                className="h-full min-h-[14rem] w-full object-cover object-[center_40%] sm:object-[center_38%]"
+                className="h-full min-h-[14rem] w-full object-cover object-[62%_40%] sm:object-[64%_38%]"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
