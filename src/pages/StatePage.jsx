@@ -110,9 +110,7 @@ export default function StatePage() {
     <>
       <section
         className={`relative overflow-hidden border-b border-sage-400/45 ${
-          isNyPhotoHero
-            ? 'min-h-[22rem] bg-sage-900 sm:min-h-[28rem] md:min-h-[32rem]'
-            : stateHeroBandSectionClass
+          isNyPhotoHero ? 'bg-sage-900' : stateHeroBandSectionClass
         }`}
       >
         {isNyPhotoHero && (
@@ -122,7 +120,7 @@ export default function StatePage() {
                 src={nyHeroUrl}
                 alt=""
                 sizes="100vw"
-                className="h-full min-h-[14rem] w-full object-cover object-[70%_40%] sm:object-[72%_38%]"
+                className="h-full w-full object-cover object-[70%_40%] sm:object-[72%_38%]"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -135,20 +133,14 @@ export default function StatePage() {
           </>
         )}
         <div className="relative z-10">
-          <div
-            className={
-              isNyPhotoHero
-                ? `${sectionShell} flex min-h-[22rem] w-full items-center justify-start sm:min-h-[28rem] md:min-h-[32rem]`
-                : `${sectionShell} py-12 sm:py-16 md:py-20`
-            }
-          >
+          <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
               className={isNyPhotoHero ? 'w-full' : ''}
             >
               <Link
                 to="/"
-                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-3' : 'mb-4'}`}
+                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-2' : 'mb-4'}`}
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -157,19 +149,19 @@ export default function StatePage() {
               </Link>
               <h1
                 className={`font-display text-4xl leading-tight sm:text-5xl ${pageTitleClass} ${
-                  isNyPhotoHero ? 'mt-0 mb-2 sm:mb-3' : 'mt-1 mb-3 sm:mb-4'
+                  isNyPhotoHero ? 'mt-0 mb-1.5 sm:mb-2' : 'mt-1 mb-3 sm:mb-4'
                 }`}
               >
                 {state.name}
               </h1>
               <p
-                className={`text-earth-800 ${isNyPhotoHero ? 'text-sm leading-snug sm:text-base sm:leading-relaxed' : 'text-base leading-relaxed sm:text-lg'}`}
+                className={`text-earth-800 ${isNyPhotoHero ? 'text-sm leading-snug sm:text-sm sm:leading-relaxed' : 'text-base leading-relaxed sm:text-lg'}`}
               >
                 {state.heroIntro
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
-              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-3 text-sm sm:mt-4 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
+              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-2 text-sm sm:mt-3 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
                 <Link
                   to={`/blog/state/${state.slug}`}
                   className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"
