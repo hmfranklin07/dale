@@ -8,12 +8,12 @@ import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
 import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
+/** Bundled as-is (no Vite resize). Replace this file in the repo for full camera resolution—chat uploads cap ~1024px. */
+import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
-
-const NY_HERO_IMAGE = '/images/hero-new-york.png'
 
 /** Generic slot when fewer than three vlogs exist for this state (same shape as a real teaser). */
 function StateVideoSlot({ vlog, stateSlug }) {
@@ -119,11 +119,13 @@ export default function StatePage() {
           <>
             <div className="absolute inset-0 z-0">
               <img
-                src={NY_HERO_IMAGE}
+                src={nyHeroUrl}
                 alt=""
+                sizes="100vw"
                 className="h-full min-h-[14rem] w-full object-cover object-[center_40%] sm:object-[center_38%]"
                 loading="eager"
                 decoding="async"
+                fetchPriority="high"
               />
             </div>
             <div
