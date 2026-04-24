@@ -6,22 +6,22 @@ const toneClass = {
   /** State page intro: solid white card, rust-500 left bar (same as blog / home heroes). */
   statePage:
     'rounded-3xl border border-sage-300/90 border-l-4 bg-white p-6 shadow-2xl shadow-black/[0.1] ring-2 ring-sage-400/50 sm:p-8 md:p-10',
-  /** State page over photo — almost solid white; no backdrop-blur (blur was mixing in the dark scrim). */
+  /** State page over photo — transparent panel; NY uses a full-bleed white fade in StatePage. */
   statePageGlass:
-    'rounded-3xl border-0 border-l-4 border-solid bg-white/94 p-6 shadow-none sm:p-8 md:p-10',
+    'rounded-3xl border-0 border-l-4 border-solid bg-transparent p-6 shadow-none sm:p-8 md:p-10',
   sageDark:
     'rounded-3xl border border-white/10 border-l-4 border-l-orange-400/85 bg-gradient-to-br from-sage-800 via-sage-800 to-sage-950 p-6 shadow-2xl shadow-black/30 ring-1 ring-orange-200/25 sm:p-8 md:p-10',
 }
 
-/* Frosted / paper panel used in Home hero — reuse on Vlog + state intro */
+/** Frosted / paper panel for Home + blog + state intros. */
 export function PageHeroPanel({ children, className = '', tone = 'paper' }) {
   const base = toneClass[tone] ?? toneClass.paper
-  const barStyle =
-    tone === 'statePage' || tone === 'statePageGlass' || tone === 'paper'
+  const panelStyle =
+    tone === 'statePageGlass' || tone === 'statePage' || tone === 'paper'
       ? { borderLeftColor: HERO_ACCENT_RUST }
       : undefined
   return (
-    <div className={`${base} ${className}`.trim()} style={barStyle}>
+    <div className={`${base} ${className}`.trim()} style={panelStyle}>
       {children}
     </div>
   )

@@ -129,14 +129,26 @@ export default function StatePage() {
               />
             </div>
             <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/15 via-transparent to-sage-950/25"
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/10 via-transparent to-sage-950/14"
+              aria-hidden
+            />
+            {/* White wash under text only; fades out before mid-width so bridge/waterfall stay clear */}
+            <div
+              className="pointer-events-none absolute inset-0 z-[2]"
+              style={{
+                background:
+                  'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 10%, rgba(255,255,255,0.35) 24%, rgba(255,255,255,0.08) 38%, transparent 48%)',
+              }}
               aria-hidden
             />
           </>
         )}
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}>
+            <PageHeroPanel
+              tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
+              className={isNyPhotoHero ? 'max-w-2xl' : ''}
+            >
               <Link
                 to="/"
                 className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
