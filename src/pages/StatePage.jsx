@@ -145,7 +145,7 @@ export default function StatePage() {
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
-              className={isNyPhotoHero ? 'mx-auto w-full max-w-2xl' : ''}
+              className={isNyPhotoHero ? 'w-full' : ''}
             >
               <Link
                 to="/"
