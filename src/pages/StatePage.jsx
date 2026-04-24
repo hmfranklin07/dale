@@ -132,15 +132,6 @@ export default function StatePage() {
               className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/10 via-transparent to-sage-950/14"
               aria-hidden
             />
-            {/* White wash under text only; fades out before mid-width so bridge/waterfall stay clear */}
-            <div
-              className="pointer-events-none absolute inset-0 z-[2]"
-              style={{
-                background:
-                  'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 10%, rgba(255,255,255,0.35) 24%, rgba(255,255,255,0.08) 38%, transparent 48%)',
-              }}
-              aria-hidden
-            />
           </>
         )}
         <div className="relative z-10">
