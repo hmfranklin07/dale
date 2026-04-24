@@ -111,7 +111,7 @@ export default function StatePage() {
       <section
         className={`relative overflow-hidden border-b border-sage-400/45 ${
           isNyPhotoHero
-            ? 'min-h-[19rem] bg-sage-900 sm:min-h-[24rem] md:min-h-[28rem]'
+            ? 'min-h-[22rem] bg-sage-900 sm:min-h-[28rem] md:min-h-[32rem]'
             : stateHeroBandSectionClass
         }`}
       >
@@ -138,21 +138,17 @@ export default function StatePage() {
           <div
             className={
               isNyPhotoHero
-                ? `${sectionShell} flex min-h-[18rem] items-stretch py-10 sm:min-h-[22rem] sm:py-12 md:min-h-[26rem] md:py-14`
+                ? `${sectionShell} flex min-h-[22rem] w-full items-center justify-start sm:min-h-[28rem] md:min-h-[32rem]`
                 : `${sectionShell} py-12 sm:py-16 md:py-20`
             }
           >
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
-              className={
-                isNyPhotoHero
-                  ? 'max-w-[min(21rem,90vw)] w-full flex flex-col justify-center self-stretch sm:max-w-[22rem]'
-                  : ''
-              }
+              className={isNyPhotoHero ? 'w-full' : ''}
             >
               <Link
                 to="/"
-                className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
+                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-3' : 'mb-4'}`}
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -160,16 +156,20 @@ export default function StatePage() {
                 Back to home &amp; map
               </Link>
               <h1
-                className={`font-display mt-1 mb-3 text-4xl leading-tight sm:mb-4 sm:text-5xl ${pageTitleClass}`}
+                className={`font-display text-4xl leading-tight sm:text-5xl ${pageTitleClass} ${
+                  isNyPhotoHero ? 'mt-0 mb-2 sm:mb-3' : 'mt-1 mb-3 sm:mb-4'
+                }`}
               >
                 {state.name}
               </h1>
-              <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
+              <p
+                className={`text-earth-800 ${isNyPhotoHero ? 'text-sm leading-snug sm:text-base sm:leading-relaxed' : 'text-base leading-relaxed sm:text-lg'}`}
+              >
                 {state.heroIntro
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
-              <p className="mt-5 text-base text-earth-800 sm:text-lg">
+              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-3 text-sm sm:mt-4 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
                 <Link
                   to={`/blog/state/${state.slug}`}
                   className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"
