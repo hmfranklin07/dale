@@ -1,5 +1,6 @@
 /**
- * Decorative dashed “route” curves for blog / state hero bands — sits above gradient, below content.
+ * Decorative dashed “route” curves behind the main content band (below heroes).
+ * Sits above SectionAmbience, below foreground content.
  */
 export default function RouteDoodleBackground() {
   return (
@@ -8,7 +9,7 @@ export default function RouteDoodleBackground() {
       aria-hidden
     >
       <svg
-        className="route-doodle-svg absolute inset-0 h-[125%] w-full -translate-y-[6%] text-sage-700/50"
+        className="route-doodle-svg absolute inset-0 h-[125%] w-full -translate-y-[6%] text-orange-500/42"
         viewBox="0 0 1200 380"
         preserveAspectRatio="none"
       >
@@ -26,7 +27,7 @@ export default function RouteDoodleBackground() {
         />
       </svg>
       <svg
-        className="route-doodle-svg route-doodle-svg--rust absolute inset-0 h-full w-full translate-y-2 text-rust-500/35"
+        className="route-doodle-svg route-doodle-svg--accent absolute inset-0 h-full w-full translate-y-2 text-amber-600/32"
         viewBox="0 0 1200 380"
         preserveAspectRatio="none"
       >

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
-import RouteDoodleBackground from '../components/RouteDoodleBackground'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -57,7 +56,6 @@ export default function Blog() {
       <section
         className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
       >
-        <RouteDoodleBackground />
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-sm">

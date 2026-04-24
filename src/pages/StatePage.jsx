@@ -8,7 +8,6 @@ import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
 import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
-import RouteDoodleBackground from '../components/RouteDoodleBackground'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
@@ -108,7 +107,6 @@ export default function StatePage() {
       <section
         className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
       >
-        <RouteDoodleBackground />
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel tone="statePage">

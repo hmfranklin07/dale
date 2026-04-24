@@ -56,7 +56,7 @@
     @apply badge bg-amber-200/85 text-earth-900;
   }
 
-  /* Blog / state hero: animated dashed “route” lines */
+  /* PageContentBand: animated dashed orange “route” lines */
   .route-doodle-wrap {
     animation: route-doodle-breathe 9s ease-in-out infinite;
   }
@@ -65,9 +65,9 @@
     opacity: 0.85;
   }
 
-  .route-doodle-svg--rust {
+  .route-doodle-svg--accent {
     animation: route-doodle-breathe 11s ease-in-out infinite 1.2s;
-    opacity: 0.75;
+    opacity: 0.82;
   }
 
   .route-doodle-path {

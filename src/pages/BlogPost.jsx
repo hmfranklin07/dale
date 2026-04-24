@@ -1,6 +1,5 @@
 import { Navigate, useParams } from 'react-router-dom'
 import { innerPageTopBandSectionClass } from '../config/mapPinColors'
-import RouteDoodleBackground from '../components/RouteDoodleBackground'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import { pageTitleClass } from '../components/SectionHeading'
@@ -21,7 +20,6 @@ export default function BlogPost() {
         className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass}`}
       >
         <SectionAmbience variant="paper" />
-        <RouteDoodleBackground />
         <div className="relative z-10">
           <div className={`${sectionShell} py-8 sm:py-10`}>
             <BlogBackLink />
