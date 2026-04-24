@@ -149,7 +149,7 @@ export default function StatePage() {
             >
               <Link
                 to="/"
-                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-2' : 'mb-4'}`}
+                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-1.5' : 'mb-4'}`}
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -158,7 +158,7 @@ export default function StatePage() {
               </Link>
               <h1
                 className={`font-display text-4xl leading-tight sm:text-5xl ${pageTitleClass} ${
-                  isNyPhotoHero ? 'mt-0 mb-1.5 sm:mb-2' : 'mt-1 mb-3 sm:mb-4'
+                  isNyPhotoHero ? 'mt-0 mb-1 sm:mb-1.5' : 'mt-1 mb-3 sm:mb-4'
                 }`}
               >
                 {state.name}
@@ -170,7 +170,7 @@ export default function StatePage() {
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
-              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-2 text-sm sm:mt-3 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
+              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-1.5 text-sm sm:mt-2 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
                 <Link
                   to={`/blog/state/${state.slug}`}
                   className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"
