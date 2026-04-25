@@ -6,7 +6,7 @@ export default function Footer() {
   const mailto = `mailto:${siteMeta.contactEmail}`
 
   return (
-    <footer className="relative mt-auto overflow-hidden">
+    <footer className="relative z-10 mt-auto overflow-hidden">
       <div className="relative bg-earth-900 text-sage-100/90">
         <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
           <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-6 md:text-left">

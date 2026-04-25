@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import SiteWindingPath from './components/SiteWindingPath'
 import Home from './pages/Home'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
@@ -15,10 +16,11 @@ import BlogStateHub from './pages/BlogStateHub'
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
       <ScrollToTop />
+      <SiteWindingPath />
       <Navbar />
-      <main className="flex-1">
+      <main className="relative z-10 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog/posts" element={<BlogPosts />} />

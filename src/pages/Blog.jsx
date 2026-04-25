@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
-import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { PageHeroPanel } from '../components/PageHeroPanel'
+/** Full-resolution hero (bundled as-is; replace file in repo to swap photo). */
+import blogHeroBgUrl from '../assets/blog/hero-road.png?url'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
@@ -53,9 +54,22 @@ export default function Blog() {
 
   return (
     <>
-      <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
-      >
+      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={blogHeroBgUrl}
+            alt=""
+            sizes="100vw"
+            className="h-full w-full object-cover object-[48%_48%] sm:object-[50%_44%]"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/35 via-white/30 to-sage-900/40"
+          aria-hidden
+        />
         <div className="relative z-10">
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel className="!bg-white text-center shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-sm">
