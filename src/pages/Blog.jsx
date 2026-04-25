@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import states from '../data/states.json'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 /** Full-resolution hero (bundled as-is; replace file in repo to swap photo). */
-import blogHeroBgUrl from '../assets/blog/hero-road.png?url'
+import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
