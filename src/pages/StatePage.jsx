@@ -11,7 +11,8 @@ import { stateHeroBandSectionClass } from '../config/mapPinColors'
 /** Bundled as-is (no Vite resize). Replace this file in the repo for full camera resolution—chat uploads cap ~1024px. */
 import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 
-const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
+/** State intro hero: same max column site-wide; side inset matches Home hero (`px-2.5 sm:px-4`) so the white card sits closer to the viewport than body sections. */
+const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 
 /** Same hero band floor for every state; NY centers a shorter white card over the photo. */
 const STATE_HERO_MIN_H = 'min-h-[19rem] sm:min-h-[24rem] md:min-h-[28rem]'
@@ -142,7 +143,7 @@ export default function StatePage() {
               : 'relative z-10'
           }
         >
-          <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
+          <div className={`${stateHeroShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'} className={isNyPhotoHero ? 'w-full' : ''}>
               <Link
                 to="/"
