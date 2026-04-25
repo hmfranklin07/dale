@@ -13,7 +13,7 @@ import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
-/** Same hero band floor for every state; NY centers a shorter glass panel inside it. */
+/** Same hero band floor for every state; NY centers a shorter white card over the photo. */
 const STATE_HERO_MIN_H = 'min-h-[19rem] sm:min-h-[24rem] md:min-h-[28rem]'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
@@ -143,34 +143,25 @@ export default function StatePage() {
           }
         >
           <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel
-              tone={isNyPhotoHero ? 'statePageGlass' : 'statePage'}
-              className={isNyPhotoHero ? 'w-full' : ''}
-            >
+            <PageHeroPanel tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'} className={isNyPhotoHero ? 'w-full' : ''}>
               <Link
                 to="/"
-                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${isNyPhotoHero ? 'mb-1.5' : 'mb-4'}`}
+                className="mb-4 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to home &amp; map
               </Link>
-              <h1
-                className={`font-display text-4xl leading-tight sm:text-5xl ${pageTitleClass} ${
-                  isNyPhotoHero ? 'mt-0 mb-1 sm:mb-1.5' : 'mt-1 mb-3 sm:mb-4'
-                }`}
-              >
+              <h1 className={`font-display mt-1 mb-3 text-4xl leading-tight sm:mb-4 sm:text-5xl ${pageTitleClass}`}>
                 {state.name}
               </h1>
-              <p
-                className={`text-earth-800 ${isNyPhotoHero ? 'text-sm leading-snug sm:text-sm sm:leading-relaxed' : 'text-base leading-relaxed sm:text-lg'}`}
-              >
+              <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
                 {state.heroIntro
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
-              <p className={`text-earth-800 ${isNyPhotoHero ? 'mt-1.5 text-sm sm:mt-2 sm:text-base' : 'mt-5 text-base sm:text-lg'}`}>
+              <p className="mt-5 text-base text-earth-800 sm:text-lg">
                 <Link
                   to={`/blog/state/${state.slug}`}
                   className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"

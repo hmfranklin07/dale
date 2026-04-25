@@ -6,30 +6,20 @@ const toneClass = {
   /** State page intro: solid white card, rust-500 left bar (same as blog / home heroes). */
   statePage:
     'rounded-3xl border border-sage-300/90 border-l-4 bg-white p-6 shadow-2xl shadow-black/[0.1] ring-2 ring-sage-400/50 sm:p-8 md:p-10',
-  /** State page over photo (NY): same outer frame + horizontal insets as `statePage` (Idaho); tight vertical padding for a shorter box. */
-  statePageGlass:
-    'rounded-3xl border border-sage-300/90 border-l-4 overflow-hidden px-6 py-2 shadow-2xl shadow-black/[0.1] ring-2 ring-sage-400/50 sm:px-8 sm:py-2 md:px-10 md:py-2.5',
+  /** Same card as `statePage` (Idaho): identical border, ring, shadow, horizontal insets — less vertical padding for a shorter box (e.g. NY over photo). */
+  statePageCompact:
+    'rounded-3xl border border-sage-300/90 border-l-4 bg-white px-6 py-3 shadow-2xl shadow-black/[0.1] ring-2 ring-sage-400/50 sm:px-8 sm:py-4 md:px-10 md:py-5',
   sageDark:
     'rounded-3xl border border-white/10 border-l-4 border-l-orange-400/85 bg-gradient-to-br from-sage-800 via-sage-800 to-sage-950 p-6 shadow-2xl shadow-black/30 ring-1 ring-orange-200/25 sm:p-8 md:p-10',
-}
-
-/** NY: uniform true-white translucency + blur (theme `white` is cream). */
-const nyPhotoPanelStyle = {
-  borderLeftColor: HERO_ACCENT_RUST,
-  backgroundColor: 'rgba(255, 255, 255, 0.84)',
-  backdropFilter: 'blur(12px)',
-  WebkitBackdropFilter: 'blur(12px)',
 }
 
 /** Frosted / paper panel for Home + blog + state intros. */
 export function PageHeroPanel({ children, className = '', tone = 'paper' }) {
   const base = toneClass[tone] ?? toneClass.paper
   const panelStyle =
-    tone === 'statePageGlass'
-      ? nyPhotoPanelStyle
-      : tone === 'statePage' || tone === 'paper'
-        ? { borderLeftColor: HERO_ACCENT_RUST }
-        : undefined
+    tone === 'statePage' || tone === 'statePageCompact' || tone === 'paper'
+      ? { borderLeftColor: HERO_ACCENT_RUST }
+      : undefined
   return (
     <div className={`${base} ${className}`.trim()} style={panelStyle}>
       {children}
