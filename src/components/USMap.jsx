@@ -18,6 +18,7 @@ const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
 const FILL_HOVER = '#9daa84'
 const STROKE = '#3c4735'
+const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
@@ -273,7 +274,9 @@ export default function USMap() {
 
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
-              geographies.map((geo) => {
+              geographies
+                .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
+                .map((geo) => {
                 const fill = STATE_FILLS[stateShadeIndex(geo)]
                 return (
                 <Geography
