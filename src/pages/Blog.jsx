@@ -54,7 +54,7 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
+      <section className="relative flex min-h-[19rem] flex-col overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={blogHeroBgUrl}
@@ -70,8 +70,8 @@ export default function Blog() {
           className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/35 via-white/30 to-sage-900/40"
           aria-hidden
         />
-        <div className="relative z-10">
-          <div className={`${sectionShell} py-12 sm:py-16 md:py-20`}>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center">
+          <div className={`${sectionShell} py-8 sm:py-10 md:py-12`}>
             <PageHeroPanel className="mx-auto w-full max-w-4xl !bg-[rgba(255,255,255,0.65)] !py-3 text-center shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-md sm:!py-4 md:!py-5">
               <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
                 Blog
