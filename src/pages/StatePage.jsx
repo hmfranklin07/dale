@@ -146,24 +146,18 @@ export default function StatePage() {
           <div className={`${stateHeroShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'}
-              className={isNyPhotoHero ? 'w-full' : '!py-4 sm:!py-5 md:!py-6'}
+              className={isNyPhotoHero ? 'w-full !py-2.5 sm:!py-3 md:!py-4' : '!py-4 sm:!py-5 md:!py-6'}
             >
               <Link
                 to="/"
-                className={`inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800 ${
-                  isNyPhotoHero ? 'mb-4' : 'mb-3'
-                }`}
+                className="mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to home &amp; map
               </Link>
-              <h1
-                className={`font-display text-4xl leading-tight sm:text-5xl ${pageTitleClass} ${
-                  isNyPhotoHero ? 'mt-1 mb-3 sm:mb-4' : 'mt-0 mb-2 sm:mb-3'
-                }`}
-              >
+              <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
                 {state.name}
               </h1>
               <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
@@ -171,7 +165,7 @@ export default function StatePage() {
                   ? state.heroIntro
                   : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
               </p>
-              <p className={`text-base text-earth-800 sm:text-lg ${isNyPhotoHero ? 'mt-5' : 'mt-3'}`}>
+              <p className="mt-3 text-base text-earth-800 sm:text-lg">
                 <Link
                   to={`/blog/state/${state.slug}`}
                   className="font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950"
