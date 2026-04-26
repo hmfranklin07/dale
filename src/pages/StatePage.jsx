@@ -176,9 +176,9 @@ export default function StatePage() {
       </section>
 
       <PageContentBand>
-        <div className="space-y-16 sm:space-y-20">
+        <div className="space-y-14 sm:space-y-16">
           <section>
-            <SectionHeading>Latest videos</SectionHeading>
+            <SectionHeading className="!mb-3 sm:!mb-4">Latest videos</SectionHeading>
             <div className="space-y-6">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
                 {videoSlots.map((vlog, idx) => (
@@ -198,7 +198,7 @@ export default function StatePage() {
           </section>
 
           <section>
-            <SectionHeading>Latest transcriptions</SectionHeading>
+            <SectionHeading className="!mb-3 sm:!mb-4">Latest transcriptions</SectionHeading>
             <div className="space-y-6">
               {latestInterview ? (
                 <Link
@@ -244,7 +244,7 @@ export default function StatePage() {
           </section>
 
           <section>
-            <SectionHeading>Reflections</SectionHeading>
+            <SectionHeading className="!mb-3 sm:!mb-4">Reflections</SectionHeading>
             <div className="space-y-6">
               {latestReflection ? (
                 <Link
