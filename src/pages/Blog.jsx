@@ -76,12 +76,11 @@ export default function Blog() {
               <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
                 Blog
               </span>
-              <h1 className="font-display mb-4 sm:mb-5 text-4xl leading-tight sm:text-5xl">
-                <span className={pageTitleClass}>Field notes from the road</span>
+              <h1 className="font-display mb-4 text-4xl leading-tight sm:mb-5 sm:text-5xl">
+                <span className={pageTitleClass}>On the Road</span>
               </h1>
-              <p className="mx-auto max-w-2xl text-base text-earth-800 sm:text-lg leading-relaxed">
-                Longer written posts and video check-ins from each stop—organized so you can read the
-                latest first, browse by state, or open full lists on their own pages.
+              <p className="mx-auto max-w-2xl text-base leading-relaxed text-earth-800 sm:text-lg">
+                Join me on my journey and watch it unfold!
               </p>
             </PageHeroPanel>
           </div>
