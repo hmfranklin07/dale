@@ -206,6 +206,35 @@ export default function Blog() {
               ))}
             </div>
           </section>
+
+          <section>
+            <SectionHeading>See more</SectionHeading>
+            <div className="card card-body !ring-rust-300/45 sm:p-8">
+              <p className="text-earth-800 leading-relaxed sm:text-lg">
+                Watch more content on my socials.
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://www.youtube.com/@hannahfranklin07"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                >
+                  YouTube
+                  <span aria-hidden>↗</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/hannahfranklin07/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                >
+                  Instagram
+                  <span aria-hidden>↗</span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </PageContentBand>
     </>

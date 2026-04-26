@@ -1,9 +1,12 @@
 import siteMeta from '../data/siteMeta.json'
+import social from '../data/social.json'
+import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
 
 const shell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'
 
 export default function Footer() {
   const mailto = `mailto:${siteMeta.contactEmail}`
+  const youtubeHref = social.youtubeUrl || YOUTUBE_CHANNEL_URL
 
   return (
     <footer className="relative z-10 mt-auto overflow-hidden">
@@ -33,7 +36,27 @@ export default function Footer() {
 
             <div className="md:text-right">
               <h2 className="font-display mb-3 text-base text-white sm:text-lg">{siteMeta.researcherName}</h2>
-              <p className="text-sm leading-relaxed text-sage-200/90">{siteMeta.affiliation}</p>
+              <div className="flex items-center justify-center gap-3 text-sm leading-relaxed md:justify-end">
+                <a
+                  href={youtubeHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sage-200/90 underline decoration-rust-300/45 underline-offset-2 transition-colors hover:text-rust-200"
+                >
+                  YouTube
+                </a>
+                <span className="text-sage-300/70" aria-hidden>
+                  ·
+                </span>
+                <a
+                  href={social.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sage-200/90 underline decoration-rust-300/45 underline-offset-2 transition-colors hover:text-rust-200"
+                >
+                  Instagram
+                </a>
+              </div>
             </div>
           </div>
         </div>
