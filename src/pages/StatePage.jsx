@@ -179,9 +179,6 @@ export default function StatePage() {
         <div className="space-y-16 sm:space-y-20">
           <section>
             <SectionHeading>Latest videos</SectionHeading>
-            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
-              Conversations and interviews from this stop.
-            </p>
             <div className="space-y-6">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
                 {videoSlots.map((vlog, idx) => (
@@ -202,9 +199,6 @@ export default function StatePage() {
 
           <section>
             <SectionHeading>Latest transcriptions</SectionHeading>
-            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
-              Written interviews and conversations from this stop.
-            </p>
             <div className="space-y-6">
               {latestInterview ? (
                 <Link
@@ -251,9 +245,6 @@ export default function StatePage() {
 
           <section>
             <SectionHeading>Reflections</SectionHeading>
-            <p className="-mt-2 mb-8 text-earth-800 sm:text-lg leading-relaxed">
-              Longer written notes from the road while they are still fresh.
-            </p>
             <div className="space-y-6">
               {latestReflection ? (
                 <Link
