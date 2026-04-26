@@ -146,7 +146,11 @@ export default function StatePage() {
           <div className={`${stateHeroShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'}
-              className={isNyPhotoHero ? 'w-full !py-2.5 sm:!py-3 md:!py-4' : '!py-4 sm:!py-5 md:!py-6'}
+              className={
+                isNyPhotoHero
+                  ? 'mx-auto w-full max-w-4xl !py-2.5 sm:!py-3 md:!py-4'
+                  : 'mx-auto w-full max-w-4xl !py-4 sm:!py-5 md:!py-6'
+              }
             >
               <Link
                 to="/"
