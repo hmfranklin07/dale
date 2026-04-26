@@ -85,10 +85,9 @@ export default function Home() {
                   of the opportunities that existed beyond my community didn’t feel within reach.
                 </p>
                 <p>
-                  I know there are so many rural students with remarkable potential, even when certain
-                  opportunities or possibilities may not feel as visible. This project comes from a desire
-                  to better understand how students and educators think about education in their own
-                  communities through conversations and shared stories.
+                  This project comes from my love for rural America and a desire to better understand how
+                  students and educators experience and think about education in their own communities
+                  through conversations and shared stories.
                 </p>
               </div>
             </div>
