@@ -40,7 +40,7 @@ export default function Home() {
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
-                  Drawing from conversations and interviews in 6 different areas, I will be sharing what STEM looks
+                  Drawing from conversations and interviews in 6 different areas, I'll be sharing what STEM looks
                   like in the classroom and how students connect with it.
                 </p>
                 <p>
