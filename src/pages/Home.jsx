@@ -1,9 +1,10 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
-import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+/** Home hero background photo, bundled as-is. */
+import homeHeroBgUrl from '../assets/home/hero-sunset-road.png?url'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
@@ -13,9 +14,22 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${stateHeroBandSectionClass}`}
-      >
+      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={homeHeroBgUrl}
+            alt=""
+            sizes="100vw"
+            className="h-full w-full object-cover object-[52%_46%] sm:object-[50%_44%]"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/28 via-white/20 to-sage-900/34"
+          aria-hidden
+        />
         <div className="relative z-10">
           <div className={`${shell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel className="!bg-white shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50">
