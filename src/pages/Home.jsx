@@ -4,7 +4,7 @@ import { SectionAmbience } from '../components/SectionAmbience'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 /** Home hero background photo, bundled as-is. */
-import homeHeroBgUrl from '../assets/home/hero-sunset-road.png?url'
+import homeHeroBgUrl from '../assets/home/IMG_3286.jpg?url'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
