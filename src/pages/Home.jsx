@@ -36,12 +36,16 @@ export default function Home() {
               <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
                 <span className={pageTitleClass}>STEM Across Rural America</span>
               </h1>
-              <div className="max-w-none space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
+              <div className="max-w-none space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
                 <p>
-                This site serves to document how STEM education is experienced in rural high schools across the United States.  Through conversations with students, educators, and administrators, I seek to share what STEM looks like in high schools; how it is taught, experienced, and how it connects to students’ lives, identities, and communities.  This project highlights voices from 6 different regions, capturing a wide range of perspectives and lived experiences.
+                  This summer, I am driving across the country to document experiences with STEM education in rural high
+                  schools, not from numbers and statistics, but from the students and educators who live it every day.
+                  Drawing from conversations and interviews in 6 different locations, I will be sharing what STEM looks
+                  like in the classroom and how students connect with it.
                 </p>
                 <p>
-                  You’ll find a mix of videos, interviews, reflections, transcriptions, and personal blogs that document stories from across the country.
+                  This site is home to all of the videos, interviews, reflections, transcripts, and personal blogs from
+                  each place I visit, highlighting rural voices and telling stories from across the nation.
                 </p>
               </div>
             </PageHeroPanel>
