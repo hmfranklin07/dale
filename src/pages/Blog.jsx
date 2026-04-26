@@ -134,7 +134,7 @@ export default function Blog() {
           </section>
 
           <section>
-            <SectionHeading>Latest videos</SectionHeading>
+            <SectionHeading>Latest vlogs</SectionHeading>
             {hasAnyVideo ? (
               <div className="space-y-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
@@ -179,7 +179,7 @@ export default function Blog() {
           </section>
 
           <section aria-labelledby="blog-by-state-heading">
-            <SectionHeading id="blog-by-state-heading">Blogs &amp; videos by state</SectionHeading>
+            <SectionHeading id="blog-by-state-heading">Blogs &amp; vlogs by state</SectionHeading>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {states.map((s) => (
                 <Link
