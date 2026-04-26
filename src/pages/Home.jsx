@@ -58,7 +58,7 @@ export default function Home() {
         <div className={`relative z-10 ${sectionShell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
           <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
-              <SectionHeading className="!mb-3 sm:!mb-4">Project inspiration</SectionHeading>
+              <SectionHeading className="!mt-1 !mb-2 sm:!mt-1.5 sm:!mb-3">Project inspiration</SectionHeading>
             </div>
 
             <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
