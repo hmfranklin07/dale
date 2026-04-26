@@ -148,13 +148,13 @@ export default function StatePage() {
               tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'}
               className={
                 isNyPhotoHero
-                  ? 'mx-auto w-full max-w-4xl !py-2.5 sm:!py-3 md:!py-4'
-                  : 'mx-auto w-full max-w-4xl !py-4 sm:!py-5 md:!py-6'
+                  ? 'mx-auto w-full max-w-3xl text-center !py-2.5 sm:!py-3 md:!py-4'
+                  : 'mx-auto w-full max-w-3xl text-center !py-4 sm:!py-5 md:!py-6'
               }
             >
               <Link
                 to="/"
-                className="mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
+                className="mx-auto mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
