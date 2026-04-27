@@ -13,30 +13,14 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Four sage steps — collectively darker than before so the map sits closer to sage-900 accents
-// Index 0 = lightest … 3 = darkest (still well above sage-900 #333c2e for legibility)
-const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
-const FILL_HOVER = '#9daa84'
+// Two paired ramps (same 0…3 “shade” index). Sage + warm earth/umber keep the field-note palette, less one-note.
+const SAGE_STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
+const SAGE_HOVER = '#9daa84'
+// Muted umber / sand — reads with rust trim elsewhere on the site
+const EARTH_STATE_FILLS = ['#d9cab6', '#c0ad92', '#9b876d', '#72624e']
+const EARTH_HOVER = '#a78f75'
 const STROKE = '#3c4735'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
-
-const FILTER_RELIEF_SOFT = 'url(#usStateReliefSoft)'
-const FILTER_RELIEF_ROCKIES = 'url(#usStateReliefRockies)'
-
-/** Slightly stronger drop shadow on western cordillera / intermountain states (same base fills; relief read via light). */
-const MOUNTAIN_RELIEF_STATE_NAMES = new Set([
-  'arizona',
-  'california',
-  'colorado',
-  'idaho',
-  'montana',
-  'nevada',
-  'new mexico',
-  'oregon',
-  'utah',
-  'washington',
-  'wyoming',
-])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
@@ -70,22 +54,11 @@ function normalizedStateName(geo) {
   return String(n).trim().toLowerCase()
 }
 
-function reliefFilterForState(geo) {
-  const n = normalizedStateName(geo)
-  if (n && MOUNTAIN_RELIEF_STATE_NAMES.has(n)) return FILTER_RELIEF_ROCKIES
-  return FILTER_RELIEF_SOFT
-}
-
 /**
- * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
- * are scattered across the map instead of clumping by region.
+ * FNV-1a hash of geographic label — shared by shade and sage vs earth so behavior stays stable.
  */
-function stateShadeIndex(geo) {
+function stateFnv32(geo) {
   const p = geo.properties || {}
-  const stateName = normalizedStateName(geo)
-  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
-    return SHADE_OVERRIDES[stateName]
-  }
   const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
   if (!label) return 0
   let h = 2166136261
@@ -93,11 +66,40 @@ function stateShadeIndex(geo) {
   h = (h ^ (h >>> 16)) | 0
   h = Math.imul(h, 2246822507) | 0
   h = (h ^ (h >>> 13)) | 0
-  const base = (h >>> 0) & 3
+  return h >>> 0
+}
+
+/**
+ * When true, use the earth/umber ramp; when false, sage. Different hash bit than shade so patches don’t line up.
+ */
+function useEarthPalette(geo) {
+  return (stateFnv32(geo) >>> 9) & 1
+}
+
+/**
+ * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
+ * are scattered across the map instead of clumping by region.
+ */
+function stateShadeIndex(geo) {
+  const stateName = normalizedStateName(geo)
+  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
+    return SHADE_OVERRIDES[stateName]
+  }
+  const h = stateFnv32(geo)
+  const base = h & 3
   if (stateName && Object.prototype.hasOwnProperty.call(SHADE_ADJUSTMENTS, stateName)) {
     return Math.max(0, Math.min(3, base + SHADE_ADJUSTMENTS[stateName]))
   }
   return base
+}
+
+function stateMapFill(geo) {
+  const i = stateShadeIndex(geo)
+  return useEarthPalette(geo) ? EARTH_STATE_FILLS[i] : SAGE_STATE_FILLS[i]
+}
+
+function stateMapHover(geo) {
+  return useEarthPalette(geo) ? EARTH_HOVER : SAGE_HOVER
 }
 const PIN_DEFAULT = PIN_BODY_DEFAULT
 const PIN_HOVER = PIN_BODY_HOVER
@@ -287,43 +289,10 @@ export default function USMap() {
           className="h-auto w-full block"
         >
           <defs>
-            {/* Subtle top-left "sun" + SE shadow on every state; stronger in Rock Cordillera / intermountain states */}
-            <filter
-              id="usStateReliefSoft"
-              x="-15%"
-              y="-15%"
-              width="130%"
-              height="130%"
-              colorInterpolationFilters="sRGB"
-            >
-              <feDropShadow
-                in="SourceGraphic"
-                stdDeviation="0.35"
-                dx="0.18"
-                dy="0.38"
-                floodColor="#0f150c"
-                floodOpacity="0.1"
-                result="lit"
-              />
-            </filter>
-            <filter
-              id="usStateReliefRockies"
-              x="-28%"
-              y="-28%"
-              width="156%"
-              height="156%"
-              colorInterpolationFilters="sRGB"
-            >
-              <feDropShadow
-                in="SourceGraphic"
-                stdDeviation="0.85"
-                dx="0.5"
-                dy="0.95"
-                floodColor="#060a05"
-                floodOpacity="0.2"
-                result="shade"
-              />
-            </filter>
+            <radialGradient id="usMapCanvasWash" cx="48%" cy="40%" r="75%">
+              <stop offset="0%" stopColor="#fbf8f1" />
+              <stop offset="100%" stopColor="#e7eadf" />
+            </radialGradient>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
               <stop offset="100%" stopColor="#f9efe7" />
@@ -333,13 +302,14 @@ export default function USMap() {
             </filter>
           </defs>
 
+          <rect width={MAP_W} height={MAP_H} fill="url(#usMapCanvasWash)" style={{ pointerEvents: 'none' }} />
+
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
                 .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
                 .map((geo) => {
-                const fill = STATE_FILLS[stateShadeIndex(geo)]
-                const relief = reliefFilterForState(geo)
+                const fill = stateMapFill(geo)
                 return (
                 <Geography
                   key={geo.rsmKey || geo.id}
@@ -348,9 +318,9 @@ export default function USMap() {
                   stroke={STROKE}
                   strokeWidth={0.65}
                   style={{
-                    default: { outline: 'none', filter: relief },
-                    hover: { fill: FILL_HOVER, outline: 'none', filter: relief },
-                    pressed: { outline: 'none', filter: relief },
+                    default: { outline: 'none' },
+                    hover: { fill: stateMapHover(geo), outline: 'none' },
+                    pressed: { outline: 'none' },
                   }}
                 />
                 )
