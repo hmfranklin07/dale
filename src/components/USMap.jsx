@@ -13,11 +13,11 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Four sage steps — higher contrast: wider light→dark spread, crisper state edges
+// Four sage steps — mid contrast, slightly richer greens than the flat set
 // Index 0 = lightest … 3 = darkest
-const STATE_FILLS = ['#dbe5cc', '#b0bc96', '#7a8d62', '#434f36']
-const FILL_HOVER = '#6f8a52'
-const STROKE = '#1e2418'
+const STATE_FILLS = ['#d4e0c8', '#b5c2a0', '#8fad72', '#5a6a46']
+const FILL_HOVER = '#7a9a5a'
+const STROKE = '#2d3528'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
@@ -252,7 +252,7 @@ export default function USMap() {
       }}
     >
       <div
-        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-white/98 via-sage-50/95 to-sage-100/75 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/60 sm:p-2"
+        className="overflow-hidden rounded-2xl border-2 border-rust-200/60 bg-gradient-to-b from-white/98 via-sage-50/95 to-sage-100/80 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-200/50 sm:p-2"
         style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
       >
         <ComposableMap
@@ -263,6 +263,28 @@ export default function USMap() {
           className="h-auto w-full block"
         >
           <defs>
+            {/* Soft “paper + sky” under land; vignette only shows in water / map margins (drawn under states) */}
+            <linearGradient id="usMapFieldWash" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f1eee6" />
+              <stop offset="50%" stopColor="#e2e7da" />
+              <stop offset="100%" stopColor="#d0d9c4" />
+            </linearGradient>
+            <radialGradient id="usMapVignette" cx="50%" cy="40%" r="80%">
+              <stop offset="45%" stopColor="rgba(32, 38, 32, 0)" />
+              <stop offset="100%" stopColor="rgba(32, 38, 32, 0.16)" />
+            </radialGradient>
+            <filter id="usMapFineGrain" x="-5%" y="-5%" width="110%" height="110%" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="n" />
+              <feColorMatrix
+                in="n"
+                type="saturate"
+                values="0"
+                result="grey"
+              />
+              <feComponentTransfer in="grey" result="a">
+                <feFuncA type="linear" slope="0.22" />
+              </feComponentTransfer>
+            </filter>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
               <stop offset="100%" stopColor="#f9efe7" />
@@ -272,6 +294,8 @@ export default function USMap() {
             </filter>
           </defs>
 
+          <rect width={MAP_W} height={MAP_H} fill="url(#usMapFieldWash)" style={{ pointerEvents: 'none' }} />
+          <rect width={MAP_W} height={MAP_H} fill="url(#usMapVignette)" style={{ pointerEvents: 'none' }} />
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
@@ -284,7 +308,7 @@ export default function USMap() {
                   geography={geo}
                   fill={fill}
                   stroke={STROKE}
-                  strokeWidth={0.72}
+                  strokeWidth={0.68}
                   style={{
                     default: { outline: 'none' },
                     hover: { fill: FILL_HOVER, outline: 'none' },
@@ -295,6 +319,15 @@ export default function USMap() {
               })
             }
           </Geographies>
+
+          {/* Very light grain over land + water; pointer-events off so map stays interactive */}
+          <rect
+            width={MAP_W}
+            height={MAP_H}
+            fill="#000"
+            filter="url(#usMapFineGrain)"
+            style={{ pointerEvents: 'none', mixBlendMode: 'soft-light', opacity: 0.2 }}
+          />
 
           {ROUTE_PATH_D && (
             <>
