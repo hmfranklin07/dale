@@ -13,11 +13,11 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Four sage steps — collectively darker than before so the map sits closer to sage-900 accents
-// Index 0 = lightest … 3 = darkest (still well above sage-900 #333c2e for legibility)
-const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
-const FILL_HOVER = '#9daa84'
-const STROKE = '#3c4735'
+// Four sage steps — higher contrast: wider light→dark spread, crisper state edges
+// Index 0 = lightest … 3 = darkest
+const STATE_FILLS = ['#dbe5cc', '#b0bc96', '#7a8d62', '#434f36']
+const FILL_HOVER = '#6f8a52'
+const STROKE = '#1e2418'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
@@ -284,7 +284,7 @@ export default function USMap() {
                   geography={geo}
                   fill={fill}
                   stroke={STROKE}
-                  strokeWidth={0.65}
+                  strokeWidth={0.72}
                   style={{
                     default: { outline: 'none' },
                     hover: { fill: FILL_HOVER, outline: 'none' },
