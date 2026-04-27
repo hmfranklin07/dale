@@ -13,13 +13,13 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Two paired ramps (same 0…3 “shade” index). Sage + warm earth/umber keep the field-note palette, less one-note.
-const SAGE_STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
-const SAGE_HOVER = '#9daa84'
-// Muted umber / sand — reads with rust trim elsewhere on the site
-const EARTH_STATE_FILLS = ['#d9cab6', '#c0ad92', '#9b876d', '#72624e']
-const EARTH_HOVER = '#a78f75'
-const STROKE = '#3c4735'
+// Paired 4-step ramps: same “weight” at each index so states read as one family. Sage = green-grey; earth = warm greige/olive (not orange) so it sits next to sage.
+// Tuned to sit with tailwind sage/earth and the rust accents.
+const SAGE_STATE_FILLS = ['#dde3d4', '#c0cab0', '#8f9d7a', '#5d6a4a']
+const SAGE_HOVER = '#9aaa85'
+const EARTH_STATE_FILLS = ['#e2dbd0', '#cabfa8', '#a89a82', '#75695a']
+const EARTH_HOVER = '#9c8c76'
+const STROKE = '#3e4239'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
@@ -55,11 +55,13 @@ function normalizedStateName(geo) {
 }
 
 /**
- * FNV-1a hash of geographic label — shared by shade and sage vs earth so behavior stays stable.
+ * FNV-1a hash. Optional `salt` decorrelates different uses (shade vs tone) so they don’t line up on the map.
+ * Empty salt keeps the same string as before for shade banding.
  */
-function stateFnv32(geo) {
+function stateFnv32(geo, salt = '') {
   const p = geo.properties || {}
-  const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
+  const base = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
+  const label = salt ? `${base}\0${salt}` : base
   if (!label) return 0
   let h = 2166136261
   for (let i = 0; i < label.length; i++) h = Math.imul(h ^ label.charCodeAt(i), 16777619)
@@ -70,10 +72,13 @@ function stateFnv32(geo) {
 }
 
 /**
- * When true, use the earth/umber ramp; when false, sage. Different hash bit than shade so patches don’t line up.
+ * Earth vs sage: independent of shade (salted hash + XOR mix) so the mix looks scattered, not striped.
+ * ~40% earth — enough warm tone without brown overwhelming the map.
  */
 function useEarthPalette(geo) {
-  return (stateFnv32(geo) >>> 9) & 1
+  const a = stateFnv32(geo, 'moss')
+  const b = stateFnv32(geo, 'clay')
+  return ((a ^ b) & 0xff) < 102
 }
 
 /**
@@ -290,8 +295,8 @@ export default function USMap() {
         >
           <defs>
             <radialGradient id="usMapCanvasWash" cx="48%" cy="40%" r="75%">
-              <stop offset="0%" stopColor="#fbf8f1" />
-              <stop offset="100%" stopColor="#e7eadf" />
+              <stop offset="0%" stopColor="#faf8f3" />
+              <stop offset="100%" stopColor="#e3e5dd" />
             </radialGradient>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
