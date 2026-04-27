@@ -13,11 +13,30 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-/** Hypsometric-style ramp (low → high) so the map reads like stylized terrain without DEM tiles. */
-const STATE_FILLS = ['#3d5a38', '#5a6f47', '#8a7a55', '#c4b89a']
-const FILL_HOVER = '#d2c9a8'
-const STROKE = '#2a2118'
+// Four sage steps — collectively darker than before so the map sits closer to sage-900 accents
+// Index 0 = lightest … 3 = darkest (still well above sage-900 #333c2e for legibility)
+const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
+const FILL_HOVER = '#9daa84'
+const STROKE = '#3c4735'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
+
+const FILTER_RELIEF_SOFT = 'url(#usStateReliefSoft)'
+const FILTER_RELIEF_ROCKIES = 'url(#usStateReliefRockies)'
+
+/** Slightly stronger drop shadow on western cordillera / intermountain states (same base fills; relief read via light). */
+const MOUNTAIN_RELIEF_STATE_NAMES = new Set([
+  'arizona',
+  'california',
+  'colorado',
+  'idaho',
+  'montana',
+  'nevada',
+  'new mexico',
+  'oregon',
+  'utah',
+  'washington',
+  'wyoming',
+])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
@@ -49,6 +68,12 @@ function normalizedStateName(geo) {
   const n = p.name || p.NAME
   if (n == null || n === '') return null
   return String(n).trim().toLowerCase()
+}
+
+function reliefFilterForState(geo) {
+  const n = normalizedStateName(geo)
+  if (n && MOUNTAIN_RELIEF_STATE_NAMES.has(n)) return FILTER_RELIEF_ROCKIES
+  return FILTER_RELIEF_SOFT
 }
 
 /**
@@ -251,7 +276,7 @@ export default function USMap() {
       }}
     >
       <div
-        className="overflow-hidden rounded-2xl border-2 border-earth-800/25 bg-gradient-to-b from-earth-900/25 via-sage-200/80 to-earth-100/90 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/50 sm:p-2"
+        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-white/98 via-sage-50/95 to-sage-100/75 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/60 sm:p-2"
         style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
       >
         <ComposableMap
@@ -262,18 +287,43 @@ export default function USMap() {
           className="h-auto w-full block"
         >
           <defs>
-            <linearGradient id="usReliefBase" x1="8%" y1="92%" x2="92%" y2="10%" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#1a2618" />
-              <stop offset="28%" stopColor="#2d3d28" />
-              <stop offset="52%" stopColor="#4a5a3a" />
-              <stop offset="74%" stopColor="#6d6148" />
-              <stop offset="100%" stopColor="#9a8c6a" />
-            </linearGradient>
-            <radialGradient id="usReliefSheen" cx="32%" cy="22%" r="78%" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stopColor="rgba(255, 250, 238, 0.38)" />
-              <stop offset="45%" stopColor="rgba(255, 250, 238, 0.1)" />
-              <stop offset="100%" stopColor="rgba(0, 0, 0, 0)" />
-            </radialGradient>
+            {/* Subtle top-left "sun" + SE shadow on every state; stronger in Rock Cordillera / intermountain states */}
+            <filter
+              id="usStateReliefSoft"
+              x="-15%"
+              y="-15%"
+              width="130%"
+              height="130%"
+              colorInterpolationFilters="sRGB"
+            >
+              <feDropShadow
+                in="SourceGraphic"
+                stdDeviation="0.35"
+                dx="0.18"
+                dy="0.38"
+                floodColor="#0f150c"
+                floodOpacity="0.1"
+                result="lit"
+              />
+            </filter>
+            <filter
+              id="usStateReliefRockies"
+              x="-28%"
+              y="-28%"
+              width="156%"
+              height="156%"
+              colorInterpolationFilters="sRGB"
+            >
+              <feDropShadow
+                in="SourceGraphic"
+                stdDeviation="0.85"
+                dx="0.5"
+                dy="0.95"
+                floodColor="#060a05"
+                floodOpacity="0.2"
+                result="shade"
+              />
+            </filter>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
               <stop offset="100%" stopColor="#f9efe7" />
@@ -283,37 +333,30 @@ export default function USMap() {
             </filter>
           </defs>
 
-          <rect width={MAP_W} height={MAP_H} fill="url(#usReliefBase)" style={{ pointerEvents: 'none' }} />
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
                 .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
                 .map((geo) => {
                 const fill = STATE_FILLS[stateShadeIndex(geo)]
+                const relief = reliefFilterForState(geo)
                 return (
                 <Geography
                   key={geo.rsmKey || geo.id}
                   geography={geo}
                   fill={fill}
                   stroke={STROKE}
-                  strokeWidth={0.55}
+                  strokeWidth={0.65}
                   style={{
-                    default: { outline: 'none' },
-                    hover: { fill: FILL_HOVER, outline: 'none' },
-                    pressed: { outline: 'none' },
+                    default: { outline: 'none', filter: relief },
+                    hover: { fill: FILL_HOVER, outline: 'none', filter: relief },
+                    pressed: { outline: 'none', filter: relief },
                   }}
                 />
                 )
               })
             }
           </Geographies>
-
-          <rect
-            width={MAP_W}
-            height={MAP_H}
-            fill="url(#usReliefSheen)"
-            style={{ pointerEvents: 'none', mixBlendMode: 'soft-light' }}
-          />
 
           {ROUTE_PATH_D && (
             <>
