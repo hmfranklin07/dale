@@ -13,13 +13,11 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Paired 4-step ramps: same “weight” at each index so states read as one family. Sage = green-grey; earth = warm greige/olive (not orange) so it sits next to sage.
-// Tuned to sit with tailwind sage/earth and the rust accents.
-const SAGE_STATE_FILLS = ['#dde3d4', '#c0cab0', '#8f9d7a', '#5d6a4a']
-const SAGE_HOVER = '#9aaa85'
-const EARTH_STATE_FILLS = ['#e2dbd0', '#cabfa8', '#a89a82', '#75695a']
-const EARTH_HOVER = '#9c8c76'
-const STROKE = '#3e4239'
+// Four sage steps — collectively darker than before so the map sits closer to sage-900 accents
+// Index 0 = lightest … 3 = darkest (still well above sage-900 #333c2e for legibility)
+const STATE_FILLS = ['#c9d4b8', '#aebb9c', '#92a180', '#768b66']
+const FILL_HOVER = '#9daa84'
+const STROKE = '#3c4735'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
@@ -55,56 +53,27 @@ function normalizedStateName(geo) {
 }
 
 /**
- * FNV-1a hash. Optional `salt` decorrelates different uses (shade vs tone) so they don’t line up on the map.
- * Empty salt keeps the same string as before for shade banding.
+ * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
+ * are scattered across the map instead of clumping by region.
  */
-function stateFnv32(geo, salt = '') {
+function stateShadeIndex(geo) {
   const p = geo.properties || {}
-  const base = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
-  const label = salt ? `${base}\0${salt}` : base
+  const stateName = normalizedStateName(geo)
+  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
+    return SHADE_OVERRIDES[stateName]
+  }
+  const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
   if (!label) return 0
   let h = 2166136261
   for (let i = 0; i < label.length; i++) h = Math.imul(h ^ label.charCodeAt(i), 16777619)
   h = (h ^ (h >>> 16)) | 0
   h = Math.imul(h, 2246822507) | 0
   h = (h ^ (h >>> 13)) | 0
-  return h >>> 0
-}
-
-/**
- * Earth vs sage: independent of shade (salted hash + XOR mix) so the mix looks scattered, not striped.
- * ~40% earth — enough warm tone without brown overwhelming the map.
- */
-function useEarthPalette(geo) {
-  const a = stateFnv32(geo, 'moss')
-  const b = stateFnv32(geo, 'clay')
-  return ((a ^ b) & 0xff) < 102
-}
-
-/**
- * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
- * are scattered across the map instead of clumping by region.
- */
-function stateShadeIndex(geo) {
-  const stateName = normalizedStateName(geo)
-  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
-    return SHADE_OVERRIDES[stateName]
-  }
-  const h = stateFnv32(geo)
-  const base = h & 3
+  const base = (h >>> 0) & 3
   if (stateName && Object.prototype.hasOwnProperty.call(SHADE_ADJUSTMENTS, stateName)) {
     return Math.max(0, Math.min(3, base + SHADE_ADJUSTMENTS[stateName]))
   }
   return base
-}
-
-function stateMapFill(geo) {
-  const i = stateShadeIndex(geo)
-  return useEarthPalette(geo) ? EARTH_STATE_FILLS[i] : SAGE_STATE_FILLS[i]
-}
-
-function stateMapHover(geo) {
-  return useEarthPalette(geo) ? EARTH_HOVER : SAGE_HOVER
 }
 const PIN_DEFAULT = PIN_BODY_DEFAULT
 const PIN_HOVER = PIN_BODY_HOVER
@@ -294,10 +263,6 @@ export default function USMap() {
           className="h-auto w-full block"
         >
           <defs>
-            <radialGradient id="usMapCanvasWash" cx="48%" cy="40%" r="75%">
-              <stop offset="0%" stopColor="#faf8f3" />
-              <stop offset="100%" stopColor="#e3e5dd" />
-            </radialGradient>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
               <stop offset="100%" stopColor="#f9efe7" />
@@ -307,14 +272,12 @@ export default function USMap() {
             </filter>
           </defs>
 
-          <rect width={MAP_W} height={MAP_H} fill="url(#usMapCanvasWash)" style={{ pointerEvents: 'none' }} />
-
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
                 .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
                 .map((geo) => {
-                const fill = stateMapFill(geo)
+                const fill = STATE_FILLS[stateShadeIndex(geo)]
                 return (
                 <Geography
                   key={geo.rsmKey || geo.id}
@@ -324,7 +287,7 @@ export default function USMap() {
                   strokeWidth={0.65}
                   style={{
                     default: { outline: 'none' },
-                    hover: { fill: stateMapHover(geo), outline: 'none' },
+                    hover: { fill: FILL_HOVER, outline: 'none' },
                     pressed: { outline: 'none' },
                   }}
                 />
