@@ -2,7 +2,6 @@ import { Link, useParams, Navigate } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
 import { PageHeroPanel } from '../components/PageHeroPanel'
-import EditorialPageLead from '../components/EditorialPageLead'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
@@ -175,12 +174,8 @@ export default function StatePage() {
         </div>
       </section>
 
-      <PageContentBand variant="sage">
+      <PageContentBand>
         <div className="space-y-16 sm:space-y-20">
-          <EditorialPageLead
-            kicker="From the field"
-            subtitle={`Videos, transcriptions, reflections, and the ${state.name} blog hub—filled in as the trip goes on.`}
-          />
           <section>
             <SectionHeading>Latest videos</SectionHeading>
             <div className="space-y-6">

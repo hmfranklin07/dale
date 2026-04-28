@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
 import { PageHeroPanel } from '../components/PageHeroPanel'
-import EditorialPageLead from '../components/EditorialPageLead'
 /** Full-resolution hero (bundled as-is; replace file in repo to swap photo). */
 import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
 import PageContentBand from '../components/PageContentBand'
@@ -88,13 +87,8 @@ export default function Blog() {
         </div>
       </section>
 
-      <PageContentBand wash="rust" variant="sage">
+      <PageContentBand wash="rust">
         <div className="space-y-16 sm:space-y-20">
-          <EditorialPageLead
-            align="center"
-            kicker="Road journal"
-            subtitle="Long-form posts and recent vlogs from the trip. Browse by state below, or jump into the latest entries first."
-          />
           <section>
             <SectionHeading>Latest</SectionHeading>
             {latestBlog ? (
