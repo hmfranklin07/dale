@@ -67,7 +67,7 @@ export default function Blog() {
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/35 via-white/30 to-sage-900/40"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/25 via-[#fff9f5]/45 to-sage-800/28"
           aria-hidden
         />
         <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center">
@@ -87,8 +87,8 @@ export default function Blog() {
         </div>
       </section>
 
-      <PageContentBand wash="rust">
-        <div className="space-y-16 sm:space-y-20">
+      <PageContentBand wash="rust" variant="sage">
+        <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           <section>
             <SectionHeading>Latest</SectionHeading>
             {latestBlog ? (

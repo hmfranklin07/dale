@@ -5,9 +5,9 @@ export const STATE_HERO_BAND_BG = '#CED6C4'
  * Tailwind utility string: soft sage gradient for blog + state intro bands
  * (replaces flat STATE_HERO_BAND_BG for more depth).
  */
-/** Dark on the left → light on the right */
+/** Dark on the left → light on the right; slight amber lift on the right for warmth */
 export const stateHeroBandSectionClass =
-  'bg-gradient-to-r from-sage-600/95 via-sage-400 to-sage-200'
+  'bg-gradient-to-r from-sage-700/90 via-sage-400/95 to-amber-50/80'
 
 /**
  * Inner page headers — right stop stays sage-tinted so white content blocks don’t disappear into it.

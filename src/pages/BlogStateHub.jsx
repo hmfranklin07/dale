@@ -46,8 +46,8 @@ export default function BlogStateHub() {
         </div>
       </section>
 
-      <PageContentBand>
-        <div className="space-y-16">
+      <PageContentBand variant="sage">
+        <div className="space-y-16 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           <section>
             <SectionHeading>Blog posts</SectionHeading>
             <p className="text-earth-800 -mt-2 mb-6 text-sm leading-relaxed sm:text-base">

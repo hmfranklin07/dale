@@ -174,8 +174,8 @@ export default function StatePage() {
         </div>
       </section>
 
-      <PageContentBand>
-        <div className="space-y-16 sm:space-y-20">
+      <PageContentBand variant="sage">
+        <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           <section>
             <SectionHeading>Latest videos</SectionHeading>
             <div className="space-y-6">
