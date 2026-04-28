@@ -4,6 +4,7 @@ import towns from '../data/towns.json'
 import YouTubeEmbed from '../components/YouTubeEmbed'
 import { innerPageTopBandSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
+import EditorialPageLead from '../components/EditorialPageLead'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import BlogBackLink from '../components/BlogBackLink'
@@ -46,8 +47,12 @@ export default function BlogStateHub() {
         </div>
       </section>
 
-      <PageContentBand>
+      <PageContentBand variant="sage">
         <div className="space-y-16">
+          <EditorialPageLead
+            kicker={`${state.name}`}
+            subtitle="Blog posts and vlogs from towns in this state only. For interviews and full field notes, use the state page link above."
+          />
           <section>
             <SectionHeading>Blog posts</SectionHeading>
             <p className="text-earth-800 -mt-2 mb-6 text-sm leading-relaxed sm:text-base">
