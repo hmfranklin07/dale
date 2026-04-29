@@ -93,6 +93,9 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <p className="mx-auto mt-8 max-w-3xl border-t border-sage-300/50 pt-6 text-center text-sm leading-relaxed text-earth-600 italic sm:mt-10 sm:pt-7 sm:text-base">
+            This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
+          </p>
         </div>
       </section>
 
