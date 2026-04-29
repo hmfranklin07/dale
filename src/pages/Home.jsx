@@ -55,10 +55,10 @@ export default function Home() {
 
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100">
-        <div className={`relative z-10 ${sectionShell} pt-8 pb-6 sm:pt-9 sm:pb-7`}>
-          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
+        <div className={`relative z-10 ${sectionShell} pt-7 pb-4 sm:pt-8 sm:pb-5`}>
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
-              <SectionHeading className="!mt-5 !mb-0.5 sm:!mt-6 sm:!mb-1">Project inspiration</SectionHeading>
+              <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Project inspiration</SectionHeading>
             </div>
 
             <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
@@ -77,7 +77,7 @@ export default function Home() {
             </figure>
 
             <div className="min-w-0 md:col-start-1 md:row-start-2">
-              <div className="w-full space-y-4 text-base text-earth-800 sm:text-lg leading-relaxed">
+              <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
                 <p>
                   I&apos;m Hannah Franklin, a sophomore studying chemistry at Princeton University. I grew up in a small
                   farm town in New York, and for most of my life, I didn&apos;t think I could get to where I am now.
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="mx-auto mt-8 max-w-3xl border-t border-sage-300/50 pt-6 text-center text-sm leading-relaxed text-earth-600 italic sm:mt-10 sm:pt-7 sm:text-base">
+          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-sage-300/50 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm md:whitespace-nowrap">
             This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
           </p>
         </div>
