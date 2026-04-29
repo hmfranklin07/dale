@@ -87,11 +87,8 @@ export default function Home() {
                 <p>
                   This project comes from my love for rural America and a desire to better understand how students and
                   educators experience and think about education in their own communities through conversations and
-                  shared stories.
-                </p>
-                <p>
-                  It was born out of my academic work in my Sophomore Research Seminar The Curious Scientist at
-                  Princeton in the 2025-26 school year.
+                  shared stories. It was born out of my academic work in my Sophomore Research Seminar The Curious
+                  Scientist at Princeton in the 2025-26 school year.
                 </p>
               </div>
             </div>
