@@ -113,8 +113,8 @@ export default function StatePage() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${STATE_HERO_MIN_H} ${
-          isNyPhotoHero ? `flex flex-col bg-sage-900` : stateHeroBandSectionClass
+        className={`relative overflow-hidden border-b border-sage-400/45 ${STATE_HERO_MIN_H} flex flex-col ${
+          isNyPhotoHero ? 'bg-sage-900' : stateHeroBandSectionClass
         }`}
       >
         {isNyPhotoHero && (
@@ -136,13 +136,7 @@ export default function StatePage() {
             />
           </>
         )}
-        <div
-          className={
-            isNyPhotoHero
-              ? 'relative z-10 flex min-h-0 flex-1 flex-col justify-center'
-              : 'relative z-10'
-          }
-        >
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center">
           <div className={`${stateHeroShell} py-12 sm:py-16 md:py-20`}>
             <PageHeroPanel
               tone={isNyPhotoHero ? 'statePageCompact' : 'statePage'}

@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
-import { innerPageTopBandSectionClass } from '../config/mapPinColors'
+import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
@@ -24,10 +24,10 @@ export default function StateTranscriptions() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass}`}
+        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass} ${stateSubpageHeroSectionClass}`}
       >
         <SectionAmbience variant="paper" />
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-1 flex-col justify-center">
           <div className={`${sectionShell} py-8 sm:py-10`}>
             <Link
               to={`/${stateSlug}`}

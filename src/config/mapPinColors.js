@@ -15,6 +15,12 @@ export const stateHeroBandSectionClass =
 export const innerPageTopBandSectionClass =
   'bg-gradient-to-r from-sage-600/90 via-sage-300/85 to-sage-200'
 
+/**
+ * State subpage heroes (videos / transcriptions / reflections): min height + flex parent so title blocks vertically center.
+ */
+export const stateSubpageHeroSectionClass =
+  'flex flex-col min-h-[13rem] sm:min-h-[15rem] md:min-h-[16rem]'
+
 /** Hero panel left bar + navbar accents — matches Tailwind `rust-500` (blog hero stripe) */
 export const HERO_ACCENT_RUST = '#e2724d'
 
