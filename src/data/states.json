@@ -30,10 +30,10 @@
     "slug": "idaho",
     "name": "Idaho",
     "abbr": "ID",
-    "place": "Twin Falls",
+    "place": "Boise",
     "heroIntro": "Stop 4: June 21 - June 26, 2026",
-    "lat": 42.5555,
-    "lng": -114.4701
+    "lat": 43.6189,
+    "lng": -116.2156
   },
   {
     "slug": "arkansas",

@@ -122,11 +122,13 @@ const ROUTE_CONTROL_POINTS = [
   [-105.6, 44.3], // Northern Wyoming corridor
   [-108.2, 44.1], // Northern Wyoming / Montana border corridor
   [-110.3, 43.8], // NW Wyoming toward Idaho
-  [-112.2, 43.3], // Idaho Falls corridor
+  [-112.15, 43.25], // Eastern Idaho / Idaho Falls corridor
+  [-114.15, 42.92], // Snake River plain — southeast approach toward Boise
+  [-115.88, 43.28], // Just SSE of Boise pin — curve enters through bottom (south) of marker tip
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
   // Return south arc: Idaho pin -> Yosemite -> LA -> Grand Canyon -> Amarillo -> Oklahoma City -> Arkansas pin
-  [-116.8, 43.2], // Boise area
+  [-117.35, 42.75], // West/southwest out of Boise toward Nevada
   [-118.7, 41.4], // N Nevada
   [-119.81, 39.53], // Reno corridor
   [-120.2, 38.5], // Sierra crest approach
