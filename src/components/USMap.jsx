@@ -409,21 +409,18 @@ export default function USMap() {
 
       {hovered && (
         <div
-          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm rounded-xl border-2 border-rust-400 bg-white px-4 py-3 text-center shadow-lg shadow-rust-900/20"
+          className="pointer-events-none absolute z-20 w-[min(18rem,calc(100%-1.5rem))] max-w-sm rounded-xl border-2 border-rust-400/90 bg-gradient-to-b from-white to-rust-50/35 px-4 py-3.5 text-center shadow-lg shadow-rust-900/20 ring-1 ring-amber-100/70"
           style={{
             left: tooltipPos.x,
             top: tooltipPos.y,
             transform: 'translate(-50%, 0)',
           }}
         >
-          <p className="font-display text-lg leading-tight text-earth-900">{hovered.place}</p>
-          <p
-            className="mt-0.5 font-display text-[13px] font-semibold uppercase leading-tight tracking-wider sm:text-sm sm:leading-tight"
-            style={{ color: PIN_BODY_DEFAULT }}
-          >
-            {hovered.name}
-          </p>
-          <p className="mt-2 text-sm text-earth-700">Click for field notes &amp; interviews</p>
+          <p className="font-display text-xl leading-tight text-earth-900 sm:text-2xl">{hovered.name}</p>
+          {hovered.heroIntro ? (
+            <p className="mx-auto mt-2 max-w-[16.5rem] text-[13px] leading-snug text-earth-700 sm:text-sm">{hovered.heroIntro}</p>
+          ) : null}
+          <p className="mt-3 border-t border-rust-200/60 pt-2.5 text-sm text-earth-600">Click for field notes &amp; interviews</p>
         </div>
       )}
     </div>
