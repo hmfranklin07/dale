@@ -421,13 +421,17 @@ export default function USMap() {
           </p>
           {hovered.heroIntro ? (
             <p
-              className="mt-0.5 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
+              className="mt-2 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
               style={{ color: PIN_BODY_DEFAULT }}
             >
               {hovered.heroIntro}
             </p>
           ) : null}
-          <p className="mt-1.5 text-sm leading-tight text-earth-700">Click for field notes &amp; interviews</p>
+          <p
+            className={`text-sm leading-tight text-earth-700 ${hovered.heroIntro ? 'mt-1' : 'mt-2'}`}
+          >
+            Click for field notes &amp; interviews
+          </p>
         </div>
       )}
     </div>
