@@ -416,7 +416,7 @@ export default function USMap() {
             transform: 'translate(-50%, 0)',
           }}
         >
-          <p className="font-display text-[16px] font-semibold uppercase leading-none tracking-wider text-earth-900 sm:text-[17px] sm:leading-none">
+          <p className="font-display text-[18px] font-semibold uppercase leading-none tracking-wider text-earth-900 sm:text-[20px] sm:leading-none">
             {hovered.name}
           </p>
           {hovered.heroIntro ? (
