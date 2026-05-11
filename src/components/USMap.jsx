@@ -416,18 +416,18 @@ export default function USMap() {
             transform: 'translate(-50%, 0)',
           }}
         >
-          <p className="font-display text-[13px] font-semibold uppercase leading-tight tracking-wider text-earth-900 sm:text-sm sm:leading-tight">
+          <p className="font-display text-[15px] font-semibold uppercase leading-none tracking-wider text-earth-900 sm:text-base sm:leading-none">
             {hovered.name}
           </p>
           {hovered.heroIntro ? (
             <p
-              className="mt-1 font-display text-[13px] font-semibold leading-tight tracking-wider sm:text-sm sm:leading-tight"
+              className="mt-0.5 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
               style={{ color: PIN_BODY_DEFAULT }}
             >
               {hovered.heroIntro}
             </p>
           ) : null}
-          <p className="mt-2 text-sm leading-snug text-earth-700">Click for field notes &amp; interviews</p>
+          <p className="mt-1.5 text-sm leading-tight text-earth-700">Click for field notes &amp; interviews</p>
         </div>
       )}
     </div>
