@@ -181,7 +181,7 @@ export default function Blog() {
           </section>
 
           <section aria-labelledby="blog-by-state-heading">
-            <SectionHeading id="blog-by-state-heading">Blogs &amp; vlogs by state</SectionHeading>
+            <SectionHeading id="blog-by-state-heading">Blogs by state</SectionHeading>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {states.map((s) => (
                 <Link

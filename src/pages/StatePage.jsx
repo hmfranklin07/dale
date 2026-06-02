@@ -344,7 +344,7 @@ export default function StatePage() {
           </section>
 
           <section>
-            <SectionHeading>Blogs &amp; Vlogs</SectionHeading>
+            <SectionHeading>Blogs</SectionHeading>
             <div className="space-y-6">
               <Link
                 to={`/blog/state/${stateSlug}`}
@@ -353,7 +353,7 @@ export default function StatePage() {
                 <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
                   <div className="card-body sm:p-8">
                     <p className="text-earth-800 leading-relaxed sm:text-lg">
-                      See all blogs and vlogs from {state.name} in one place.
+                      See all blogs from {state.name} in one place.
                     </p>
                     <p className="mt-4 text-sm font-semibold text-rust-800">Open {state.name} blog hub →</p>
                   </div>
