@@ -3,14 +3,17 @@ import states from '../data/states.json'
 import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
 import { SectionAmbience } from '../components/SectionAmbience'
-import PaperAirplaneTrail from '../components/PaperAirplaneTrail'
 import { pageTitleClass } from '../components/SectionHeading'
+import { HERO_ACCENT_RUST } from '../config/mapPinColors'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
+
+const qaPanelClass =
+  'rounded-2xl border border-sage-300/80 p-5 shadow-md shadow-sage-900/[0.07] ring-1 sm:p-6'
 
 export default function StateTranscription() {
   const { stateSlug, interviewId } = useParams()
@@ -28,13 +31,12 @@ export default function StateTranscription() {
 
   return (
     <>
-      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-400/50 sm:min-h-[16rem] md:min-h-[17rem]">
-        <SectionAmbience variant="paper" />
+      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-400/55 sm:min-h-[16rem] md:min-h-[17rem]">
+        <SectionAmbience variant="sage" />
         <div
           className="absolute inset-y-0 left-0 z-[1] w-1 bg-gradient-to-b from-rust-400/90 via-sage-500/75 to-orange-300/80"
           aria-hidden
         />
-        <PaperAirplaneTrail className="right-3 top-[42%] z-[1] -translate-y-1/2 opacity-80 sm:right-8 md:right-12 lg:right-16" />
 
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
@@ -70,20 +72,39 @@ export default function StateTranscription() {
         </div>
       </section>
 
-      <PageContentBand>
+      <PageContentBand wash="rust" variant="sage">
         <article className="mx-auto max-w-3xl">
           {interview.intro && (
-            <p className="mb-8 text-earth-800 leading-relaxed italic sm:text-lg">{interview.intro}</p>
+            <div
+              className="mb-10 rounded-2xl border border-sage-300/85 border-l-4 bg-gradient-to-br from-sage-200/90 via-orange-50/85 to-rust-100/75 p-6 shadow-md shadow-rust-900/[0.08] ring-1 ring-rust-200/45 sm:p-8"
+              style={{ borderLeftColor: HERO_ACCENT_RUST }}
+            >
+              <p className="text-earth-900 leading-relaxed italic sm:text-lg">{interview.intro}</p>
+            </div>
           )}
-          <div className="space-y-8">
-            {interview.questions.map((qa, idx) => (
-              <div key={idx}>
-                <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
-                <blockquote className="border-l-2 border-rust-300/50 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
-                  &ldquo;{qa.a}&rdquo;
-                </blockquote>
-              </div>
-            ))}
+          <div className="space-y-5 sm:space-y-6">
+            {interview.questions.map((qa, idx) => {
+              const sagePanel = idx % 2 === 0
+              return (
+                <div
+                  key={idx}
+                  className={`${qaPanelClass} border-l-4 ${
+                    sagePanel
+                      ? 'bg-gradient-to-br from-sage-200/80 via-sage-50/95 to-white/90 ring-sage-400/40'
+                      : 'bg-gradient-to-br from-rust-100/85 via-orange-50/90 to-amber-50/80 ring-rust-300/45'
+                  }`}
+                  style={{ borderLeftColor: sagePanel ? '#768963' : HERO_ACCENT_RUST }}
+                >
+                  <p className="mb-3 text-sm font-semibold text-sage-800 sm:text-base">
+                    <span className="mr-1.5 font-display text-rust-700">Q.</span>
+                    {qa.q}
+                  </p>
+                  <blockquote className="border-l-2 border-rust-400/55 pl-4 text-sm leading-relaxed text-earth-900 sm:text-base">
+                    &ldquo;{qa.a}&rdquo;
+                  </blockquote>
+                </div>
+              )
+            })}
           </div>
         </article>
       </PageContentBand>

@@ -45,10 +45,10 @@ export default function Home() {
                 </h1>
               </div>
               <div
-                className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-24"
+                className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
                 aria-hidden
               />
-              <div className="mx-auto mt-4 w-full space-y-3 text-[0.9375rem] leading-snug text-sage-100/92 sm:mt-5 sm:text-base sm:leading-normal lg:text-lg">
+              <div className="mx-auto mt-3 w-full space-y-2.5 text-[0.9375rem] leading-snug text-sage-100/92 sm:text-base sm:leading-normal lg:text-lg">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
