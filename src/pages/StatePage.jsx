@@ -23,18 +23,24 @@ const stateSlugs = new Set(states.map((s) => s.slug))
 const photoHeroIntroClass =
   'mx-auto mt-2.5 max-w-xl text-base leading-tight sm:mt-3 sm:text-lg sm:leading-snug'
 
+/** `on: "trees"` → white over foliage; `on: "sky"` → dark over bright sky. */
+function photoHeroSegmentClass(on) {
+  return on === 'sky' ? pageTitleClass : 'text-white/90'
+}
+
 function PhotoHeroIntro({ state, nyPhotoHero }) {
   const fallback = `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`
   const intro = state.heroIntro || fallback
-  const highlight = state.heroIntroHighlight
+  const segments = state.heroIntroSegments
 
-  if (highlight && intro.includes(highlight)) {
-    const [before, after] = intro.split(highlight)
+  if (segments?.length) {
     return (
-      <p className={`${photoHeroIntroClass} text-sage-100/92`}>
-        {before}
-        <span className="text-white/90">{highlight}</span>
-        {after}
+      <p className={photoHeroIntroClass}>
+        {segments.map((segment, index) => (
+          <span key={index} className={photoHeroSegmentClass(segment.on)}>
+            {segment.text}
+          </span>
+        ))}
       </p>
     )
   }
