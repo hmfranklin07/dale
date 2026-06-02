@@ -1,7 +1,7 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
-import SectionHeading from '../components/SectionHeading'
+import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 /** Home hero background photo, bundled as-is. */
 import homeHeroBgUrl from '../assets/home/IMG_3286.jpg?url'
 
@@ -33,7 +33,9 @@ export default function Home() {
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
           <div className={`${shell} w-full pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10`}>
             <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-              <h1 className="font-display text-[2.5rem] leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
+              <h1
+                className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
+              >
                 STEM Across Rural America
               </h1>
               <div
