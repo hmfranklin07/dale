@@ -129,14 +129,13 @@ export default function Blog() {
               </div>
             ) : (
               <p className="text-earth-600 sm:text-lg">
-                Your latest blog will appear here when you add an entry in{' '}
-                <code className="rounded bg-sage-100/90 px-1.5 py-0.5 text-sm">vlogBlogs.json</code>.
+                Your latest blog will appear here when you add a post.
               </p>
             )}
           </section>
 
           <section>
-            <SectionHeading>Latest vlogs</SectionHeading>
+            <SectionHeading>Videos</SectionHeading>
             {hasAnyVideo ? (
               <div className="space-y-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
@@ -152,11 +151,7 @@ export default function Blog() {
                           Open slot
                         </span>
                         <p className="mt-2 text-sm text-earth-600">
-                          Add another entry in{' '}
-                          <code className="rounded bg-white/90 px-1.5 py-0.5 text-xs ring-1 ring-sage-200/60">
-                            vlogs.json
-                          </code>{' '}
-                          to fill this teaser slot.
+                          Add another video entry to fill this teaser slot.
                         </p>
                       </div>
                     ),
@@ -174,8 +169,7 @@ export default function Blog() {
               </div>
             ) : (
               <p className="text-earth-600 sm:text-lg">
-                Up to three recent videos will show here when you add entries in{' '}
-                <code className="rounded bg-sage-100/90 px-1.5 py-0.5 text-sm">vlogs.json</code>.
+                Up to three recent videos will show here when you add them.
               </p>
             )}
           </section>

@@ -25,7 +25,7 @@ export default function BlogPosts() {
 
       <PageContentBand>
         {sortedBlogs.length === 0 ? (
-          <p className="text-earth-600">No blog posts yet. Add them in vlogBlogs.json when you are ready.</p>
+          <p className="text-earth-600">No blog posts yet. Add one when you are ready.</p>
         ) : (
           <div className="space-y-8">
             {sortedBlogs.map((b) => (

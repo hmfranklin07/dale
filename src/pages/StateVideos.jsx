@@ -48,7 +48,7 @@ export default function StateVideos() {
       <PageContentBand>
         {list.length === 0 ? (
           <div className="card card-body text-center text-earth-600">
-            <p>No videos linked to towns in {state.name} yet. Add entries in vlogs.json with matching town slugs.</p>
+            <p>No videos linked to towns in {state.name} yet. Add video entries with matching town slugs.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">

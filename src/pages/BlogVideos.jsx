@@ -28,11 +28,11 @@ export default function BlogVideos() {
       <PageContentBand>
         <SectionHeading>Video posts</SectionHeading>
         <p className="text-earth-800 -mt-2 mb-8 sm:text-lg leading-relaxed">
-          Add YouTube IDs in <code className="text-sm">vlogs.json</code> when clips are ready to embed.
+          Add YouTube IDs when clips are ready to embed.
         </p>
         {sortedVlogs.length === 0 ? (
           <div className="card card-body text-center text-earth-600">
-            Videos will show up here when you add entries in vlogs.json.
+            Videos will show up here when you add them.
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
