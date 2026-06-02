@@ -33,11 +33,17 @@ export default function Home() {
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
           <div className={`${shell} w-full pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10`}>
             <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-              <h1
-                className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
-              >
-                STEM Across Rural America
-              </h1>
+              <div className="relative py-4 sm:py-5 md:py-6">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
+                />
+                <h1
+                  className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
+                >
+                  STEM Across Rural America
+                </h1>
+              </div>
               <div
                 className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-24"
                 aria-hidden
