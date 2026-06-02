@@ -5,7 +5,7 @@ import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
 
 const blogHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4'
 import PageContentBand from '../components/PageContentBand'
-import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import SectionHeading from '../components/SectionHeading'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
 
 function BlogVideoTeaser({ vlog }) {
@@ -71,20 +71,18 @@ export default function Blog() {
           className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
           aria-hidden
         />
-        <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
-          <div className={`${blogHeroShell} w-full pb-8 pt-10 text-center sm:pb-9 sm:pt-12 md:pb-10 md:pt-14`}>
+        <div className="relative z-10 flex min-h-[inherit] flex-col items-center justify-center">
+          <div className={`${blogHeroShell} w-full py-8 text-center sm:py-10 md:py-12`}>
             <div className="mx-auto w-full max-w-3xl lg:max-w-4xl">
-              <h1
-                className={`font-display text-[2.5rem] leading-none sm:text-6xl lg:text-7xl xl:text-[4.25rem] ${pageTitleClass}`}
-              >
+              <h1 className="font-display text-[2.5rem] leading-none text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.25rem]">
                 On the Road
               </h1>
               <div
                 className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-24"
                 aria-hidden
               />
-              <p className="mx-auto mt-3 max-w-2xl text-base leading-snug text-sage-100/92 sm:mt-4 sm:text-lg sm:leading-normal">
-                Posts and vlogs from the trip — the story as it happens, stop by stop.
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-snug text-white/90 sm:mt-4 sm:text-lg sm:leading-normal">
+                Blogs from the trip!
               </p>
             </div>
           </div>
