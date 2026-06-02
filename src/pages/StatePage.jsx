@@ -20,6 +20,30 @@ const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5r
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
+const photoHeroIntroClass =
+  'mx-auto mt-2.5 max-w-xl text-base leading-tight sm:mt-3 sm:text-lg sm:leading-snug'
+
+function PhotoHeroIntro({ state, nyPhotoHero }) {
+  const fallback = `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`
+  const intro = state.heroIntro || fallback
+  const highlight = state.heroIntroHighlight
+
+  if (highlight && intro.includes(highlight)) {
+    const [before, after] = intro.split(highlight)
+    return (
+      <p className={`${photoHeroIntroClass} text-sage-100/92`}>
+        {before}
+        <span className="text-white/90">{highlight}</span>
+        {after}
+      </p>
+    )
+  }
+
+  return (
+    <p className={`${photoHeroIntroClass} ${nyPhotoHero ? 'text-white/90' : 'text-sage-100/92'}`}>{intro}</p>
+  )
+}
+
 function HeroBackLink({ light = false, className = '' }) {
   return (
     <Link
@@ -169,27 +193,17 @@ export default function StatePage() {
             <div className={`${stateHeroShell} w-full pb-8 pt-14 text-center sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]`}>
               <div className="mx-auto w-full max-w-2xl">
                 <h1
-                  className={`font-display text-[2.75rem] leading-[1.05] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${
+                  className={`font-display text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${
                     nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass
                   }`}
                 >
                   {state.name}
                 </h1>
                 <div
-                  className={`mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent to-transparent sm:mt-5 sm:w-20 ${
-                    nyPhotoHero ? 'via-white/55' : 'via-rust-400'
-                  }`}
+                  className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                   aria-hidden
                 />
-                <p
-                  className={`mx-auto mt-4 max-w-xl text-base leading-snug sm:mt-5 sm:text-lg sm:leading-normal ${
-                    nyPhotoHero ? 'text-white/90' : 'text-sage-100/92'
-                  }`}
-                >
-                  {state.heroIntro
-                    ? state.heroIntro
-                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
-                </p>
+                <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} />
               </div>
             </div>
           ) : (
