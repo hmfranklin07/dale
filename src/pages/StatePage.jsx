@@ -180,17 +180,11 @@ export default function StatePage() {
                 fetchPriority="high"
               />
             </div>
-            {!ilPhotoHero && (
-              <div
-                className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
-                aria-hidden
-              />
-            )}
           </>
         )}
         <div
           className={`relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] ${
-            photoHero ? 'items-start justify-start' : 'justify-center'
+            ilPhotoHero ? 'items-start justify-start' : photoHero ? 'items-start justify-center' : 'justify-center'
           }`}
         >
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
