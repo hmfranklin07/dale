@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[26rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[30rem] md:min-h-[34rem] lg:min-h-[38rem]">
+      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[22rem] md:min-h-[26rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
@@ -30,8 +30,8 @@ export default function Home() {
           aria-hidden
         />
 
-        <div className="relative z-10 flex min-h-[inherit] items-center justify-center">
-          <div className={`${shell} w-full py-10 text-center sm:py-14 md:py-16 lg:py-20`}>
+        <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
+          <div className={`${shell} w-full pt-8 pb-9 text-center sm:pt-9 sm:pb-10 md:pt-10 md:pb-12`}>
             <div className="mx-auto max-w-3xl lg:max-w-4xl">
               <h1 className="font-display text-[2.5rem] leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
                 STEM Across Rural America
