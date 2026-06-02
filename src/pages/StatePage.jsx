@@ -195,7 +195,7 @@ export default function StatePage() {
             <div
               className={`${stateHeroShell} w-full text-center ${
                 ilPhotoHero
-                  ? 'pb-20 pt-12 sm:pb-24 sm:pt-[3.25rem] md:pb-28 md:pt-14'
+                  ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'
                   : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
             >
