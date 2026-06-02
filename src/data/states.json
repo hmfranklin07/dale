@@ -14,14 +14,6 @@
     "abbr": "IL",
     "place": "Bradford",
     "heroIntro": "Stop 2: June 1, 2026 - June 8, 2026",
-    "heroIntroSegments": [
-      { "text": "Stop 2: ", "on": "trees" },
-      { "text": "June 1, ", "on": "trees" },
-      { "text": "2", "on": "trees" },
-      { "text": "026", "on": "sky" },
-      { "text": " - June 8, ", "on": "sky" },
-      { "text": "2026", "on": "sky" }
-    ],
     "lat": 40.9903,
     "lng": -89.6502
   },
