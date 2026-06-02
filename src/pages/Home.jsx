@@ -25,35 +25,22 @@ export default function Home() {
             fetchPriority="high"
           />
         </div>
-        {/* Mobile: bottom-weighted scrim so copy stays legible over the photo */}
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-sage-950/95 via-sage-950/72 to-sage-950/25 sm:hidden"
-          aria-hidden
-        />
-        {/* Tablet+: left vignette — photo stays open on the right */}
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-sage-950/92 from-0% via-sage-950/68 via-[38%] to-transparent to-[68%] sm:block"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-t from-sage-950/35 via-transparent to-sage-950/20 sm:block"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/45 via-sage-950/70 to-sage-950/88"
           aria-hidden
         />
 
-        <div className="relative z-10 flex min-h-[inherit] items-end sm:items-center">
-          <div className={`${shell} w-full py-10 sm:py-14 md:py-16 lg:py-20`}>
-            <div className="max-w-xl lg:max-w-2xl">
-              <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-rust-300/95 sm:mb-4">
-                Field research · Summer 2026
-              </p>
-              <h1 className="font-display text-[2.125rem] leading-[1.06] text-white drop-shadow-sm sm:text-5xl lg:text-[3.25rem]">
+        <div className="relative z-10 flex min-h-[inherit] items-center justify-center">
+          <div className={`${shell} w-full py-10 text-center sm:py-14 md:py-16 lg:py-20`}>
+            <div className="mx-auto max-w-3xl lg:max-w-4xl">
+              <h1 className="font-display text-[2.5rem] leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
                 STEM Across Rural America
               </h1>
               <div
-                className="mt-5 h-px w-14 bg-gradient-to-r from-rust-400 via-rust-500/80 to-transparent sm:mt-6 sm:w-20"
+                className="mx-auto mt-5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-7 sm:w-24"
                 aria-hidden
               />
-              <div className="mt-5 max-w-prose space-y-4 text-[0.9375rem] leading-[1.65] text-sage-100/92 sm:mt-6 sm:text-lg sm:leading-relaxed">
+              <div className="mx-auto mt-5 max-w-prose space-y-4 text-[0.9375rem] leading-[1.65] text-sage-100/92 sm:mt-6 sm:text-lg sm:leading-relaxed">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
