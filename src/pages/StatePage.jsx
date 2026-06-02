@@ -20,6 +20,20 @@ const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5r
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
+function HeroBackLink({ className = '' }) {
+  return (
+    <Link
+      to="/"
+      className={`inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800 ${className}`.trim()}
+    >
+      <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to home &amp; map
+    </Link>
+  )
+}
+
 /** Generic slot when fewer than three vlogs exist for this state (same shape as a real teaser). */
 function StateVideoSlot({ vlog, stateSlug }) {
   if (vlog) {
@@ -140,28 +154,17 @@ export default function StatePage() {
           </>
         )}
         <div
-          className={`relative z-10 flex min-h-0 flex-1 flex-col ${
-            photoHero ? 'min-h-[inherit] items-start justify-center' : 'justify-center'
+          className={`relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] ${
+            photoHero ? 'items-start justify-center' : 'justify-center'
           }`}
         >
-          <div
-            className={`${stateHeroShell} w-full ${
-              photoHero
-                ? 'pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10'
-                : 'py-12 sm:py-16 md:py-20'
-            }`}
-          >
-            {photoHero ? (
+          <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
+            <HeroBackLink />
+          </div>
+
+          {photoHero ? (
+            <div className={`${stateHeroShell} w-full pb-8 pt-14 text-center sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]`}>
               <div className="mx-auto w-full max-w-2xl">
-                <Link
-                  to="/"
-                  className="mx-auto mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
-                >
-                  <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Back to home &amp; map
-                </Link>
                 <h1 className={`font-display text-4xl leading-[1.05] sm:text-5xl lg:text-[3.25rem] ${pageTitleClass}`}>
                   {state.name}
                 </h1>
@@ -169,23 +172,11 @@ export default function StatePage() {
                   className="mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-20"
                   aria-hidden
                 />
-                <p className="mx-auto mt-4 max-w-xl text-base leading-snug text-sage-100/92 sm:mt-5 sm:text-lg sm:leading-normal">
-                  {state.heroIntro
-                    ? state.heroIntro
-                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
-                </p>
               </div>
-            ) : (
+            </div>
+          ) : (
+            <div className={`${stateHeroShell} w-full py-12 sm:py-16 md:py-20`}>
               <PageHeroPanel tone="statePage" className="mx-auto w-full max-w-2xl text-center !py-4 sm:!py-5 md:!py-6">
-                <Link
-                  to="/"
-                  className="mx-auto mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
-                >
-                  <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Back to home &amp; map
-                </Link>
                 <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
                   {state.name}
                 </h1>
@@ -195,8 +186,8 @@ export default function StatePage() {
                     : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
                 </p>
               </PageHeroPanel>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
