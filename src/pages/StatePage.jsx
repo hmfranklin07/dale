@@ -112,7 +112,7 @@ function TranscriptionFillerCard({ stateSlug }) {
           </h2>
           <p className="mt-2 text-sm text-earth-600">Text · Text</p>
           <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">Text</p>
-          <p className="mt-4 text-sm font-semibold text-rust-800">View all transcriptions →</p>
+          <p className="mt-4 text-sm font-semibold text-rust-800">View all conversations →</p>
         </div>
       </article>
     </Link>
@@ -268,7 +268,7 @@ export default function StatePage() {
             <div className="space-y-6">
               {latestInterview ? (
                 <Link
-                  to={`/${stateSlug}/transcriptions`}
+                  to={`/${stateSlug}/transcriptions/${latestInterview.id}`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
@@ -282,15 +282,16 @@ export default function StatePage() {
                         <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
                       </div>
                       <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
-                        {latestInterview.personName}
+                        {latestInterview.title || latestInterview.personName}
                       </h2>
                       <p className="mt-2 text-sm text-earth-600">
-                        {latestInterview.role} · {latestInterview.school}
+                        {latestInterview.personName} · {latestInterview.role} · {latestInterview.school}
                       </p>
                       <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
-                        {excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 320)}
+                        {latestInterview.summary ||
+                          excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 320)}
                       </p>
-                      <p className="mt-4 text-sm font-semibold text-rust-800">All transcriptions in this state →</p>
+                      <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
                     </div>
                   </article>
                 </Link>
@@ -302,7 +303,7 @@ export default function StatePage() {
                   to={`/${stateSlug}/transcriptions`}
                   className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
                 >
-                  View all transcriptions
+                  View all conversations
                   <span aria-hidden>→</span>
                 </Link>
               </div>

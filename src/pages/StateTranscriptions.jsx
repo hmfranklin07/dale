@@ -38,47 +38,52 @@ export default function StateTranscriptions() {
               </svg>
               Back to {state.name}
             </Link>
-            <h1 className={`font-display mt-2 text-3xl sm:text-4xl ${pageTitleClass}`}>Transcriptions · {state.name}</h1>
+            <h1 className={`font-display mt-2 text-3xl sm:text-4xl ${pageTitleClass}`}>
+              Written conversations · {state.name}
+            </h1>
             <p className="mt-3 max-w-2xl text-earth-800 sm:text-lg leading-relaxed">
-              Written interviews and conversations from this stop.
+              Interviews with students, teachers, and community members from this stop.
             </p>
           </div>
         </div>
       </section>
 
       <PageContentBand>
-        <SectionHeading>All transcriptions</SectionHeading>
+        <SectionHeading>All conversations</SectionHeading>
         {list.length === 0 ? (
           <div className="card card-body text-center text-earth-600">
-            <p>No transcriptions for {state.name} yet. Add entries in interviews.json for towns in this state.</p>
+            <p>No conversations for {state.name} yet.</p>
           </div>
         ) : (
-          <div className="space-y-8">
+          <div className="space-y-6">
             {list.map((interview) => {
               const t = townBySlug[interview.townSlug]
+              const displayTitle = interview.title || interview.personName
               return (
-                <article key={interview.id} className="card card-body">
-                  <div className="mb-6">
-                    {(interview.townLabel || t) && (
-                      <span className="badge-sage mb-2 inline-block">{interview.townLabel ?? t?.name}</span>
-                    )}
-                    <h2 className="font-display text-2xl text-earth-900">{interview.personName}</h2>
-                    <p className="text-earth-600 text-sm">
-                      {interview.role} · {interview.school}
+                <Link
+                  key={interview.id}
+                  to={`/${stateSlug}/transcriptions/${interview.id}`}
+                  className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                >
+                  <article className="card card-body group transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                    <div className="flex flex-col items-start gap-2">
+                      {(interview.townLabel || t) && (
+                        <span className="badge-sage inline-block">{interview.townLabel ?? t?.name}</span>
+                      )}
+                      <time className="text-xs text-earth-500">{formatDate(interview.date)}</time>
+                    </div>
+                    <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                      {displayTitle}
+                    </h2>
+                    <p className="mt-2 text-sm text-earth-600">
+                      {interview.personName} · {interview.role} · {interview.school}
                     </p>
-                    <time className="text-xs text-earth-500">{formatDate(interview.date)}</time>
-                  </div>
-                  <div className="space-y-5">
-                    {interview.questions.map((qa, idx) => (
-                      <div key={idx}>
-                        <p className="text-sm font-semibold text-sage-700 mb-1">Q: {qa.q}</p>
-                        <blockquote className="border-l-2 border-rust-300/50 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
-                          “{qa.a}”
-                        </blockquote>
-                      </div>
-                    ))}
-                  </div>
-                </article>
+                    {interview.summary && (
+                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">{interview.summary}</p>
+                    )}
+                    <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
+                  </article>
+                </Link>
               )
             })}
           </div>

@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
 import StateTranscriptions from './pages/StateTranscriptions'
+import StateTranscription from './pages/StateTranscription'
 import StateReflections from './pages/StateReflections'
 import Blog from './pages/Blog'
 import BlogPosts from './pages/BlogPosts'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/vlog" element={<Navigate to="/blog" replace />} />
           <Route path="/:stateSlug/videos" element={<StateVideos />} />
+          <Route path="/:stateSlug/transcriptions/:interviewId" element={<StateTranscription />} />
           <Route path="/:stateSlug/transcriptions" element={<StateTranscriptions />} />
           <Route path="/:stateSlug/reflections" element={<StateReflections />} />
           <Route path="/:stateSlug" element={<StatePage />} />

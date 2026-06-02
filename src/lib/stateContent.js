@@ -20,6 +20,15 @@ export function interviewsForState(stateSlug) {
     .sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
 }
 
+export function interviewById(id) {
+  return interviews.find((i) => i.id === id)
+}
+
+export function interviewBelongsToState(interview, stateSlug) {
+  const slugs = townSlugsInState(stateSlug)
+  return slugs.has(interview.townSlug)
+}
+
 export function reflectionsForState(stateSlug) {
   return [...reflections]
     .filter((r) => r.stateSlug === stateSlug)
