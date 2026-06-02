@@ -180,14 +180,12 @@ export default function StatePage() {
                 fetchPriority="high"
               />
             </div>
-            <div
-              className={`pointer-events-none absolute inset-0 z-[1] ${
-                ilPhotoHero
-                  ? 'bg-gradient-to-b from-[#fff9f5]/55 via-[#fff9f5]/25 to-sage-950/50'
-                  : 'bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72'
-              }`}
-              aria-hidden
-            />
+            {!ilPhotoHero && (
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
+                aria-hidden
+              />
+            )}
           </>
         )}
         <div
@@ -203,7 +201,7 @@ export default function StatePage() {
             <div
               className={`${stateHeroShell} w-full text-center ${
                 ilPhotoHero
-                  ? 'pb-20 pt-10 sm:pb-24 sm:pt-11 md:pb-28 md:pt-12'
+                  ? 'pb-20 pt-12 sm:pb-24 sm:pt-[3.25rem] md:pb-28 md:pt-14'
                   : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
             >
