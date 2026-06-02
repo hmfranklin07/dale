@@ -4,16 +4,12 @@ import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
 import { SectionAmbience } from '../components/SectionAmbience'
 import { pageTitleClass } from '../components/SectionHeading'
-import { HERO_ACCENT_RUST } from '../config/mapPinColors'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
-
-const qaPanelClass =
-  'rounded-2xl border border-sage-300/80 p-5 shadow-md shadow-sage-900/[0.07] ring-1 sm:p-6'
 
 export default function StateTranscription() {
   const { stateSlug, interviewId } = useParams()
@@ -32,7 +28,7 @@ export default function StateTranscription() {
   return (
     <>
       <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-400/55 sm:min-h-[16rem] md:min-h-[17rem]">
-        <SectionAmbience variant="sage" />
+        <SectionAmbience variant="paper" />
         <div
           className="absolute inset-y-0 left-0 z-[1] w-1 bg-gradient-to-b from-rust-400/90 via-sage-500/75 to-orange-300/80"
           aria-hidden
@@ -75,36 +71,23 @@ export default function StateTranscription() {
       <PageContentBand wash="rust" variant="sage">
         <article className="mx-auto max-w-3xl">
           {interview.intro && (
-            <div
-              className="mb-10 rounded-2xl border border-sage-300/85 border-l-4 bg-gradient-to-br from-sage-200/90 via-orange-50/85 to-rust-100/75 p-6 shadow-md shadow-rust-900/[0.08] ring-1 ring-rust-200/45 sm:p-8"
-              style={{ borderLeftColor: HERO_ACCENT_RUST }}
-            >
-              <p className="text-earth-900 leading-relaxed italic sm:text-lg">{interview.intro}</p>
-            </div>
+            <>
+              <div
+                className="mx-auto mb-6 h-px w-20 bg-gradient-to-r from-sage-400/50 via-rust-300/60 to-orange-200/50 sm:mb-8 sm:w-28"
+                aria-hidden
+              />
+              <p className="mb-8 text-earth-800 leading-relaxed italic sm:mb-10 sm:text-lg">{interview.intro}</p>
+            </>
           )}
-          <div className="space-y-5 sm:space-y-6">
-            {interview.questions.map((qa, idx) => {
-              const sagePanel = idx % 2 === 0
-              return (
-                <div
-                  key={idx}
-                  className={`${qaPanelClass} border-l-4 ${
-                    sagePanel
-                      ? 'bg-gradient-to-br from-sage-200/80 via-sage-50/95 to-white/90 ring-sage-400/40'
-                      : 'bg-gradient-to-br from-rust-100/85 via-orange-50/90 to-amber-50/80 ring-rust-300/45'
-                  }`}
-                  style={{ borderLeftColor: sagePanel ? '#768963' : HERO_ACCENT_RUST }}
-                >
-                  <p className="mb-3 text-sm font-semibold text-sage-800 sm:text-base">
-                    <span className="mr-1.5 font-display text-rust-700">Q.</span>
-                    {qa.q}
-                  </p>
-                  <blockquote className="border-l-2 border-rust-400/55 pl-4 text-sm leading-relaxed text-earth-900 sm:text-base">
-                    &ldquo;{qa.a}&rdquo;
-                  </blockquote>
-                </div>
-              )
-            })}
+          <div className="space-y-8 sm:space-y-10">
+            {interview.questions.map((qa, idx) => (
+              <div key={idx}>
+                <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
+                <blockquote className="border-l-2 border-rust-300/50 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+                  &ldquo;{qa.a}&rdquo;
+                </blockquote>
+              </div>
+            ))}
           </div>
         </article>
       </PageContentBand>
