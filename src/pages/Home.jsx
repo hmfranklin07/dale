@@ -19,7 +19,7 @@ export default function Home() {
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[52%_82%] sm:object-[50%_75%] lg:object-[48%_68%]"
+            className="h-full w-full object-cover object-[50%_36%] sm:object-[50%_32%] lg:object-[48%_28%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
@@ -32,15 +32,15 @@ export default function Home() {
 
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
           <div className={`${shell} w-full pt-8 pb-9 text-center sm:pt-9 sm:pb-10 md:pt-10 md:pb-12`}>
-            <div className="mx-auto max-w-3xl lg:max-w-4xl">
+            <div className="mx-auto w-full max-w-5xl lg:max-w-6xl">
               <h1 className="font-display text-[2.5rem] leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
                 STEM Across Rural America
               </h1>
               <div
-                className="mx-auto mt-5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-7 sm:w-24"
+                className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-24"
                 aria-hidden
               />
-              <div className="mx-auto mt-5 max-w-prose space-y-4 text-[0.9375rem] leading-[1.65] text-sage-100/92 sm:mt-6 sm:text-lg sm:leading-relaxed">
+              <div className="mx-auto mt-4 w-full space-y-3 text-[0.9375rem] leading-snug text-sage-100/92 sm:mt-5 sm:text-base sm:leading-normal lg:text-lg">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
