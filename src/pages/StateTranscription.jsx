@@ -1,14 +1,12 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
-import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
-import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
 import { pageTitleClass } from '../components/SectionHeading'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
 
-const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
+const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 
@@ -23,37 +21,42 @@ export default function StateTranscription() {
     return <Navigate to={`/${stateSlug}/transcriptions`} replace />
   }
 
-  const state = states.find((s) => s.slug === stateSlug)
   const town = townBySlug[interview.townSlug]
   const displayTitle = interview.title || interview.personName
 
   return (
     <>
-      <section
-        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass} ${stateSubpageHeroSectionClass}`}
-      >
-        <SectionAmbience variant="paper" />
-        <div className="relative z-10 flex flex-1 flex-col justify-center">
-          <div className={`${sectionShell} py-8 sm:py-10`}>
-            <Link
-              to={`/${stateSlug}/transcriptions`}
-              className="text-sage-900 hover:text-rust-800 mb-4 inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
-            >
-              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to written conversations
-            </Link>
-            <div className="flex flex-col items-start gap-2">
+      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-300/60 bg-sage-100 sm:min-h-[16rem] md:min-h-[17rem]">
+        <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
+          <Link
+            to={`/${stateSlug}/transcriptions`}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
+          >
+            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to written conversations
+          </Link>
+        </div>
+
+        <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-center justify-center">
+          <div className={`${heroShell} w-full pb-8 pt-12 text-center sm:pb-9 sm:pt-14 md:pb-10 md:pt-16`}>
+            <div className="mx-auto max-w-3xl">
               {(interview.townLabel || town) && (
                 <span className="badge-sage inline-block">{interview.townLabel ?? town?.name}</span>
               )}
-              <time className="text-xs text-earth-500">{formatDate(interview.date)}</time>
+              <h1 className={`font-display mt-3 text-[2rem] leading-[1.08] sm:mt-4 sm:text-4xl lg:text-[2.75rem] ${pageTitleClass}`}>
+                {displayTitle}
+              </h1>
+              <div
+                className="mx-auto mt-3 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-20"
+                aria-hidden
+              />
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-snug text-earth-700 sm:mt-4 sm:text-base">
+                {interview.personName} · {interview.role} · {interview.school}
+              </p>
+              <time className="mt-2 block text-xs text-earth-500 sm:text-sm">{formatDate(interview.date)}</time>
             </div>
-            <h1 className={`font-display mt-3 text-3xl sm:text-4xl ${pageTitleClass}`}>{displayTitle}</h1>
-            <p className="mt-2 text-sm text-earth-600 sm:text-base">
-              {interview.personName} · {interview.role} · {interview.school}
-            </p>
           </div>
         </div>
       </section>
