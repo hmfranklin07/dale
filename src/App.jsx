@@ -13,10 +13,12 @@ import BlogPosts from './pages/BlogPosts'
 import BlogVideos from './pages/BlogVideos'
 import BlogPost from './pages/BlogPost'
 import BlogStateHub from './pages/BlogStateHub'
+import StatePhotoHeroCache from './components/StatePhotoHeroCache'
 
 export default function App() {
   return (
     <div className="relative min-h-screen flex flex-col">
+      <StatePhotoHeroCache />
       <ScrollToTop />
       <SiteWindingPath />
       <Navbar />

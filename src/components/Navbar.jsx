@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import states from '../data/states.json'
+import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
 
 const primary = [
   { to: '/', label: 'Home' },
@@ -66,7 +67,13 @@ export default function Navbar() {
               </NavLink>
             ))}
             {states.map((s) => (
-              <NavLink key={s.slug} to={`/${s.slug}`} className={linkClass}>
+              <NavLink
+                key={s.slug}
+                to={`/${s.slug}`}
+                className={linkClass}
+                onMouseEnter={() => preloadStatePhotoHero(s.slug)}
+                onFocus={() => preloadStatePhotoHero(s.slug)}
+              >
                 {s.name}
               </NavLink>
             ))}
@@ -102,7 +109,14 @@ export default function Navbar() {
             </NavLink>
           ))}
           {states.map((s) => (
-            <NavLink key={s.slug} to={`/${s.slug}`} onClick={() => setOpen(false)} className={linkClass}>
+            <NavLink
+              key={s.slug}
+              to={`/${s.slug}`}
+              onClick={() => setOpen(false)}
+              className={linkClass}
+              onMouseEnter={() => preloadStatePhotoHero(s.slug)}
+              onFocus={() => preloadStatePhotoHero(s.slug)}
+            >
               {s.name}
             </NavLink>
           ))}
@@ -130,6 +144,8 @@ export default function Navbar() {
                 to={`/${s.slug}`}
                 onClick={() => setOpen(false)}
                 className={mobileLink}
+                onMouseEnter={() => preloadStatePhotoHero(s.slug)}
+                onFocus={() => preloadStatePhotoHero(s.slug)}
               >
                 {s.name}
               </NavLink>

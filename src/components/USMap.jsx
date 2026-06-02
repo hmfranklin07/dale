@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { geoAlbersUsa } from 'd3-geo'
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import states from '../data/states.json'
+import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
 import {
   PIN_BODY_DEFAULT,
   PIN_BODY_HOVER,
@@ -331,6 +332,7 @@ export default function USMap() {
               coordinates={[s.lng, s.lat]}
               onClick={() => navigate(`/${s.slug}`)}
               onMouseEnter={() => {
+                preloadStatePhotoHero(s.slug)
                 setHovered(s)
                 requestAnimationFrame(() => placeTooltipForState(s))
               }}

@@ -1,8 +1,7 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
-import { PageHeroPanel } from '../components/PageHeroPanel'
-import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import SectionHeading from '../components/SectionHeading'
 /** Home hero background photo, bundled as-is. */
 import homeHeroBgUrl from '../assets/home/IMG_3286.jpg?url'
 
@@ -13,34 +12,52 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 export default function Home() {
   return (
     <>
-      {/* 1. Hero */}
-      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
+      {/* 1. Hero — editorial vignette (no card overlay) */}
+      <section className="relative min-h-[26rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[30rem] md:min-h-[34rem] lg:min-h-[38rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[52%_82%] sm:object-[50%_80%]"
+            className="h-full w-full object-cover object-[52%_82%] sm:object-[50%_75%] lg:object-[48%_68%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
+        {/* Mobile: bottom-weighted scrim so copy stays legible over the photo */}
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/28 via-white/20 to-sage-900/34"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-sage-950/95 via-sage-950/72 to-sage-950/25 sm:hidden"
           aria-hidden
         />
-        <div className="relative z-10">
-          <div className={`${shell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel className="!bg-[rgba(255,255,255,0.65)] shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-md">
-              <h1 className="font-display mb-5 text-4xl leading-[1.08] sm:mb-6 sm:text-5xl lg:text-6xl">
-                <span className={pageTitleClass}>STEM Across Rural America</span>
+        {/* Tablet+: left vignette — photo stays open on the right */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-sage-950/92 from-0% via-sage-950/68 via-[38%] to-transparent to-[68%] sm:block"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-t from-sage-950/35 via-transparent to-sage-950/20 sm:block"
+          aria-hidden
+        />
+
+        <div className="relative z-10 flex min-h-[inherit] items-end sm:items-center">
+          <div className={`${shell} w-full py-10 sm:py-14 md:py-16 lg:py-20`}>
+            <div className="max-w-xl lg:max-w-2xl">
+              <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-rust-300/95 sm:mb-4">
+                Field research · Summer 2026
+              </p>
+              <h1 className="font-display text-[2.125rem] leading-[1.06] text-white drop-shadow-sm sm:text-5xl lg:text-[3.25rem]">
+                STEM Across Rural America
               </h1>
-              <div className="max-w-none space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
+              <div
+                className="mt-5 h-px w-14 bg-gradient-to-r from-rust-400 via-rust-500/80 to-transparent sm:mt-6 sm:w-20"
+                aria-hidden
+              />
+              <div className="mt-5 max-w-prose space-y-4 text-[0.9375rem] leading-[1.65] text-sage-100/92 sm:mt-6 sm:text-lg sm:leading-relaxed">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
-                  Drawing from conversations and interviews in 6 different areas, I'll be sharing what STEM looks
+                  Drawing from conversations and interviews in 6 different areas, I&apos;ll be sharing what STEM looks
                   like in the classroom and how students connect with it.
                 </p>
                 <p>
@@ -48,7 +65,7 @@ export default function Home() {
                   each place I visit, highlighting rural voices and telling stories from across the nation.
                 </p>
               </div>
-            </PageHeroPanel>
+            </div>
           </div>
         </div>
       </section>

@@ -8,21 +8,7 @@ import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
 import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
-/** Bundled as-is (no Vite resize). Replace files in repo for full camera resolution—chat uploads cap ~1024px. */
-import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
-import ilHeroUrl from '../assets/state-heroes/illinois.jpg?url'
-
-/** Full-res photo behind the frosted hero card (`statePageCompact`). */
-const STATE_PHOTO_HEROES = {
-  'new-york': {
-    src: nyHeroUrl,
-    objectClass: 'object-[70%_40%] sm:object-[72%_38%]',
-  },
-  illinois: {
-    src: ilHeroUrl,
-    objectClass: 'object-[50%_42%] sm:object-[48%_40%]',
-  },
-}
+import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
 /** State intro hero: same max column site-wide; side inset matches Home hero (`px-2.5 sm:px-4`) so the white card sits closer to the viewport than body sections. */
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -127,22 +113,17 @@ export default function StatePage() {
     <>
       <section
         className={`relative overflow-hidden border-b border-sage-400/45 ${STATE_HERO_MIN_H} flex flex-col ${
-          photoHero ? 'bg-sage-900' : stateHeroBandSectionClass
+          photoHero ? '' : stateHeroBandSectionClass
         }`}
       >
         {photoHero && (
           <>
-            <div className="absolute inset-0 z-0">
-              <img
-                src={photoHero.src}
-                alt=""
-                sizes="100vw"
-                className={`h-full w-full object-cover ${photoHero.objectClass}`}
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </div>
+            <div
+              className={`absolute inset-0 z-0 bg-cover bg-no-repeat ${photoHero.positionClass}`}
+              style={{ backgroundImage: `url(${photoHero.src})` }}
+              role="img"
+              aria-hidden
+            />
             <div
               className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/10 via-transparent to-sage-950/14"
               aria-hidden
