@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import states from '../data/states.json'
-import { PageHeroPanel } from '../components/PageHeroPanel'
 /** Full-resolution hero (bundled as-is; replace file in repo to swap photo). */
 import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
+
+const blogHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
@@ -54,7 +55,7 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative flex min-h-[19rem] flex-col overflow-hidden border-b border-sage-400/45 sm:min-h-[22rem] md:min-h-[26rem]">
+      <section className="relative flex min-h-[17rem] flex-col overflow-hidden border-b border-sage-800/30 sm:min-h-[19.5rem] md:min-h-[22.5rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={blogHeroBgUrl}
@@ -67,22 +68,25 @@ export default function Blog() {
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/25 via-[#fff9f5]/45 to-sage-800/28"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
           aria-hidden
         />
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center">
-          <div className={`${sectionShell} py-8 sm:py-10 md:py-12`}>
-            <PageHeroPanel className="mx-auto w-full max-w-4xl !bg-[rgba(255,255,255,0.65)] !py-3 text-center shadow-xl shadow-black/[0.12] ring-2 ring-sage-400/50 backdrop-blur-md sm:!py-4 md:!py-5">
-              <span className="badge mb-4 inline-block bg-rust-500 text-white shadow-sm ring-1 ring-rust-800/25">
-                Blog
-              </span>
-              <h1 className="font-display mb-4 text-4xl leading-tight sm:mb-5 sm:text-5xl">
-                <span className={pageTitleClass}>On the Road</span>
+        <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
+          <div className={`${blogHeroShell} w-full pb-8 pt-10 text-center sm:pb-9 sm:pt-12 md:pb-10 md:pt-14`}>
+            <div className="mx-auto w-full max-w-3xl lg:max-w-4xl">
+              <h1
+                className={`font-display text-[2.5rem] leading-none sm:text-6xl lg:text-7xl xl:text-[4.25rem] ${pageTitleClass}`}
+              >
+                On the Road
               </h1>
-              <p className="mx-auto max-w-2xl text-base leading-relaxed text-earth-800 sm:text-lg">
-                Join me on my journey and watch it unfold!
+              <div
+                className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-24"
+                aria-hidden
+              />
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-snug text-sage-100/92 sm:mt-4 sm:text-lg sm:leading-normal">
+                Posts and vlogs from the trip — the story as it happens, stop by stop.
               </p>
-            </PageHeroPanel>
+            </div>
           </div>
         </div>
       </section>

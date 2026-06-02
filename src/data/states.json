@@ -17,7 +17,8 @@
     "heroIntroSegments": [
       { "text": "Stop 2: ", "on": "trees" },
       { "text": "June 1, ", "on": "trees" },
-      { "text": "2026", "on": "sky" },
+      { "text": "2", "on": "trees" },
+      { "text": "026", "on": "sky" },
       { "text": " - June 8, ", "on": "sky" },
       { "text": "2026", "on": "sky" }
     ],
