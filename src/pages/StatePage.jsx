@@ -20,11 +20,13 @@ const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5r
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
-function HeroBackLink({ className = '' }) {
+function HeroBackLink({ light = false, className = '' }) {
   return (
     <Link
       to="/"
-      className={`inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800 ${className}`.trim()}
+      className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+        light ? 'text-white/95 hover:text-white' : 'text-earth-800 hover:text-rust-800'
+      } ${className}`.trim()}
     >
       <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -124,6 +126,8 @@ export default function StatePage() {
   const latestReflection = stateReflections[0]
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
+  const stopNumber = states.findIndex((s) => s.slug === stateSlug) + 1
+  const nyPhotoHero = stateSlug === 'new-york' && photoHero
 
   return (
     <>
@@ -159,17 +163,30 @@ export default function StatePage() {
           }`}
         >
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-            <HeroBackLink />
+            <HeroBackLink light={nyPhotoHero} />
           </div>
 
           {photoHero ? (
             <div className={`${stateHeroShell} w-full pb-8 pt-14 text-center sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]`}>
               <div className="mx-auto w-full max-w-2xl">
-                <h1 className={`font-display text-4xl leading-[1.05] sm:text-5xl lg:text-[3.25rem] ${pageTitleClass}`}>
+                <h1
+                  className={`font-display text-[2.75rem] leading-[1.05] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${
+                    nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass
+                  }`}
+                >
                   {state.name}
                 </h1>
+                <p
+                  className={`mt-3 text-sm font-semibold uppercase tracking-[0.22em] sm:mt-4 sm:text-base ${
+                    nyPhotoHero ? 'text-white/90' : 'text-earth-700'
+                  }`}
+                >
+                  Stop {stopNumber}
+                </p>
                 <div
-                  className="mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-20"
+                  className={`mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent to-transparent sm:mt-5 sm:w-20 ${
+                    nyPhotoHero ? 'via-white/55' : 'via-rust-400'
+                  }`}
                   aria-hidden
                 />
               </div>
