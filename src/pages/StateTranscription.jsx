@@ -2,6 +2,8 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
+import { SectionAmbience } from '../components/SectionAmbience'
+import PaperAirplaneTrail from '../components/PaperAirplaneTrail'
 import { pageTitleClass } from '../components/SectionHeading'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
@@ -26,11 +28,18 @@ export default function StateTranscription() {
 
   return (
     <>
-      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-300/60 bg-sage-100 sm:min-h-[16rem] md:min-h-[17rem]">
+      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-400/50 sm:min-h-[16rem] md:min-h-[17rem]">
+        <SectionAmbience variant="paper" />
+        <div
+          className="absolute inset-y-0 left-0 z-[1] w-1 bg-gradient-to-b from-rust-400/90 via-sage-500/75 to-orange-300/80"
+          aria-hidden
+        />
+        <PaperAirplaneTrail className="right-3 top-[42%] z-[1] -translate-y-1/2 opacity-80 sm:right-8 md:right-12 lg:right-16" />
+
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
             to={`/${stateSlug}/transcriptions`}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
           >
             <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -49,13 +58,13 @@ export default function StateTranscription() {
                 {displayTitle}
               </h1>
               <div
-                className="mx-auto mt-3 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-20"
+                className="mx-auto mt-3 h-px w-14 bg-gradient-to-r from-sage-500/40 via-rust-400 to-orange-300/70 sm:mt-4 sm:w-24"
                 aria-hidden
               />
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-snug text-earth-700 sm:mt-4 sm:text-base">
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-snug text-earth-800 sm:mt-4 sm:text-base">
                 {interview.personName} · {interview.role} · {interview.school}
               </p>
-              <time className="mt-2 block text-xs text-earth-500 sm:text-sm">{formatDate(interview.date)}</time>
+              <time className="mt-2 block text-xs text-sage-700/80 sm:text-sm">{formatDate(interview.date)}</time>
             </div>
           </div>
         </div>
