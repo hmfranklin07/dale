@@ -13,26 +13,26 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[19rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[22rem] md:min-h-[26rem]">
+      <section className="relative min-h-[17rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[19.5rem] md:min-h-[22.5rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_36%] sm:object-[50%_32%] lg:object-[48%_28%]"
+            className="h-full w-full object-cover object-[50%_72%] sm:object-[50%_76%] lg:object-[48%_82%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/45 via-sage-950/70 to-sage-950/88"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
           aria-hidden
         />
 
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
-          <div className={`${shell} w-full pt-8 pb-9 text-center sm:pt-9 sm:pb-10 md:pt-10 md:pb-12`}>
-            <div className="mx-auto w-full max-w-5xl lg:max-w-6xl">
+          <div className={`${shell} w-full pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10`}>
+            <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
               <h1 className="font-display text-[2.5rem] leading-[1.05] text-white drop-shadow-sm sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
                 STEM Across Rural America
               </h1>
