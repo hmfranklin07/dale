@@ -13,8 +13,10 @@ import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 /** State intro hero: same max column site-wide; side inset matches Home hero (`px-2.5 sm:px-4`) so the white card sits closer to the viewport than body sections. */
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 
-/** Same hero band floor for every state; NY centers a shorter white card over the photo. */
+/** Gradient-only state heroes (no photo). */
 const STATE_HERO_MIN_H = 'min-h-[19rem] sm:min-h-[24rem] md:min-h-[28rem]'
+/** Photo state heroes — matches home editorial band height. */
+const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
@@ -112,52 +114,88 @@ export default function StatePage() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b border-sage-400/45 ${STATE_HERO_MIN_H} flex flex-col ${
-          photoHero ? '' : stateHeroBandSectionClass
+        className={`relative overflow-hidden border-b flex flex-col ${
+          photoHero
+            ? `${STATE_PHOTO_HERO_MIN_H} border-sage-800/30`
+            : `${STATE_HERO_MIN_H} border-sage-400/45 ${stateHeroBandSectionClass}`
         }`}
       >
         {photoHero && (
           <>
+            <div className="absolute inset-0 z-0">
+              <img
+                src={photoHero.src}
+                alt=""
+                sizes="100vw"
+                className={`h-full w-full object-cover ${photoHero.positionClass}`}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </div>
             <div
-              className={`absolute inset-0 z-0 bg-cover bg-no-repeat ${photoHero.positionClass}`}
-              style={{ backgroundImage: `url(${photoHero.src})` }}
-              role="img"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/10 via-transparent to-sage-950/14"
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
               aria-hidden
             />
           </>
         )}
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center">
-          <div className={`${stateHeroShell} py-12 sm:py-16 md:py-20`}>
-            <PageHeroPanel
-              tone={photoHero ? 'statePageCompact' : 'statePage'}
-              className={
-                photoHero
-                  ? 'mx-auto w-full max-w-2xl text-center !py-2.5 sm:!py-3 md:!py-4'
-                  : 'mx-auto w-full max-w-2xl text-center !py-4 sm:!py-5 md:!py-6'
-              }
-            >
-              <Link
-                to="/"
-                className="mx-auto mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
-              >
-                <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to home &amp; map
-              </Link>
-              <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
-                {state.name}
-              </h1>
-              <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
-                {state.heroIntro
-                  ? state.heroIntro
-                  : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
-              </p>
-            </PageHeroPanel>
+        <div
+          className={`relative z-10 flex min-h-0 flex-1 flex-col ${
+            photoHero ? 'min-h-[inherit] items-start justify-center' : 'justify-center'
+          }`}
+        >
+          <div
+            className={`${stateHeroShell} w-full ${
+              photoHero
+                ? 'pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10'
+                : 'py-12 sm:py-16 md:py-20'
+            }`}
+          >
+            {photoHero ? (
+              <div className="mx-auto w-full max-w-2xl">
+                <Link
+                  to="/"
+                  className="mx-auto mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
+                >
+                  <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Back to home &amp; map
+                </Link>
+                <h1 className={`font-display text-4xl leading-[1.05] sm:text-5xl lg:text-[3.25rem] ${pageTitleClass}`}>
+                  {state.name}
+                </h1>
+                <div
+                  className="mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-5 sm:w-20"
+                  aria-hidden
+                />
+                <p className="mx-auto mt-4 max-w-xl text-base leading-snug text-sage-100/92 sm:mt-5 sm:text-lg sm:leading-normal">
+                  {state.heroIntro
+                    ? state.heroIntro
+                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
+                </p>
+              </div>
+            ) : (
+              <PageHeroPanel tone="statePage" className="mx-auto w-full max-w-2xl text-center !py-4 sm:!py-5 md:!py-6">
+                <Link
+                  to="/"
+                  className="mx-auto mb-3 inline-flex items-center gap-1.5 rounded-lg text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
+                >
+                  <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Back to home &amp; map
+                </Link>
+                <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
+                  {state.name}
+                </h1>
+                <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
+                  {state.heroIntro
+                    ? state.heroIntro
+                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
+                </p>
+              </PageHeroPanel>
+            )}
           </div>
         </div>
       </section>

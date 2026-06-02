@@ -2,15 +2,15 @@
 import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 import ilHeroUrl from '../assets/state-heroes/illinois.jpg?url'
 
-/** Full-res photo behind the frosted hero card (`statePageCompact`). */
+/** Full-res photo behind state intro heroes (editorial vignette, no card overlay). */
 export const STATE_PHOTO_HEROES = {
   'new-york': {
     src: nyHeroUrl,
-    positionClass: 'bg-[70%_40%] sm:bg-[72%_38%]',
+    positionClass: 'object-[70%_40%] sm:object-[72%_38%]',
   },
   illinois: {
     src: ilHeroUrl,
-    positionClass: 'bg-[50%_42%] sm:bg-[48%_40%]',
+    positionClass: 'object-[50%_42%] sm:object-[48%_40%]',
   },
 }
 
