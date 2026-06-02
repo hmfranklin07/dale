@@ -13,10 +13,10 @@ import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 /** State intro hero: same max column site-wide; side inset matches Home hero (`px-2.5 sm:px-4`) so the white card sits closer to the viewport than body sections. */
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 
-/** Gradient-only state heroes (no photo). */
-const STATE_HERO_MIN_H = 'min-h-[19rem] sm:min-h-[24rem] md:min-h-[28rem]'
-/** Photo state heroes — matches home editorial band height. */
-const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+/** State intro heroes — same height for photo and gradient bands. */
+const STATE_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+/** @deprecated alias — photo states use the same band height */
+const STATE_PHOTO_HERO_MIN_H = STATE_HERO_MIN_H
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 const stateSlugs = new Set(states.map((s) => s.slug))
 
@@ -234,7 +234,7 @@ export default function StatePage() {
 
       <PageContentBand variant="sage">
         {!isNewYork ? (
-          <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
+          <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
             <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
             <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
               This stop is still ahead on the trip. Videos, conversations, and reflections from {state.name} will show
