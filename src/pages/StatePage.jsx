@@ -126,7 +126,6 @@ export default function StatePage() {
   const latestReflection = stateReflections[0]
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
-  const stopNumber = states.findIndex((s) => s.slug === stateSlug) + 1
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
 
   return (
@@ -176,19 +175,21 @@ export default function StatePage() {
                 >
                   {state.name}
                 </h1>
-                <p
-                  className={`mt-3 text-sm font-semibold uppercase tracking-[0.22em] sm:mt-4 sm:text-base ${
-                    nyPhotoHero ? 'text-white/90' : 'text-earth-700'
-                  }`}
-                >
-                  Stop {stopNumber}
-                </p>
                 <div
                   className={`mx-auto mt-4 h-px w-14 bg-gradient-to-r from-transparent to-transparent sm:mt-5 sm:w-20 ${
                     nyPhotoHero ? 'via-white/55' : 'via-rust-400'
                   }`}
                   aria-hidden
                 />
+                <p
+                  className={`mx-auto mt-4 max-w-xl text-base leading-snug sm:mt-5 sm:text-lg sm:leading-normal ${
+                    nyPhotoHero ? 'text-white/90' : 'text-sage-100/92'
+                  }`}
+                >
+                  {state.heroIntro
+                    ? state.heroIntro
+                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
+                </p>
               </div>
             </div>
           ) : (
