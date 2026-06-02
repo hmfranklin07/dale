@@ -235,10 +235,10 @@ export default function StatePage() {
       <PageContentBand variant="sage">
         {!isNewYork ? (
           <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
-            <p className="font-display text-2xl text-earth-900 sm:text-3xl">Not there yet</p>
+            <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
             <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-              I ain&apos;t been there yet — check back soon for videos, conversations, and reflections from{' '}
-              {state.name}.
+              This stop is still ahead on the trip. Videos, conversations, and reflections from {state.name} will show
+              up here as I go.
             </p>
           </div>
         ) : (
