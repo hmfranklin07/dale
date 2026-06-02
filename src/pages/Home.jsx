@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[17rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[19.5rem] md:min-h-[22.5rem]">
+      <section className="relative min-h-[20rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[24rem] md:min-h-[28rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
@@ -26,14 +26,14 @@ export default function Home() {
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/35 via-sage-950/15 to-transparent"
           aria-hidden
         />
 
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
-          <div className={`${shell} w-full pt-7 pb-8 text-center sm:pt-8 sm:pb-9 md:pt-9 md:pb-10`}>
+          <div className={`${shell} w-full pb-10 pt-4 text-center sm:pb-12 sm:pt-5 md:pb-14 md:pt-6`}>
             <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-              <div className="relative py-4 sm:py-5 md:py-6">
+              <div className="relative py-3 sm:py-4 md:py-5">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
