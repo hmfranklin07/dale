@@ -264,7 +264,7 @@ export default function StatePage() {
           </section>
 
           <section>
-            <SectionHeading>Written conversations</SectionHeading>
+            <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
               {latestInterview ? (
                 <Link
