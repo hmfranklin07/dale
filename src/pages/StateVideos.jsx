@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
-import YouTubeEmbed from '../components/YouTubeEmbed'
+import VideoEmbed from '../components/VideoEmbed'
 import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
@@ -54,7 +54,7 @@ export default function StateVideos() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {list.map((v) => (
               <article key={v.id} className="card flex h-full min-w-0 flex-col overflow-hidden">
-                <YouTubeEmbed youtubeId={v.youtubeId} title={v.title} />
+                <VideoEmbed youtubeId={v.youtubeId} videoSrc={v.videoSrc} title={v.title} />
                 <div className="card-body flex flex-1 flex-col">
                   <div className="mb-2 flex flex-col items-start gap-2">
                     <span className="badge-sage max-w-full truncate text-[0.65rem]">{vlogLocationLabel(v)}</span>

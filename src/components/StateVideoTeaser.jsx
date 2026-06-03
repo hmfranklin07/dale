@@ -10,7 +10,16 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
     >
       <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
         <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5 ring-1 ring-sage-200/40">
-          {vlog.youtubeId ? (
+          {vlog.videoSrc ? (
+            <video
+              src={vlog.videoSrc}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden
+            />
+          ) : vlog.youtubeId ? (
             <img
               src={`https://img.youtube.com/vi/${vlog.youtubeId}/mqdefault.jpg`}
               alt=""

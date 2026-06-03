@@ -1,5 +1,15 @@
 [
   {
+    "id": "shop-tour",
+    "townSlug": "arkport-ny",
+    "townLabel": "Arkport",
+    "date": "2026-05-29",
+    "title": "Shop Tour",
+    "youtubeId": "",
+    "videoSrc": "/videos/shop-tour.mp4",
+    "reflection": "Mr. Kramer gives a tour of the shop at Arkport Central School."
+  },
+  {
     "id": "1",
     "townSlug": "cave-springs-ar",
     "townLabel": "Location",
