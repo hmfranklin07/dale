@@ -65,36 +65,6 @@ function HeroBackLink({ light = false, className = '' }) {
   )
 }
 
-/** Generic slot when fewer than three vlogs exist for this state (same shape as a real teaser). */
-function StateVideoSlot({ vlog, stateSlug }) {
-  if (vlog) {
-    return <StateVideoTeaser vlog={vlog} stateSlug={stateSlug} />
-  }
-  return (
-    <Link
-      to={`/${stateSlug}/videos`}
-      className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-    >
-      <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-        <div className="relative flex aspect-video shrink-0 items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 ring-1 ring-sage-200/40">
-          <span className="text-xs font-medium uppercase tracking-wide text-earth-500">Video</span>
-        </div>
-        <div className="flex flex-1 flex-col p-4 sm:p-5">
-          <div className="flex flex-col items-start gap-2">
-            <span className="badge-sage inline-block text-[0.65rem]">Location</span>
-            <time className="block text-[0.65rem] text-earth-500">Date</time>
-          </div>
-          <h3 className="font-display mt-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
-            Title
-          </h3>
-          <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-earth-600">Text</p>
-          <p className="mt-3 text-xs font-semibold text-rust-800">View all videos →</p>
-        </div>
-      </article>
-    </Link>
-  )
-}
-
 function TranscriptionFillerCard({ stateSlug }) {
   return (
     <Link
@@ -150,7 +120,7 @@ export default function StatePage() {
   const stateInterviews = interviewsForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
 
-  const videoSlots = [stateVlogs[0], stateVlogs[1], stateVlogs[2]]
+  const featuredVlogs = stateVlogs.slice(0, 3)
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
@@ -246,11 +216,13 @@ export default function StatePage() {
           <section>
             <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
-                {videoSlots.map((vlog, idx) => (
-                  <StateVideoSlot key={vlog ? vlog.id : `filler-${idx}`} vlog={vlog} stateSlug={stateSlug} />
-                ))}
-              </div>
+              {featuredVlogs.length > 0 && (
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
+                  {featuredVlogs.map((vlog) => (
+                    <StateVideoTeaser key={vlog.id} vlog={vlog} stateSlug={stateSlug} />
+                  ))}
+                </div>
+              )}
               <div className="flex justify-start">
                 <Link
                   to={`/${stateSlug}/videos`}
