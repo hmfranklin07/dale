@@ -3,7 +3,7 @@ import states from '../data/states.json'
 import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
 import { pageTitleClass } from '../components/SectionHeading'
-import { HERO_ACCENT_RUST, STATE_HERO_BAND_BG } from '../config/mapPinColors'
+import { HERO_ACCENT_RUST } from '../config/mapPinColors'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
 
@@ -27,14 +27,11 @@ export default function StateTranscription() {
 
   return (
     <>
-      <section
-        className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-400/70 sm:min-h-[16rem] md:min-h-[17rem]"
-        style={{ backgroundColor: STATE_HERO_BAND_BG }}
-      >
+      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]">
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
             to={`/${stateSlug}/transcriptions`}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-sage-900 transition-colors hover:text-rust-800"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-white/92 transition-colors hover:text-orange-100"
           >
             <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
