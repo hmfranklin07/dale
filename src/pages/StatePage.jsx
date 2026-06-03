@@ -244,7 +244,7 @@ export default function StatePage() {
         ) : (
         <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           <section>
-            <SectionHeading>Videos</SectionHeading>
+            <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
                 {videoSlots.map((vlog, idx) => (
