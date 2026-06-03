@@ -13,6 +13,15 @@ export function vlogsForState(stateSlug) {
   return [...vlogs].filter((v) => slugs.has(v.townSlug)).sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
 }
 
+export function vlogById(id) {
+  return vlogs.find((v) => v.id === id)
+}
+
+export function vlogBelongsToState(vlog, stateSlug) {
+  const slugs = townSlugsInState(stateSlug)
+  return slugs.has(vlog.townSlug)
+}
+
 export function interviewsForState(stateSlug) {
   const slugs = townSlugsInState(stateSlug)
   return [...interviews]

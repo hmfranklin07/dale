@@ -53,17 +53,26 @@ export default function StateVideos() {
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {list.map((v) => (
-              <article key={v.id} className="card flex h-full min-w-0 flex-col overflow-hidden">
-                <VideoEmbed youtubeId={v.youtubeId} videoSrc={v.videoSrc} title={v.title} />
-                <div className="card-body flex flex-1 flex-col">
-                  <div className="mb-2 flex flex-col items-start gap-2">
-                    <span className="badge-sage max-w-full truncate text-[0.65rem]">{vlogLocationLabel(v)}</span>
-                    <time className="block text-xs text-earth-500">{formatDate(v.date)}</time>
+              <Link
+                key={v.id}
+                to={`/${stateSlug}/videos/${v.id}`}
+                className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+              >
+                <article className="card group flex h-full min-w-0 flex-col overflow-hidden transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                  <VideoEmbed youtubeId={v.youtubeId} videoSrc={v.videoSrc} title={v.title} />
+                  <div className="card-body flex flex-1 flex-col">
+                    <div className="mb-2 flex flex-col items-start gap-2">
+                      <span className="badge-sage max-w-full truncate text-[0.65rem]">{vlogLocationLabel(v)}</span>
+                      <time className="block text-xs text-earth-500">{formatDate(v.date)}</time>
+                    </div>
+                    <h2 className="font-display mb-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 lg:text-[1.35rem]">
+                      {v.title}
+                    </h2>
+                    <p className="flex-1 text-sm leading-relaxed text-earth-800 whitespace-pre-line">{v.reflection}</p>
+                    <p className="mt-3 text-xs font-semibold text-rust-800">Watch video →</p>
                   </div>
-                  <h2 className="font-display mb-2 text-xl leading-snug text-earth-900 lg:text-[1.35rem]">{v.title}</h2>
-                  <p className="flex-1 text-sm leading-relaxed text-earth-800 whitespace-pre-line">{v.reflection}</p>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
         )}

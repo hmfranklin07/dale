@@ -5,7 +5,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
   const townLabel = vlogLocationLabel(vlog)
   return (
     <Link
-      to={`/${stateSlug}/videos`}
+      to={`/${stateSlug}/videos/${vlog.id}`}
       className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
       <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
@@ -43,7 +43,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
             {vlog.title}
           </h3>
           <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-earth-600">{excerpt(vlog.reflection, 120)}</p>
-          <p className="mt-3 text-xs font-semibold text-rust-800">All videos in this state →</p>
+          <p className="mt-3 text-xs font-semibold text-rust-800">Watch video →</p>
         </div>
       </article>
     </Link>

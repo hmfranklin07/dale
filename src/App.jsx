@@ -6,6 +6,7 @@ import SiteWindingPath from './components/SiteWindingPath'
 import Home from './pages/Home'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
+import StateVideo from './pages/StateVideo'
 import StateTranscriptions from './pages/StateTranscriptions'
 import StateTranscription from './pages/StateTranscription'
 import StateReflections from './pages/StateReflections'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/blog/state/:stateSlug" element={<BlogStateHub />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/vlog" element={<Navigate to="/blog" replace />} />
+          <Route path="/:stateSlug/videos/:videoId" element={<StateVideo />} />
           <Route path="/:stateSlug/videos" element={<StateVideos />} />
           <Route path="/:stateSlug/transcriptions/:interviewId" element={<StateTranscription />} />
           <Route path="/:stateSlug/transcriptions" element={<StateTranscriptions />} />
