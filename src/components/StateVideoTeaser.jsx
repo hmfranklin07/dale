@@ -8,7 +8,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
       to={`/${stateSlug}/videos/${vlog.id}`}
       className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
-      <article className="card group flex h-full flex-col overflow-hidden border-2 border-sage-500/85 !ring-sage-400/50 ring-2 transition-shadow hover:border-sage-600/90 hover:shadow-lg hover:shadow-sage-900/12">
+      <article className="card group flex h-full flex-col overflow-hidden border-2 border-sage-700/90 !ring-sage-600/55 ring-2 transition-shadow hover:border-sage-800 hover:shadow-lg hover:shadow-sage-900/15">
         <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5 ring-1 ring-sage-200/40">
           {vlog.videoSrc ? (
             <video
