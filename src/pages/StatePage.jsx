@@ -293,7 +293,7 @@ export default function StatePage() {
                   </article>
                 </Link>
               ) : (
-                <ReflectionFillerCard stateSlug={stateSlug} />
+                <ReflectionComingSoon stateName={state.name} />
               )}
               <div className="flex justify-start">
                 <Link
