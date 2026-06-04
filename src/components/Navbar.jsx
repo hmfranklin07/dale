@@ -3,10 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import states from '../data/states.json'
 import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
 
-const primary = [
-  { to: '/', label: 'Home' },
-  { to: '/blog', label: 'Blog' },
-]
+const homeLink = { to: '/', label: 'Home' }
+const blogLink = { to: '/blog', label: 'Blog' }
 
 /** Microscope outline — paths from Lucide (ISC). https://lucide.dev/icons/microscope */
 function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-rust-500' }) {
@@ -61,11 +59,9 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 justify-end">
-            {primary.map((link) => (
-              <NavLink key={link.to} to={link.to} end={link.to === '/'} className={linkClass}>
-                {link.label}
-              </NavLink>
-            ))}
+            <NavLink to={homeLink.to} end className={linkClass}>
+              {homeLink.label}
+            </NavLink>
             {states.map((s) => (
               <NavLink
                 key={s.slug}
@@ -77,6 +73,9 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
+            <NavLink to={blogLink.to} className={linkClass}>
+              {blogLink.label}
+            </NavLink>
           </div>
 
           <div className="lg:hidden">
@@ -97,17 +96,9 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex lg:hidden border-t border-sage-800/15 bg-sage-900/5 py-2 overflow-x-auto gap-1">
-          {primary.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === '/'}
-              onClick={() => setOpen(false)}
-              className={linkClass}
-            >
-              {link.label}
-            </NavLink>
-          ))}
+          <NavLink to={homeLink.to} end onClick={() => setOpen(false)} className={linkClass}>
+            {homeLink.label}
+          </NavLink>
           {states.map((s) => (
             <NavLink
               key={s.slug}
@@ -120,23 +111,18 @@ export default function Navbar() {
               {s.name}
             </NavLink>
           ))}
+          <NavLink to={blogLink.to} onClick={() => setOpen(false)} className={linkClass}>
+            {blogLink.label}
+          </NavLink>
         </div>
       </div>
 
       {open && (
         <div className="lg:hidden border-t border-sage-800/15 bg-gradient-to-b from-white to-sage-50/95 max-h-[80vh] overflow-y-auto">
           <div className="px-4 py-3 space-y-0.5">
-            {primary.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                onClick={() => setOpen(false)}
-                className={mobileLink}
-              >
-                {link.label}
-              </NavLink>
-            ))}
+            <NavLink to={homeLink.to} end onClick={() => setOpen(false)} className={mobileLink}>
+              {homeLink.label}
+            </NavLink>
             <p className="pt-2 pb-1 px-1 text-xs font-semibold text-sage-800 uppercase tracking-wide">States</p>
             {states.map((s) => (
               <NavLink
@@ -150,6 +136,9 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
+            <NavLink to={blogLink.to} onClick={() => setOpen(false)} className={mobileLink}>
+              {blogLink.label}
+            </NavLink>
           </div>
         </div>
       )}
