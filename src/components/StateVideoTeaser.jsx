@@ -31,11 +31,11 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
           )}
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-5">
-          <h3 className="font-display text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-xl">
+          <h3 className="font-display text-2xl leading-tight text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
             {vlog.title}
           </h3>
           {vlog.reflection && (
-            <p className="mt-2 text-sm leading-relaxed text-earth-700 sm:text-base">{vlog.reflection}</p>
+            <p className="mt-3 text-sm leading-relaxed text-earth-700">{vlog.reflection}</p>
           )}
           <div className="mt-4">
             <time className="block text-xs text-earth-500">{formatDate(vlog.date)}</time>
