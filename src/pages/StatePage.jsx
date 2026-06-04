@@ -234,7 +234,7 @@ export default function StatePage() {
                   to={`/${stateSlug}/transcriptions/${latestInterview.id}`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                  <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
                     <div className="card-body p-5 sm:p-6">
                       <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
                       <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
