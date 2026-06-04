@@ -89,23 +89,14 @@ function TranscriptionFillerCard({ stateSlug }) {
   )
 }
 
-function ReflectionFillerCard({ stateSlug }) {
+function ReflectionComingSoon({ stateName }) {
   return (
-    <Link
-      to={`/${stateSlug}/reflections`}
-      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-    >
-      <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-        <div className="card-body sm:p-8">
-          <time className="block text-xs text-earth-500">Date</time>
-          <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
-            Title
-          </h2>
-          <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">Text</p>
-          <p className="mt-4 text-sm font-semibold text-rust-800">View all reflections →</p>
-        </div>
-      </article>
-    </Link>
+    <article className="card card-body max-w-2xl border-2 border-rust-400/80 !ring-rust-300/55 ring-2 sm:p-8">
+      <h2 className="font-display text-2xl text-earth-900 sm:text-3xl">Stay Tuned!</h2>
+      <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
+        Reflections from {stateName} will appear soon.
+      </p>
+    </article>
   )
 }
 
