@@ -235,26 +235,19 @@ export default function StatePage() {
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-                    <div className="card-body sm:p-8">
-                      <div className="flex flex-col items-start gap-2">
-                        {(latestInterview.townLabel || townBySlug[latestInterview.townSlug]) && (
-                          <span className="badge-sage inline-block w-fit max-w-full">
-                            {latestInterview.townLabel ?? townBySlug[latestInterview.townSlug]?.name}
-                          </span>
-                        )}
-                        <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
-                      </div>
-                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                    <div className="card-body p-5 sm:p-6">
+                      <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
+                      <h2 className="font-display mt-2 text-xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
                         {latestInterview.title || latestInterview.personName}
                       </h2>
-                      <p className="mt-2 text-sm text-earth-600">
+                      <p className="mt-1.5 text-sm text-earth-600">
                         {latestInterview.personName} · {latestInterview.role} · {latestInterview.school}
                       </p>
-                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
+                      <p className="mt-3 text-sm leading-relaxed text-earth-800">
                         {latestInterview.summary ||
-                          excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 320)}
+                          excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 220)}
                       </p>
-                      <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
+                      <p className="mt-3 text-sm font-semibold text-rust-800">Read conversation →</p>
                     </div>
                   </article>
                 </Link>
