@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import YouTubeThumbnail from './YouTubeThumbnail'
 import { excerpt, formatDate, vlogLocationLabel } from '../pages/blogData'
 
 export default function StateVideoTeaser({ vlog, stateSlug }) {
@@ -20,11 +21,9 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
               aria-hidden
             />
           ) : vlog.youtubeId ? (
-            <img
-              src={`https://img.youtube.com/vi/${vlog.youtubeId}/mqdefault.jpg`}
-              alt=""
+            <YouTubeThumbnail
+              youtubeId={vlog.youtubeId}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              loading="lazy"
             />
           ) : (
             <div className="flex h-full min-h-[6.5rem] items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 px-3">

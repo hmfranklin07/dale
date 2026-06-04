@@ -6,6 +6,7 @@ import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
 const blogHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading from '../components/SectionHeading'
+import YouTubeThumbnail from '../components/YouTubeThumbnail'
 import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
 
 function BlogVideoTeaser({ vlog }) {
@@ -18,11 +19,9 @@ function BlogVideoTeaser({ vlog }) {
       <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
         <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5 ring-1 ring-sage-200/40">
           {vlog.youtubeId ? (
-            <img
-              src={`https://img.youtube.com/vi/${vlog.youtubeId}/mqdefault.jpg`}
-              alt=""
+            <YouTubeThumbnail
+              youtubeId={vlog.youtubeId}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              loading="lazy"
             />
           ) : (
             <div className="flex h-full min-h-[6.5rem] items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 px-3">
