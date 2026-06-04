@@ -10,7 +10,14 @@ export function townSlugsInState(stateSlug) {
 
 export function vlogsForState(stateSlug) {
   const slugs = townSlugsInState(stateSlug)
-  return [...vlogs].filter((v) => slugs.has(v.townSlug)).sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
+  return vlogs
+    .map((v, index) => ({ v, index }))
+    .filter(({ v }) => slugs.has(v.townSlug))
+    .sort((a, b) => {
+      const byDate = sortDateValue(b.v.date) - sortDateValue(a.v.date)
+      return byDate !== 0 ? byDate : a.index - b.index
+    })
+    .map(({ v }) => v)
 }
 
 export function vlogById(id) {
