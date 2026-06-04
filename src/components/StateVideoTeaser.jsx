@@ -38,7 +38,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
             <p className="mt-3 text-sm leading-relaxed text-earth-700">{vlog.reflection}</p>
           )}
           <time className="mt-2 block text-xs text-earth-500">{formatDate(vlog.date)}</time>
-          <p className="mt-4 text-xs font-semibold text-sage-800">Watch video →</p>
+          <p className="mt-4 text-sm font-semibold text-rust-700 group-hover:text-rust-600">Watch video →</p>
         </div>
       </article>
     </Link>
