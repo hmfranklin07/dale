@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import YouTubeThumbnail from './YouTubeThumbnail'
-import { excerpt, formatDate, vlogLocationLabel } from '../pages/blogData'
+import { formatDate } from '../pages/blogData'
 
 export default function StateVideoTeaser({ vlog, stateSlug }) {
-  const townLabel = vlogLocationLabel(vlog)
   return (
     <Link
       to={`/${stateSlug}/videos/${vlog.id}`}
@@ -32,17 +31,16 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
           )}
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-5">
-          <div className="flex flex-col items-start gap-2">
-            {townLabel && (
-              <span className="badge-sage inline-block max-w-full truncate text-[0.65rem]">{townLabel}</span>
-            )}
-            <time className="block text-[0.65rem] text-earth-500">{formatDate(vlog.date)}</time>
-          </div>
-          <h3 className="font-display mt-2 line-clamp-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
+          <h3 className="font-display text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-xl">
             {vlog.title}
           </h3>
-          <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-earth-600">{excerpt(vlog.reflection, 120)}</p>
-          <p className="mt-3 text-xs font-semibold text-rust-800">Watch video →</p>
+          {vlog.reflection && (
+            <p className="mt-2 text-sm leading-relaxed text-earth-700 sm:text-base">{vlog.reflection}</p>
+          )}
+          <div className="mt-4">
+            <time className="block text-xs text-earth-500">{formatDate(vlog.date)}</time>
+            <p className="mt-2 text-xs font-semibold text-rust-800">Watch video →</p>
+          </div>
         </div>
       </article>
     </Link>
