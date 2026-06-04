@@ -13,7 +13,15 @@ export function sortDateValue(d) {
 }
 
 export const sortedVlogs = [...vlogs].sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
-export const sortedBlogs = [...vlogBlogs].sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
+
+/** Skip generic filler rows (`Date`, `Title`, etc.). */
+export function isPlaceholderBlog(b) {
+  return b.date === 'Date' || b.title === 'Title'
+}
+
+export const sortedBlogs = [...vlogBlogs]
+  .filter((b) => !isPlaceholderBlog(b))
+  .sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
 
 /** Use literal `Date` in JSON for generic filler rows. */
 export function formatDate(d) {

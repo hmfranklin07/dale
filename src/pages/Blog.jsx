@@ -6,51 +6,10 @@ import blogHeroBgUrl from '../assets/blog/blog-hero.jpg?url'
 const blogHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading from '../components/SectionHeading'
-import YouTubeThumbnail from '../components/YouTubeThumbnail'
-import { excerpt, formatDate, sectionShell, sortedBlogs, sortedVlogs, vlogLocationLabel } from './blogData'
-
-function BlogVideoTeaser({ vlog }) {
-  const townLabel = vlogLocationLabel(vlog)
-  return (
-    <Link
-      to="/blog/videos"
-      className="block h-full min-w-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-    >
-      <article className="card group flex h-full flex-col overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-        <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5 ring-1 ring-sage-200/40">
-          {vlog.youtubeId ? (
-            <YouTubeThumbnail
-              youtubeId={vlog.youtubeId}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-            />
-          ) : (
-            <div className="flex h-full min-h-[6.5rem] items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 px-3">
-              <p className="text-center text-xs font-medium text-earth-600">Add a YouTube ID for a thumbnail</p>
-            </div>
-          )}
-        </div>
-        <div className="flex flex-1 flex-col p-4 sm:p-5">
-          <div className="flex flex-col items-start gap-2">
-            {townLabel && (
-              <span className="badge-sage inline-block max-w-full truncate text-[0.65rem]">{townLabel}</span>
-            )}
-            <time className="block text-[0.65rem] text-earth-500">{formatDate(vlog.date)}</time>
-          </div>
-          <h3 className="font-display mt-2 line-clamp-2 text-lg leading-snug text-earth-900 transition-colors group-hover:text-rust-800">
-            {vlog.title}
-          </h3>
-          <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-earth-600">{excerpt(vlog.reflection, 120)}</p>
-          <p className="mt-3 text-xs font-semibold text-rust-800">Open videos →</p>
-        </div>
-      </article>
-    </Link>
-  )
-}
+import { excerpt, formatDate, sortedBlogs } from './blogData'
 
 export default function Blog() {
   const latestBlog = sortedBlogs[0]
-  const videoSlots = [sortedVlogs[0], sortedVlogs[1], sortedVlogs[2]]
-  const hasAnyVideo = sortedVlogs.length > 0
 
   return (
     <>
@@ -127,49 +86,12 @@ export default function Blog() {
                 </div>
               </div>
             ) : (
-              <p className="text-earth-600 sm:text-lg">
-                Your latest blog will appear here when you add a post.
-              </p>
-            )}
-          </section>
-
-          <section>
-            <SectionHeading>Videos</SectionHeading>
-            {hasAnyVideo ? (
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
-                  {videoSlots.map((vlog, idx) =>
-                    vlog ? (
-                      <BlogVideoTeaser key={vlog.id} vlog={vlog} />
-                    ) : (
-                      <div
-                        key={`video-slot-${idx}`}
-                        className="flex min-h-[12rem] flex-col items-center justify-center rounded-2xl border border-dashed border-rust-400/65 bg-gradient-to-b from-rust-50/90 via-white to-sage-100/40 p-5 text-center ring-1 ring-rust-200/50"
-                      >
-                        <span className="text-xs font-semibold uppercase tracking-wide text-rust-800">
-                          Open slot
-                        </span>
-                        <p className="mt-2 text-sm text-earth-600">
-                          Add another video entry to fill this teaser slot.
-                        </p>
-                      </div>
-                    ),
-                  )}
-                </div>
-                <div className="flex justify-start">
-                  <Link
-                    to="/blog/videos"
-                    className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                  >
-                    View more
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
+              <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
+                <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
+                <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
+                  Blogs will show up as the trip progresses.
+                </p>
               </div>
-            ) : (
-              <p className="text-earth-600 sm:text-lg">
-                Up to three recent videos will show here when you add them.
-              </p>
             )}
           </section>
 
