@@ -6,7 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
-import { interviewsForState, reflectionsForState, vlogsForState } from '../lib/stateContent'
+import { featuredVlogsForState, interviewsForState, reflectionsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -107,11 +107,9 @@ export default function StatePage() {
   }
 
   const state = states.find((s) => s.slug === stateSlug)
-  const stateVlogs = vlogsForState(stateSlug)
+  const featuredVlogs = featuredVlogsForState(stateSlug)
   const stateInterviews = interviewsForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
-
-  const featuredVlogs = stateVlogs.slice(0, 3)
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
@@ -208,7 +206,7 @@ export default function StatePage() {
             <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
               {featuredVlogs.length > 0 && (
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:items-stretch">
+                <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-3 md:items-stretch md:gap-6 lg:gap-8">
                   {featuredVlogs.map((vlog) => (
                     <StateVideoTeaser key={vlog.id} vlog={vlog} stateSlug={stateSlug} />
                   ))}

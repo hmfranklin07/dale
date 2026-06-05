@@ -20,6 +20,12 @@ export function vlogsForState(stateSlug) {
     .map(({ v }) => v)
 }
 
+export function featuredVlogsForState(stateSlug) {
+  return vlogsForState(stateSlug)
+    .filter((v) => v.featured === true)
+    .slice(0, 3)
+}
+
 export function vlogById(id) {
   return vlogs.find((v) => v.id === id)
 }

@@ -32,7 +32,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
           )}
         </div>
         <div className="flex flex-1 flex-col p-3 sm:p-3.5">
-          <h3 className="font-display text-2xl leading-tight text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+          <h3 className="font-display text-xl leading-tight text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl lg:text-[1.65rem]">
             {vlog.title}
           </h3>
           {vlog.reflection && (
