@@ -22,7 +22,7 @@ export default function StateVideos() {
         backTo={`/${stateSlug}`}
         backLabel={`Back to ${state.name}`}
         title={`Videos · ${state.name}`}
-        description="Conversations and interviews from this stop, with room for embedded clips when YouTube IDs are added."
+        description="Conversations and interviews from this stop."
       />
 
       <PageContentBand>
