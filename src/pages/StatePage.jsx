@@ -214,10 +214,10 @@ export default function StatePage() {
                   ))}
                 </div>
               )}
-              <div className="flex justify-start">
+              <div className="flex justify-center pt-1 sm:justify-start">
                 <Link
                   to={`/${stateSlug}/videos`}
-                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
+                  className="inline-flex items-center gap-2 rounded-xl bg-rust-500 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-rust-900/25 ring-2 ring-rust-400/70 transition-all hover:bg-rust-600 hover:shadow-lg hover:shadow-rust-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/80 sm:text-base"
                 >
                   View all videos
                   <span aria-hidden>→</span>
