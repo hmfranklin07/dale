@@ -4,10 +4,9 @@ import { SectionAmbience } from './SectionAmbience'
 const contentShell = 'max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-10'
 
 const washBg = {
-  /** Default body band — cream → soft amber → sage floor (a bit more depth than flat sage-900/10) */
-  amber: 'bg-gradient-to-b from-white/97 via-amber-50/55 to-sage-100/58',
-  /** Blog hub — warm paper + rust wash, settles into sage (no heavy sage-900 edge) */
-  rust: 'bg-gradient-to-b from-[#fffdfb]/[0.98] via-rust-50/52 to-sage-100/62',
+  /** Semi-transparent so the sitewide underlay shows through beneath cards. */
+  amber: 'bg-gradient-to-b from-white/72 via-amber-50/42 to-sage-100/48',
+  rust: 'bg-gradient-to-b from-[#fffdfb]/74 via-rust-50/40 to-sage-100/50',
 }
 
 /**

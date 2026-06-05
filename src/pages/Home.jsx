@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* 2. Inspiration */}
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100">
+      <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100/78">
         <div className={`relative z-10 ${sectionShell} pt-7 pb-4 sm:pt-8 sm:pb-5`}>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
