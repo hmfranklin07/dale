@@ -22,7 +22,7 @@ export default function StateVideos() {
         backTo={`/${stateSlug}`}
         backLabel={`Back to ${state.name}`}
         title={`Videos · ${state.name}`}
-        description="Conversations and interviews from this stop."
+        description="Conversations from this stop."
       />
 
       <PageContentBand>

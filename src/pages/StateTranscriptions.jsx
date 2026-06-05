@@ -24,7 +24,7 @@ export default function StateTranscriptions() {
         backTo={`/${stateSlug}`}
         backLabel={`Back to ${state.name}`}
         title={`Written conversations · ${state.name}`}
-        description="Interviews with students, teachers, and community members from this stop."
+        description="Conversations from this stop."
       />
 
       <PageContentBand>
