@@ -22,6 +22,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
           ) : vlog.youtubeId ? (
             <YouTubeThumbnail
               youtubeId={vlog.youtubeId}
+              frame={vlog.youtubeThumbnailFrame}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             />
           ) : (

@@ -1,21 +1,33 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 /** Best → fallback. mqdefault is only 320×180 and looks soft in cards. */
-const THUMBNAIL_SIZES = ['maxresdefault', 'sddefault', 'hqdefault', 'mqdefault']
+const DEFAULT_SIZES = ['maxresdefault', 'sddefault', 'hqdefault', 'mqdefault']
 
-export default function YouTubeThumbnail({ youtubeId, alt = '', className = '' }) {
-  const [sizeIndex, setSizeIndex] = useState(0)
-  const size = THUMBNAIL_SIZES[Math.min(sizeIndex, THUMBNAIL_SIZES.length - 1)]
+function thumbnailSources(youtubeId, frame) {
+  if (frame != null) {
+    return [
+      `https://i.ytimg.com/vi/${youtubeId}/maxres${frame}.jpg`,
+      `https://img.youtube.com/vi/${youtubeId}/sddefault.jpg`,
+      `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`,
+      `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`,
+    ]
+  }
+  return DEFAULT_SIZES.map((size) => `https://img.youtube.com/vi/${youtubeId}/${size}.jpg`)
+}
+
+export default function YouTubeThumbnail({ youtubeId, frame, alt = '', className = '' }) {
+  const sources = useMemo(() => thumbnailSources(youtubeId, frame), [youtubeId, frame])
+  const [sourceIndex, setSourceIndex] = useState(0)
 
   return (
     <img
-      src={`https://img.youtube.com/vi/${youtubeId}/${size}.jpg`}
+      src={sources[Math.min(sourceIndex, sources.length - 1)]}
       alt={alt}
       className={className}
       loading="lazy"
       decoding="async"
       onError={() => {
-        setSizeIndex((i) => (i < THUMBNAIL_SIZES.length - 1 ? i + 1 : i))
+        setSourceIndex((i) => (i < sources.length - 1 ? i + 1 : i))
       }}
     />
   )
