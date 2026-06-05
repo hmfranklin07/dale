@@ -1,14 +1,10 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import VideoEmbed from '../components/VideoEmbed'
-import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
-import { SectionAmbience } from '../components/SectionAmbience'
+import StateSubpageHero from '../components/StateSubpageHero'
 import PageContentBand from '../components/PageContentBand'
-import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { formatDate, vlogLocationLabel } from './blogData'
 import { vlogsForState } from '../lib/stateContent'
-
-const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const stateSlugs = new Set(states.map((s) => s.slug))
 
 export default function StateVideos() {
@@ -22,28 +18,12 @@ export default function StateVideos() {
 
   return (
     <>
-      <section
-        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass} ${stateSubpageHeroSectionClass}`}
-      >
-        <SectionAmbience variant="paper" />
-        <div className="relative z-10 flex flex-1 flex-col justify-center">
-          <div className={`${sectionShell} py-8 sm:py-10`}>
-            <Link
-              to={`/${stateSlug}`}
-              className="text-sage-900 hover:text-rust-800 mb-4 inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
-            >
-              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to {state.name}
-            </Link>
-            <h1 className={`font-display mt-2 text-3xl sm:text-4xl ${pageTitleClass}`}>Videos · {state.name}</h1>
-            <p className="mt-3 max-w-2xl text-earth-800 sm:text-lg leading-relaxed">
-              Conversations and interviews from this stop, with room for embedded clips when YouTube IDs are added.
-            </p>
-          </div>
-        </div>
-      </section>
+      <StateSubpageHero
+        backTo={`/${stateSlug}`}
+        backLabel={`Back to ${state.name}`}
+        title={`Videos · ${state.name}`}
+        description="Conversations and interviews from this stop, with room for embedded clips when YouTube IDs are added."
+      />
 
       <PageContentBand>
         {list.length === 0 ? (

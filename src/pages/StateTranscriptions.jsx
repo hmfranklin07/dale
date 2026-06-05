@@ -1,14 +1,11 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
-import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
-import { SectionAmbience } from '../components/SectionAmbience'
+import StateSubpageHero from '../components/StateSubpageHero'
 import PageContentBand from '../components/PageContentBand'
-import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import SectionHeading from '../components/SectionHeading'
 import { formatDate } from './blogData'
 import { interviewsForState } from '../lib/stateContent'
-
-const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 
@@ -23,30 +20,12 @@ export default function StateTranscriptions() {
 
   return (
     <>
-      <section
-        className={`relative overflow-hidden border-b border-sage-200/60 ${innerPageTopBandSectionClass} ${stateSubpageHeroSectionClass}`}
-      >
-        <SectionAmbience variant="paper" />
-        <div className="relative z-10 flex flex-1 flex-col justify-center">
-          <div className={`${sectionShell} py-8 sm:py-10`}>
-            <Link
-              to={`/${stateSlug}`}
-              className="text-sage-900 hover:text-rust-800 mb-4 inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
-            >
-              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to {state.name}
-            </Link>
-            <h1 className={`font-display mt-2 text-3xl sm:text-4xl ${pageTitleClass}`}>
-              Written conversations · {state.name}
-            </h1>
-            <p className="mt-3 max-w-2xl text-earth-800 sm:text-lg leading-relaxed">
-              Interviews with students, teachers, and community members from this stop.
-            </p>
-          </div>
-        </div>
-      </section>
+      <StateSubpageHero
+        backTo={`/${stateSlug}`}
+        backLabel={`Back to ${state.name}`}
+        title={`Written conversations · ${state.name}`}
+        description="Interviews with students, teachers, and community members from this stop."
+      />
 
       <PageContentBand>
         <SectionHeading>All conversations</SectionHeading>
