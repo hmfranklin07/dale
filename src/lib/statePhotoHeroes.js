@@ -6,7 +6,7 @@ import ilHeroUrl from '../assets/state-heroes/illinois.jpg?url'
 export const STATE_PHOTO_HEROES = {
   'new-york': {
     src: nyHeroUrl,
-    positionClass: 'object-[70%_30%] sm:object-[72%_26%] lg:object-[50%_22%] xl:object-[50%_18%]',
+    positionClass: 'object-[70%_34%] sm:object-[72%_30%] lg:object-[50%_26%] xl:object-[50%_22%]',
   },
   illinois: {
     src: ilHeroUrl,
