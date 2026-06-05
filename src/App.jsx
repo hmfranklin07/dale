@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import SiteWindingPath from './components/SiteWindingPath'
-import SideMarginArt from './components/SideMarginArt'
 import Home from './pages/Home'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
@@ -24,7 +23,6 @@ export default function App() {
       <StatePhotoHeroCache />
       <ScrollToTop />
       <SiteWindingPath />
-      <SideMarginArt />
       <Navbar />
       <main className="relative z-10 flex-1">
         <Routes>
