@@ -13,11 +13,6 @@ export default function SiteBackgroundUnderlay() {
       >
         <defs>
           <pattern id="site-bg-tile" width="360" height="360" patternUnits="userSpaceOnUse">
-            <circle cx="88" cy="96" r="38" fill="#f5bca4" opacity="0.24" />
-            <circle cx="268" cy="112" r="30" fill="#ed9473" opacity="0.16" />
-            <circle cx="220" cy="280" r="42" fill="#e2724d" opacity="0.1" />
-            <circle cx="72" cy="248" r="24" fill="#f5bca4" opacity="0.18" />
-
             <path
               d="M16 150 C64 108, 118 188, 168 142 S268 92, 332 138"
               stroke="#e2724d"
