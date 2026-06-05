@@ -111,7 +111,7 @@ export default function StatePage() {
   const stateInterviews = interviewsForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
 
-  const featuredVlogs = stateVlogs.slice(0, 3)
+  const featuredVlogs = stateVlogs.slice(0, 4)
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 

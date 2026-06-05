@@ -28,6 +28,15 @@
     "reflection": "Mr. Kramer shows us the tools and projects from the shop."
   },
   {
+    "id": "already-scientists",
+    "townSlug": "arkport-ny",
+    "townLabel": "Arkport",
+    "date": "2026-05-29",
+    "title": "Already Scientists",
+    "youtubeId": "Sdk13nfxZho",
+    "reflection": "Miss Michalak uses her experiences hunting and working on a maple farm to make classroom concepts feel real and relatable. Through these connections, students begin recognizing the science already present in their own lives, from welding to operating heavy equipment, making learning more engaging, familiar, and relevant."
+  },
+  {
     "id": "1",
     "townSlug": "cave-springs-ar",
     "townLabel": "Location",
