@@ -11,7 +11,7 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-clip">
       {/* 1. Hero — editorial vignette (no card overlay) */}
       <section className="relative min-h-[20rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[24rem] md:min-h-[28rem]">
         <div className="absolute inset-0 z-0">
@@ -36,7 +36,7 @@ export default function Home() {
               <div className="relative py-3 sm:py-4 md:py-5">
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
+                  className="pointer-events-none absolute inset-x-0 inset-y-0 -z-10 border-y border-white/30 bg-white/40 backdrop-blur-md"
                 />
                 <h1
                   className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
@@ -105,14 +105,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-sage-300/50 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm md:whitespace-nowrap">
+          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-sage-300/50 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm">
             This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
           </p>
         </div>
       </section>
 
       {/* 3. Map */}
-      <section className="relative overflow-visible border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
+      <section className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div className="mb-6 sm:mb-8 text-center">
@@ -125,7 +125,7 @@ export default function Home() {
               Click a pin to explore each area!
             </p>
           </div>
-          <div className="w-full overflow-visible rounded-[1.25rem] sm:rounded-[1.4rem]">
+          <div className="w-full rounded-[1.25rem] sm:rounded-[1.4rem]">
             <USMap />
           </div>
         </div>
@@ -138,6 +138,6 @@ export default function Home() {
           <SocialLinks variant="inline" />
         </div>
       </section>
-    </>
+    </div>
   )
 }
