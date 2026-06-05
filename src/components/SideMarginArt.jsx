@@ -10,7 +10,7 @@ function LeftMarginArt() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g className="opacity-[0.42]" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <g className="opacity-[0.58]" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
         <path
           d="M150 120 C110 220, 60 280, 90 380 S170 520, 120 640 S40 820, 100 980"
           strokeWidth="2.2"
@@ -19,7 +19,7 @@ function LeftMarginArt() {
         <path d="M130 1180 C80 1280, 140 1380, 90 1480 S60 1680, 110 1780 S150 1980, 95 2140" strokeWidth="1.6" strokeDasharray="4 12" />
       </g>
 
-      <g className="opacity-50">
+      <g className="opacity-65">
         <ellipse cx="118" cy="260" rx="34" ry="52" fill="#93a37e" transform="rotate(-18 118 260)" />
         <ellipse cx="92" cy="300" rx="22" ry="38" fill="#768963" transform="rotate(24 92 300)" />
         <path
@@ -30,7 +30,7 @@ function LeftMarginArt() {
         />
       </g>
 
-      <g className="opacity-45">
+      <g className="opacity-60">
         <circle cx="140" cy="920" r="28" fill="#b3bea3" />
         <circle cx="108" cy="960" r="16" fill="#768963" />
         <circle cx="152" cy="990" r="11" fill="#93a37e" />
@@ -38,7 +38,7 @@ function LeftMarginArt() {
         <path d="M124 904 L156 936 M156 904 L124 936" stroke="#5c6d4d" strokeWidth="1.5" opacity="0.7" />
       </g>
 
-      <g className="opacity-[0.38]">
+      <g className="opacity-[0.52]">
         <ellipse cx="105" cy="1560" rx="40" ry="28" fill="#93a37e" transform="rotate(-8 105 1560)" />
         <ellipse cx="135" cy="1595" rx="26" ry="18" fill="#768963" transform="rotate(14 135 1595)" />
         <path
@@ -49,7 +49,7 @@ function LeftMarginArt() {
         />
       </g>
 
-      <g className="opacity-40">
+      <g className="opacity-55">
         <circle cx="125" cy="2060" r="6" fill="#768963" />
         <circle cx="98" cy="2095" r="4" fill="#93a37e" />
         <circle cx="148" cy="2110" r="5" fill="#5c6d4d" />
@@ -69,7 +69,7 @@ function RightMarginArt() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g className="opacity-[0.38]" stroke="currentColor" strokeLinecap="round">
+      <g className="opacity-[0.55]" stroke="currentColor" strokeLinecap="round">
         <path
           d="M50 180 C90 280, 30 360, 70 480 S120 620, 60 760 S20 940, 80 1100"
           strokeWidth="2.2"
@@ -78,7 +78,7 @@ function RightMarginArt() {
         <path d="M65 1320 C25 1420, 95 1520, 55 1640 S15 1820, 75 1960 S110 2140, 60 2260" strokeWidth="1.6" strokeDasharray="4 12" />
       </g>
 
-      <g className="opacity-50">
+      <g className="opacity-65">
         <circle cx="95" cy="240" r="36" fill="#f5bca4" />
         <circle cx="95" cy="240" r="24" fill="#ed9473" />
         {Array.from({ length: 8 }).map((_, i) => {
@@ -89,7 +89,7 @@ function RightMarginArt() {
         })}
       </g>
 
-      <g className="opacity-[0.44]">
+      <g className="opacity-[0.58]">
         <path
           d="M40 880 L160 880 L130 940 L70 940 Z"
           fill="#fad7c9"
@@ -100,7 +100,7 @@ function RightMarginArt() {
         <path d="M100 896 L100 924 M86 910 L114 910" stroke="#cf5733" strokeWidth="2" strokeLinecap="round" />
       </g>
 
-      <g className="opacity-45">
+      <g className="opacity-60">
         <rect x="52" y="1520" width="96" height="96" rx="18" fill="#fce9e2" stroke="#e2724d" strokeWidth="2" transform="rotate(12 100 1568)" />
         <circle cx="100" cy="1568" r="10" fill="#e2724d" />
         <path d="M100 1554 L100 1582 M86 1568 L114 1568" stroke="#faf9f5" strokeWidth="2" strokeLinecap="round" />
@@ -123,7 +123,7 @@ function RightMarginArt() {
 
 export default function SideMarginArt() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-[1] hidden overflow-x-clip xl:block" aria-hidden>
+    <div className="pointer-events-none fixed inset-y-0 z-[12] hidden overflow-x-clip xl:block" aria-hidden>
       <div className="absolute inset-y-0 left-0" style={{ width: gutterWidth }}>
         <LeftMarginArt />
       </div>
