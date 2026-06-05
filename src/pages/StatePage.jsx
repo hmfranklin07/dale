@@ -111,7 +111,7 @@ export default function StatePage() {
   const stateInterviews = interviewsForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
 
-  const featuredVlogs = stateVlogs.slice(0, 4)
+  const featuredVlogs = stateVlogs.slice(0, 3)
   const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
@@ -208,7 +208,7 @@ export default function StatePage() {
             <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
               {featuredVlogs.length > 0 && (
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:items-stretch">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:items-stretch">
                   {featuredVlogs.map((vlog) => (
                     <StateVideoTeaser key={vlog.id} vlog={vlog} stateSlug={stateSlug} />
                   ))}
