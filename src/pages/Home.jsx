@@ -32,18 +32,20 @@ export default function Home() {
 
         <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
           <div className={`${shell} w-full pb-10 pt-4 text-center sm:pb-12 sm:pt-5 md:pb-14 md:pt-6`}>
-            <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-              <div className="relative py-3 sm:py-4 md:py-5">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 inset-y-0 -z-10 border-y border-white/30 bg-white/40 backdrop-blur-md"
-                />
+            <div className="relative py-3 sm:py-4 md:py-5">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
+              />
+              <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
                 <h1
                   className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
                 >
                   STEM Across Rural America
                 </h1>
               </div>
+            </div>
+            <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
               <div
                 className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
                 aria-hidden
