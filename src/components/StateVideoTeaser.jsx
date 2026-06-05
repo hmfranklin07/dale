@@ -31,16 +31,16 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
             </div>
           )}
         </div>
-        <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-5">
-          <h3 className="font-display line-clamp-3 min-h-[4.5rem] shrink-0 text-2xl leading-tight text-earth-900 transition-colors group-hover:text-rust-800 sm:min-h-[5.5rem] sm:text-3xl">
+        <div className="flex min-h-0 flex-1 flex-col p-3.5 sm:p-4">
+          <h3 className="font-display line-clamp-2 min-h-[3.25rem] shrink-0 text-2xl leading-tight text-earth-900 transition-colors group-hover:text-rust-800 sm:min-h-[3.75rem] sm:text-3xl">
             {vlog.title}
           </h3>
           {vlog.reflection && (
-            <p className="mt-3 line-clamp-6 min-h-[7.5rem] text-sm leading-relaxed text-earth-700">
+            <p className="mt-2 line-clamp-4 min-h-[5.25rem] text-sm leading-snug text-earth-700">
               {vlog.reflection}
             </p>
           )}
-          <div className="mt-auto shrink-0 pt-4">
+          <div className="mt-auto shrink-0 pt-3">
             <time className="block text-xs text-earth-500">{formatDate(vlog.date)}</time>
             <p className="mt-2 text-sm font-semibold text-rust-700 group-hover:text-rust-600">Watch video →</p>
           </div>
