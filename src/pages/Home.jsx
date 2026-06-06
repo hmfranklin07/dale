@@ -43,6 +43,9 @@ export default function Home() {
                 >
                   STEM Across Rural America
                 </h1>
+                <p className="mt-2 font-display text-lg leading-snug text-earth-800 sm:mt-2.5 sm:text-xl lg:text-2xl">
+                  The Stories Behind the Data
+                </p>
               </div>
             </div>
             <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
