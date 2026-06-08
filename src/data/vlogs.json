@@ -40,6 +40,15 @@
     "reflection": "Mr. Kramer shows us the tools and projects from the shop."
   },
   {
+    "id": "life-beyond-the-classroom",
+    "townSlug": "arkport-ny",
+    "townLabel": "Arkport",
+    "date": "2026-05-29",
+    "title": "Life Beyond the Classroom",
+    "youtubeId": "cbbTFde-AUw",
+    "reflection": "Miss Michalak discusses her difficult decision to leave Arkport, diving into the often overlooked importance of identity in the lives of teachers."
+  },
+  {
     "id": "1",
     "townSlug": "cave-springs-ar",
     "townLabel": "Location",
