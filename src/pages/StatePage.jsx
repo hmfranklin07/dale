@@ -227,27 +227,28 @@ export default function StatePage() {
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
               {featuredInterviews.length > 0 ? (
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+                <div className="space-y-4">
                   {featuredInterviews.map((interview) => (
                     <Link
                       key={interview.id}
                       to={`/${stateSlug}/transcriptions/${interview.id}`}
                       className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                     >
-                      <article className="card group flex h-full overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
-                        <div className="card-body flex flex-1 flex-col p-5 sm:p-6">
+                      <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
+                        <div className="card-body p-4 sm:p-5">
                           <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
-                          <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                          <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
                             {interview.title || interview.personName}
                           </h2>
-                          <p className="mt-2 text-sm text-earth-600">
+                          <p className="mt-1.5 text-sm text-earth-600">
                             {interview.personName} · {interview.role} · {interview.school}
                           </p>
-                          <p className="mt-4 flex-1 text-earth-800 leading-relaxed sm:text-lg">
-                            {interview.summary ||
-                              excerpt(interview.questions[0]?.a || interview.questions[0]?.q || '', 320)}
-                          </p>
-                          <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
+                          {interview.summary && (
+                            <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">
+                              {interview.summary}
+                            </p>
+                          )}
+                          <p className="mt-2.5 text-sm font-semibold text-rust-800">Read conversation →</p>
                         </div>
                       </article>
                     </Link>
