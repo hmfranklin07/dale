@@ -6,7 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
-import { featuredInterviewForState, featuredVlogsForState, interviewsForState, reflectionsForState } from '../lib/stateContent'
+import { featuredInterviewsForState, featuredVlogsForState, reflectionsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -108,7 +108,7 @@ export default function StatePage() {
 
   const state = states.find((s) => s.slug === stateSlug)
   const featuredVlogs = featuredVlogsForState(stateSlug)
-  const featuredInterview = featuredInterviewForState(stateSlug)
+  const featuredInterviews = featuredInterviewsForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
   const latestReflection = stateReflections[0]
 
@@ -226,28 +226,33 @@ export default function StatePage() {
           <section>
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
-              {featuredInterview ? (
-                <Link
-                  to={`/${stateSlug}/transcriptions/${featuredInterview.id}`}
-                  className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-                >
-                  <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
-                    <div className="card-body p-5 sm:p-6">
-                      <time className="block text-xs text-earth-500">{formatDate(featuredInterview.date)}</time>
-                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
-                        {featuredInterview.title || featuredInterview.personName}
-                      </h2>
-                      <p className="mt-2 text-sm text-earth-600">
-                        {featuredInterview.personName} · {featuredInterview.role} · {featuredInterview.school}
-                      </p>
-                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
-                        {featuredInterview.summary ||
-                          excerpt(featuredInterview.questions[0]?.a || featuredInterview.questions[0]?.q || '', 320)}
-                      </p>
-                      <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
-                    </div>
-                  </article>
-                </Link>
+              {featuredInterviews.length > 0 ? (
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+                  {featuredInterviews.map((interview) => (
+                    <Link
+                      key={interview.id}
+                      to={`/${stateSlug}/transcriptions/${interview.id}`}
+                      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                    >
+                      <article className="card group flex h-full overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
+                        <div className="card-body flex flex-1 flex-col p-5 sm:p-6">
+                          <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
+                          <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
+                            {interview.title || interview.personName}
+                          </h2>
+                          <p className="mt-2 text-sm text-earth-600">
+                            {interview.personName} · {interview.role} · {interview.school}
+                          </p>
+                          <p className="mt-4 flex-1 text-earth-800 leading-relaxed sm:text-lg">
+                            {interview.summary ||
+                              excerpt(interview.questions[0]?.a || interview.questions[0]?.q || '', 320)}
+                          </p>
+                          <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
+                        </div>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
               ) : (
                 <TranscriptionFillerCard stateSlug={stateSlug} />
               )}
