@@ -42,6 +42,10 @@ export function interviewsForState(stateSlug) {
     .sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
 }
 
+export function featuredInterviewForState(stateSlug) {
+  return interviewsForState(stateSlug).find((i) => i.featured === true) ?? null
+}
+
 export function interviewById(id) {
   return interviews.find((i) => i.id === id)
 }

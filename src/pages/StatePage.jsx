@@ -6,7 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { excerpt, formatDate } from './blogData'
-import { featuredVlogsForState, interviewsForState, reflectionsForState } from '../lib/stateContent'
+import { featuredInterviewForState, featuredVlogsForState, interviewsForState, reflectionsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -108,9 +108,8 @@ export default function StatePage() {
 
   const state = states.find((s) => s.slug === stateSlug)
   const featuredVlogs = featuredVlogsForState(stateSlug)
-  const stateInterviews = interviewsForState(stateSlug)
+  const featuredInterview = featuredInterviewForState(stateSlug)
   const stateReflections = reflectionsForState(stateSlug)
-  const latestInterview = stateInterviews[0]
   const latestReflection = stateReflections[0]
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
@@ -227,23 +226,23 @@ export default function StatePage() {
           <section>
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
-              {latestInterview ? (
+              {featuredInterview ? (
                 <Link
-                  to={`/${stateSlug}/transcriptions/${latestInterview.id}`}
+                  to={`/${stateSlug}/transcriptions/${featuredInterview.id}`}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
                     <div className="card-body p-5 sm:p-6">
-                      <time className="block text-xs text-earth-500">{formatDate(latestInterview.date)}</time>
+                      <time className="block text-xs text-earth-500">{formatDate(featuredInterview.date)}</time>
                       <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
-                        {latestInterview.title || latestInterview.personName}
+                        {featuredInterview.title || featuredInterview.personName}
                       </h2>
                       <p className="mt-2 text-sm text-earth-600">
-                        {latestInterview.personName} · {latestInterview.role} · {latestInterview.school}
+                        {featuredInterview.personName} · {featuredInterview.role} · {featuredInterview.school}
                       </p>
                       <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">
-                        {latestInterview.summary ||
-                          excerpt(latestInterview.questions[0]?.a || latestInterview.questions[0]?.q || '', 320)}
+                        {featuredInterview.summary ||
+                          excerpt(featuredInterview.questions[0]?.a || featuredInterview.questions[0]?.q || '', 320)}
                       </p>
                       <p className="mt-4 text-sm font-semibold text-rust-800">Read conversation →</p>
                     </div>
