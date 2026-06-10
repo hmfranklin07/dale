@@ -10,11 +10,6 @@ import StateVideo from './pages/StateVideo'
 import StateTranscriptions from './pages/StateTranscriptions'
 import StateTranscription from './pages/StateTranscription'
 import StateReflections from './pages/StateReflections'
-import Blog from './pages/Blog'
-import BlogPosts from './pages/BlogPosts'
-import BlogVideos from './pages/BlogVideos'
-import BlogPost from './pages/BlogPost'
-import BlogStateHub from './pages/BlogStateHub'
 import StatePhotoHeroCache from './components/StatePhotoHeroCache'
 
 export default function App() {
@@ -27,12 +22,8 @@ export default function App() {
       <main className="relative z-10 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog/posts" element={<BlogPosts />} />
-          <Route path="/blog/videos" element={<BlogVideos />} />
-          <Route path="/blog/post/:postId" element={<BlogPost />} />
-          <Route path="/blog/state/:stateSlug" element={<BlogStateHub />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/vlog" element={<Navigate to="/blog" replace />} />
+          <Route path="/blog/*" element={<Navigate to="/" replace />} />
+          <Route path="/vlog" element={<Navigate to="/" replace />} />
           <Route path="/:stateSlug/videos/:videoId" element={<StateVideo />} />
           <Route path="/:stateSlug/videos" element={<StateVideos />} />
           <Route path="/:stateSlug/transcriptions/:interviewId" element={<StateTranscription />} />

@@ -4,7 +4,6 @@ import states from '../data/states.json'
 import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
 
 const homeLink = { to: '/', label: 'Home' }
-const blogLink = { to: '/blog', label: 'Blog' }
 
 /** Microscope outline — paths from Lucide (ISC). https://lucide.dev/icons/microscope */
 function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-rust-500' }) {
@@ -73,9 +72,6 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
-            <NavLink to={blogLink.to} className={linkClass}>
-              {blogLink.label}
-            </NavLink>
           </div>
 
           <div className="lg:hidden">
@@ -111,9 +107,6 @@ export default function Navbar() {
               {s.name}
             </NavLink>
           ))}
-          <NavLink to={blogLink.to} onClick={() => setOpen(false)} className={linkClass}>
-            {blogLink.label}
-          </NavLink>
         </div>
       </div>
 
@@ -136,9 +129,6 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
-            <NavLink to={blogLink.to} onClick={() => setOpen(false)} className={mobileLink}>
-              {blogLink.label}
-            </NavLink>
           </div>
         </div>
       )}

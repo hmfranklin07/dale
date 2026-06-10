@@ -302,34 +302,6 @@ export default function StatePage() {
               </div>
             </div>
           </section>
-
-          <section>
-            <SectionHeading>Blogs</SectionHeading>
-            <div className="space-y-6">
-              <Link
-                to={`/blog/state/${stateSlug}`}
-                className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-              >
-                <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-                  <div className="card-body sm:p-8">
-                    <p className="text-earth-800 leading-relaxed sm:text-lg">
-                      See all blogs from {state.name} in one place.
-                    </p>
-                    <p className="mt-4 text-sm font-semibold text-rust-800">Open blog →</p>
-                  </div>
-                </article>
-              </Link>
-              <div className="flex justify-start">
-                <Link
-                  to={`/blog/state/${stateSlug}`}
-                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                >
-                  View blog
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
-            </div>
-          </section>
         </div>
         )}
       </PageContentBand>

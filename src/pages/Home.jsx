@@ -61,8 +61,8 @@ export default function Home() {
                   like in the classroom and how students connect with it.
                 </p>
                 <p>
-                  This site is home to all of the videos, interviews, reflections, transcripts, and personal blogs from
-                  each place I visit, highlighting rural voices and telling stories from across the nation.
+                  This site is home to all of the videos, interviews, reflections, and transcripts from each place I
+                  visit, highlighting rural voices and telling stories from across the nation.
                 </p>
               </div>
             </div>
