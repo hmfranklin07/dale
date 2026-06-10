@@ -5,8 +5,8 @@ import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
-import { excerpt, formatDate } from './blogData'
-import { featuredInterviewsForState, featuredVlogsForState, reflectionsForState } from '../lib/stateContent'
+import { formatDate } from './blogData'
+import { featuredInterviewsForState, featuredVlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -89,17 +89,6 @@ function TranscriptionFillerCard({ stateSlug }) {
   )
 }
 
-function ReflectionComingSoon({ stateName }) {
-  return (
-    <article className="card card-body max-w-2xl border-2 border-rust-400/80 !ring-rust-300/55 ring-2 sm:p-8">
-      <h2 className="font-display text-2xl text-earth-900 sm:text-3xl">Stay Tuned!</h2>
-      <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-        Reflections from {stateName} will appear soon.
-      </p>
-    </article>
-  )
-}
-
 export default function StatePage() {
   const { stateSlug } = useParams()
   if (!stateSlugs.has(stateSlug)) {
@@ -109,8 +98,6 @@ export default function StatePage() {
   const state = states.find((s) => s.slug === stateSlug)
   const featuredVlogs = featuredVlogsForState(stateSlug)
   const featuredInterviews = featuredInterviewsForState(stateSlug)
-  const stateReflections = reflectionsForState(stateSlug)
-  const latestReflection = stateReflections[0]
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
@@ -263,40 +250,6 @@ export default function StatePage() {
                   className="inline-flex items-center gap-1.5 rounded-xl bg-rust-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rust-900/20 ring-2 ring-rust-400/70 transition-all hover:bg-rust-600 hover:shadow-lg hover:shadow-rust-900/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/80"
                 >
                   View all conversations
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <SectionHeading>Reflections</SectionHeading>
-            <div className="space-y-6">
-              {latestReflection ? (
-                <Link
-                  to={`/${stateSlug}/reflections`}
-                  className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-                >
-                  <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
-                    <div className="card-body sm:p-8">
-                      <time className="block text-xs text-earth-500">{formatDate(latestReflection.date)}</time>
-                      <h2 className="font-display mt-3 text-2xl text-earth-900 transition-colors group-hover:text-rust-800 sm:text-3xl">
-                        {latestReflection.title}
-                      </h2>
-                      <p className="mt-4 text-earth-800 leading-relaxed sm:text-lg">{excerpt(latestReflection.text, 320)}</p>
-                      <p className="mt-4 text-sm font-semibold text-rust-800">All reflections in this state →</p>
-                    </div>
-                  </article>
-                </Link>
-              ) : (
-                <ReflectionComingSoon stateName={state.name} />
-              )}
-              <div className="flex justify-start">
-                <Link
-                  to={`/${stateSlug}/reflections`}
-                  className="inline-flex items-center gap-2 rounded-xl border border-sage-300/80 bg-white/90 px-5 py-2.5 text-sm font-semibold text-earth-800 shadow-sm ring-1 ring-rust-300/40 transition-colors hover:border-rust-400/75 hover:bg-rust-50/95 hover:text-rust-900"
-                >
-                  View all reflections
                   <span aria-hidden>→</span>
                 </Link>
               </div>

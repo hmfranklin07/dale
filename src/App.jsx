@@ -9,7 +9,6 @@ import StateVideos from './pages/StateVideos'
 import StateVideo from './pages/StateVideo'
 import StateTranscriptions from './pages/StateTranscriptions'
 import StateTranscription from './pages/StateTranscription'
-import StateReflections from './pages/StateReflections'
 import StatePhotoHeroCache from './components/StatePhotoHeroCache'
 
 export default function App() {
@@ -28,7 +27,7 @@ export default function App() {
           <Route path="/:stateSlug/videos" element={<StateVideos />} />
           <Route path="/:stateSlug/transcriptions/:interviewId" element={<StateTranscription />} />
           <Route path="/:stateSlug/transcriptions" element={<StateTranscriptions />} />
-          <Route path="/:stateSlug/reflections" element={<StateReflections />} />
+          <Route path="/:stateSlug/reflections" element={<Navigate to=".." replace relative="path" />} />
           <Route path="/:stateSlug" element={<StatePage />} />
         </Routes>
       </main>
