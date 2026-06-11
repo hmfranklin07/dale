@@ -11,6 +11,14 @@ const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 
+function answerParagraphs(answer) {
+  if (Array.isArray(answer)) return answer
+  if (typeof answer === 'string' && answer.includes('\n\n')) {
+    return answer.split(/\n\n+/).filter(Boolean)
+  }
+  return answer ? [answer] : []
+}
+
 export default function StateTranscription() {
   const { stateSlug, interviewId } = useParams()
   if (!stateSlugs.has(stateSlug)) {
@@ -71,14 +79,25 @@ export default function StateTranscription() {
             </>
           )}
           <div className="space-y-8 sm:space-y-10">
-            {(interview.questions ?? []).map((qa, idx) => (
-              <div key={idx}>
-                <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
-                <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
-                  &ldquo;{qa.a}&rdquo;
-                </blockquote>
-              </div>
-            ))}
+            {(interview.questions ?? []).map((qa, idx) => {
+              const paragraphs = answerParagraphs(qa.a)
+              const lastIdx = paragraphs.length - 1
+
+              return (
+                <div key={idx}>
+                  <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
+                  <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+                    {paragraphs.map((paragraph, pIdx) => (
+                      <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
+                        {pIdx === 0 && '\u201C'}
+                        {paragraph}
+                        {pIdx === lastIdx && '\u201D'}
+                      </p>
+                    ))}
+                  </blockquote>
+                </div>
+              )
+            })}
           </div>
         </article>
       </PageContentBand>
