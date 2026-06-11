@@ -103,5 +103,51 @@
         ]
       }
     ]
+  },
+  {
+    "id": "beyond-biology",
+    "townSlug": "bradford-il",
+    "townLabel": "Wethersfield",
+    "date": "2026-06-05",
+    "title": "Beyond Biology",
+    "featured": true,
+    "summary": "Mrs. Gault recounts her inclusion of forensics and biomimicry in the biology curriculum, and what these electives reveal about student engagement when science is connected to the real world.",
+    "intro": "Wethersfield High School serves a small rural community in central Illinois. In this conversation, science teacher Mrs. Gault reflects on building out the district's science offerings over 18 years—from freshman bio to forensics and biomimicry—and what those electives reveal about student engagement when science feels more visible and connected to real life.",
+    "personName": "Mrs. Gault",
+    "role": "Science teacher",
+    "school": "Wethersfield High School",
+    "photo": "",
+    "questions": [
+      {
+        "q": "Could you introduce yourself and tell us a little more about what you teach here?",
+        "a": [
+          "My name is Jennifer. I teach freshman biology, which is Bio 1, Bio 2, which is a semester of forensic science and a semester of biomimicry, and then earth science.",
+          "Last year, I taught chemistry as well. So it depends on the years. About five years ago, I was also teaching environmental science and a semester of botany. So in a smaller school, it depends on numbers and how many classes of each we have or need, and so you might be filling in other subjects.",
+          "When I started here 18 years ago, there were one and a half science teachers, and then a couple of years after that, it went to two science teachers, and now we're at one and a quarter science teachers. So it depends on, again, the department's needs. So the other science teacher is teaching math as well. He is teaching physics and chemistry this past year, and then he's teaching math as well."
+        ]
+      },
+      {
+        "q": "I haven't heard of forensics and biomimicry being taught in small schools. Were those courses offered because students were interested in them, or because they were areas you wanted to teach?",
+        "a": [
+          "Well, the forensics is something that I was interested in when I first came. And again, just being handed the book and said, here, it's what you want. Freshman bio was a lot easier for me to figure out because you're like, okay, I need cells, I need genetics, and I need ecology, you know, evolution, so you're like, okay, that's good.",
+          "And then you mentally go, they've already had a year of this, what am I going to do with Bio 2? And you can go more into depth into human systems. It's been done to death, but anatomy is what the other teacher was teaching. And so I didn't want to do that since they had that other option.",
+          "So since I had taken a course at Harper Community College on forensics, I figured, okay, here's a semester and a course that we can put together. And so I've been adding to it for the 18 years on and off based on what I had known then and then what I found out since then, as well.",
+          "And the biomimicry is, several years ago, I went back for a master's, and it was in biomimicry. And so then when we needed to add it in a semester course, I added that in. Didn't have a lot of takers for the class, because it's a class that needs a good decent-sized class because a lot of it is collaborative work and talking and bouncing ideas off each other once you have some of that initial information. So with a smaller population, it really didn't go over well, especially at the beginning."
+        ]
+      },
+      {
+        "q": "What is the engagement like in forensics as it's an elective?",
+        "a": [
+          "So here, the state requires two science classes to be able to graduate. So some of them are simply going, this is my second science, I don't really want to take chemistry or physics. So, yes, they're engaged, but not necessarily as much as somebody who really is interested in it.",
+          "You then have the other group who's really interested in that field or into, you know, those TV shows or CSI. So you have a mix of the two in that class."
+        ]
+      },
+      {
+        "q": "What tends to be the difference between the two groups?",
+        "a": [
+          "A decent size of our population have family members who know someone who is a corrections officer or a police officer, or even the National Guard has a station. So you have some of those, and so I think you have a little bit more of, okay, this is hands-on, I can see where it would apply, versus in Bio 1 when you're dealing with genetics and cells, like, okay, I can't even see what you're talking about and I have to take your word for it."
+        ]
+      }
+    ]
   }
 ]

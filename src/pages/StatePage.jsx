@@ -6,7 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { formatDate } from './blogData'
-import { featuredInterviewsForState, featuredVlogsForState } from '../lib/stateContent'
+import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, vlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -98,11 +98,13 @@ export default function StatePage() {
   const state = states.find((s) => s.slug === stateSlug)
   const featuredVlogs = featuredVlogsForState(stateSlug)
   const featuredInterviews = featuredInterviewsForState(stateSlug)
+  const hasVideos = vlogsForState(stateSlug).length > 0
+  const hasInterviews = interviewsForState(stateSlug).length > 0
+  const stateHasContent = hasVideos || hasInterviews
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
   const ilPhotoHero = stateSlug === 'illinois' && photoHero
-  const isNewYork = stateSlug === 'new-york'
 
   return (
     <>
@@ -178,16 +180,17 @@ export default function StatePage() {
       </section>
 
       <PageContentBand variant="sage">
-        {!isNewYork ? (
+        {!stateHasContent ? (
           <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
             <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
             <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-              This stop is still ahead on the trip. Videos, conversations, and reflections from {state.name} will show
-              up here as I go.
+              This stop is still ahead on the trip. Videos and conversations from {state.name} will show up here as I
+              go.
             </p>
           </div>
         ) : (
         <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
+          {hasVideos && (
           <section>
             <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
@@ -209,7 +212,9 @@ export default function StatePage() {
               </div>
             </div>
           </section>
+          )}
 
+          {hasInterviews && (
           <section>
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
@@ -255,6 +260,7 @@ export default function StatePage() {
               </div>
             </div>
           </section>
+          )}
         </div>
         )}
       </PageContentBand>
