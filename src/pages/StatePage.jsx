@@ -122,7 +122,7 @@ export default function StatePage() {
                 src={photoHero.src}
                 alt=""
                 sizes="100vw"
-                className={`h-full w-full object-cover ${photoHero.positionClass}`}
+                className={`h-full w-full object-cover ${photoHero.positionClass}${photoHero.imageClass ? ` ${photoHero.imageClass}` : ''}`}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

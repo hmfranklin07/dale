@@ -12,7 +12,7 @@ export default function StatePhotoHeroCache() {
           key={slug}
           src={hero.src}
           alt=""
-          className={`absolute inset-0 h-full w-full object-cover ${hero.positionClass}`}
+          className={`absolute inset-0 h-full w-full object-cover ${hero.positionClass}${hero.imageClass ? ` ${hero.imageClass}` : ''}`}
           loading="eager"
           decoding="sync"
           fetchPriority="high"
