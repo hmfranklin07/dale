@@ -104,7 +104,7 @@ export default function StatePage() {
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
-  const ilPhotoHero = stateSlug === 'illinois' && photoHero
+  const skyPhotoHero = photoHero && (stateSlug === 'illinois' || stateSlug === 'nebraska')
 
   return (
     <>
@@ -132,7 +132,7 @@ export default function StatePage() {
         )}
         <div
           className={`relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] ${
-            ilPhotoHero ? 'items-start justify-start' : photoHero ? 'items-start justify-center' : 'justify-center'
+            skyPhotoHero ? 'items-start justify-start' : photoHero ? 'items-start justify-center' : 'justify-center'
           }`}
         >
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
@@ -142,7 +142,7 @@ export default function StatePage() {
           {photoHero ? (
             <div
               className={`${stateHeroShell} w-full text-center ${
-                ilPhotoHero
+                skyPhotoHero
                   ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'
                   : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
@@ -159,7 +159,7 @@ export default function StatePage() {
                   className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                   aria-hidden
                 />
-                <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={ilPhotoHero} />
+                <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={skyPhotoHero} />
               </div>
             </div>
           ) : (
