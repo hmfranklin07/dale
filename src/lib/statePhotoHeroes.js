@@ -1,27 +1,16 @@
 /** Bundled as-is (no Vite resize). Replace files in repo for full camera resolution. */
 import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 import ilHeroUrl from '../assets/state-heroes/illinois.jpg?url'
-import neHeroUrl from '../assets/state-heroes/nebraska.jpg?url'
 
 /** Full-res photo behind state intro heroes (editorial vignette, no card overlay). */
 export const STATE_PHOTO_HEROES = {
   'new-york': {
     src: nyHeroUrl,
     positionClass: 'object-[70%_34%] sm:object-[72%_30%] lg:object-[50%_26%] xl:object-[50%_22%]',
-    textOn: 'light',
-    layout: 'center',
   },
   illinois: {
     src: ilHeroUrl,
     positionClass: 'object-[50%_46%] sm:object-[48%_44%]',
-    textOn: 'sky',
-    layout: 'top',
-  },
-  nebraska: {
-    src: neHeroUrl,
-    positionClass: 'object-[50%_78%] sm:object-[50%_74%] lg:object-[50%_70%]',
-    textOn: 'sky',
-    layout: 'top',
   },
 }
 

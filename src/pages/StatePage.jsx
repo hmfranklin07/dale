@@ -28,7 +28,7 @@ function photoHeroSegmentClass(on) {
   return on === 'sky' ? pageTitleClass : 'text-white/90'
 }
 
-function PhotoHeroIntro({ state, lightText = false, darkOnSky = false }) {
+function PhotoHeroIntro({ state, nyPhotoHero, darkOnSky = false }) {
   const fallback = `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`
   const intro = state.heroIntro || fallback
   const segments = state.heroIntroSegments
@@ -45,7 +45,7 @@ function PhotoHeroIntro({ state, lightText = false, darkOnSky = false }) {
     )
   }
 
-  const introTone = lightText ? 'text-white/90' : darkOnSky ? pageTitleClass : 'text-sage-100/92'
+  const introTone = nyPhotoHero ? 'text-white/90' : darkOnSky ? pageTitleClass : 'text-sage-100/92'
   return <p className={`${photoHeroIntroClass} ${introTone}`}>{intro}</p>
 }
 
@@ -103,9 +103,8 @@ export default function StatePage() {
   const stateHasContent = hasVideos || hasInterviews
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
-  const lightPhotoHero = photoHero?.textOn === 'light'
-  const skyPhotoHero = photoHero?.textOn === 'sky'
-  const topPhotoHero = photoHero?.layout === 'top'
+  const nyPhotoHero = stateSlug === 'new-york' && photoHero
+  const ilPhotoHero = stateSlug === 'illinois' && photoHero
 
   return (
     <>
@@ -133,17 +132,17 @@ export default function StatePage() {
         )}
         <div
           className={`relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] ${
-            topPhotoHero ? 'items-start justify-start' : photoHero ? 'items-start justify-center' : 'justify-center'
+            ilPhotoHero ? 'items-start justify-start' : photoHero ? 'items-start justify-center' : 'justify-center'
           }`}
         >
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-            <HeroBackLink light={lightPhotoHero} />
+            <HeroBackLink light={nyPhotoHero} />
           </div>
 
           {photoHero ? (
             <div
               className={`${stateHeroShell} w-full text-center ${
-                topPhotoHero
+                ilPhotoHero
                   ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'
                   : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
@@ -151,7 +150,7 @@ export default function StatePage() {
               <div className="mx-auto w-full max-w-2xl">
                 <h1
                   className={`font-display text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${
-                    lightPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass
+                    nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass
                   }`}
                 >
                   {state.name}
@@ -160,7 +159,7 @@ export default function StatePage() {
                   className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                   aria-hidden
                 />
-                <PhotoHeroIntro state={state} lightText={lightPhotoHero} darkOnSky={skyPhotoHero} />
+                <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={ilPhotoHero} />
               </div>
             </div>
           ) : (
