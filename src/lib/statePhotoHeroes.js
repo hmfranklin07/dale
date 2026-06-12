@@ -15,7 +15,7 @@ export const STATE_PHOTO_HEROES = {
   },
   nebraska: {
     src: neHeroUrl,
-    positionClass: 'object-[50%_82%] sm:object-[50%_86%] lg:object-[50%_90%] xl:object-[50%_94%]',
+    positionClass: 'object-[50%_78%] sm:object-[50%_82%] lg:object-[50%_86%] xl:object-[50%_90%]',
   },
 }
 
