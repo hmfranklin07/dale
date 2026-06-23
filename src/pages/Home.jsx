@@ -96,16 +96,15 @@ export default function Home() {
             <div className="min-w-0 md:col-start-1 md:row-start-2">
               <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
                 <p>
-                  I&apos;m Hannah Franklin and I study chemistry at Princeton University. I grew up in a small
-                  farm town in New York, and for most of my life, I didn&apos;t think I could get to where I am now.
-                  Education often felt disconnected from the rest of my life, and many of the opportunities that existed
-                  beyond my community didn&apos;t feel within reach.
+                  I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
+                  my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
+                  rest of my life, and the opportunities that existed beyond my community didn&apos;t feel within reach.
                 </p>
                 <p>
-                  This project comes from my love for rural America and a desire to better understand how students and
-                  educators experience and think about education in their own communities through conversations and
-                  shared stories. It was born out of my academic work in my Sophomore Research Seminar{' '}
-                  <em>The Curious Scientist</em> at Princeton during the 2025-26 school year.
+                  This project comes from my love for rural America and a desire to understand how students and
+                  educators experience and think about education in their own communities — through conversations and
+                  shared stories. It grew out of my work in Sophomore Research Seminar,{' '}
+                  <em>The Curious Scientist</em>, at Princeton during the 2025–26 school year.
                 </p>
               </div>
             </div>
