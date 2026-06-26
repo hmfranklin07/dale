@@ -89,6 +89,17 @@ function TranscriptionFillerCard({ stateSlug }) {
   )
 }
 
+function CheckBackSoonCard({ stateName }) {
+  return (
+    <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
+      <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
+      <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
+        More conversations from {stateName} are on the way. Stay tuned!
+      </p>
+    </div>
+  )
+}
+
 export default function StatePage() {
   const { stateSlug } = useParams()
   if (!stateSlugs.has(stateSlug)) {
@@ -181,6 +192,9 @@ export default function StatePage() {
 
       <PageContentBand variant="sage">
         {!stateHasContent ? (
+          state.checkBackSoon ? (
+            <CheckBackSoonCard stateName={state.name} />
+          ) : (
           <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
             <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
             <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
@@ -188,6 +202,7 @@ export default function StatePage() {
               go.
             </p>
           </div>
+          )
         ) : (
         <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           {hasVideos && (
@@ -262,14 +277,7 @@ export default function StatePage() {
           </section>
           )}
 
-          {state.checkBackSoon && (
-            <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
-              <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
-              <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-                More conversations from {state.name} are on the way. Stay tuned!
-              </p>
-            </div>
-          )}
+          {state.checkBackSoon && <CheckBackSoonCard stateName={state.name} />}
         </div>
         )}
       </PageContentBand>
