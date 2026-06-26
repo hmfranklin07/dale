@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
@@ -21,10 +21,12 @@ function answerParagraphs(answer) {
 
 export default function StateTranscription() {
   const { stateSlug, interviewId } = useParams()
+  const location = useLocation()
   if (!stateSlugs.has(stateSlug)) {
     return <Navigate to="/" replace />
   }
 
+  const state = states.find((s) => s.slug === stateSlug)
   const interview = interviewById(interviewId)
   if (!interview || !interviewBelongsToState(interview, stateSlug)) {
     return <Navigate to={`/${stateSlug}/transcriptions`} replace />
@@ -33,6 +35,9 @@ export default function StateTranscription() {
   const town = townBySlug[interview.townSlug]
   const displayTitle = interview.title || interview.personName
   const photoHero = Boolean(interview.photo)
+  const fromStatePage = location.state?.from === 'state'
+  const backTo = fromStatePage ? `/${stateSlug}` : `/${stateSlug}/transcriptions`
+  const backLabel = fromStatePage ? `Back to ${state.name}` : 'Back to all conversations'
 
   return (
     <>
@@ -56,13 +61,13 @@ export default function StateTranscription() {
         )}
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
-            to={`/${stateSlug}/transcriptions`}
+            to={backTo}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-white transition-colors hover:text-orange-100"
           >
             <svg className="h-4 w-4 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to written conversations
+            {backLabel}
           </Link>
         </div>
 

@@ -239,6 +239,7 @@ export default function StatePage() {
                     <Link
                       key={interview.id}
                       to={`/${stateSlug}/transcriptions/${interview.id}`}
+                      state={{ from: 'state' }}
                       className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                     >
                       <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">

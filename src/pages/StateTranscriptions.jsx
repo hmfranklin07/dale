@@ -42,6 +42,7 @@ export default function StateTranscriptions() {
                 <Link
                   key={interview.id}
                   to={`/${stateSlug}/transcriptions/${interview.id}`}
+                  state={{ from: 'transcriptions' }}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card card-body group transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
