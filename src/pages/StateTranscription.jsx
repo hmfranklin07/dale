@@ -32,10 +32,28 @@ export default function StateTranscription() {
 
   const town = townBySlug[interview.townSlug]
   const displayTitle = interview.title || interview.personName
+  const photoHero = Boolean(interview.photo)
 
   return (
     <>
-      <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]">
+      <section
+        className={`relative flex min-h-[14rem] flex-col overflow-hidden border-b sm:min-h-[16rem] md:min-h-[17rem] ${
+          photoHero ? 'border-sage-800/30' : 'border-sage-600/50 bg-sage-500'
+        }`}
+      >
+        {photoHero && (
+          <div className="absolute inset-0 z-0">
+            <img
+              src={interview.photo}
+              alt=""
+              sizes="100vw"
+              className="h-full w-full object-cover object-center"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
+        )}
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
             to={`/${stateSlug}/transcriptions`}
