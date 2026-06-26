@@ -116,7 +116,7 @@
     "personName": "Mrs. Gault",
     "role": "Science teacher",
     "school": "Wethersfield High School",
-    "photo": "",
+    "photo": "/images/gault-forensics.jpg",
     "questions": [
       {
         "q": "Could you introduce yourself and tell us a little more about what you teach here?",

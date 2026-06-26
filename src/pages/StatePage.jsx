@@ -242,20 +242,31 @@ export default function StatePage() {
                       className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                     >
                       <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
-                        <div className="card-body p-4 sm:p-5">
-                          <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
-                          <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
-                            {interview.title || interview.personName}
-                          </h2>
-                          <p className="mt-1.5 text-sm text-earth-600">
-                            {interview.personName} · {interview.role} · {interview.school}
-                          </p>
-                          {interview.summary && (
-                            <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">
-                              {interview.summary}
-                            </p>
+                        <div className={interview.photo ? 'flex flex-col sm:flex-row' : undefined}>
+                          {interview.photo && (
+                            <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">
+                              <img
+                                src={interview.photo}
+                                alt=""
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
                           )}
-                          <p className="mt-2.5 text-sm font-semibold text-rust-800">Read conversation →</p>
+                          <div className="card-body flex-1 p-4 sm:p-5">
+                            <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
+                            <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
+                              {interview.title || interview.personName}
+                            </h2>
+                            <p className="mt-1.5 text-sm text-earth-600">
+                              {interview.personName} · {interview.role} · {interview.school}
+                            </p>
+                            {interview.summary && (
+                              <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">
+                                {interview.summary}
+                              </p>
+                            )}
+                            <p className="mt-2.5 text-sm font-semibold text-rust-800">Read conversation →</p>
+                          </div>
                         </div>
                       </article>
                     </Link>
