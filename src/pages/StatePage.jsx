@@ -243,11 +243,11 @@ export default function StatePage() {
                       className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                     >
                       <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
-                        <div className={interview.photo ? 'flex flex-col sm:flex-row' : undefined}>
-                          {interview.photo && (
+                        <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>
+                          {interview.cardPhoto && (
                             <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">
                               <img
-                                src={interview.photo}
+                                src={interview.cardPhoto}
                                 alt=""
                                 className="h-full w-full object-cover"
                               />

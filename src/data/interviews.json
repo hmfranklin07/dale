@@ -117,6 +117,7 @@
     "role": "Science teacher",
     "school": "Wethersfield High School",
     "photo": "/images/gault-forensics.jpg",
+    "cardPhoto": "/images/gault-forensics-card.jpg",
     "questions": [
       {
         "q": "Could you introduce yourself and tell us a little more about what you teach here?",
