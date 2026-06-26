@@ -11,6 +11,8 @@ const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const stateSlugs = new Set(states.map((s) => s.slug))
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
 
+const TRANSCRIPTION_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+
 function answerParagraphs(answer) {
   if (Array.isArray(answer)) return answer
   if (typeof answer === 'string' && answer.includes('\n\n')) {
@@ -38,27 +40,82 @@ export default function StateTranscription() {
   const fromStatePage = location.state?.from === 'state'
   const backTo = fromStatePage ? `/${stateSlug}` : `/${stateSlug}/transcriptions`
   const backLabel = fromStatePage ? `Back to ${state.name}` : 'Back to all conversations'
+  const heroPositionClass = interview.heroPositionClass || 'object-[50%_42%] sm:object-[50%_38%]'
 
   return (
     <>
       <section
-        className={`relative flex min-h-[14rem] flex-col overflow-hidden border-b sm:min-h-[16rem] md:min-h-[17rem] ${
-          photoHero ? 'border-sage-800/30' : 'border-sage-600/50 bg-sage-500'
+        className={`relative flex flex-col overflow-hidden border-b ${
+          photoHero
+            ? `${TRANSCRIPTION_PHOTO_HERO_MIN_H} border-sage-800/30`
+            : 'min-h-[14rem] border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]'
         }`}
       >
-        {photoHero && (
-          <div className="absolute inset-0 z-0">
-            <img
-              src={interview.photo}
-              alt=""
-              sizes="100vw"
-              className="h-full w-full object-cover object-center"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
+        {photoHero ? (
+          <>
+            <div className="absolute inset-0 z-0">
+              <img
+                src={interview.photo}
+                alt=""
+                sizes="100vw"
+                className={`h-full w-full object-cover ${heroPositionClass}`}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/55 via-sage-950/15 to-sage-950/65"
+              aria-hidden
             />
-          </div>
-        )}
+            <div
+              className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(15,23,20,0.45)_100%)]"
+              aria-hidden
+            />
+
+            <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
+              <Link
+                to={backTo}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/95 drop-shadow-sm transition-colors hover:text-white"
+              >
+                <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {backLabel}
+              </Link>
+            </div>
+
+            <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-start justify-start">
+              <div
+                className={`${heroShell} w-full pb-10 pt-14 text-center sm:pb-12 sm:pt-16 md:pb-14 md:pt-[4.25rem]`}
+              >
+                <div className="relative mx-auto w-full max-w-2xl py-3 sm:py-4">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/20 bg-sage-950/25 backdrop-blur-md"
+                  />
+                  {(interview.townLabel || town) && (
+                    <span className="inline-block rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/95 backdrop-blur-sm">
+                      {interview.townLabel ?? town?.name}
+                    </span>
+                  )}
+                  <h1 className="font-display mt-3 text-[2.5rem] leading-[1.02] text-white drop-shadow-md sm:mt-4 sm:text-[3.25rem] lg:text-[3.75rem]">
+                    {displayTitle}
+                  </h1>
+                  <div
+                    className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                    aria-hidden
+                  />
+                  <p className="mx-auto mt-2.5 max-w-xl text-base leading-snug text-white/90 sm:mt-3 sm:text-lg">
+                    {interview.personName} · {interview.role} · {interview.school}
+                  </p>
+                  <time className="mt-2 block text-xs text-white/75 sm:text-sm">{formatDate(interview.date)}</time>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
             to={backTo}
@@ -91,6 +148,8 @@ export default function StateTranscription() {
             </div>
           </div>
         </div>
+          </>
+        )}
       </section>
 
       <PageContentBand wash="rust" variant="sage">
