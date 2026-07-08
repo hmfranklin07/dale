@@ -150,5 +150,23 @@
         ]
       }
     ]
+  },
+  {
+    "id": "agriculture-in-stem",
+    "townSlug": "bradford-il",
+    "townLabel": "Bradford",
+    "comingSoon": true,
+    "title": "The Inclusion of Agriculture in STEM",
+    "summary": "Inspired by a conversation with Mr. Blunier, this piece explores agriculture as a field deeply rooted in STEM—and how long-standing divides between agriculture and STEM education have kept the two apart, even when the work on the ground suggests they belong together.",
+    "credit": "Inspired by a conversation with Mr. Blunier"
+  },
+  {
+    "id": "ffa-extracurricular-stem",
+    "townSlug": "bradford-il",
+    "townLabel": "Bradford",
+    "comingSoon": true,
+    "title": "What FFA Reveals About Exposure",
+    "summary": "After talking with a group of students deeply involved in their town's FFA, I saw firsthand how much exposure matters—whether students find their way into extracurricular STEM often depends on whether they know those opportunities exist in the first place.",
+    "credit": "Inspired by conversations with local FFA members"
   }
 ]

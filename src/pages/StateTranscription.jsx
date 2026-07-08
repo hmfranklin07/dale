@@ -30,7 +30,7 @@ export default function StateTranscription() {
 
   const state = states.find((s) => s.slug === stateSlug)
   const interview = interviewById(interviewId)
-  if (!interview || !interviewBelongsToState(interview, stateSlug)) {
+  if (!interview || interview.comingSoon || !interviewBelongsToState(interview, stateSlug)) {
     return <Navigate to={`/${stateSlug}/transcriptions`} replace />
   }
 

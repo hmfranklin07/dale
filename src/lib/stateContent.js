@@ -38,15 +38,24 @@ export function vlogBelongsToState(vlog, stateSlug) {
 export function interviewsForState(stateSlug) {
   const slugs = townSlugsInState(stateSlug)
   return [...interviews]
-    .filter((i) => slugs.has(i.townSlug))
+    .filter((i) => slugs.has(i.townSlug) && !i.comingSoon)
     .sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
+}
+
+export function comingSoonInterviewsForState(stateSlug) {
+  const slugs = townSlugsInState(stateSlug)
+  return interviews
+    .map((i, index) => ({ i, index }))
+    .filter(({ i }) => slugs.has(i.townSlug) && i.comingSoon === true)
+    .sort((a, b) => a.index - b.index)
+    .map(({ i }) => i)
 }
 
 export function featuredInterviewsForState(stateSlug) {
   const slugs = townSlugsInState(stateSlug)
   return interviews
     .map((i, index) => ({ i, index }))
-    .filter(({ i }) => slugs.has(i.townSlug) && i.featured === true)
+    .filter(({ i }) => slugs.has(i.townSlug) && i.featured === true && !i.comingSoon)
     .sort((a, b) => {
       const byDate = sortDateValue(b.i.date) - sortDateValue(a.i.date)
       return byDate !== 0 ? byDate : a.index - b.index

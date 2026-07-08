@@ -6,7 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { formatDate } from './blogData'
-import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, vlogsForState } from '../lib/stateContent'
+import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, comingSoonInterviewsForState, vlogsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -89,6 +89,21 @@ function TranscriptionFillerCard({ stateSlug }) {
   )
 }
 
+function ComingSoonConversationCard({ interview }) {
+  return (
+    <article className="card overflow-hidden !border-2 !border-dashed !border-sage-500/80 !bg-white/95 !ring-0">
+      <div className="card-body p-4 sm:p-5">
+        <span className="badge-rust inline-block">Coming soon</span>
+        <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 sm:text-2xl">{interview.title}</h2>
+        {interview.credit && <p className="mt-1.5 text-sm text-earth-600">{interview.credit}</p>}
+        {interview.summary && (
+          <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">{interview.summary}</p>
+        )}
+      </div>
+    </article>
+  )
+}
+
 function CheckBackSoonCard({ stateName }) {
   return (
     <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
@@ -109,9 +124,11 @@ export default function StatePage() {
   const state = states.find((s) => s.slug === stateSlug)
   const featuredVlogs = featuredVlogsForState(stateSlug)
   const featuredInterviews = featuredInterviewsForState(stateSlug)
+  const comingSoonInterviews = comingSoonInterviewsForState(stateSlug)
   const hasVideos = vlogsForState(stateSlug).length > 0
   const hasInterviews = interviewsForState(stateSlug).length > 0
-  const stateHasContent = hasVideos || hasInterviews
+  const hasConversationSection = hasInterviews || comingSoonInterviews.length > 0
+  const stateHasContent = hasVideos || hasConversationSection
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
@@ -229,11 +246,11 @@ export default function StatePage() {
           </section>
           )}
 
-          {hasInterviews && (
+          {hasConversationSection && (
           <section>
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
-              {featuredInterviews.length > 0 ? (
+              {(featuredInterviews.length > 0 || comingSoonInterviews.length > 0) ? (
                 <div className="space-y-4">
                   {featuredInterviews.map((interview) => (
                     <Link
@@ -272,10 +289,14 @@ export default function StatePage() {
                       </article>
                     </Link>
                   ))}
+                  {comingSoonInterviews.map((interview) => (
+                    <ComingSoonConversationCard key={interview.id} interview={interview} />
+                  ))}
                 </div>
               ) : (
                 <TranscriptionFillerCard stateSlug={stateSlug} />
               )}
+              {hasInterviews && (
               <div className="flex justify-center pt-1 sm:justify-start">
                 <Link
                   to={`/${stateSlug}/transcriptions`}
@@ -285,6 +306,7 @@ export default function StatePage() {
                   <span aria-hidden>→</span>
                 </Link>
               </div>
+              )}
             </div>
           </section>
           )}
