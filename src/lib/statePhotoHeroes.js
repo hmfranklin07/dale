@@ -21,10 +21,7 @@ export const STATE_PHOTO_HEROES = {
   },
   idaho: {
     src: idHeroUrl,
-    positionClass: 'object-[50%_78%] sm:object-[50%_74%] lg:object-[50%_70%]',
-    imageClass: 'brightness-[0.84] contrast-[1.04] saturate-[0.94]',
-    overlayClass:
-      'bg-gradient-to-b from-sage-950/45 via-sage-900/25 to-sage-950/40',
+    positionClass: 'object-[50%_55%] sm:object-[50%_50%] lg:object-[50%_46%]',
   },
 }
 

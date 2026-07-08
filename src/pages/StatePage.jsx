@@ -159,9 +159,6 @@ export default function StatePage() {
                 fetchPriority="high"
               />
             </div>
-            {photoHero.overlayClass && (
-              <div className={`pointer-events-none absolute inset-0 z-[1] ${photoHero.overlayClass}`} aria-hidden />
-            )}
           </>
         )}
         <div
