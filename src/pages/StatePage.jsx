@@ -93,7 +93,7 @@ function ComingSoonConversationCard({ interview }) {
   return (
     <article className="card overflow-hidden !border-2 !border-dashed !border-sage-500/75 !bg-gradient-to-br !from-sage-50/95 !via-white !to-rust-50/40 !ring-0 !shadow-sm">
       <div className="card-body p-5 sm:p-6">
-        {interview.townLabel && <span className="badge-sage inline-block">{interview.townLabel}</span>}
+        {interview.townLabel && <span className="badge-rust inline-block">{interview.townLabel}</span>}
         <h2 className="font-display mt-3 text-xl leading-snug text-earth-900 sm:mt-3.5 sm:text-2xl">
           {interview.title}
         </h2>
