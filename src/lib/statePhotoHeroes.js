@@ -2,6 +2,7 @@
 import nyHeroUrl from '../assets/state-heroes/new-york.jpg?url'
 import ilHeroUrl from '../assets/state-heroes/illinois.jpg?url'
 import neHeroUrl from '../assets/state-heroes/nebraska.jpg?url'
+import idHeroUrl from '../assets/state-heroes/idaho.jpg?url'
 
 /** Full-res photo behind state intro heroes (editorial vignette, no card overlay). */
 export const STATE_PHOTO_HEROES = {
@@ -17,6 +18,10 @@ export const STATE_PHOTO_HEROES = {
     src: neHeroUrl,
     positionClass: 'object-[50%_78%] sm:object-[50%_82%] lg:object-[50%_86%] xl:object-[50%_90%]',
     imageClass: 'scale-[1.07] -rotate-[1.25deg]',
+  },
+  idaho: {
+    src: idHeroUrl,
+    positionClass: 'object-[50%_42%] sm:object-[50%_38%] lg:object-[50%_35%]',
   },
 }
 
