@@ -168,5 +168,14 @@
     "title": "When Friends Lead the Way",
     "summary": "After talking with a group of students deeply involved in their town's FFA, I saw how much friends shape who joins extracurricular STEM—when a few students get involved, others often follow, simply because people they know are already there.",
     "credit": "Inspired by conversations with local FFA members"
+  },
+  {
+    "id": "a-new-generation",
+    "townSlug": "grand-island-ne",
+    "townLabel": "Wood River",
+    "comingSoon": true,
+    "title": "A New Generation",
+    "summary": "After speaking with Mrs. Canfield, an elementary teacher at Wood River who runs a summer STEM camp, this piece follows how she lets kids choose each year's theme—from birds of prey to Taylor Swift—and uses those topics to make STEM feel exciting, relatable, and worth showing up for outside the classroom. Along the way, she offers insight into what draws kids toward STEM, what pushes them away, and how she makes camp feel accessible and even cool.",
+    "credit": "Inspired by a conversation with Mrs. Canfield"
   }
 ]
