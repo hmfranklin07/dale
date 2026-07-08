@@ -11,7 +11,15 @@ const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
 export default function Home() {
-  const { ref: mapRevealRef, inView: mapInView } = useInView({ threshold: 0.12, rootMargin: '0px 0px -5%' })
+  const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView({
+    threshold: 0.12,
+    rootMargin: '0px 0px -5%',
+  })
+
+  const mapHiddenClass =
+    mapExitEdge === 'top'
+      ? 'opacity-0 -translate-y-8 scale-[0.965]'
+      : 'opacity-0 translate-y-10 scale-[0.96]'
 
   return (
     <div className="overflow-x-clip">
@@ -124,8 +132,8 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div
             ref={mapRevealRef}
-            className={`motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              mapInView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-[0.96]'
+            className={`motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              mapInView ? 'opacity-100 translate-y-0 scale-100' : mapHiddenClass
             }`}
           >
             <div className="mb-6 sm:mb-8 text-center">

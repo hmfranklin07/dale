@@ -18,7 +18,9 @@ const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 // Index 0 = lightest … 3 = darkest
 const STATE_FILLS = ['#c4d1b2', '#a7b58c', '#81986a', '#5c6a47']
 const FILL_HOVER = '#8da56e'
+const FILL_POP = '#a3bc84'
 const STROKE = '#343b2e'
+const STROKE_POP = '#4a5638'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Trip-stop states that lift slightly on hover. */
@@ -35,7 +37,8 @@ const STATE_NAME_BY_SLUG = Object.fromEntries(
   states.map((s) => [s.slug, s.name.trim().toLowerCase()])
 )
 
-const POP_SCALE = 1.045
+const POP_SCALE = 1.058
+const POP_LIFT = 7
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
@@ -239,9 +242,11 @@ function routePathD(points) {
 
 const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
 
-function popTransform([cx, cy], scale = POP_SCALE) {
-  return `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(${scale}) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`
+function popTransform([cx, cy], scale = POP_SCALE, lift = POP_LIFT) {
+  return `translate(${cx.toFixed(2)}px, ${(cy - lift).toFixed(2)}px) scale(${scale}) translate(${(-cx).toFixed(2)}px, ${(-cy).toFixed(2)}px)`
 }
+
+const POP_TRANSITION = 'transform 0.42s cubic-bezier(0.34, 1.28, 0.64, 1), filter 0.42s ease'
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -302,8 +307,10 @@ export default function USMap() {
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
             </filter>
-            <filter id="statePopShadow" x="-35%" y="-35%" width="170%" height="170%">
-              <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="#2a3322" floodOpacity="0.3" />
+            <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
+              <feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#2a3322" floodOpacity="0.28" />
+              <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#1a1f14" floodOpacity="0.16" />
             </filter>
           </defs>
 
@@ -324,7 +331,7 @@ export default function USMap() {
                 const stateName = normalizedStateName(geo)
                 const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
                 const isPopped = stateName && stateName === poppedState
-                const fill = isPopped ? FILL_HOVER : STATE_FILLS[stateShadeIndex(geo)]
+                const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
 
                 if (!isHighlight) {
@@ -347,21 +354,24 @@ export default function USMap() {
                 return (
                   <g
                     key={geo.rsmKey || geo.id}
-                    transform={isPopped ? popTransform([cx, cy]) : undefined}
                     style={{
-                      transition: 'transform 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
-                      filter: isPopped ? 'url(#statePopShadow)' : undefined,
+                      transform: isPopped ? popTransform([cx, cy]) : 'translate(0px, 0px) scale(1)',
+                      transition: POP_TRANSITION,
+                      filter: isPopped ? 'url(#statePopShadow)' : 'none',
                     }}
                   >
                     <Geography
                       geography={geo}
                       fill={fill}
-                      stroke={STROKE}
-                      strokeWidth={isPopped ? 0.85 : 0.65}
+                      stroke={isPopped ? STROKE_POP : STROKE}
+                      strokeWidth={isPopped ? 0.95 : 0.65}
                       onMouseEnter={() => setHoveredGeo(stateName)}
                       onMouseLeave={() => setHoveredGeo(null)}
                       style={{
-                        default: { outline: 'none', transition: 'fill 0.2s ease, stroke-width 0.2s ease' },
+                        default: {
+                          outline: 'none',
+                          transition: 'fill 0.35s ease, stroke 0.35s ease, stroke-width 0.35s ease',
+                        },
                         hover: { outline: 'none' },
                         pressed: { outline: 'none' },
                       }}
@@ -399,7 +409,11 @@ export default function USMap() {
             </>
           )}
 
-          {states.map((s) => (
+          {states.map((s) => {
+            const stateName = STATE_NAME_BY_SLUG[s.slug]
+            const isPinPopped = poppedState === stateName
+
+            return (
             <Marker
               key={s.slug}
               coordinates={[s.lng, s.lat]}
@@ -412,6 +426,13 @@ export default function USMap() {
               onMouseLeave={() => setHovered(null)}
               style={{ cursor: 'pointer' }}
             >
+              <g
+                style={{
+                  transform: isPinPopped ? 'translate(0px, -6px) scale(1.07)' : 'translate(0px, 0px) scale(1)',
+                  transition: POP_TRANSITION,
+                  transformOrigin: '12px 24px',
+                }}
+              >
               <g transform={`translate(${-PIN_TIP_X * PIN_SCALE}, ${-PIN_TIP_Y * PIN_SCALE}) scale(${PIN_SCALE})`}>
                 {/* Large hit area so pins are easy to click / tap */}
                 <circle
@@ -477,8 +498,10 @@ export default function USMap() {
                   </text>
                 </g>
               )}
+              </g>
             </Marker>
-          ))}
+            )
+          })}
         </ComposableMap>
       </div>
 
