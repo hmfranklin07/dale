@@ -91,12 +91,16 @@ function TranscriptionFillerCard({ stateSlug }) {
 
 function ComingSoonConversationCard({ interview }) {
   return (
-    <article className="card overflow-hidden !border-2 !border-sage-700 !bg-white !ring-0">
-      <div className="card-body p-4 sm:p-5">
-        <h2 className="font-display text-xl leading-snug text-earth-900 sm:text-2xl">{interview.title}</h2>
-        {interview.credit && <p className="mt-1.5 text-sm text-earth-600">{interview.credit}</p>}
+    <article className="card overflow-hidden !border-2 !border-dashed !border-sage-500/75 !bg-gradient-to-br !from-sage-50/95 !via-white !to-rust-50/40 !ring-0 !shadow-sm">
+      <div className="card-body p-5 sm:p-6">
+        {interview.townLabel && <span className="badge-sage inline-block">{interview.townLabel}</span>}
+        <h2 className="font-display mt-3 text-xl leading-snug text-earth-900 sm:mt-3.5 sm:text-2xl">
+          {interview.title}
+        </h2>
+        <div className="mt-2.5 h-px w-14 bg-gradient-to-r from-rust-400/90 to-transparent sm:w-16" aria-hidden />
+        {interview.credit && <p className="mt-2.5 text-sm font-medium text-sage-800/90">{interview.credit}</p>}
         {interview.summary && (
-          <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">{interview.summary}</p>
+          <p className="mt-3 text-sm leading-relaxed text-earth-800 sm:text-base">{interview.summary}</p>
         )}
       </div>
     </article>
