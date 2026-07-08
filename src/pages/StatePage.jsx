@@ -91,10 +91,9 @@ function TranscriptionFillerCard({ stateSlug }) {
 
 function ComingSoonConversationCard({ interview }) {
   return (
-    <article className="card overflow-hidden !border-2 !border-dashed !border-sage-500/80 !bg-white/95 !ring-0">
+    <article className="card overflow-hidden !border-2 !border-sage-700 !bg-white !ring-0">
       <div className="card-body p-4 sm:p-5">
-        <span className="badge-rust inline-block">Coming soon</span>
-        <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 sm:text-2xl">{interview.title}</h2>
+        <h2 className="font-display text-xl leading-snug text-earth-900 sm:text-2xl">{interview.title}</h2>
         {interview.credit && <p className="mt-1.5 text-sm text-earth-600">{interview.credit}</p>}
         {interview.summary && (
           <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">{interview.summary}</p>
@@ -246,56 +245,49 @@ export default function StatePage() {
           </section>
           )}
 
-          {hasConversationSection && (
+          {featuredInterviews.length > 0 && (
           <section>
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
-              {(featuredInterviews.length > 0 || comingSoonInterviews.length > 0) ? (
-                <div className="space-y-4">
-                  {featuredInterviews.map((interview) => (
-                    <Link
-                      key={interview.id}
-                      to={`/${stateSlug}/transcriptions/${interview.id}`}
-                      state={{ from: 'state' }}
-                      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
-                    >
-                      <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
-                        <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>
-                          {interview.cardPhoto && (
-                            <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">
-                              <img
-                                src={interview.cardPhoto}
-                                alt=""
-                                className="h-full w-full object-cover"
-                              />
-                            </div>
-                          )}
-                          <div className="card-body flex-1 p-4 sm:p-5">
-                            <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
-                            <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
-                              {interview.title || interview.personName}
-                            </h2>
-                            <p className="mt-1.5 text-sm text-earth-600">
-                              {interview.personName} · {interview.role} · {interview.school}
-                            </p>
-                            {interview.summary && (
-                              <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">
-                                {interview.summary}
-                              </p>
-                            )}
-                            <p className="mt-2.5 text-sm font-semibold text-rust-800">Read conversation →</p>
+              <div className="space-y-4">
+                {featuredInterviews.map((interview) => (
+                  <Link
+                    key={interview.id}
+                    to={`/${stateSlug}/transcriptions/${interview.id}`}
+                    state={{ from: 'state' }}
+                    className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                  >
+                    <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
+                      <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>
+                        {interview.cardPhoto && (
+                          <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">
+                            <img
+                              src={interview.cardPhoto}
+                              alt=""
+                              className="h-full w-full object-cover"
+                            />
                           </div>
+                        )}
+                        <div className="card-body flex-1 p-4 sm:p-5">
+                          <time className="block text-xs text-earth-500">{formatDate(interview.date)}</time>
+                          <h2 className="font-display mt-2 text-xl leading-snug text-earth-900 transition-colors group-hover:text-rust-800 sm:text-2xl">
+                            {interview.title || interview.personName}
+                          </h2>
+                          <p className="mt-1.5 text-sm text-earth-600">
+                            {interview.personName} · {interview.role} · {interview.school}
+                          </p>
+                          {interview.summary && (
+                            <p className="mt-2.5 text-sm leading-snug text-earth-800 sm:text-base">
+                              {interview.summary}
+                            </p>
+                          )}
+                          <p className="mt-2.5 text-sm font-semibold text-rust-800">Read conversation →</p>
                         </div>
-                      </article>
-                    </Link>
-                  ))}
-                  {comingSoonInterviews.map((interview) => (
-                    <ComingSoonConversationCard key={interview.id} interview={interview} />
-                  ))}
-                </div>
-              ) : (
-                <TranscriptionFillerCard stateSlug={stateSlug} />
-              )}
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
               {hasInterviews && (
               <div className="flex justify-center pt-1 sm:justify-start">
                 <Link
@@ -307,6 +299,17 @@ export default function StatePage() {
                 </Link>
               </div>
               )}
+            </div>
+          </section>
+          )}
+
+          {comingSoonInterviews.length > 0 && (
+          <section>
+            <SectionHeading>Coming soon</SectionHeading>
+            <div className="space-y-4">
+              {comingSoonInterviews.map((interview) => (
+                <ComingSoonConversationCard key={interview.id} interview={interview} />
+              ))}
             </div>
           </section>
           )}
