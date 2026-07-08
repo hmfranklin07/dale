@@ -2,6 +2,7 @@ import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import { useInView } from '../hooks/useInView'
 /** Home hero background photo, bundled as-is. */
 import homeHeroBgUrl from '../assets/home/IMG_3286.jpg?url'
 
@@ -10,6 +11,8 @@ const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 
 export default function Home() {
+  const { ref: mapRevealRef, inView: mapInView } = useInView({ threshold: 0.12, rootMargin: '0px 0px -5%' })
+
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — editorial vignette (no card overlay) */}
@@ -119,18 +122,25 @@ export default function Home() {
       <section className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50">
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
-          <div className="mb-6 sm:mb-8 text-center">
-            <div
-              className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
-              aria-hidden
-            />
-            <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
-            <p className="text-earth-600 mx-auto mt-2 max-w-2xl text-base sm:text-lg">
-              Click a pin to explore each area!
-            </p>
-          </div>
-          <div className="w-full rounded-[1.25rem] sm:rounded-[1.4rem]">
-            <USMap />
+          <div
+            ref={mapRevealRef}
+            className={`motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              mapInView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-[0.96]'
+            }`}
+          >
+            <div className="mb-6 sm:mb-8 text-center">
+              <div
+                className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
+                aria-hidden
+              />
+              <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
+              <p className="text-earth-600 mx-auto mt-2 max-w-2xl text-base sm:text-lg">
+                Click a pin to explore each area!
+              </p>
+            </div>
+            <div className="w-full rounded-[1.25rem] sm:rounded-[1.4rem]">
+              <USMap />
+            </div>
           </div>
         </div>
       </section>

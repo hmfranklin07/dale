@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { geoAlbersUsa } from 'd3-geo'
+import { geoAlbersUsa, geoPath } from 'd3-geo'
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import states from '../data/states.json'
 import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
@@ -20,6 +20,22 @@ const STATE_FILLS = ['#c4d1b2', '#a7b58c', '#81986a', '#5c6a47']
 const FILL_HOVER = '#8da56e'
 const STROKE = '#343b2e'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
+
+/** Trip-stop states that lift slightly on hover. */
+const HIGHLIGHT_STATE_NAMES = new Set([
+  'new york',
+  'illinois',
+  'idaho',
+  'arkansas',
+  'florida',
+  'nebraska',
+])
+
+const STATE_NAME_BY_SLUG = Object.fromEntries(
+  states.map((s) => [s.slug, s.name.trim().toLowerCase()])
+)
+
+const POP_SCALE = 1.045
 
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
@@ -183,6 +199,11 @@ const MAP_W = 1200
 const MAP_H = 700
 const MAP_SCALE = 1480
 const MAP_PROJECTION = geoAlbersUsa().translate([MAP_W / 2, MAP_H / 2]).scale(MAP_SCALE)
+const GEO_PATH = geoPath().projection(MAP_PROJECTION)
+
+function geoCentroid(geo) {
+  return GEO_PATH.centroid(geo)
+}
 
 /** Route curve uses the same centering so it lines up with pins. */
 const ROUTE_PROJECTION = MAP_PROJECTION
@@ -218,12 +239,19 @@ function routePathD(points) {
 
 const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
 
+function popTransform([cx, cy], scale = POP_SCALE) {
+  return `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(${scale}) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`
+}
+
 export default function USMap() {
   const navigate = useNavigate()
   const mapWrapRef = useRef(null)
   const [hovered, setHovered] = useState(null)
+  const [hoveredGeo, setHoveredGeo] = useState(null)
   /** Center-x and top-y (px) for tooltip under the hovered pin, relative to map wrap. */
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
+
+  const poppedState = hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] : null)
 
   /** Pin anchor from lat/lng → SVG viewBox coords, then map to CSS px under the marker (not cursor). */
   const placeTooltipForState = (s) => {
@@ -252,6 +280,7 @@ export default function USMap() {
       className="relative w-full"
       onMouseLeave={() => {
         setHovered(null)
+        setHoveredGeo(null)
       }}
     >
       <div
@@ -273,30 +302,74 @@ export default function USMap() {
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
             </filter>
+            <filter id="statePopShadow" x="-35%" y="-35%" width="170%" height="170%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="#2a3322" floodOpacity="0.3" />
+            </filter>
           </defs>
 
           <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies
-                .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
-                .map((geo) => {
-                const fill = STATE_FILLS[stateShadeIndex(geo)]
+            {({ geographies }) => {
+              const visible = geographies.filter(
+                (geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? '')
+              )
+              const sorted = [...visible].sort((a, b) => {
+                const aPop = normalizedStateName(a) === poppedState
+                const bPop = normalizedStateName(b) === poppedState
+                if (aPop && !bPop) return 1
+                if (!aPop && bPop) return -1
+                return 0
+              })
+
+              return sorted.map((geo) => {
+                const stateName = normalizedStateName(geo)
+                const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
+                const isPopped = stateName && stateName === poppedState
+                const fill = isPopped ? FILL_HOVER : STATE_FILLS[stateShadeIndex(geo)]
+                const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
+
+                if (!isHighlight) {
+                  return (
+                    <Geography
+                      key={geo.rsmKey || geo.id}
+                      geography={geo}
+                      fill={fill}
+                      stroke={STROKE}
+                      strokeWidth={0.65}
+                      style={{
+                        default: { outline: 'none' },
+                        hover: { fill: FILL_HOVER, outline: 'none' },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                  )
+                }
+
                 return (
-                <Geography
-                  key={geo.rsmKey || geo.id}
-                  geography={geo}
-                  fill={fill}
-                  stroke={STROKE}
-                  strokeWidth={0.65}
-                  style={{
-                    default: { outline: 'none' },
-                    hover: { fill: FILL_HOVER, outline: 'none' },
-                    pressed: { outline: 'none' },
-                  }}
-                />
+                  <g
+                    key={geo.rsmKey || geo.id}
+                    transform={isPopped ? popTransform([cx, cy]) : undefined}
+                    style={{
+                      transition: 'transform 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
+                      filter: isPopped ? 'url(#statePopShadow)' : undefined,
+                    }}
+                  >
+                    <Geography
+                      geography={geo}
+                      fill={fill}
+                      stroke={STROKE}
+                      strokeWidth={isPopped ? 0.85 : 0.65}
+                      onMouseEnter={() => setHoveredGeo(stateName)}
+                      onMouseLeave={() => setHoveredGeo(null)}
+                      style={{
+                        default: { outline: 'none', transition: 'fill 0.2s ease, stroke-width 0.2s ease' },
+                        hover: { outline: 'none' },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                  </g>
                 )
               })
-            }
+            }}
           </Geographies>
 
           {ROUTE_PATH_D && (
