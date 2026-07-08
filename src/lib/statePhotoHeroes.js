@@ -21,7 +21,7 @@ export const STATE_PHOTO_HEROES = {
   },
   idaho: {
     src: idHeroUrl,
-    positionClass: 'object-[50%_50%] sm:object-[50%_48%] lg:object-[50%_46%]',
+    positionClass: 'object-[50%_58%] sm:object-[50%_62%] lg:object-[50%_66%]',
   },
 }
 

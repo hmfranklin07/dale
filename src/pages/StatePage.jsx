@@ -167,7 +167,7 @@ export default function StatePage() {
           }`}
         >
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-            <HeroBackLink light={nyPhotoHero} />
+            <HeroBackLink light={nyPhotoHero || skyPhotoHero} />
           </div>
 
           {photoHero ? (
