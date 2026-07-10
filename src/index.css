@@ -36,6 +36,29 @@
            hover:shadow-lg hover:shadow-rust-900/20;
   }
 
+  /** Subtle lift for linked conversation / video cards (parent must be `<a>` or `<Link>`). */
+  .card-hover-pop {
+    @apply transition-[transform,box-shadow] duration-[420ms] ease-[cubic-bezier(0.34,1.28,0.64,1)];
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  a:hover > .card-hover-pop,
+  a:focus-visible > .card-hover-pop {
+    transform: translate3d(0, -5px, 0) scale(1.016);
+    @apply shadow-xl shadow-rust-900/[0.14];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-hover-pop {
+      @apply transition-shadow duration-200;
+    }
+
+    a:hover > .card-hover-pop,
+    a:focus-visible > .card-hover-pop {
+      transform: none;
+    }
+  }
+
   .card-body {
     @apply p-6;
   }

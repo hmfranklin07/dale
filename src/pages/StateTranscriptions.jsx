@@ -45,7 +45,7 @@ export default function StateTranscriptions() {
                   state={{ from: 'transcriptions' }}
                   className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
-                  <article className="card card-body group transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+                  <article className="card card-hover-pop card-body group">
                     <div className="flex flex-col items-start gap-2">
                       {(interview.townLabel || t) && (
                         <span className="badge-sage inline-block">{interview.townLabel ?? t?.name}</span>

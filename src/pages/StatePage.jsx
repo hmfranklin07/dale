@@ -71,7 +71,7 @@ function TranscriptionFillerCard({ stateSlug }) {
       to={`/${stateSlug}/transcriptions`}
       className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
-      <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
+      <article className="card card-hover-pop group overflow-hidden !ring-rust-300/45">
         <div className="card-body sm:p-8">
           <div className="flex flex-col items-start gap-2">
             <span className="badge-sage inline-block w-fit">Location</span>
@@ -261,7 +261,7 @@ export default function StatePage() {
                     state={{ from: 'state' }}
                     className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                   >
-                    <article className="card group overflow-hidden !border-2 !border-sage-700 !ring-0 transition-shadow hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
+                    <article className="card card-hover-pop group overflow-hidden !border-2 !border-sage-700 !ring-0 hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
                       <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>
                         {interview.cardPhoto && (
                           <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">
