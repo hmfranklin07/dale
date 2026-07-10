@@ -116,63 +116,82 @@ const STOP_LABELS_BY_SLUG = {
   florida: 'Stop 6',
 }
 
-// Route control points: follows requested destinations, then smoothed for natural curvature.
+// Route control points: actual driving corridors (I-90/I-80 west, Black Hills/Yellowstone,
+// I-84 through Idaho, CA/NV return south, I-40 east, OKC/Tulsa to Arkansas).
 const ROUTE_CONTROL_POINTS = [
-  // Outbound north arc: New York pin -> Ohio -> Indiana -> Illinois pin
+  // Arkport, NY → Bradford, IL (I-90 / I-80)
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-78.2, 42.0], // Immediate westbound departure from NY pin
-  [-78.2, 41.95], // Western NY corridor (well south of lake edge)
-  [-80.0, 41.75], // NW Pennsylvania arc
-  [-81.69, 41.5], // Cleveland corridor
-  [-82.9988, 39.9612], // Ohio (Columbus)
-  [-84.9, 39.7], // Ohio/Indiana bend
-  [-86.1581, 39.7684], // Indiana (Indianapolis)
-  [-87.7, 40.9], // Illinois bend
+  [-78.05, 42.48], // West toward I-90 / Buffalo corridor
+  [-78.8784, 42.8864], // Buffalo (I-90)
+  [-80.0852, 42.1292], // Erie, PA (I-90)
+  [-81.6944, 41.4993], // Cleveland (I-90)
+  [-83.5552, 41.6528], // Toledo (I-80/90)
+  [-86.252, 41.6761], // South Bend, IN (I-80/90)
+  [-87.75, 41.88], // Chicago area (I-80 west)
+  [-88.42, 41.36], // Morris, IL (I-80)
   stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat],
 
-  // Continue north arc: Illinois pin -> Iowa -> Nebraska pin
-  [-90.8, 41.9], // Mississippi crossing bend
-  [-92.1, 42.0], // N Iowa sweep
-  [-93.62, 41.59], // Des Moines (Iowa)
-  [-95.2, 41.8], // W Iowa bend
-  [-96.0, 41.6], // Omaha corridor
+  // Bradford → Grand Island, NE (I-80)
+  [-90.58, 41.51], // Quad Cities bend (I-80)
+  [-91.5302, 41.6611], // Iowa City (I-80)
+  [-93.6091, 41.6005], // Des Moines (I-80)
+  [-95.9345, 41.2565], // Omaha (I-80)
+  [-97.592, 40.8681], // York, NE (I-80)
   stateBySlug.nebraska && [stateBySlug.nebraska.lng, stateBySlug.nebraska.lat],
 
-  // Continue north arc: Nebraska pin -> west through Nebraska -> up to Rapid City -> WY -> Idaho pin
-  [-99.2, 41.9], // West-central Nebraska
-  [-101.0, 41.6], // Central-west Nebraska
-  [-103.0, 41.5], // Western Nebraska
-  [-103.23, 44.08], // Rapid City
-  [-105.6, 44.3], // Northern Wyoming corridor
-  [-108.2, 44.1], // Northern Wyoming / Montana border corridor
-  [-110.3, 43.8], // NW Wyoming toward Idaho
-  [-112.15, 43.25], // Eastern Idaho / Idaho Falls corridor
-  [-114.15, 42.92], // Snake River plain — southeast approach toward Boise
-  [-115.88, 43.28], // Just SSE of Boise pin — curve enters through bottom (south) of marker tip
+  // Grand Island → Sturgis, SD
+  [-100.7654, 41.1239], // North Platte, NE (I-80)
+  [-102.978, 41.1427], // Sidney, NE (I-80)
+  [-103.6616, 41.8666], // Scottsbluff, NE
+  [-103.586, 44.4097], // Sturgis, SD
+
+  // Sturgis → Yellowstone
+  [-104.62, 44.35], // Northeast Wyoming (US-16)
+  [-106.69, 44.35], // Buffalo, WY
+  [-109.0568, 44.5263], // Cody, WY
+  [-111.105, 44.6621], // West Yellowstone, MT
+
+  // Yellowstone → Idaho Falls → Pocatello → Twin Falls → Boise (I-84)
+  [-112.0339, 43.4917], // Idaho Falls
+  [-112.4454, 42.8713], // Pocatello
+  [-114.4609, 42.563], // Twin Falls
+  [-115.6912, 43.1329], // Mountain Home (I-84)
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
-  // Return south arc: Idaho pin -> Yosemite -> LA -> Grand Canyon -> Amarillo -> Oklahoma City -> Arkansas pin
-  [-117.35, 42.75], // West/southwest out of Boise toward Nevada
-  [-118.7, 41.4], // N Nevada
-  [-119.81, 39.53], // Reno corridor
-  [-120.2, 38.5], // Sierra crest approach
-  [-119.54, 37.87], // Yosemite
-  [-118.8, 36.3], // Central CA descent
+  // Boise → Yosemite
+  [-117.7357, 40.9724], // Winnemucca, NV
+  [-119.8138, 39.5296], // Reno
+  [-119.231, 38.2557], // Bridgeport, CA (US-395)
+  [-119.074, 37.9478], // Lee Vining / Tioga approach
+  [-119.5383, 37.8651], // Yosemite
+
+  // Yosemite → Los Angeles
+  [-119.7871, 36.7378], // Fresno (CA-99 / Central Valley)
+  [-119.0187, 35.3733], // Bakersfield
   [-118.2437, 34.0522], // Los Angeles
-  [-116.4, 34.4], // Mojave bend
-  [-114.7, 35.2], // AZ border corridor
-  [-112.14, 36.05], // Grand Canyon
-  [-110.9, 35.3], // E Arizona
-  [-109.56, 35.08], // Flagstaff / I-40 eastbound
-  [-106.65, 35.08], // Albuquerque
-  [-104.2, 35.2], // E New Mexico
-  [-101.83, 35.22], // Amarillo
-  [-99.7, 35.3], // W Oklahoma
-  [-97.52, 35.47], // Oklahoma City
-  [-95.2, 35.8], // E Oklahoma
+
+  // Los Angeles → Grand Canyon
+  [-117.0228, 34.8958], // Barstow (I-15/I-40)
+  [-114.6147, 34.8481], // Needles, CA
+  [-114.053, 35.1894], // Kingman, AZ (I-40)
+  [-111.6513, 35.1983], // Flagstaff (I-40)
+  [-112.1401, 36.0544], // Grand Canyon
+
+  // Grand Canyon → Amarillo (I-40)
+  [-110.6979, 35.0242], // Winslow, AZ
+  [-108.7426, 35.5281], // Gallup, NM
+  [-106.6504, 35.0844], // Albuquerque
+  [-103.725, 35.1798], // Tucumcari, NM
+  [-101.8313, 35.222], // Amarillo
+
+  // Amarillo → Cave Springs, AR (I-40 → OKC → Tulsa)
+  [-99.4043, 35.4117], // Elk City, OK
+  [-97.5164, 35.4676], // Oklahoma City
+  [-95.9928, 36.154], // Tulsa
+  [-94.16, 36.08], // NW Arkansas approach
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Continue south arc: Arkansas pin -> top of Mississippi -> Alabama -> smoother Florida panhandle -> Florida pin
+  // Eastern return — unchanged
   [-92.3, 35.2], // Central AR bend
   [-90.05, 35.15], // Memphis corridor
   [-89.6, 34.35], // N Mississippi
