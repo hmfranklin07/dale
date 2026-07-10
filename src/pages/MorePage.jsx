@@ -7,7 +7,7 @@ import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const STATE_PHOTO_HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
 const photoHeroIntroClass =
-  'mx-auto mt-2.5 max-w-xl text-base leading-tight sm:mt-3 sm:text-lg sm:leading-snug'
+  'mx-auto mt-2.5 max-w-3xl text-base leading-tight sm:mt-3 sm:text-lg sm:leading-snug'
 
 function HeroBackLink({ light = false }) {
   return (
@@ -57,7 +57,7 @@ export default function MorePage() {
           <div
             className={`${stateHeroShell} w-full text-center pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16`}
           >
-            <div className="mx-auto w-full max-w-2xl">
+            <div className="mx-auto w-full max-w-4xl">
               <h1
                 className={`font-display text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${pageTitleClass}`}
               >
