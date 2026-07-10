@@ -628,9 +628,9 @@ export default function USMap() {
                   </g>
                   <g className="pointer-events-none select-none" transform="translate(0 23.5)">
                     <rect
-                      x={-27}
+                      x={-31}
                       y={-11}
-                      width={54}
+                      width={62}
                       height={19}
                       rx={9.5}
                       fill="url(#stopBadgeFill)"
@@ -639,9 +639,9 @@ export default function USMap() {
                       filter="url(#stopBadgeShadow)"
                     />
                     <rect
-                      x={-25.3}
+                      x={-29.1}
                       y={-9.3}
-                      width={50.6}
+                      width={58.2}
                       height={15.6}
                       rx={8.2}
                       fill="none"
