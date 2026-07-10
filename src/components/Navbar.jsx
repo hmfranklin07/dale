@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import states from '../data/states.json'
+import more from '../data/more.json'
 import { preloadStatePhotoHero } from '../lib/statePhotoHeroes'
 
 const homeLink = { to: '/', label: 'Home' }
@@ -72,6 +73,9 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
+            <NavLink to={`/${more.slug}`} className={linkClass}>
+              {more.name}
+            </NavLink>
           </div>
 
           <div className="lg:hidden">
@@ -107,6 +111,9 @@ export default function Navbar() {
               {s.name}
             </NavLink>
           ))}
+          <NavLink to={`/${more.slug}`} onClick={() => setOpen(false)} className={linkClass}>
+            {more.name}
+          </NavLink>
         </div>
       </div>
 
@@ -129,6 +136,9 @@ export default function Navbar() {
                 {s.name}
               </NavLink>
             ))}
+            <NavLink to={`/${more.slug}`} onClick={() => setOpen(false)} className={mobileLink}>
+              {more.name}
+            </NavLink>
           </div>
         </div>
       )}

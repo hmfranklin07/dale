@@ -10,6 +10,9 @@ import {
   PIN_INNER_FILL,
   PIN_RIM_COLOR,
   PIN_RIM_WIDTH,
+  PIN_SIDE_DEFAULT,
+  PIN_SIDE_HOVER,
+  PIN_SIDE_RIM,
 } from '../config/mapPinColors'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -31,7 +34,28 @@ const HIGHLIGHT_STATE_NAMES = new Set([
   'arkansas',
   'florida',
   'nebraska',
+  'arizona',
 ])
+
+/** Map geography names that route to a different page slug (e.g. Arizona → More). */
+const STATE_ROUTE_SLUG_OVERRIDES = {
+  arizona: 'more',
+}
+
+/** Side-trip pins — not full research stops; visually distinct from stop markers. */
+const MAP_SIDE_PINS = [
+  {
+    id: 'grand-canyon',
+    name: 'Grand Canyon',
+    heroIntro: 'Side trip · Arizona',
+    badgeLabel: 'Side trip',
+    lng: -112.1401,
+    lat: 36.0544,
+    linkSlug: 'more',
+    geoStateName: 'arizona',
+    isSidePin: true,
+  },
+]
 
 const STATE_NAME_BY_SLUG = Object.fromEntries(
   states.map((s) => [s.slug, s.name.trim().toLowerCase()])
@@ -106,6 +130,9 @@ const PIN_HOVER = PIN_BODY_HOVER
 const PIN_SCALE = 2.15
 const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
+const SIDE_PIN_SCALE = 1.72
+const SIDE_PIN_TIP_X = 12
+const SIDE_PIN_TIP_Y = 18
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 const STOP_LABELS_BY_SLUG = {
   'new-york': 'Stop 1',
@@ -275,10 +302,19 @@ export default function USMap() {
   /** Center-x and top-y (px) for tooltip under the hovered pin, relative to map wrap. */
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
 
-  const poppedState = hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] : null)
+  const poppedState = hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] ?? hovered.geoStateName : null)
+
+  const routeSlugForStateName = (stateName) =>
+    STATE_ROUTE_SLUG_OVERRIDES[stateName] ?? SLUG_BY_STATE_NAME[stateName]
 
   const goToState = (stateName) => {
-    const slug = SLUG_BY_STATE_NAME[stateName]
+    const slug = routeSlugForStateName(stateName)
+    if (!slug) return
+    preloadStatePhotoHero(slug)
+    navigate(`/${slug}`)
+  }
+
+  const goToSlug = (slug) => {
     if (!slug) return
     preloadStatePhotoHero(slug)
     navigate(`/${slug}`)
@@ -332,6 +368,13 @@ export default function USMap() {
             </linearGradient>
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
+            </filter>
+            <linearGradient id="sideBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#f6f7f4" />
+              <stop offset="100%" stopColor="#e8ebe3" />
+            </linearGradient>
+            <filter id="sideBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
+              <feDropShadow dx="0" dy="1" stdDeviation="0.7" floodColor="#3c4735" floodOpacity="0.18" />
             </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
@@ -535,6 +578,87 @@ export default function USMap() {
             </Marker>
             )
           })}
+
+          {MAP_SIDE_PINS.map((pin) => {
+            const isPinPopped = poppedState === pin.geoStateName
+            const isHovered = hovered?.id === pin.id
+
+            return (
+              <Marker
+                key={pin.id}
+                coordinates={[pin.lng, pin.lat]}
+                onClick={() => goToSlug(pin.linkSlug)}
+                onMouseEnter={() => {
+                  setHoveredGeo(pin.geoStateName)
+                  setHovered(pin)
+                  requestAnimationFrame(() => placeTooltipForState(pin))
+                }}
+                onMouseLeave={() => {
+                  setHovered(null)
+                  setHoveredGeo(null)
+                }}
+                style={{ cursor: 'pointer' }}
+              >
+                <g
+                  style={{
+                    transform: isPinPopped ? 'translate(0px, -5px) scale(1.06)' : 'translate(0px, 0px) scale(1)',
+                    transition: POP_TRANSITION,
+                    transformOrigin: `${SIDE_PIN_TIP_X}px ${SIDE_PIN_TIP_Y}px`,
+                  }}
+                >
+                  <g
+                    transform={`translate(${-SIDE_PIN_TIP_X * SIDE_PIN_SCALE}, ${-SIDE_PIN_TIP_Y * SIDE_PIN_SCALE}) scale(${SIDE_PIN_SCALE})`}
+                  >
+                    <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
+                    <path
+                      d="M12 2 L18 10 L12 18 L6 10 Z"
+                      fill={isHovered ? PIN_SIDE_HOVER : PIN_SIDE_DEFAULT}
+                      stroke={PIN_SIDE_RIM}
+                      strokeWidth={1.1}
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx={12}
+                      cy={10}
+                      r={2.8}
+                      fill={PIN_INNER_FILL}
+                      stroke={PIN_SIDE_RIM}
+                      strokeWidth={0.9}
+                      className="pointer-events-none"
+                    />
+                  </g>
+                  <g className="pointer-events-none select-none" transform="translate(0 20)">
+                    <rect
+                      x={-30}
+                      y={-10}
+                      width={60}
+                      height={18}
+                      rx={9}
+                      fill="url(#sideBadgeFill)"
+                      stroke="#93a37e"
+                      strokeWidth={1}
+                      strokeDasharray="3 2"
+                      filter="url(#sideBadgeShadow)"
+                    />
+                    <text
+                      x={0}
+                      y={-0.1}
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      alignmentBaseline="middle"
+                      fill="#49573f"
+                      fontFamily="'DM Serif Display', Georgia, serif"
+                      fontSize="11"
+                      fontWeight="400"
+                      letterSpacing="0.12"
+                    >
+                      {pin.badgeLabel}
+                    </text>
+                  </g>
+                </g>
+              </Marker>
+            )
+          })}
         </ComposableMap>
       </div>
 
@@ -553,7 +677,7 @@ export default function USMap() {
           {hovered.heroIntro ? (
             <p
               className="mt-2 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
-              style={{ color: PIN_BODY_DEFAULT }}
+              style={{ color: hovered.isSidePin ? PIN_SIDE_DEFAULT : PIN_BODY_DEFAULT }}
             >
               {hovered.heroIntro}
             </p>
@@ -561,7 +685,7 @@ export default function USMap() {
           <p
             className={`text-sm leading-tight text-earth-700 ${hovered.heroIntro ? 'mt-1' : 'mt-2'}`}
           >
-            Click for field notes &amp; interviews
+            {hovered.isSidePin ? 'Click for side trips & more' : 'Click for field notes & interviews'}
           </p>
         </div>
       )}
