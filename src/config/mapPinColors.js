@@ -35,4 +35,3 @@ export const PIN_INNER_FILL = '#faf9f5'
 export const PIN_DIAMOND_FILL = PIN_RIM_COLOR
 export const PIN_DIAMOND_FILL_HOVER = '#ed9473'
 export const PIN_DIAMOND_STROKE = PIN_BODY_DEFAULT
-export const PIN_DIAMOND_INNER = PIN_BODY_DEFAULT

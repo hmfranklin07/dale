@@ -13,7 +13,6 @@ import {
   PIN_DIAMOND_FILL,
   PIN_DIAMOND_FILL_HOVER,
   PIN_DIAMOND_STROKE,
-  PIN_DIAMOND_INNER,
 } from '../config/mapPinColors'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -131,10 +130,12 @@ const PIN_HOVER = PIN_BODY_HOVER
 const PIN_SCALE = 2.15
 const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
-const SIDE_PIN_DIAMOND_SCALE = 2.28
-const SIDE_PIN_INNER_SCALE = 1.98
+const SIDE_PIN_SCALE = 1.92
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
+/** See more badge — wider than stop labels for comfortable padding */
+const SIDE_BADGE_WIDTH = 70
+const SIDE_BADGE_INNER_WIDTH = 66
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 const STOP_LABELS_BY_SLUG = {
   'new-york': 'Stop 1',
@@ -602,35 +603,31 @@ export default function USMap() {
                   }}
                 >
                   <g
-                    transform={`translate(${-SIDE_PIN_TIP_X * SIDE_PIN_DIAMOND_SCALE}, ${-SIDE_PIN_TIP_Y * SIDE_PIN_DIAMOND_SCALE})`}
+                    transform={`translate(${-SIDE_PIN_TIP_X * SIDE_PIN_SCALE}, ${-SIDE_PIN_TIP_Y * SIDE_PIN_SCALE}) scale(${SIDE_PIN_SCALE})`}
                   >
-                    <g transform={`scale(${SIDE_PIN_DIAMOND_SCALE})`}>
-                      <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
-                      <path
-                        d="M12 2 L18 10 L12 18 L6 10 Z"
-                        fill={isHovered ? PIN_DIAMOND_FILL_HOVER : PIN_DIAMOND_FILL}
-                        stroke={PIN_DIAMOND_STROKE}
-                        strokeWidth={PIN_RIM_WIDTH}
-                        strokeLinejoin="round"
-                      />
-                    </g>
-                    <g transform={`translate(12, 10) scale(${SIDE_PIN_INNER_SCALE})`}>
-                      <circle
-                        cx={0}
-                        cy={0}
-                        r={3.5}
-                        fill={PIN_DIAMOND_INNER}
-                        stroke={PIN_DIAMOND_STROKE}
-                        strokeWidth={PIN_RIM_WIDTH}
-                        className="pointer-events-none"
-                      />
-                    </g>
+                    <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
+                    <path
+                      d="M12 2 L18 10 L12 18 L6 10 Z"
+                      fill={isHovered ? PIN_DIAMOND_FILL_HOVER : PIN_DIAMOND_FILL}
+                      stroke={PIN_DIAMOND_STROKE}
+                      strokeWidth={PIN_RIM_WIDTH}
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx={12}
+                      cy={10}
+                      r={3.5}
+                      fill={PIN_INNER_FILL}
+                      stroke={PIN_DIAMOND_STROKE}
+                      strokeWidth={PIN_RIM_WIDTH}
+                      className="pointer-events-none"
+                    />
                   </g>
                   <g className="pointer-events-none select-none" transform="translate(0 23.5)">
                     <rect
-                      x={-31}
+                      x={-SIDE_BADGE_WIDTH / 2}
                       y={-11}
-                      width={62}
+                      width={SIDE_BADGE_WIDTH}
                       height={19}
                       rx={9.5}
                       fill="url(#stopBadgeFill)"
@@ -639,9 +636,9 @@ export default function USMap() {
                       filter="url(#stopBadgeShadow)"
                     />
                     <rect
-                      x={-29.1}
+                      x={-(SIDE_BADGE_INNER_WIDTH / 2)}
                       y={-9.3}
-                      width={58.2}
+                      width={SIDE_BADGE_INNER_WIDTH}
                       height={15.6}
                       rx={8.2}
                       fill="none"
