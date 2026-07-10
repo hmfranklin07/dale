@@ -26,7 +26,7 @@ export const STATE_PHOTO_HEROES = {
   },
   more: {
     src: moreHeroUrl,
-    positionClass: 'object-[50%_45%] sm:object-[50%_38%] lg:object-[50%_30%] xl:object-[50%_22%]',
+    positionClass: 'object-[50%_62%] sm:object-[50%_64%] lg:object-[50%_66%] xl:object-[50%_68%]',
   },
 }
 
