@@ -30,3 +30,9 @@ export const PIN_BODY_HOVER = '#d85f3f'
 export const PIN_RIM_COLOR = '#df8f72'
 export const PIN_RIM_WIDTH = 1.05
 export const PIN_INNER_FILL = '#faf9f5'
+
+/** Inverted diamond markers — light fill, dark outline (opposite of teardrop pins) */
+export const PIN_DIAMOND_FILL = PIN_RIM_COLOR
+export const PIN_DIAMOND_FILL_HOVER = '#ed9473'
+export const PIN_DIAMOND_STROKE = PIN_BODY_DEFAULT
+export const PIN_DIAMOND_INNER = PIN_BODY_DEFAULT

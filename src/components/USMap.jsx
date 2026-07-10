@@ -10,6 +10,10 @@ import {
   PIN_INNER_FILL,
   PIN_RIM_COLOR,
   PIN_RIM_WIDTH,
+  PIN_DIAMOND_FILL,
+  PIN_DIAMOND_FILL_HOVER,
+  PIN_DIAMOND_STROKE,
+  PIN_DIAMOND_INNER,
 } from '../config/mapPinColors'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -602,8 +606,8 @@ export default function USMap() {
                     <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
                     <path
                       d="M12 2 L18 10 L12 18 L6 10 Z"
-                      fill={isHovered ? PIN_HOVER : PIN_DEFAULT}
-                      stroke={PIN_RIM_COLOR}
+                      fill={isHovered ? PIN_DIAMOND_FILL_HOVER : PIN_DIAMOND_FILL}
+                      stroke={PIN_DIAMOND_STROKE}
                       strokeWidth={PIN_RIM_WIDTH}
                       strokeLinejoin="round"
                     />
@@ -611,8 +615,8 @@ export default function USMap() {
                       cx={12}
                       cy={10}
                       r={3.5}
-                      fill={PIN_INNER_FILL}
-                      stroke={PIN_RIM_COLOR}
+                      fill={PIN_DIAMOND_INNER}
+                      stroke={PIN_DIAMOND_STROKE}
                       strokeWidth={PIN_RIM_WIDTH}
                       className="pointer-events-none"
                     />
