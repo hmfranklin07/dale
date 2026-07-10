@@ -31,7 +31,7 @@ export const PIN_RIM_COLOR = '#df8f72'
 export const PIN_RIM_WIDTH = 1.05
 export const PIN_INNER_FILL = '#faf9f5'
 
-/** Smaller side-trip markers (not full research stops) */
-export const PIN_SIDE_DEFAULT = '#5c6d4d'
-export const PIN_SIDE_HOVER = '#768963'
-export const PIN_SIDE_RIM = '#93a37e'
+/** Smaller see-more markers (not full research stops) — orange diamond */
+export const PIN_SIDE_DEFAULT = '#e2724d'
+export const PIN_SIDE_HOVER = '#cf5733'
+export const PIN_SIDE_RIM = '#ed9473'

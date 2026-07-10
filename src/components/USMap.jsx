@@ -47,8 +47,8 @@ const MAP_SIDE_PINS = [
   {
     id: 'grand-canyon',
     name: 'Grand Canyon',
-    heroIntro: 'Side trip · Arizona',
-    badgeLabel: 'Side trip',
+    heroIntro: 'See more · Arizona',
+    badgeLabel: 'See more',
     lng: -112.1401,
     lat: 36.0544,
     linkSlug: 'more',
@@ -370,11 +370,11 @@ export default function USMap() {
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
             </filter>
             <linearGradient id="sideBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#f6f7f4" />
-              <stop offset="100%" stopColor="#e8ebe3" />
+              <stop offset="0%" stopColor="#fdf6f3" />
+              <stop offset="100%" stopColor="#fce9e2" />
             </linearGradient>
             <filter id="sideBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
-              <feDropShadow dx="0" dy="1" stdDeviation="0.7" floodColor="#3c4735" floodOpacity="0.18" />
+              <feDropShadow dx="0" dy="1" stdDeviation="0.7" floodColor="#6a2e1d" floodOpacity="0.18" />
             </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
@@ -635,7 +635,7 @@ export default function USMap() {
                       height={18}
                       rx={9}
                       fill="url(#sideBadgeFill)"
-                      stroke="#93a37e"
+                      stroke="#e8a188"
                       strokeWidth={1}
                       strokeDasharray="3 2"
                       filter="url(#sideBadgeShadow)"
@@ -646,7 +646,7 @@ export default function USMap() {
                       textAnchor="middle"
                       dominantBaseline="central"
                       alignmentBaseline="middle"
-                      fill="#49573f"
+                      fill="#8f3b24"
                       fontFamily="'DM Serif Display', Georgia, serif"
                       fontSize="11"
                       fontWeight="400"
@@ -685,7 +685,7 @@ export default function USMap() {
           <p
             className={`text-sm leading-tight text-earth-700 ${hovered.heroIntro ? 'mt-1' : 'mt-2'}`}
           >
-            {hovered.isSidePin ? 'Click for side trips & more' : 'Click for field notes & interviews'}
+            {hovered.isSidePin ? 'Click to see more' : 'Click for field notes & interviews'}
           </p>
         </div>
       )}
