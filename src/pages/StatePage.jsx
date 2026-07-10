@@ -52,7 +52,7 @@ function PhotoHeroIntro({ state, nyPhotoHero, darkOnSky = false }) {
 function HeroBackLink({ light = false, className = '' }) {
   return (
     <Link
-      to="/"
+      to="/#map"
       className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
         light ? 'text-white/95 hover:text-white' : 'text-earth-800 hover:text-rust-800'
       } ${className}`.trim()}
