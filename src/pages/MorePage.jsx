@@ -52,8 +52,7 @@ export default function MorePage() {
         <div className="card card-body mx-auto max-w-2xl border-2 border-sage-500/75 text-center !ring-sage-400/45 ring-2 sm:p-10">
           <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
           <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-            Field notes from side trips like the Grand Canyon and other stops along the way will show up here as the
-            trip goes on.
+            More conversations and reflections on the way. Stay tuned!
           </p>
         </div>
       </PageContentBand>

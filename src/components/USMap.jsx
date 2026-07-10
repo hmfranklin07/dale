@@ -10,9 +10,6 @@ import {
   PIN_INNER_FILL,
   PIN_RIM_COLOR,
   PIN_RIM_WIDTH,
-  PIN_SIDE_DEFAULT,
-  PIN_SIDE_HOVER,
-  PIN_SIDE_RIM,
 } from '../config/mapPinColors'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
@@ -130,7 +127,7 @@ const PIN_HOVER = PIN_BODY_HOVER
 const PIN_SCALE = 2.15
 const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
-const SIDE_PIN_SCALE = 1.72
+const SIDE_PIN_SCALE = 1.98
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
@@ -369,13 +366,6 @@ export default function USMap() {
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
             </filter>
-            <linearGradient id="sideBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#fdf6f3" />
-              <stop offset="100%" stopColor="#fce9e2" />
-            </linearGradient>
-            <filter id="sideBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
-              <feDropShadow dx="0" dy="1" stdDeviation="0.7" floodColor="#6a2e1d" floodOpacity="0.18" />
-            </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
               <feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#2a3322" floodOpacity="0.28" />
@@ -612,45 +602,54 @@ export default function USMap() {
                     <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
                     <path
                       d="M12 2 L18 10 L12 18 L6 10 Z"
-                      fill={isHovered ? PIN_SIDE_HOVER : PIN_SIDE_DEFAULT}
-                      stroke={PIN_SIDE_RIM}
-                      strokeWidth={1.1}
+                      fill={isHovered ? PIN_HOVER : PIN_DEFAULT}
+                      stroke={PIN_RIM_COLOR}
+                      strokeWidth={PIN_RIM_WIDTH}
                       strokeLinejoin="round"
                     />
                     <circle
                       cx={12}
                       cy={10}
-                      r={2.8}
+                      r={3.5}
                       fill={PIN_INNER_FILL}
-                      stroke={PIN_SIDE_RIM}
-                      strokeWidth={0.9}
+                      stroke={PIN_RIM_COLOR}
+                      strokeWidth={PIN_RIM_WIDTH}
                       className="pointer-events-none"
                     />
                   </g>
-                  <g className="pointer-events-none select-none" transform="translate(0 20)">
+                  <g className="pointer-events-none select-none" transform="translate(0 23.5)">
                     <rect
-                      x={-30}
-                      y={-10}
-                      width={60}
-                      height={18}
-                      rx={9}
-                      fill="url(#sideBadgeFill)"
+                      x={-27}
+                      y={-11}
+                      width={54}
+                      height={19}
+                      rx={9.5}
+                      fill="url(#stopBadgeFill)"
                       stroke="#e8a188"
                       strokeWidth={1}
-                      strokeDasharray="3 2"
-                      filter="url(#sideBadgeShadow)"
+                      filter="url(#stopBadgeShadow)"
+                    />
+                    <rect
+                      x={-25.3}
+                      y={-9.3}
+                      width={50.6}
+                      height={15.6}
+                      rx={8.2}
+                      fill="none"
+                      stroke="rgba(250,249,245,0.65)"
+                      strokeWidth={0.7}
                     />
                     <text
                       x={0}
-                      y={-0.1}
+                      y={-0.15}
                       textAnchor="middle"
                       dominantBaseline="central"
                       alignmentBaseline="middle"
                       fill="#8f3b24"
                       fontFamily="'DM Serif Display', Georgia, serif"
-                      fontSize="11"
+                      fontSize="12.2"
                       fontWeight="400"
-                      letterSpacing="0.12"
+                      letterSpacing="0.15"
                     >
                       {pin.badgeLabel}
                     </text>
@@ -677,7 +676,7 @@ export default function USMap() {
           {hovered.heroIntro ? (
             <p
               className="mt-2 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
-              style={{ color: hovered.isSidePin ? PIN_SIDE_DEFAULT : PIN_BODY_DEFAULT }}
+              style={{ color: PIN_BODY_DEFAULT }}
             >
               {hovered.heroIntro}
             </p>
