@@ -1,6 +1,17 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
+function scrollToHashTarget(el) {
+  const navbarGap = 88
+  const bottomGap = 48
+  const absoluteTop = el.getBoundingClientRect().top + window.scrollY
+  const alignTop = absoluteTop - navbarGap
+  const alignForFullView = absoluteTop + el.offsetHeight - window.innerHeight + bottomGap
+  const scrollTop = Math.max(0, Math.max(alignTop, alignForFullView))
+
+  window.scrollTo({ top: scrollTop, behavior: 'smooth' })
+}
+
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
@@ -10,7 +21,7 @@ export default function ScrollToTop() {
       const scrollToTarget = () => {
         const el = document.getElementById(id)
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          scrollToHashTarget(el)
           return true
         }
         return false
