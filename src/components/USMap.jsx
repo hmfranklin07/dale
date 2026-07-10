@@ -119,10 +119,11 @@ const STOP_LABELS_BY_SLUG = {
 // Route control points: actual driving corridors (I-90/I-80 west, Black Hills/Yellowstone,
 // I-84 through Idaho, CA/NV return south, I-40 east, OKC/Tulsa to Arkansas).
 const ROUTE_CONTROL_POINTS = [
-  // Arkport, NY → Bradford, IL (I-90 / I-80)
+  // Arkport, NY → Bradford, IL (I-90 / I-80) — stay on land along southern Lake Erie
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-78.05, 42.48], // West toward I-90 / Buffalo corridor
-  [-78.8784, 42.8864], // Buffalo (I-90)
+  [-77.9, 42.22], // Southwest toward I-86 (below Lake Ontario)
+  [-78.55, 42.12], // Jamestown / Chautauqua corridor
+  [-79.35, 42.08], // Dunkirk — southern Lake Erie shore
   [-80.0852, 42.1292], // Erie, PA (I-90)
   [-81.6944, 41.4993], // Cleveland (I-90)
   [-83.5552, 41.6528], // Toledo (I-80/90)
@@ -158,14 +159,14 @@ const ROUTE_CONTROL_POINTS = [
   [-115.6912, 43.1329], // Mountain Home (I-84)
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
-  // Boise → Yosemite
+  // Boise → Yosemite → Los Angeles (smooth southwest arc through the Sierra)
   [-117.7357, 40.9724], // Winnemucca, NV
   [-119.8138, 39.5296], // Reno
-  [-119.231, 38.2557], // Bridgeport, CA (US-395)
-  [-119.074, 37.9478], // Lee Vining / Tioga approach
-  [-119.5383, 37.8651], // Yosemite
-
-  // Yosemite → Los Angeles
+  [-119.77, 39.16], // Carson City
+  [-119.05, 38.45], // US-395 mid-Sierra east slope
+  [-118.55, 37.85], // Mammoth Lakes corridor
+  [-119.15, 37.55], // Yosemite approach (gentle bend, no east–west spike)
+  [-119.55, 37.05], // Mariposa / Merced approach
   [-119.7871, 36.7378], // Fresno (CA-99 / Central Valley)
   [-119.0187, 35.3733], // Bakersfield
   [-118.2437, 34.0522], // Los Angeles
