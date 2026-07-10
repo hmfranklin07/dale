@@ -1,7 +1,6 @@
 import { Link, Navigate } from 'react-router-dom'
 import more from '../data/more.json'
 import PageContentBand from '../components/PageContentBand'
-import { pageTitleClass } from '../components/SectionHeading'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -51,23 +50,21 @@ export default function MorePage() {
 
         <div className="relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] items-start justify-start">
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-            <HeroBackLink />
+            <HeroBackLink light />
           </div>
 
           <div
             className={`${stateHeroShell} w-full text-center pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16`}
           >
             <div className="mx-auto w-full max-w-4xl">
-              <h1
-                className={`font-display text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${pageTitleClass}`}
-              >
+              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 {more.name}
               </h1>
               <div
                 className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                 aria-hidden
               />
-              <p className={`${photoHeroIntroClass} ${pageTitleClass}`}>{more.heroIntro}</p>
+              <p className={`${photoHeroIntroClass} text-white/90`}>{more.heroIntro}</p>
             </div>
           </div>
         </div>
