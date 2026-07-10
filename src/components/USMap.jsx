@@ -130,7 +130,7 @@ const PIN_HOVER = PIN_BODY_HOVER
 const PIN_SCALE = 2.15
 const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
-const SIDE_PIN_SCALE = 1.92
+const SIDE_PIN_SCALE = 2.15
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
 /** See more badge — wider than stop labels for comfortable padding */
