@@ -130,7 +130,8 @@ const PIN_HOVER = PIN_BODY_HOVER
 const PIN_SCALE = 2.15
 const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
-const SIDE_PIN_SCALE = 2.15
+const SIDE_PIN_DIAMOND_SCALE = 2.45
+const SIDE_PIN_INNER_SCALE = 2.15
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
 /** See more badge — wider than stop labels for comfortable padding */
@@ -603,7 +604,7 @@ export default function USMap() {
                   }}
                 >
                   <g
-                    transform={`translate(${-SIDE_PIN_TIP_X * SIDE_PIN_SCALE}, ${-SIDE_PIN_TIP_Y * SIDE_PIN_SCALE}) scale(${SIDE_PIN_SCALE})`}
+                    transform={`translate(${-SIDE_PIN_TIP_X * SIDE_PIN_DIAMOND_SCALE}, ${-SIDE_PIN_TIP_Y * SIDE_PIN_DIAMOND_SCALE}) scale(${SIDE_PIN_DIAMOND_SCALE})`}
                   >
                     <circle cx={12} cy={8} r={18} fill="rgba(0,0,0,0)" className="cursor-pointer" />
                     <path
@@ -613,15 +614,17 @@ export default function USMap() {
                       strokeWidth={PIN_RIM_WIDTH}
                       strokeLinejoin="round"
                     />
-                    <circle
-                      cx={12}
-                      cy={10}
-                      r={3.5}
-                      fill={PIN_INNER_FILL}
-                      stroke={PIN_DIAMOND_STROKE}
-                      strokeWidth={PIN_RIM_WIDTH}
-                      className="pointer-events-none"
-                    />
+                    <g transform={`translate(12, 10) scale(${SIDE_PIN_INNER_SCALE / SIDE_PIN_DIAMOND_SCALE})`}>
+                      <circle
+                        cx={0}
+                        cy={0}
+                        r={3.5}
+                        fill={PIN_INNER_FILL}
+                        stroke={PIN_DIAMOND_STROKE}
+                        strokeWidth={PIN_RIM_WIDTH}
+                        className="pointer-events-none"
+                      />
+                    </g>
                   </g>
                   <g className="pointer-events-none select-none" transform="translate(0 23.5)">
                     <rect
