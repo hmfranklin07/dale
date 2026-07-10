@@ -132,6 +132,8 @@ const PIN_TIP_X = 12
 const PIN_TIP_Y = 24
 const SIDE_PIN_DIAMOND_SCALE = 2.9
 const SIDE_PIN_INNER_SCALE = 2.15
+/** Match teardrop rim thickness after diamond’s larger scale transform */
+const SIDE_PIN_STROKE_WIDTH = (PIN_RIM_WIDTH * PIN_SCALE) / SIDE_PIN_DIAMOND_SCALE
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
 /** See more badge — wider than stop labels for comfortable padding */
@@ -611,7 +613,7 @@ export default function USMap() {
                       d="M12 2 L18 10 L12 18 L6 10 Z"
                       fill={isHovered ? PIN_DIAMOND_FILL_HOVER : PIN_DIAMOND_FILL}
                       stroke={PIN_DIAMOND_STROKE}
-                      strokeWidth={PIN_RIM_WIDTH}
+                      strokeWidth={SIDE_PIN_STROKE_WIDTH}
                       strokeLinejoin="round"
                     />
                     <g transform={`translate(12, 10) scale(${SIDE_PIN_INNER_SCALE / SIDE_PIN_DIAMOND_SCALE})`}>
