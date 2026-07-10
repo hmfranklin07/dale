@@ -118,6 +118,33 @@ function CheckBackSoonCard({ stateName }) {
   )
 }
 
+function ViewAllBanner({ to, title, subtitle, count, countLabel }) {
+  return (
+    <Link
+      to={to}
+      className="group flex w-full items-center justify-between gap-4 rounded-2xl border-2 border-rust-500/90 bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-4 shadow-lg shadow-rust-900/20 ring-2 ring-rust-400/70 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-xl hover:shadow-rust-900/28 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-7 sm:py-5"
+    >
+      <div className="min-w-0 text-left">
+        <p className="font-display text-xl leading-tight text-white sm:text-2xl">{title}</p>
+        <p className="mt-1 text-sm leading-snug text-rust-50/92 sm:text-base">{subtitle}</p>
+      </div>
+      <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
+        {count != null && countLabel && (
+          <span className="rounded-full bg-white/18 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/95 ring-1 ring-white/25 sm:text-sm">
+            {count} {countLabel}
+          </span>
+        )}
+        <span
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-lg text-white ring-1 ring-white/25 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-11 sm:w-11 sm:text-xl"
+          aria-hidden
+        >
+          →
+        </span>
+      </div>
+    </Link>
+  )
+}
+
 export default function StatePage() {
   const { stateSlug } = useParams()
   if (!stateSlugs.has(stateSlug)) {
@@ -128,8 +155,12 @@ export default function StatePage() {
   const featuredVlogs = featuredVlogsForState(stateSlug)
   const featuredInterviews = featuredInterviewsForState(stateSlug)
   const comingSoonInterviews = comingSoonInterviewsForState(stateSlug)
-  const hasVideos = vlogsForState(stateSlug).length > 0
-  const hasInterviews = interviewsForState(stateSlug).length > 0
+  const allVlogs = vlogsForState(stateSlug)
+  const allInterviews = interviewsForState(stateSlug)
+  const hasVideos = allVlogs.length > 0
+  const hasInterviews = allInterviews.length > 0
+  const totalVideos = allVlogs.length
+  const totalInterviews = allInterviews.length
   const hasConversationSection = hasInterviews || comingSoonInterviews.length > 0
   const stateHasContent = hasVideos || hasConversationSection
 
@@ -236,14 +267,14 @@ export default function StatePage() {
                   ))}
                 </div>
               )}
-              <div className="flex justify-center pt-1 sm:justify-start">
-                <Link
+              <div className="border-t border-sage-300/55 pt-5 sm:pt-6">
+                <ViewAllBanner
                   to={`/${stateSlug}/videos`}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-rust-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rust-900/20 ring-2 ring-rust-400/70 transition-all hover:bg-rust-600 hover:shadow-lg hover:shadow-rust-900/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/80"
-                >
-                  View all videos
-                  <span aria-hidden>→</span>
-                </Link>
+                  title="View all videos"
+                  subtitle={`Browse every field video from ${state.name} — featured picks are just the start.`}
+                  count={totalVideos}
+                  countLabel={totalVideos === 1 ? 'video' : 'videos'}
+                />
               </div>
             </div>
           </section>
@@ -293,15 +324,15 @@ export default function StatePage() {
                 ))}
               </div>
               {hasInterviews && (
-              <div className="flex justify-center pt-1 sm:justify-start">
-                <Link
-                  to={`/${stateSlug}/transcriptions`}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-rust-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rust-900/20 ring-2 ring-rust-400/70 transition-all hover:bg-rust-600 hover:shadow-lg hover:shadow-rust-900/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/80"
-                >
-                  View all conversations
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
+                <div className="border-t border-sage-300/55 pt-5 sm:pt-6">
+                  <ViewAllBanner
+                    to={`/${stateSlug}/transcriptions`}
+                    title="View all conversations"
+                    subtitle={`Read every interview and transcript from ${state.name} — more stories beyond the highlights.`}
+                    count={totalInterviews}
+                    countLabel={totalInterviews === 1 ? 'conversation' : 'conversations'}
+                  />
+                </div>
               )}
             </div>
           </section>
