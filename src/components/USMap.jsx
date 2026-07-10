@@ -37,6 +37,10 @@ const STATE_NAME_BY_SLUG = Object.fromEntries(
   states.map((s) => [s.slug, s.name.trim().toLowerCase()])
 )
 
+const SLUG_BY_STATE_NAME = Object.fromEntries(
+  states.map((s) => [s.name.trim().toLowerCase(), s.slug])
+)
+
 const POP_SCALE = 1.058
 const POP_LIFT = 7
 
@@ -258,6 +262,13 @@ export default function USMap() {
 
   const poppedState = hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] : null)
 
+  const goToState = (stateName) => {
+    const slug = SLUG_BY_STATE_NAME[stateName]
+    if (!slug) return
+    preloadStatePhotoHero(slug)
+    navigate(`/${slug}`)
+  }
+
   /** Pin anchor from lat/lng → SVG viewBox coords, then map to CSS px under the marker (not cursor). */
   const placeTooltipForState = (s) => {
     const wrap = mapWrapRef.current
@@ -334,6 +345,8 @@ export default function USMap() {
                 const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
 
+                const stateSlug = stateName ? SLUG_BY_STATE_NAME[stateName] : null
+
                 if (!isHighlight) {
                   return (
                     <Geography
@@ -365,15 +378,20 @@ export default function USMap() {
                       fill={fill}
                       stroke={isPopped ? STROKE_POP : STROKE}
                       strokeWidth={isPopped ? 0.95 : 0.65}
-                      onMouseEnter={() => setHoveredGeo(stateName)}
+                      onMouseEnter={() => {
+                        if (stateSlug) preloadStatePhotoHero(stateSlug)
+                        setHoveredGeo(stateName)
+                      }}
                       onMouseLeave={() => setHoveredGeo(null)}
+                      onClick={() => goToState(stateName)}
                       style={{
                         default: {
                           outline: 'none',
+                          cursor: 'pointer',
                           transition: 'fill 0.35s ease, stroke 0.35s ease, stroke-width 0.35s ease',
                         },
-                        hover: { outline: 'none' },
-                        pressed: { outline: 'none' },
+                        hover: { outline: 'none', cursor: 'pointer' },
+                        pressed: { outline: 'none', cursor: 'pointer' },
                       }}
                     />
                   </g>
