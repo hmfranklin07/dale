@@ -159,16 +159,11 @@ const ROUTE_CONTROL_POINTS = [
   [-115.6912, 43.1329], // Mountain Home (I-84)
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
-  // Boise → Yosemite → Los Angeles (smooth southwest arc through the Sierra)
-  [-117.7357, 40.9724], // Winnemucca, NV
-  [-119.8138, 39.5296], // Reno
-  [-119.77, 39.16], // Carson City
-  [-119.05, 38.45], // US-395 mid-Sierra east slope
-  [-118.55, 37.85], // Mammoth Lakes corridor
-  [-119.15, 37.55], // Yosemite approach (gentle bend, no east–west spike)
-  [-119.55, 37.05], // Mariposa / Merced approach
-  [-119.7871, 36.7378], // Fresno (CA-99 / Central Valley)
-  [-119.0187, 35.3733], // Bakersfield
+  // Boise → Los Angeles (smooth southwest arc, no Sierra detour)
+  [-117.5, 41.4], // Southern Idaho / Nevada corridor
+  [-119.0, 38.6], // Eastern California sweep
+  [-119.1, 36.0], // Central Valley
+  [-118.6, 34.8], // Tejon Pass approach
   [-118.2437, 34.0522], // Los Angeles
 
   // Los Angeles → Grand Canyon
