@@ -48,14 +48,12 @@ export default function MorePage() {
           />
         </div>
 
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] items-start justify-start">
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] items-center justify-center">
           <div className={`${stateHeroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
             <HeroBackLink light />
           </div>
 
-          <div
-            className={`${stateHeroShell} w-full text-center pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16`}
-          >
+          <div className={`${stateHeroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
             <div className="mx-auto w-full max-w-4xl">
               <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 {more.name}
