@@ -122,20 +122,20 @@ function ViewAllBanner({ to, title, subtitle, count, countLabel }) {
   return (
     <Link
       to={to}
-      className="group flex w-full items-center justify-between gap-4 rounded-2xl border-2 border-rust-500/90 bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-4 shadow-lg shadow-rust-900/20 ring-2 ring-rust-400/70 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-xl hover:shadow-rust-900/28 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-7 sm:py-5"
+      className="group flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-rust-500/90 bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-2.5 shadow-lg shadow-rust-900/20 ring-2 ring-rust-400/70 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-xl hover:shadow-rust-900/28 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:gap-4 sm:px-7 sm:py-3"
     >
       <div className="min-w-0 text-left">
-        <p className="font-display text-xl leading-tight text-white sm:text-2xl">{title}</p>
-        <p className="mt-1 text-sm leading-snug text-rust-50/92 sm:text-base">{subtitle}</p>
+        <p className="font-display text-lg leading-tight text-white sm:text-xl">{title}</p>
+        <p className="mt-0.5 text-xs leading-snug text-rust-50/92 sm:text-sm">{subtitle}</p>
       </div>
-      <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
         {count != null && countLabel && (
-          <span className="rounded-full bg-white/18 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/95 ring-1 ring-white/25 sm:text-sm">
+          <span className="rounded-full bg-white/18 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-white/95 ring-1 ring-white/25 sm:px-3 sm:py-1 sm:text-xs">
             {count} {countLabel}
           </span>
         )}
         <span
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-lg text-white ring-1 ring-white/25 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-11 sm:w-11 sm:text-xl"
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-base text-white ring-1 ring-white/25 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-9 sm:w-9 sm:text-lg"
           aria-hidden
         >
           →
