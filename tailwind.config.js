@@ -50,38 +50,6 @@ export default {
         display: ['"DM Serif Display"', 'Georgia', 'serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
       },
-      keyframes: {
-        'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(1.35rem)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        'ken-burns': {
-          '0%': { transform: 'scale(1) translate(0, 0)' },
-          '100%': { transform: 'scale(1.07) translate(-0.6%, -0.4%)' },
-        },
-        'scroll-cue': {
-          '0%, 100%': { opacity: '0.35', transform: 'translateY(0)' },
-          '50%': { opacity: '0.9', transform: 'translateY(6px)' },
-        },
-        'shimmer-bar': {
-          '0%': { backgroundPosition: '200% center' },
-          '100%': { backgroundPosition: '-200% center' },
-        },
-      },
-      animation: {
-        'fade-up': 'fade-up 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-        'fade-in': 'fade-in 0.8s ease forwards',
-        'ken-burns': 'ken-burns 22s ease-in-out infinite alternate',
-        'scroll-cue': 'scroll-cue 2.2s ease-in-out infinite',
-        'shimmer-bar': 'shimmer-bar 4.5s linear infinite',
-      },
-      backgroundSize: {
-        'shimmer': '200% auto',
-      },
     },
   },
   plugins: [],
