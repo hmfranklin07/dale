@@ -3,13 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     @apply font-body text-earth-800 antialiased;
-    background-color: #eef0e7;
+    background-color: #e8ebe0;
     background-image:
-      radial-gradient(ellipse 120% 80% at 100% -20%, rgba(206, 87, 51, 0.07), transparent 50%),
-      radial-gradient(ellipse 80% 50% at 0% 100%, rgba(118, 137, 99, 0.12), transparent 45%),
-      linear-gradient(180deg, #faf7f1 0%, #eef1e8 50%, #e4e8dc 100%);
+      radial-gradient(ellipse 140% 90% at 100% -15%, rgba(206, 87, 51, 0.09), transparent 52%),
+      radial-gradient(ellipse 90% 55% at 0% 100%, rgba(118, 137, 99, 0.14), transparent 48%),
+      radial-gradient(ellipse 60% 40% at 50% 40%, rgba(250, 249, 245, 0.5), transparent 70%),
+      linear-gradient(180deg, #faf7f1 0%, #eef1e8 45%, #e2e6d8 100%);
+  }
+
+  ::selection {
+    @apply bg-rust-300/55 text-earth-900;
   }
 
   h1, h2, h3, h4 {
@@ -31,8 +46,8 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-sage-300/80 overflow-hidden shadow-md
-           shadow-rust-900/10 ring-1 ring-amber-200/45 transition-shadow duration-300
+    @apply bg-white rounded-2xl border border-sage-300/75 overflow-hidden shadow-md
+           shadow-rust-900/10 ring-1 ring-amber-200/40 transition-[transform,box-shadow] duration-300
            hover:shadow-lg hover:shadow-rust-900/20;
   }
 
@@ -77,5 +92,57 @@
 
   .badge-earth {
     @apply badge bg-amber-200/85 text-earth-900;
+  }
+
+  .hero-enter {
+    opacity: 0;
+    animation: hero-fade-up 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes hero-fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(1.35rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-enter-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .hero-enter-delay-2 {
+    animation-delay: 240ms;
+  }
+
+  .hero-enter-delay-3 {
+    animation-delay: 380ms;
+  }
+
+  .hero-enter-delay-4 {
+    animation-delay: 520ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      opacity: 1;
+      animation: none;
+    }
+  }
+
+  .editorial-frame {
+    @apply relative overflow-hidden rounded-[1.35rem] ring-1 ring-white/70 shadow-2xl shadow-earth-900/20;
+  }
+
+  .editorial-frame::before {
+    content: '';
+    @apply pointer-events-none absolute -inset-px rounded-[inherit] bg-gradient-to-br from-rust-400/35 via-transparent to-sage-500/25;
+  }
+
+  .section-kicker {
+    @apply font-body text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-rust-700/90 sm:text-xs;
   }
 }

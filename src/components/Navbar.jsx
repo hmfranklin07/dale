@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import states from '../data/states.json'
 import more from '../data/more.json'
@@ -32,6 +32,14 @@ function NavbarMicroscopeIcon({ className = 'h-7 w-7 shrink-0 text-rust-500' }) 
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const linkClass = ({ isActive }) =>
     `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
@@ -48,7 +56,13 @@ export default function Navbar() {
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
+    <nav
+      className={`sticky top-0 z-50 border-b backdrop-blur-lg transition-[background-color,box-shadow,border-color] duration-300 ${
+        scrolled
+          ? 'border-sage-800/30 bg-white/88 shadow-md shadow-sage-900/12'
+          : 'border-sage-800/20 bg-gradient-to-r from-sage-100/90 via-amber-50/92 to-sage-900/14 shadow-sm shadow-sage-900/8'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">

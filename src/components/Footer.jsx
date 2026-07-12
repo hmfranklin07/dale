@@ -10,12 +10,25 @@ export default function Footer() {
 
   return (
     <footer className="relative z-10 mt-auto overflow-hidden">
-      <div className="relative bg-earth-900 text-sage-100/90">
-        <div className={`relative z-10 ${shell} py-10 sm:py-12`}>
-          <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-6 md:text-left">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rust-400/50 to-transparent"
+        aria-hidden
+      />
+      <div className="relative bg-gradient-to-b from-earth-900 via-earth-900 to-[#14100d] text-sage-100/90">
+        <div
+          className="pointer-events-none absolute -left-20 top-0 h-56 w-56 rounded-full bg-rust-600/15 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-sage-500/12 blur-3xl"
+          aria-hidden
+        />
+
+        <div className={`relative z-10 ${shell} py-11 sm:py-14`}>
+          <div className="grid grid-cols-1 gap-9 text-center md:grid-cols-3 md:gap-6 md:text-left">
             <div className="md:pr-4">
               <h2 className="font-display mb-3 text-base text-white sm:text-lg">About this site</h2>
-              <p className="text-sm leading-relaxed text-sage-200/90">
+              <p className="text-sm leading-relaxed text-sage-200/88">
                 Everything published here is shared only with informed consent.
               </p>
             </div>
@@ -28,7 +41,7 @@ export default function Footer() {
                 <span className="font-display text-base text-white group-hover:text-rust-200 sm:text-lg">
                   Contact me
                 </span>
-                <span className="mt-1.5 text-sm text-rust-200/95 underline decoration-rust-400/45 underline-offset-[0.2em] group-hover:text-amber-100/90 group-hover:decoration-amber-200/50">
+                <span className="mt-1.5 text-sm text-rust-200/95 underline decoration-rust-400/45 underline-offset-[0.2em] transition-colors group-hover:text-amber-100/90 group-hover:decoration-amber-200/50">
                   {siteMeta.contactEmail}
                 </span>
               </a>
