@@ -357,9 +357,11 @@ export default function USMap() {
     const sy = svgRect.height / MAP_H
     // Marker `<g>` is anchored at the pin tip; offset down past teardrop + optional stop badge.
     const belowTipSvg = 52
+    const nudgeX = s.nudgeX ?? 0
+    const nudgeY = s.nudgeY ?? 0
     setTooltipPos({
-      x: svgRect.left - wrapRect.left + mx * sx,
-      y: svgRect.top - wrapRect.top + (my + belowTipSvg) * sy,
+      x: svgRect.left - wrapRect.left + (mx + nudgeX) * sx,
+      y: svgRect.top - wrapRect.top + (my + belowTipSvg + nudgeY) * sy,
     })
   }
 
