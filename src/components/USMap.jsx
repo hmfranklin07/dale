@@ -44,6 +44,10 @@ const STATE_ROUTE_SLUG_OVERRIDES = {
   'south dakota': 'more',
 }
 
+/** Rapid City corridor — shared by route curve and see-more pin */
+const RAPID_CITY_LNG = -103.25
+const RAPID_CITY_LAT = 44.05
+
 /** Side-trip pins — not full research stops; visually distinct from stop markers. */
 const MAP_SIDE_PINS = [
   {
@@ -62,14 +66,11 @@ const MAP_SIDE_PINS = [
     name: 'Rapid City',
     heroIntro: 'See more · South Dakota',
     badgeLabel: 'See more',
-    lng: -103.231,
-    lat: 44.0805,
+    lng: RAPID_CITY_LNG,
+    lat: RAPID_CITY_LAT,
     linkSlug: 'more',
     geoStateName: 'south dakota',
     isSidePin: true,
-    /** Clear the Sturgis route waypoint — pins sit ~11px apart at map scale */
-    nudgeX: 12,
-    nudgeY: 16,
   },
 ]
 
@@ -193,6 +194,7 @@ const ROUTE_CONTROL_POINTS = [
   [-100.7654, 41.1239], // North Platte, NE (I-80)
   [-102.978, 41.1427], // Sidney, NE (I-80)
   [-103.6616, 41.8666], // Scottsbluff, NE
+  [RAPID_CITY_LNG, RAPID_CITY_LAT], // Rapid City area (I-90)
   [-103.586, 44.4097], // Sturgis, SD
 
   // Sturgis → Yellowstone
