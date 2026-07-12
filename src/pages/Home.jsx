@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — cinematic editorial opener */}
-      <section className="relative min-h-[min(92vh,52rem)] overflow-hidden border-b border-sage-800/35 sm:min-h-[min(94vh,56rem)]">
+      <section className="relative min-h-[min(78vh,44rem)] overflow-hidden border-b border-sage-800/35 sm:min-h-[min(82vh,46rem)]">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={homeHeroBgUrl}
@@ -50,12 +50,12 @@ export default function Home() {
         />
 
         <div className="relative z-10 flex min-h-[inherit] flex-col items-center justify-center">
-          <div className={`${shell} w-full py-10 text-center sm:py-12 md:py-14`}>
-            <p className="section-kicker hero-enter hero-enter-delay-1 mb-3 text-rust-200/95">
+          <div className={`${shell} w-full py-7 text-center sm:py-8 md:py-9`}>
+            <p className="section-kicker hero-enter hero-enter-delay-1 mb-2 text-rust-200/95">
               Summer 2026 · On the road
             </p>
 
-            <div className="relative mx-auto max-w-4xl py-4 sm:py-5 md:py-6 lg:max-w-5xl">
+            <div className="relative mx-auto max-w-4xl py-3 sm:py-3.5 md:py-4 lg:max-w-5xl">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/25 bg-white/30 shadow-[0_20px_60px_-20px_rgba(26,21,18,0.45)] backdrop-blur-lg"
@@ -70,7 +70,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="hero-enter hero-enter-delay-3 mx-auto mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            <div className="hero-enter hero-enter-delay-3 mx-auto mt-3 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
               {CONTENT_PILLS.map((label) => (
                 <span
                   key={label}
@@ -81,12 +81,12 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="hero-enter hero-enter-delay-4 mx-auto mt-5 w-full max-w-3xl lg:max-w-4xl">
+            <div className="hero-enter hero-enter-delay-4 mx-auto mt-3.5 w-full max-w-3xl lg:max-w-4xl">
               <div
                 className="mx-auto h-px w-20 bg-gradient-to-r from-transparent via-rust-400/90 to-transparent sm:w-28"
                 aria-hidden
               />
-              <div className="mx-auto mt-4 space-y-3 text-[0.9375rem] leading-relaxed text-white/92 sm:text-base sm:leading-relaxed lg:text-lg">
+              <div className="mx-auto mt-3 space-y-2.5 text-[0.9375rem] leading-snug text-white/92 sm:text-base sm:leading-relaxed lg:text-lg">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools — not from numbers and statistics, but from the students and educators who live it every day.
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-delay-4 mt-auto pb-6 sm:pb-8" aria-hidden>
+          <div className="hero-enter hero-enter-delay-4 mt-auto pb-4 sm:pb-5" aria-hidden>
             <div className="flex flex-col items-center gap-1.5 text-white/55">
               <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em]">Explore</span>
               <svg
@@ -120,8 +120,8 @@ export default function Home() {
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-b border-sage-200/60">
         <SectionAmbience variant="paper" />
-        <div className={`relative z-10 ${sectionShell} py-10 sm:py-12 lg:py-14`}>
-          <div className="grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-4 md:gap-y-4 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-6">
+        <div className={`relative z-10 ${sectionShell} py-7 sm:py-8 lg:py-10`}>
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-4 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-6">
             <ScrollReveal className="min-w-0 md:col-start-1 md:row-start-1" delay={0}>
               <p className="section-kicker mb-2">About the researcher</p>
               <SectionHeading className="!mt-0 !mb-0">Hi, I&apos;m Hannah!</SectionHeading>
@@ -133,7 +133,7 @@ export default function Home() {
               delay={120}
             >
               <figure className="group w-full">
-                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-700 via-rust-500 to-amber-300 p-[3px] shadow-xl shadow-rust-900/25 ring-1 ring-rust-300/50 transition-[transform,box-shadow] duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl motion-reduce:transform-none sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,19rem)] overflow-hidden rounded-2xl bg-gradient-to-br from-rust-700 via-rust-500 to-amber-300 p-[3px] shadow-xl shadow-rust-900/25 ring-1 ring-rust-300/50 transition-[transform,box-shadow] duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl motion-reduce:transform-none sm:max-h-[21rem] md:mx-0 md:aspect-auto md:h-[20rem] md:max-h-none md:w-[15.5rem] lg:h-[21rem] lg:w-[16.75rem]">
                   <div className="h-full w-full overflow-hidden rounded-[0.72rem] ring-1 ring-white/55">
                     <img
                       src="/images/researcher.png"
@@ -149,7 +149,7 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal className="min-w-0 md:col-start-1 md:row-start-2" delay={200}>
-              <div className="w-full space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
+              <div className="w-full space-y-3 text-base leading-relaxed text-earth-800 sm:text-lg">
                 <p>
                   I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
                   my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
@@ -165,8 +165,8 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal className="mx-auto mt-8 max-w-[min(100%,52rem)]" delay={280}>
-            <p className="border-t border-sage-300/55 pt-4 text-center text-xs leading-snug text-earth-600 italic sm:pt-5 sm:text-sm">
+          <ScrollReveal className="mx-auto mt-5 max-w-[min(100%,52rem)]" delay={280}>
+            <p className="border-t border-sage-300/55 pt-3 text-center text-xs leading-snug text-earth-600 italic sm:pt-4 sm:text-sm">
               This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
             </p>
           </ScrollReveal>
@@ -179,9 +179,9 @@ export default function Home() {
         className="relative overflow-hidden border-t border-sage-200/50 scroll-mt-20 sm:scroll-mt-24"
       >
         <SectionAmbience variant="map" />
-        <div className="relative z-10 mx-auto max-w-7xl px-2 py-12 sm:px-3 sm:py-16 lg:py-20">
-          <ScrollReveal className="mb-8 text-center sm:mb-10" direction="fade">
-            <p className="section-kicker mb-2.5">Interactive journey</p>
+        <div className="relative z-10 mx-auto max-w-7xl px-2 py-8 sm:px-3 sm:py-10 lg:py-12">
+          <ScrollReveal className="mb-5 text-center sm:mb-6" direction="fade">
+            <p className="section-kicker mb-2">Interactive journey</p>
             <div
               className="mx-auto mb-3 h-1 w-24 rounded-full bg-gradient-to-r from-rust-600 via-rust-400 to-rust-600 bg-shimmer animate-shimmer-bar motion-reduce:animate-none"
               aria-hidden
@@ -210,10 +210,10 @@ export default function Home() {
       {/* 4. Follow */}
       <section className="relative overflow-hidden border-t border-sage-800/30">
         <SectionAmbience variant="dark" />
-        <div className={`relative z-10 ${shell} py-10 text-center sm:py-12`}>
+        <div className={`relative z-10 ${shell} py-7 text-center sm:py-8`}>
           <ScrollReveal direction="fade">
-            <p className="section-kicker mb-2 text-rust-200/90">Stay connected</p>
-            <h2 className="font-display mb-4 text-2xl text-white sm:mb-5 sm:text-3xl">Follow the Trip</h2>
+            <p className="section-kicker mb-1.5 text-rust-200/90">Stay connected</p>
+            <h2 className="font-display mb-3 text-2xl text-white sm:mb-4 sm:text-3xl">Follow the Trip</h2>
             <SocialLinks variant="inline" />
           </ScrollReveal>
         </div>
