@@ -67,6 +67,9 @@ const MAP_SIDE_PINS = [
     linkSlug: 'more',
     geoStateName: 'south dakota',
     isSidePin: true,
+    /** Clear the Sturgis route waypoint — pins sit ~11px apart at map scale */
+    nudgeX: 12,
+    nudgeY: 16,
   },
 ]
 
@@ -612,6 +615,7 @@ export default function USMap() {
                 style={{ cursor: 'pointer' }}
               >
                 <g
+                  transform={`translate(${pin.nudgeX ?? 0} ${pin.nudgeY ?? 0})`}
                   style={{
                     transform: isPinPopped ? 'translate(0px, -5px) scale(1.06)' : 'translate(0px, 0px) scale(1)',
                     transition: POP_TRANSITION,
