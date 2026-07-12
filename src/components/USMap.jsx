@@ -35,11 +35,13 @@ const HIGHLIGHT_STATE_NAMES = new Set([
   'florida',
   'nebraska',
   'arizona',
+  'south dakota',
 ])
 
 /** Map geography names that route to a different page slug (e.g. Arizona → More). */
 const STATE_ROUTE_SLUG_OVERRIDES = {
   arizona: 'more',
+  'south dakota': 'more',
 }
 
 /** Side-trip pins — not full research stops; visually distinct from stop markers. */
@@ -53,6 +55,17 @@ const MAP_SIDE_PINS = [
     lat: 36.0544,
     linkSlug: 'more',
     geoStateName: 'arizona',
+    isSidePin: true,
+  },
+  {
+    id: 'rapid-city',
+    name: 'Rapid City',
+    heroIntro: 'See more · South Dakota',
+    badgeLabel: 'See more',
+    lng: -103.231,
+    lat: 44.0805,
+    linkSlug: 'more',
+    geoStateName: 'south dakota',
     isSidePin: true,
   },
 ]
