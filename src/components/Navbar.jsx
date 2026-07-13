@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-5">
+      <div className="mx-auto max-w-[88rem] px-2.5 sm:px-3.5 lg:px-4">
         <div className="flex h-16 items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
