@@ -94,12 +94,6 @@ const SLUG_BY_STATE_NAME = Object.fromEntries(
 const POP_SCALE = 1.058
 const POP_LIFT = 7
 
-/** When one of these is active, also lift sibling states (multi-state stops). */
-const LINKED_POP_STATES = {
-  arkansas: ['arkansas', 'oklahoma'],
-  oklahoma: ['arkansas', 'oklahoma'],
-}
-
 /** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
 const SHADE_OVERRIDES = {
   maine: 3, // darker
@@ -341,11 +335,8 @@ export default function USMap() {
   /** Center-x and top-y (px) for tooltip under the hovered pin, relative to map wrap. */
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
 
-  const activePopName =
+  const poppedState =
     hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] ?? hovered.geoStateName : null)
-  const poppedStates = new Set(
-    activePopName ? LINKED_POP_STATES[activePopName] ?? [activePopName] : []
-  )
 
   const routeSlugForStateName = (stateName) =>
     STATE_ROUTE_SLUG_OVERRIDES[stateName] ?? SLUG_BY_STATE_NAME[stateName]
@@ -427,8 +418,8 @@ export default function USMap() {
                 (geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? '')
               )
               const sorted = [...visible].sort((a, b) => {
-                const aPop = poppedStates.has(normalizedStateName(a))
-                const bPop = poppedStates.has(normalizedStateName(b))
+                const aPop = normalizedStateName(a) === poppedState
+                const bPop = normalizedStateName(b) === poppedState
                 if (aPop && !bPop) return 1
                 if (!aPop && bPop) return -1
                 return 0
@@ -437,7 +428,7 @@ export default function USMap() {
               return sorted.map((geo) => {
                 const stateName = normalizedStateName(geo)
                 const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
-                const isPopped = stateName && poppedStates.has(stateName)
+                const isPopped = stateName && stateName === poppedState
                 const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
 
@@ -525,7 +516,7 @@ export default function USMap() {
 
           {states.map((s) => {
             const stateName = STATE_NAME_BY_SLUG[s.slug]
-            const isPinPopped = poppedStates.has(stateName)
+            const isPinPopped = poppedState === stateName
 
             return (
             <Marker
@@ -618,7 +609,7 @@ export default function USMap() {
           })}
 
           {MAP_SIDE_PINS.map((pin) => {
-            const isPinPopped = poppedStates.has(pin.geoStateName)
+            const isPinPopped = poppedState === pin.geoStateName
             const isHovered = hovered?.id === pin.id
 
             return (
