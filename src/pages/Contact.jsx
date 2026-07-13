@@ -13,7 +13,9 @@ export default function Contact() {
       <PageContentBand>
         <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
           <p className="font-display text-2xl text-earth-900 sm:text-3xl">Coming soon!</p>
-          <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">Check back soon.</p>
+          <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
+            This website is currently under construction. Information will be updated soon.
+          </p>
         </div>
       </PageContentBand>
     </>
