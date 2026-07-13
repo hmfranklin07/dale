@@ -8,30 +8,30 @@ export default function About() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b flex flex-col ${HERO_MIN_H} border-sage-800/30`}
+        className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${HERO_MIN_H}`}
       >
         <div className="absolute inset-0 z-0">
           <img
             src={aboutHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_45%] sm:object-[50%_42%] lg:object-[50%_40%]"
+            className="h-full w-full object-cover object-[50%_48%] sm:object-[50%_46%] lg:object-[50%_44%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/45 via-sage-950/15 to-sage-950/50"
-          aria-hidden
-        />
 
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] items-center justify-center">
+        <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
           <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
             <div className="mx-auto w-full max-w-4xl">
-              <h1 className="font-display text-[2.35rem] leading-none text-white drop-shadow-sm sm:text-[3.25rem] lg:text-[3.75rem] xl:text-[4.25rem]">
+              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 About this project
               </h1>
+              <div
+                className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                aria-hidden
+              />
             </div>
           </div>
         </div>
