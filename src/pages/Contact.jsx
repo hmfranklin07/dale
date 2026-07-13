@@ -35,7 +35,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <PageContentBand>
+      <PageContentBand compact>
         <UnderConstructionCard />
       </PageContentBand>
     </>
