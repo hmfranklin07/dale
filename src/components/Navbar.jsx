@@ -34,7 +34,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   const linkClass = ({ isActive }) =>
-    `px-2.5 sm:px-3 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
+    `px-2 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
       isActive
         ? 'bg-rust-500 text-white shadow-sm shadow-rust-900/20 ring-1 ring-rust-700/45'
         : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
@@ -49,8 +49,8 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-[90rem] px-2.5 sm:px-3 lg:px-4">
+        <div className="flex h-16 items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
             <span className="font-display text-lg text-earth-900 sm:text-xl">
@@ -58,7 +58,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 justify-end">
+          <div className="hidden min-w-0 flex-1 items-center justify-end gap-0 lg:flex">
             <NavLink to={homeLink.to} end className={linkClass}>
               {homeLink.label}
             </NavLink>
