@@ -4,6 +4,8 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import SiteBackgroundUnderlay from './components/SiteBackgroundUnderlay'
 import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
 import MorePage from './pages/MorePage'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
@@ -22,6 +24,8 @@ export default function App() {
       <main className="relative z-10 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/more" element={<MorePage />} />
           <Route path="/blog/*" element={<Navigate to="/" replace />} />
           <Route path="/vlog" element={<Navigate to="/" replace />} />
