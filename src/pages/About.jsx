@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </section>
 
-      <PageContentBand>
+      <PageContentBand compact>
         <UnderConstructionCard />
       </PageContentBand>
     </>

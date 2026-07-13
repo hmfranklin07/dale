@@ -13,7 +13,12 @@ const washBg = {
  * Main content column: sage + warm wash + corner ambience, matches Home body sections.
  * `wash="rust"` uses the same rust orange as badges/links site-wide (Blog hub).
  */
-export default function PageContentBand({ children, variant = 'paper', wash = 'amber' }) {
+export default function PageContentBand({
+  children,
+  variant = 'paper',
+  wash = 'amber',
+  compact = false,
+}) {
   return (
     <div
       className={`relative overflow-hidden border-b ${
@@ -21,7 +26,13 @@ export default function PageContentBand({ children, variant = 'paper', wash = 'a
       } ${washBg[wash] ?? washBg.amber}`}
     >
       <SectionAmbience variant={variant} />
-      <div className={`relative z-10 ${contentShell} py-10 sm:py-14 lg:py-16`}>{children}</div>
+      <div
+        className={`relative z-10 ${contentShell} ${
+          compact ? 'py-5 sm:py-6 lg:py-7' : 'py-10 sm:py-14 lg:py-16'
+        }`}
+      >
+        {children}
+      </div>
     </div>
   )
 }
