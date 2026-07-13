@@ -1,5 +1,5 @@
 import PageContentBand from '../components/PageContentBand'
-import ConstructionWorkerIcon from '../components/ConstructionWorkerIcon'
+import UnderConstructionCard from '../components/UnderConstructionCard'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -39,12 +39,7 @@ export default function About() {
       </section>
 
       <PageContentBand>
-        <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
-          <ConstructionWorkerIcon className="mx-auto h-[4.25rem] w-[4.25rem] text-rust-600 sm:h-20 sm:w-20" />
-          <p className="mt-5 text-earth-700 leading-relaxed sm:text-lg">
-            This website is currently under construction. Information will be updated soon.
-          </p>
-        </div>
+        <UnderConstructionCard />
       </PageContentBand>
     </>
   )
