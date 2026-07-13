@@ -114,6 +114,17 @@ function StatesDropdown({ linkClassBase, statesOn }) {
                 {s.name}
               </NavLink>
             ))}
+            <div className="my-1 border-t border-sage-200/90" aria-hidden />
+            <NavLink
+              to={`/${more.slug}`}
+              role="menuitem"
+              className={stateItemClass}
+              onMouseEnter={() => preloadStatePhotoHero(more.slug)}
+              onFocus={() => preloadStatePhotoHero(more.slug)}
+              onClick={() => setOpen(false)}
+            >
+              {more.name}
+            </NavLink>
           </div>
         </div>
       )}
@@ -171,7 +182,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
-      <div className="mx-auto max-w-[88rem] px-2.5 sm:px-3.5 lg:px-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3">
           <Link to="/" className="flex shrink-0 items-center gap-2">
             <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
@@ -253,6 +264,15 @@ export default function Navbar() {
                     {s.name}
                   </NavLink>
                 ))}
+                <NavLink
+                  to={`/${more.slug}`}
+                  onClick={() => setOpen(false)}
+                  className={mobileLink}
+                  onMouseEnter={() => preloadStatePhotoHero(more.slug)}
+                  onFocus={() => preloadStatePhotoHero(more.slug)}
+                >
+                  {more.name}
+                </NavLink>
               </div>
             )}
 

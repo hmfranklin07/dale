@@ -10,7 +10,12 @@ export default function Contact() {
           <h1 className={`font-display text-4xl sm:text-5xl ${pageTitleClass}`}>Contact</h1>
         </div>
       </section>
-      <PageContentBand />
+      <PageContentBand>
+        <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
+          <p className="font-display text-2xl text-earth-900 sm:text-3xl">Coming soon!</p>
+          <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">Check back soon.</p>
+        </div>
+      </PageContentBand>
     </>
   )
 }
