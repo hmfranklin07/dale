@@ -15,7 +15,7 @@ export default function About() {
             src={aboutHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_36%] sm:object-[50%_34%] lg:object-[50%_32%]"
+            className="h-full w-full object-cover object-[50%_28%] sm:object-[50%_26%] lg:object-[50%_24%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
