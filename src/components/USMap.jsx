@@ -346,6 +346,11 @@ export default function USMap() {
   const poppedState =
     hoveredGeo || (hovered ? STATE_NAME_BY_SLUG[hovered.slug] ?? hovered.geoStateName : null)
 
+  const clearHover = () => {
+    setHovered(null)
+    setHoveredGeo(null)
+  }
+
   const routeSlugForStateName = (stateName) =>
     STATE_ROUTE_SLUG_OVERRIDES[stateName] ?? SLUG_BY_STATE_NAME[stateName]
 
@@ -389,9 +394,10 @@ export default function USMap() {
     <div
       ref={mapWrapRef}
       className="relative w-full"
-      onMouseLeave={() => {
-        setHovered(null)
-        setHoveredGeo(null)
+      onMouseLeave={clearHover}
+      onPointerLeave={clearHover}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) clearHover()
       }}
     >
       <div
@@ -422,25 +428,28 @@ export default function USMap() {
 
           <Geographies geography={GEO_URL}>
             {({ geographies }) => {
-              const visible = geographies.filter(
-                (geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? '')
-              )
-              const sorted = [...visible].sort((a, b) => {
-                const aPop = normalizedStateName(a) === poppedState
-                const bPop = normalizedStateName(b) === poppedState
-                if (aPop && !bPop) return 1
-                if (!aPop && bPop) return -1
-                return 0
-              })
+              // Stable paint order — never re-sort on hover. Reordering remounts paths mid-hover
+              // and can drop mouseLeave, leaving a state stuck "popped".
+              const visible = geographies
+                .filter((geo) => !EXCLUDED_STATE_NAMES.has(normalizedStateName(geo) ?? ''))
+                .sort((a, b) => {
+                  const aHi = HIGHLIGHT_STATE_NAMES.has(normalizedStateName(a) ?? '')
+                  const bHi = HIGHLIGHT_STATE_NAMES.has(normalizedStateName(b) ?? '')
+                  if (aHi === bHi) {
+                    return String(a.rsmKey || a.id).localeCompare(String(b.rsmKey || b.id))
+                  }
+                  return aHi ? 1 : -1
+                })
 
-              return sorted.map((geo) => {
+              return visible.map((geo) => {
                 const stateName = normalizedStateName(geo)
                 const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
                 const isPopped = stateName && stateName === poppedState
                 const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
-
-                const stateSlug = stateName ? SLUG_BY_STATE_NAME[stateName] : null
+                const stateSlug = stateName
+                  ? STATE_ROUTE_SLUG_OVERRIDES[stateName] ?? SLUG_BY_STATE_NAME[stateName]
+                  : null
 
                 if (!isHighlight) {
                   return (
@@ -477,7 +486,9 @@ export default function USMap() {
                         if (stateSlug) preloadStatePhotoHero(stateSlug)
                         setHoveredGeo(stateName)
                       }}
-                      onMouseLeave={() => setHoveredGeo(null)}
+                      onMouseLeave={() => {
+                        setHoveredGeo((current) => (current === stateName ? null : current))
+                      }}
                       onClick={() => goToState(stateName)}
                       style={{
                         default: {
@@ -536,7 +547,7 @@ export default function USMap() {
                 setHovered(s)
                 requestAnimationFrame(() => placeTooltipForState(s))
               }}
-              onMouseLeave={() => setHovered(null)}
+              onMouseLeave={clearHover}
               style={{ cursor: 'pointer' }}
             >
               <g
@@ -630,10 +641,7 @@ export default function USMap() {
                   setHovered(pin)
                   requestAnimationFrame(() => placeTooltipForState(pin))
                 }}
-                onMouseLeave={() => {
-                  setHovered(null)
-                  setHoveredGeo(null)
-                }}
+                onMouseLeave={clearHover}
                 style={{ cursor: 'pointer' }}
               >
                 <g
