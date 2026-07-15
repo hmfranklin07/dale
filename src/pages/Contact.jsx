@@ -58,9 +58,8 @@ export default function Contact() {
       </section>
 
       <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
-        {/* Quiet field: one warm rail, one grounded band, a few map routes */}
+        {/* Quiet field: warm ground band + dotted routes */}
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <div className="absolute inset-y-0 left-0 w-3 bg-rust-500 sm:w-3.5" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
           <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
           <svg
