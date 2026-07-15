@@ -120,12 +120,12 @@ export default function Contact() {
           <div className="mx-auto max-w-5xl">
             <div className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/15 ring-2 ring-rust-300/35">
               <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
-                <div className="border-b border-sage-200 bg-white px-6 py-8 sm:px-9 sm:py-10 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-12">
-                  <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.35rem]">
+                <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-12">
+                  <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.9rem]">
                     I&apos;d love to hear from you!
                   </p>
-                  <div className="mt-4 h-1 w-14 rounded-full bg-rust-500" aria-hidden />
-                  <p className="mt-5 text-base leading-relaxed text-earth-700 sm:text-lg">
+                  <div className="mt-5 h-1 w-16 rounded-full bg-rust-500 sm:mt-6 sm:w-20" aria-hidden />
+                  <p className="mt-6 max-w-none text-lg leading-relaxed text-earth-700 sm:mt-7 sm:text-xl sm:leading-[1.65]">
                     Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
                     know, or have any questions, send me an email!
                   </p>
