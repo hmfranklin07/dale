@@ -20,7 +20,7 @@ export default function Contact() {
             src={contactHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_32%] sm:object-[50%_30%] lg:object-[50%_28%]"
+            className="h-full w-full object-cover object-[50%_78%] sm:object-[50%_80%] lg:object-[50%_82%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
