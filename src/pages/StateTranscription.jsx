@@ -152,7 +152,7 @@ export default function StateTranscription() {
         )}
       </section>
 
-      <PageContentBand wash="rust" variant="sage">
+      <PageContentBand field="route">
         <article className="mx-auto max-w-3xl">
           {interview.intro && (
             <>

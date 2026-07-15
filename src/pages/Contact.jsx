@@ -1,4 +1,5 @@
 import contactHeroUrl from '../assets/contact/contact-hero.jpg?url'
+import { RouteFieldAmbience, routeFieldSectionClass } from '../components/RouteFieldAmbience'
 import siteMeta from '../data/siteMeta.json'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -57,44 +58,8 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
-        {/* Quiet field: one warm rail, one grounded band, a few map routes */}
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <div className="absolute inset-y-0 left-0 w-3 bg-rust-500 sm:w-3.5" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
-          <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
-          <svg
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 1000 400"
-            preserveAspectRatio="xMidYMid slice"
-            fill="none"
-          >
-            <path
-              d="M -40 95 C 160 55, 280 165, 460 110 S 720 50, 900 140 S 980 210, 1040 190"
-              stroke="#c45a3a"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeDasharray="5 13"
-              opacity="0.42"
-            />
-            <path
-              d="M -20 210 C 180 175, 320 265, 500 205 S 780 145, 960 245 S 1020 300, 1060 285"
-              stroke="#b4532a"
-              strokeWidth="1.45"
-              strokeLinecap="round"
-              strokeDasharray="4 15"
-              opacity="0.32"
-            />
-            <path
-              d="M -30 325 C 200 285, 360 365, 540 300 S 820 230, 1000 340"
-              stroke="#d9774f"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeDasharray="3 16"
-              opacity="0.28"
-            />
-          </svg>
-        </div>
+      <section className={routeFieldSectionClass}>
+        <RouteFieldAmbience variant="section" />
 
         <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-5xl">

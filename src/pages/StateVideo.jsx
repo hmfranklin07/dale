@@ -24,7 +24,7 @@ export default function StateVideo() {
   const townLabel = vlogLocationLabel(vlog)
 
   return (
-    <PageContentBand wash="rust" variant="sage">
+    <PageContentBand field="route">
       <div className={shell}>
         <Link
           to={`/${stateSlug}`}

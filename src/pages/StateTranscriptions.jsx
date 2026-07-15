@@ -27,7 +27,7 @@ export default function StateTranscriptions() {
         description="Conversations from this stop."
       />
 
-      <PageContentBand>
+      <PageContentBand field="route">
         <SectionHeading>All conversations</SectionHeading>
         {list.length === 0 ? (
           <div className="card card-body text-center text-earth-600">
