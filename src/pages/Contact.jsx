@@ -20,21 +20,22 @@ export default function Contact() {
             src={contactHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_70%] sm:object-[50%_72%] lg:object-[50%_74%]"
+            className="h-full w-full object-cover object-[50%_74%] sm:object-[50%_76%] lg:object-[50%_78%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/40 via-sage-950/10 to-sage-950/45"
-          aria-hidden
-        />
 
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
-          <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
-            <div className="mx-auto w-full max-w-4xl">
-              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-md sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
+          <div className={`${heroShell} w-full py-8 text-center sm:py-10 md:py-11`}>
+            <div className="relative mx-auto w-full max-w-4xl py-5 sm:py-6">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/25 bg-sage-950/45 shadow-[0_18px_50px_-18px_rgba(26,21,18,0.55)] backdrop-blur-md"
+              />
+
+              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 Contact
               </h1>
               <div
@@ -42,10 +43,16 @@ export default function Contact() {
                 aria-hidden
               />
 
-              <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-2.5">
-                {CONTACT_LABELS.map((label) => (
-                  <li key={label}>
-                    <span className="inline-flex items-center rounded-full border border-white/70 bg-white/92 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-earth-900 shadow-md shadow-sage-950/25 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.16em]">
+              <ul className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-center gap-x-0 gap-y-2 sm:mt-5">
+                {CONTACT_LABELS.map((label, index) => (
+                  <li key={label} className="flex items-center">
+                    {index > 0 && (
+                      <span
+                        className="mx-2.5 hidden h-3 w-px bg-white/45 sm:mx-3.5 sm:inline-block"
+                        aria-hidden
+                      />
+                    )}
+                    <span className="px-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white sm:text-[0.78rem] sm:tracking-[0.2em]">
                       {label}
                     </span>
                   </li>
@@ -57,37 +64,29 @@ export default function Contact() {
       </section>
 
       <PageContentBand>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="section-kicker mb-3 text-rust-700">Get in touch</p>
-          <p className="font-display text-3xl leading-snug text-earth-900 sm:text-4xl">
+        <div className="mx-auto max-w-xl text-center">
+          <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.15rem]">
             I&apos;d love to hear from you!
           </p>
-          <div
-            className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
-            aria-hidden
-          />
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-earth-700 sm:mt-6 sm:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-earth-700 sm:mt-5 sm:text-lg">
             Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you know, or
             have any questions, send me an email!
           </p>
 
-          <div className="mt-9 sm:mt-11">
-            <p className="mb-3 text-sm font-medium text-earth-600 sm:text-base">Reach me here:</p>
-            <a
-              href={mailto}
-              className="group inline-flex w-full max-w-lg flex-col items-center gap-2 rounded-2xl border-2 border-rust-500 bg-gradient-to-b from-rust-500 to-rust-600 px-6 py-6 text-white shadow-xl shadow-rust-900/25 ring-2 ring-rust-300/60 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-2xl hover:shadow-rust-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-10 sm:py-7"
-            >
-              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/90">
-                Email me
-              </span>
-              <span className="font-display text-[1.65rem] leading-tight tracking-tight text-white sm:text-3xl lg:text-[2.15rem]">
-                {siteMeta.contactEmail}
-              </span>
-              <span className="mt-0.5 text-sm font-medium text-white/85 transition-transform duration-300 group-hover:translate-x-0.5">
-                Click to open your email app →
-              </span>
-            </a>
-          </div>
+          <div className="mx-auto mt-8 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-sage-400/70 to-transparent sm:mt-10" aria-hidden />
+
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-earth-500 sm:mt-9">
+            Email
+          </p>
+          <a
+            href={mailto}
+            className="mt-2 inline-block font-display text-2xl text-rust-700 underline decoration-rust-400/60 underline-offset-[0.22em] transition-colors hover:text-rust-800 hover:decoration-rust-500 sm:text-3xl"
+          >
+            {siteMeta.contactEmail}
+          </a>
+          <p className="mt-3 text-sm text-earth-600">
+            Click the address above to write me.
+          </p>
         </div>
       </PageContentBand>
     </>
