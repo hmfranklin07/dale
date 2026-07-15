@@ -1,4 +1,3 @@
-import PageContentBand from '../components/PageContentBand'
 import { pageTitleClass } from '../components/SectionHeading'
 import contactHeroUrl from '../assets/contact/contact-hero.jpg?url'
 import siteMeta from '../data/siteMeta.json'
@@ -63,44 +62,46 @@ export default function Contact() {
         </div>
       </section>
 
-      <PageContentBand>
-        <div className="mx-auto max-w-5xl">
-          <div className="overflow-hidden rounded-[1.35rem] border-2 border-sage-300/80 bg-white shadow-xl shadow-sage-900/10 ring-1 ring-rust-200/30">
-            <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
-              <div className="border-b border-sage-200 px-6 py-8 sm:px-9 sm:py-10 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-12">
-                <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.35rem]">
-                  I&apos;d love to hear from you!
-                </p>
-                <div className="mt-4 h-px w-14 bg-rust-500" aria-hidden />
-                <p className="mt-5 text-base leading-relaxed text-earth-700 sm:text-lg">
-                  Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
-                  know, or have any questions, send me an email!
-                </p>
-              </div>
+      <section className="relative border-b border-sage-300/60 bg-sage-100">
+        <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+          <div className="mx-auto max-w-5xl">
+            <div className="overflow-hidden rounded-[1.35rem] border-2 border-sage-300/80 bg-white shadow-xl shadow-sage-900/10 ring-1 ring-sage-400/20">
+              <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
+                <div className="border-b border-sage-200 bg-white px-6 py-8 sm:px-9 sm:py-10 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-12">
+                  <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.35rem]">
+                    I&apos;d love to hear from you!
+                  </p>
+                  <div className="mt-4 h-px w-14 bg-rust-500" aria-hidden />
+                  <p className="mt-5 text-base leading-relaxed text-earth-700 sm:text-lg">
+                    Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
+                    know, or have any questions, send me an email!
+                  </p>
+                </div>
 
-              <div className="flex flex-col items-center justify-center border-t border-sage-200 bg-sage-100 px-6 py-10 text-center md:border-t-0 sm:px-8 sm:py-12 md:px-9 md:py-14">
-                <div className="w-full max-w-sm">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-800">
-                    Write to me
-                  </p>
-                  <div className="mx-auto mt-3 h-px w-10 bg-rust-500" aria-hidden />
-                  <a
-                    href={mailto}
-                    className="mt-5 block rounded-2xl border-2 border-rust-500 bg-white px-4 py-5 shadow-md shadow-sage-900/10 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-rust-600 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400 motion-reduce:hover:translate-y-0 sm:px-5 sm:py-6"
-                  >
-                    <span className="font-display text-[1.45rem] leading-snug text-earth-900 sm:text-[1.7rem]">
-                      {siteMeta.contactEmail}
-                    </span>
-                  </a>
-                  <p className="mt-4 text-sm leading-relaxed text-earth-700">
-                    Tap the address to open your email app — I read every message.
-                  </p>
+                <div className="flex flex-col items-center justify-center bg-sage-700 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
+                  <div className="w-full max-w-sm">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100/90">
+                      Write to me
+                    </p>
+                    <div className="mx-auto mt-3 h-px w-10 bg-rust-400" aria-hidden />
+                    <a
+                      href={mailto}
+                      className="mt-5 block rounded-2xl border-2 border-white/35 bg-white px-4 py-5 shadow-md shadow-sage-950/20 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-white/60 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-5 sm:py-6"
+                    >
+                      <span className="font-display text-[1.45rem] leading-snug text-earth-900 sm:text-[1.7rem]">
+                        {siteMeta.contactEmail}
+                      </span>
+                    </a>
+                    <p className="mt-4 text-sm leading-relaxed text-sage-100/90">
+                      Tap the address to open your email app — I read every message.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </PageContentBand>
+      </section>
     </>
   )
 }
