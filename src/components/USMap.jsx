@@ -163,8 +163,16 @@ const SIDE_PIN_STROKE_WIDTH = (PIN_RIM_WIDTH * PIN_SCALE) / SIDE_PIN_DIAMOND_SCA
 const SIDE_PIN_TIP_X = 12
 const SIDE_PIN_TIP_Y = 18
 /** See more badge — wider than stop labels for comfortable padding */
-const SIDE_BADGE_WIDTH = 70
-const SIDE_BADGE_INNER_WIDTH = 66
+const SIDE_BADGE_WIDTH = 84
+const SIDE_BADGE_INNER_WIDTH = 79
+const STOP_BADGE_WIDTH = 64
+const STOP_BADGE_INNER_WIDTH = 59
+const BADGE_HEIGHT = 23
+const BADGE_INNER_HEIGHT = 18.8
+const BADGE_RX = 11.5
+const BADGE_INNER_RX = 9.6
+const BADGE_FONT_SIZE = 14.4
+const BADGE_Y_OFFSET = 26.5
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 const STOP_LABELS_BY_SLUG = {
   'new-york': 'Stop 1',
@@ -565,27 +573,27 @@ export default function USMap() {
                 />
               </g>
               {STOP_LABELS_BY_SLUG[s.slug] && (
-                <g className="pointer-events-none select-none" transform="translate(0 23.5)">
+                <g className="pointer-events-none select-none" transform={`translate(0 ${BADGE_Y_OFFSET})`}>
                   <rect
-                    x={-27}
-                    y={-11}
-                    width={54}
-                    height={19}
-                    rx={9.5}
+                    x={-STOP_BADGE_WIDTH / 2}
+                    y={-BADGE_HEIGHT / 2}
+                    width={STOP_BADGE_WIDTH}
+                    height={BADGE_HEIGHT}
+                    rx={BADGE_RX}
                     fill="url(#stopBadgeFill)"
                     stroke="#e8a188"
-                    strokeWidth={1}
+                    strokeWidth={1.15}
                     filter="url(#stopBadgeShadow)"
                   />
                   <rect
-                    x={-25.3}
-                    y={-9.3}
-                    width={50.6}
-                    height={15.6}
-                    rx={8.2}
+                    x={-STOP_BADGE_INNER_WIDTH / 2}
+                    y={-BADGE_INNER_HEIGHT / 2}
+                    width={STOP_BADGE_INNER_WIDTH}
+                    height={BADGE_INNER_HEIGHT}
+                    rx={BADGE_INNER_RX}
                     fill="none"
                     stroke="rgba(250,249,245,0.65)"
-                    strokeWidth={0.7}
+                    strokeWidth={0.8}
                   />
                   <text
                     x={0}
@@ -595,7 +603,7 @@ export default function USMap() {
                     alignmentBaseline="middle"
                     fill="#8f3b24"
                     fontFamily="'DM Serif Display', Georgia, serif"
-                    fontSize="12.2"
+                    fontSize={BADGE_FONT_SIZE}
                     fontWeight="400"
                     letterSpacing="0.15"
                   >
@@ -659,27 +667,27 @@ export default function USMap() {
                       />
                     </g>
                   </g>
-                  <g className="pointer-events-none select-none" transform="translate(0 23.5)">
+                  <g className="pointer-events-none select-none" transform={`translate(0 ${BADGE_Y_OFFSET})`}>
                     <rect
                       x={-SIDE_BADGE_WIDTH / 2}
-                      y={-11}
+                      y={-BADGE_HEIGHT / 2}
                       width={SIDE_BADGE_WIDTH}
-                      height={19}
-                      rx={9.5}
+                      height={BADGE_HEIGHT}
+                      rx={BADGE_RX}
                       fill="url(#stopBadgeFill)"
                       stroke="#e8a188"
-                      strokeWidth={1}
+                      strokeWidth={1.15}
                       filter="url(#stopBadgeShadow)"
                     />
                     <rect
                       x={-(SIDE_BADGE_INNER_WIDTH / 2)}
-                      y={-9.3}
+                      y={-BADGE_INNER_HEIGHT / 2}
                       width={SIDE_BADGE_INNER_WIDTH}
-                      height={15.6}
-                      rx={8.2}
+                      height={BADGE_INNER_HEIGHT}
+                      rx={BADGE_INNER_RX}
                       fill="none"
                       stroke="rgba(250,249,245,0.65)"
-                      strokeWidth={0.7}
+                      strokeWidth={0.8}
                     />
                     <text
                       x={0}
@@ -689,7 +697,7 @@ export default function USMap() {
                       alignmentBaseline="middle"
                       fill="#8f3b24"
                       fontFamily="'DM Serif Display', Georgia, serif"
-                      fontSize="12.2"
+                      fontSize={BADGE_FONT_SIZE}
                       fontWeight="400"
                       letterSpacing="0.15"
                     >
