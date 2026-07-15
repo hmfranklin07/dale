@@ -1,8 +1,5 @@
 import PageContentBand from '../components/PageContentBand'
-import { PageHeroPanel } from '../components/PageHeroPanel'
-import { SectionAmbience } from '../components/SectionAmbience'
-import { pageTitleClass } from '../components/SectionHeading'
-import { stateHeroBandSectionClass } from '../config/mapPinColors'
+import contactHeroUrl from '../assets/contact/contact-hero.jpg?url'
 import siteMeta from '../data/siteMeta.json'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -16,18 +13,24 @@ export default function Contact() {
   return (
     <>
       <section
-        className={`relative flex flex-col overflow-hidden border-b border-sage-400/45 ${HERO_MIN_H} ${stateHeroBandSectionClass}`}
+        className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${HERO_MIN_H}`}
       >
-        <SectionAmbience variant="sage" />
-        <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col justify-center">
-          <div className={`${heroShell} w-full py-10 sm:py-14 md:py-16`}>
-            <PageHeroPanel
-              tone="statePage"
-              className="mx-auto w-full max-w-3xl text-center !py-6 sm:!py-7 md:!py-8"
-            >
-              <h1
-                className={`font-display mt-0 text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] ${pageTitleClass}`}
-              >
+        <div className="absolute inset-0 z-0">
+          <img
+            src={contactHeroUrl}
+            alt=""
+            sizes="100vw"
+            className="h-full w-full object-cover object-[50%_32%] sm:object-[50%_30%] lg:object-[50%_28%]"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </div>
+
+        <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
+          <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
+            <div className="mx-auto w-full max-w-4xl">
+              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 Contact
               </h1>
               <div
@@ -38,17 +41,17 @@ export default function Contact() {
                 {CONTACT_LABELS.map((label, index) => (
                   <li key={label} className="flex items-center gap-x-3 sm:gap-x-4">
                     {index > 0 && (
-                      <span className="hidden text-rust-400/70 sm:inline" aria-hidden>
+                      <span className="hidden text-white/55 sm:inline" aria-hidden>
                         ·
                       </span>
                     )}
-                    <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-earth-600 sm:text-xs sm:tracking-[0.18em]">
+                    <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white/92 drop-shadow-sm sm:text-xs sm:tracking-[0.18em]">
                       {label}
                     </span>
                   </li>
                 ))}
               </ul>
-            </PageHeroPanel>
+            </div>
           </div>
         </div>
       </section>
