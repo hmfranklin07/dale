@@ -12,9 +12,7 @@ export default function Contact() {
 
   return (
     <>
-      <section
-        className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${HERO_MIN_H}`}
-      >
+      <section className={`relative flex flex-col overflow-hidden ${HERO_MIN_H}`}>
         <div className="absolute inset-0 z-0">
           <img
             src={contactHeroUrl}
@@ -62,33 +60,58 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-b border-rust-200/50 bg-sage-100">
-        {/* Warm pop in the empty field around the card — solid-color glows + dashed route marks */}
+      <section className="relative overflow-hidden border-b border-rust-300/40 border-t-[5px] border-t-rust-500 bg-earth-100">
+        {/* Solid earthy weight + dashed routes — no soft glows */}
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <div className="absolute -left-16 top-0 h-64 w-64 rounded-full bg-rust-400/35 blur-3xl sm:h-80 sm:w-80" />
-          <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-rust-500/30 blur-3xl sm:h-96 sm:w-96" />
-          <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-200/40 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-1.5 bg-rust-500" />
+          <div className="absolute inset-y-0 left-0 w-[28%] max-w-xs bg-rust-200/45" />
+          <div className="absolute inset-y-0 right-0 w-[22%] max-w-[14rem] bg-sage-200/70" />
+          <div className="absolute inset-x-0 bottom-0 h-[38%] bg-rust-300/25" />
+          <div className="absolute left-[18%] top-[12%] h-24 w-24 rotate-12 border-2 border-dashed border-rust-400/45 sm:h-28 sm:w-28" />
+          <div className="absolute bottom-[14%] right-[16%] h-16 w-16 -rotate-6 border-2 border-dashed border-sage-500/40 sm:h-20 sm:w-20" />
           <svg
-            className="absolute inset-0 h-full w-full text-rust-500/30"
-            viewBox="0 0 1200 420"
+            className="absolute inset-0 h-full w-full text-rust-600/35"
+            viewBox="0 0 1200 480"
             preserveAspectRatio="none"
             fill="none"
           >
             <path
-              d="M -20 90 C 220 40, 380 180, 560 120 S 860 40, 1100 160 S 1180 280, 1240 250"
+              d="M -20 70 C 200 30, 360 150, 540 95 S 820 30, 1040 130 S 1180 220, 1240 200"
               stroke="currentColor"
-              strokeWidth="2.25"
+              strokeWidth="2.2"
               strokeLinecap="round"
-              strokeDasharray="7 12"
+              strokeDasharray="6 11"
             />
             <path
-              d="M -10 340 C 180 300, 340 380, 520 300 S 820 220, 1040 320 S 1180 380, 1250 360"
+              d="M -30 200 C 160 160, 300 260, 480 190 S 780 120, 980 230 S 1160 300, 1260 280"
               stroke="currentColor"
-              strokeWidth="1.75"
+              strokeWidth="1.6"
               strokeLinecap="round"
-              strokeDasharray="5 14"
-              opacity="0.75"
+              strokeDasharray="4 13"
+              opacity="0.7"
+            />
+            <path
+              d="M -10 320 C 180 280, 340 380, 520 300 S 820 220, 1040 330 S 1180 400, 1250 370"
+              stroke="currentColor"
+              strokeWidth="1.9"
+              strokeLinecap="round"
+              strokeDasharray="5 12"
+              opacity="0.85"
+            />
+            <path
+              d="M 80 -10 C 120 120, 60 220, 200 300 S 420 400, 560 360 S 780 280, 940 400 S 1100 460, 1220 420"
+              stroke="#c45a3a"
+              strokeWidth="1.35"
+              strokeLinecap="round"
+              strokeDasharray="3 14"
+              opacity="0.45"
+            />
+            <path
+              d="M 1100 -20 C 980 80, 1120 180, 900 240 S 620 200, 480 300 S 220 380, 40 440"
+              stroke="#d9774f"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeDasharray="4 16"
+              opacity="0.4"
             />
           </svg>
         </div>
