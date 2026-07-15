@@ -64,29 +64,63 @@ export default function Contact() {
       </section>
 
       <PageContentBand>
-        <div className="mx-auto max-w-xl text-center">
-          <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.15rem]">
-            I&apos;d love to hear from you!
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-earth-700 sm:mt-5 sm:text-lg">
-            Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you know, or
-            have any questions, send me an email!
-          </p>
+        <div className="mx-auto max-w-5xl">
+          <div className="overflow-hidden rounded-[1.35rem] border border-sage-300/80 bg-white/80 shadow-xl shadow-sage-900/10 ring-1 ring-amber-100/50">
+            <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
+              <div className="border-b border-sage-200/80 px-6 py-8 sm:px-9 sm:py-10 md:border-b-0 md:border-r md:px-10 md:py-12">
+                <p className="section-kicker mb-3">A note from Hannah</p>
+                <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.35rem]">
+                  I&apos;d love to hear from you!
+                </p>
+                <div
+                  className="mt-4 h-px w-16 bg-gradient-to-r from-rust-400 to-transparent"
+                  aria-hidden
+                />
+                <p className="mt-5 text-base leading-relaxed text-earth-700 sm:text-lg">
+                  Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
+                  know, or have any questions, send me an email!
+                </p>
 
-          <div className="mx-auto mt-8 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-sage-400/70 to-transparent sm:mt-10" aria-hidden />
+                <ul className="mt-7 grid grid-cols-2 gap-3 sm:mt-8">
+                  {CONTACT_LABELS.map((label) => (
+                    <li
+                      key={label}
+                      className="rounded-xl border border-sage-200/90 bg-sage-50/80 px-3 py-2.5 text-center text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-earth-700 sm:text-xs"
+                    >
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-earth-500 sm:mt-9">
-            Email
-          </p>
-          <a
-            href={mailto}
-            className="mt-2 inline-block font-display text-2xl text-rust-700 underline decoration-rust-400/60 underline-offset-[0.22em] transition-colors hover:text-rust-800 hover:decoration-rust-500 sm:text-3xl"
-          >
-            {siteMeta.contactEmail}
-          </a>
-          <p className="mt-3 text-sm text-earth-600">
-            Click the address above to write me.
-          </p>
+              <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-rust-500 via-rust-600 to-rust-800 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-30"
+                  style={{
+                    backgroundImage:
+                      'radial-gradient(circle at 20% 20%, rgba(250,249,245,0.28), transparent 45%), radial-gradient(circle at 85% 80%, rgba(26,21,18,0.25), transparent 40%)',
+                  }}
+                  aria-hidden
+                />
+                <div className="relative z-10 w-full max-w-sm">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-white/85">
+                    Write to me
+                  </p>
+                  <a
+                    href={mailto}
+                    className="mt-4 block rounded-2xl border border-white/35 bg-white/12 px-4 py-5 backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-white/55 hover:bg-white/18 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 motion-reduce:hover:translate-y-0 sm:px-5 sm:py-6"
+                  >
+                    <span className="font-display text-[1.45rem] leading-snug text-white sm:text-[1.7rem]">
+                      {siteMeta.contactEmail}
+                    </span>
+                  </a>
+                  <p className="mt-4 text-sm leading-relaxed text-white/88">
+                    Tap the address to open your email app — I read every message.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </PageContentBand>
     </>
