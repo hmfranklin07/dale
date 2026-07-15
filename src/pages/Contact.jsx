@@ -68,7 +68,6 @@ export default function Contact() {
           <div className="overflow-hidden rounded-[1.35rem] border-2 border-sage-300/80 bg-white shadow-xl shadow-sage-900/10 ring-1 ring-rust-200/30">
             <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
               <div className="border-b border-sage-200 px-6 py-8 sm:px-9 sm:py-10 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-12">
-                <p className="section-kicker mb-3 text-rust-700">A note from Hannah</p>
                 <p className="font-display text-3xl leading-snug text-earth-900 sm:text-[2.35rem]">
                   I&apos;d love to hear from you!
                 </p>
@@ -77,17 +76,6 @@ export default function Contact() {
                   Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
                   know, or have any questions, send me an email!
                 </p>
-
-                <ul className="mt-7 flex flex-wrap gap-2 sm:mt-8">
-                  {CONTACT_LABELS.map((label) => (
-                    <li
-                      key={label}
-                      className="rounded-full border border-sage-300 bg-sage-50 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-earth-800 sm:text-[0.7rem]"
-                    >
-                      {label}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="flex flex-col items-center justify-center border-t border-sage-200 bg-sage-100 px-6 py-10 text-center md:border-t-0 sm:px-8 sm:py-12 md:px-9 md:py-14">
