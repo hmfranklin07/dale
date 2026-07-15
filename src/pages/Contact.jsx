@@ -20,32 +20,32 @@ export default function Contact() {
             src={contactHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_78%] sm:object-[50%_80%] lg:object-[50%_82%]"
+            className="h-full w-full object-cover object-[50%_70%] sm:object-[50%_72%] lg:object-[50%_74%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/40 via-sage-950/10 to-sage-950/45"
+          aria-hidden
+        />
 
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
           <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
             <div className="mx-auto w-full max-w-4xl">
-              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
+              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-md sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                 Contact
               </h1>
               <div
                 className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                 aria-hidden
               />
-              <ul className="mx-auto mt-4 flex max-w-2xl flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:mt-5 sm:gap-x-4">
-                {CONTACT_LABELS.map((label, index) => (
-                  <li key={label} className="flex items-center gap-x-3 sm:gap-x-4">
-                    {index > 0 && (
-                      <span className="hidden text-white/55 sm:inline" aria-hidden>
-                        ·
-                      </span>
-                    )}
-                    <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white/92 drop-shadow-sm sm:text-xs sm:tracking-[0.18em]">
+
+              <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-2.5">
+                {CONTACT_LABELS.map((label) => (
+                  <li key={label}>
+                    <span className="inline-flex items-center rounded-full border border-white/70 bg-white/92 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-earth-900 shadow-md shadow-sage-950/25 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.16em]">
                       {label}
                     </span>
                   </li>
@@ -58,23 +58,36 @@ export default function Contact() {
 
       <PageContentBand>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-2xl leading-snug text-earth-900 sm:text-3xl">
+          <p className="section-kicker mb-3 text-rust-700">Get in touch</p>
+          <p className="font-display text-3xl leading-snug text-earth-900 sm:text-4xl">
             I&apos;d love to hear from you!
           </p>
-          <p className="mt-4 text-base leading-relaxed text-earth-700 sm:mt-5 sm:text-lg">
+          <div
+            className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
+            aria-hidden
+          />
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-earth-700 sm:mt-6 sm:text-lg">
             Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you know, or
             have any questions, send me an email!
           </p>
 
-          <a
-            href={mailto}
-            className="mt-8 inline-flex flex-col items-center gap-2 rounded-2xl border-2 border-rust-500/80 bg-gradient-to-b from-white to-rust-50/40 px-6 py-5 shadow-lg shadow-rust-900/10 ring-2 ring-rust-300/50 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-0.5 hover:border-rust-600 hover:shadow-xl hover:shadow-rust-900/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400 motion-reduce:hover:translate-y-0 sm:mt-10 sm:px-10 sm:py-6"
-          >
-            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-rust-700">Email me</span>
-            <span className="font-display text-2xl text-earth-900 underline decoration-rust-400/55 underline-offset-[0.18em] sm:text-3xl lg:text-[2.1rem]">
-              {siteMeta.contactEmail}
-            </span>
-          </a>
+          <div className="mt-9 sm:mt-11">
+            <p className="mb-3 text-sm font-medium text-earth-600 sm:text-base">Reach me here:</p>
+            <a
+              href={mailto}
+              className="group inline-flex w-full max-w-lg flex-col items-center gap-2 rounded-2xl border-2 border-rust-500 bg-gradient-to-b from-rust-500 to-rust-600 px-6 py-6 text-white shadow-xl shadow-rust-900/25 ring-2 ring-rust-300/60 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-2xl hover:shadow-rust-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-10 sm:py-7"
+            >
+              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/90">
+                Email me
+              </span>
+              <span className="font-display text-[1.65rem] leading-tight tracking-tight text-white sm:text-3xl lg:text-[2.15rem]">
+                {siteMeta.contactEmail}
+              </span>
+              <span className="mt-0.5 text-sm font-medium text-white/85 transition-transform duration-300 group-hover:translate-x-0.5">
+                Click to open your email app →
+              </span>
+            </a>
+          </div>
         </div>
       </PageContentBand>
     </>
