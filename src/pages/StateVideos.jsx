@@ -25,7 +25,7 @@ export default function StateVideos() {
         description="Conversations from this stop."
       />
 
-      <PageContentBand field="route">
+      <PageContentBand>
         {list.length === 0 ? (
           <div className="card card-body text-center text-earth-600">
             <p>No videos linked to towns in {state.name} yet. Add video entries with matching town slugs.</p>

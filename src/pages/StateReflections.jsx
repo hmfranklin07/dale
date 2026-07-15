@@ -44,7 +44,7 @@ export default function StateReflections() {
         </div>
       </section>
 
-      <PageContentBand field="route">
+      <PageContentBand>
         <SectionHeading>All reflections</SectionHeading>
         {list.length === 0 ? (
           <div className="card card-body text-center text-earth-600">

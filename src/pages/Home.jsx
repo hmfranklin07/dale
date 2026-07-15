@@ -1,6 +1,6 @@
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
-import { RouteFieldAmbience, routeFieldSectionClass } from '../components/RouteFieldAmbience'
+import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { useInView } from '../hooks/useInView'
 /** Home hero background photo, bundled as-is. */
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[20rem] overflow-hidden sm:min-h-[24rem] md:min-h-[28rem]">
+      <section className="relative min-h-[20rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[24rem] md:min-h-[28rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
@@ -81,10 +81,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2–3. Bio + map — one continuous route field under the hero */}
-      <section className={routeFieldSectionClass}>
-        <RouteFieldAmbience variant="tall" />
-
+      {/* 2. Inspiration */}
+      <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100/78">
         <div className={`relative z-10 ${sectionShell} pt-7 pb-4 sm:pt-8 sm:pb-5`}>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
@@ -126,11 +124,15 @@ export default function Home() {
             This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
           </p>
         </div>
+      </section>
 
-        <div
-          id="map"
-          className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-2 py-10 sm:scroll-mt-24 sm:px-3 sm:py-14"
-        >
+      {/* 3. Map */}
+      <section
+        id="map"
+        className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50 scroll-mt-20 sm:scroll-mt-24"
+      >
+        <SectionAmbience variant="map" />
+        <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div
             ref={mapRevealRef}
             className={`motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
