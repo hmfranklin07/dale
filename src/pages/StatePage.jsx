@@ -203,9 +203,11 @@ export default function StatePage() {
           {photoHero ? (
             <div
               className={`${stateHeroShell} w-full text-center ${
-                skyPhotoHero
-                  ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'
-                  : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
+                stateSlug === 'arkansas'
+                  ? 'pb-16 pt-[4.75rem] sm:pb-20 sm:pt-[5.25rem] md:pb-24 md:pt-[5.75rem]'
+                  : skyPhotoHero
+                    ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'
+                    : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
             >
               <div className="mx-auto w-full max-w-2xl">
