@@ -163,7 +163,9 @@ export default function StatePage() {
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
-  const skyPhotoHero = photoHero && (stateSlug === 'illinois' || stateSlug === 'nebraska' || stateSlug === 'idaho')
+  const skyPhotoHero =
+    photoHero &&
+    (stateSlug === 'arkansas' || stateSlug === 'illinois' || stateSlug === 'nebraska' || stateSlug === 'idaho')
 
   return (
     <>
