@@ -210,9 +210,11 @@ export default function StatePage() {
             >
               <div className="mx-auto w-full max-w-2xl">
                 <h1
-                  className={`font-display text-[2.75rem] leading-none sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] ${
-                    nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass
-                  }`}
+                  className={`font-display whitespace-nowrap leading-none ${
+                    state.name.length > 14
+                      ? 'text-[1.9rem] sm:text-[2.8rem] lg:text-[3.4rem] xl:text-[3.9rem]'
+                      : 'text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]'
+                  } ${nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass}`}
                 >
                   {state.name}
                 </h1>
