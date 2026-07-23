@@ -33,7 +33,7 @@ export default function Contact() {
           <div className={`${heroShell} w-full py-8 text-center sm:py-10 md:py-11`}>
             <div className="relative mx-auto w-full max-w-4xl py-5 sm:py-6">
               <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-[0_2px_12px_rgba(20,28,18,0.55)] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-                Contact
+                Connect
               </h1>
               <div className="mx-auto mt-2.5 h-1 w-14 rounded-full bg-rust-400 sm:mt-3 sm:w-20" aria-hidden />
 
