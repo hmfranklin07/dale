@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
 import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
@@ -118,6 +119,14 @@ export default function Home() {
                   <em>The Curious Scientist</em>, at Princeton during the 2025–26 school year.
                 </p>
               </div>
+              <p className="mt-4 sm:mt-5">
+                <Link
+                  to="/about"
+                  className="text-sm font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950 hover:decoration-rust-600 sm:text-base"
+                >
+                  See more about this project →
+                </Link>
+              </p>
             </div>
           </div>
           <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-sage-300/50 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm">
