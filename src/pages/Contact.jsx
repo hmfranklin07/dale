@@ -4,7 +4,7 @@ import siteMeta from '../data/siteMeta.json'
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
 
-const CONTACT_LABELS = ['Connect', 'Share a story', 'Nominate someone', 'Questions']
+const CONTACT_LABELS = ['Share a story', 'Nominate someone', 'Questions']
 
 export default function Contact() {
   const mailto = `mailto:${siteMeta.contactEmail}`
