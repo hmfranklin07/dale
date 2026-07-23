@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[20rem] overflow-hidden border-b border-sage-800/30 sm:min-h-[24rem] md:min-h-[28rem]">
+      <section className="relative min-h-[20rem] overflow-hidden sm:min-h-[24rem] md:min-h-[28rem]">
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
@@ -82,9 +82,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Inspiration */}
-      <section className="relative overflow-hidden border-b border-sage-200/60 bg-sage-100/78">
-        <div className={`relative z-10 ${sectionShell} pt-7 pb-4 sm:pt-8 sm:pb-5`}>
+      {/* 2. Inspiration — same quiet road field as Contact */}
+      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
+        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
+          <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
+          <svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 1000 400"
+            preserveAspectRatio="xMidYMid slice"
+            fill="none"
+          >
+            <path
+              d="M -40 95 C 160 55, 280 165, 460 110 S 720 50, 900 140 S 980 210, 1040 190"
+              stroke="#c45a3a"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeDasharray="5 13"
+              opacity="0.42"
+            />
+            <path
+              d="M -20 210 C 180 175, 320 265, 500 205 S 780 145, 960 245 S 1020 300, 1060 285"
+              stroke="#b4532a"
+              strokeWidth="1.45"
+              strokeLinecap="round"
+              strokeDasharray="4 15"
+              opacity="0.32"
+            />
+            <path
+              d="M -30 325 C 200 285, 360 365, 540 300 S 820 230, 1000 340"
+              stroke="#d9774f"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+              strokeDasharray="3 16"
+              opacity="0.28"
+            />
+          </svg>
+        </div>
+
+        <div className={`relative z-10 ${sectionShell} pt-7 pb-5 sm:pt-8 sm:pb-6`}>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
               <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
@@ -129,7 +165,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-sage-300/50 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm">
+          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-rust-300/40 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm">
             This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
           </p>
         </div>
