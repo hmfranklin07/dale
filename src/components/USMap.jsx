@@ -17,9 +17,8 @@ import {
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
-// Four sage steps — slightly more contrast than the soft default, but not the heavy “pop” pass
-// Index 0 = lightest … 3 = darkest
-const STATE_FILLS = ['#c4d1b2', '#a7b58c', '#81986a', '#5c6a47']
+// Four sage steps — index 0 = darkest … 3 = lightest (more dark states than light)
+const STATE_FILLS = ['#5c6a47', '#81986a', '#a7b58c', '#c4d1b2']
 const FILL_HOVER = '#8da56e'
 const FILL_POP = '#a3bc84'
 const STROKE = '#343b2e'
@@ -96,7 +95,7 @@ const POP_LIFT = 7
 
 /**
  * Proper 4-coloring of the contiguous US — no two land-adjacent states share a shade.
- * Indices map into STATE_FILLS (0 lightest … 3 darkest).
+ * Indices map into STATE_FILLS (0 darkest … 3 lightest).
  */
 const STATE_SHADE_BY_NAME = {
   alabama: 2,
