@@ -165,14 +165,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Deeper sage footing at the Dale award line — rust only as the divider */}
+        {/* Light orange footing — darker rust bar separates it from the sage field */}
         <div className="relative z-10 mt-5">
           <div
-            className="pointer-events-none absolute inset-0 bg-sage-700"
+            className="pointer-events-none absolute inset-0 bg-rust-200/55"
             aria-hidden
           />
           <div className={`relative ${sectionShell} border-t-[3px] border-rust-500 pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
-            <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-sage-100/90 italic sm:text-sm">
+            <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
               This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
             </p>
           </div>
