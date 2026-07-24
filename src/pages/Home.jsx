@@ -178,8 +178,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Full-bleed rust bar between Hannah orange footing and the map */}
-        <div className="relative z-10 h-2 w-full bg-rust-500 sm:h-2.5" aria-hidden />
+        {/* Full-bleed rust bar between Hannah orange footing and the map — matches top bar */}
+        <div className="relative z-10 h-[5px] w-full bg-rust-500" aria-hidden />
       </section>
 
       {/* 3. Map */}
