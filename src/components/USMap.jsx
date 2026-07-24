@@ -98,7 +98,7 @@ const POP_LIFT = 7
  * Indices map into STATE_FILLS (0 darkest … 3 lightest).
  */
 const STATE_SHADE_BY_NAME = {
-  alabama: 2,
+  alabama: 3,
   arizona: 2,
   arkansas: 2,
   california: 0,
