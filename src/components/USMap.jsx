@@ -94,29 +94,59 @@ const SLUG_BY_STATE_NAME = Object.fromEntries(
 const POP_SCALE = 1.058
 const POP_LIFT = 7
 
-/** Optional manual fill index (0–3) for specific states, keyed by lowercased `properties.name` */
-const SHADE_OVERRIDES = {
-  maine: 3, // darker
-  alaska: 3, // darker
-  indiana: 0, // lighter
-  idaho: 3, // darker
-  washington: 0, // lighter
-  nevada: 0, // lightest shade
-  wisconsin: 0, // lighter
-  'south dakota': 0, // lighter
-  kansas: 3, // darker
-  california: 3, // darkest shade
-}
-
-/** Relative one-step tweaks from the computed shade index (clamped 0..3). */
-const SHADE_ADJUSTMENTS = {
-  arkansas: +1, // one shade darker
-  missouri: -1, // one shade lighter
-  'new jersey': +1, // one shade darker
-  'new york': +2, // two shades darker
-  massachusetts: +1, // one shade darker
-  'south carolina': -1, // one shade lighter
-  delaware: -1, // one shade lighter
+/**
+ * Proper 4-coloring of the contiguous US — no two land-adjacent states share a shade.
+ * Indices map into STATE_FILLS (0 lightest … 3 darkest).
+ */
+const STATE_SHADE_BY_NAME = {
+  alabama: 2,
+  arizona: 2,
+  arkansas: 2,
+  california: 0,
+  colorado: 0,
+  connecticut: 2,
+  delaware: 2,
+  florida: 1,
+  georgia: 0,
+  idaho: 0,
+  illinois: 3,
+  indiana: 0,
+  iowa: 1,
+  kansas: 3,
+  kentucky: 2,
+  louisiana: 1,
+  maine: 0,
+  maryland: 1,
+  massachusetts: 0,
+  michigan: 2,
+  minnesota: 2,
+  mississippi: 0,
+  missouri: 0,
+  montana: 1,
+  nebraska: 2,
+  nevada: 3,
+  'new hampshire': 1,
+  'new jersey': 3,
+  'new mexico': 3,
+  'new york': 1,
+  'north carolina': 2,
+  'north dakota': 3,
+  ohio: 1,
+  oklahoma: 1,
+  oregon: 1,
+  pennsylvania: 0,
+  'rhode island': 1,
+  'south carolina': 1,
+  'south dakota': 0,
+  tennessee: 1,
+  texas: 0,
+  utah: 1,
+  vermont: 2,
+  virginia: 0,
+  washington: 2,
+  'west virginia': 3,
+  wisconsin: 0,
+  wyoming: 3,
 }
 
 function normalizedStateName(geo) {
@@ -126,28 +156,18 @@ function normalizedStateName(geo) {
   return String(n).trim().toLowerCase()
 }
 
-/**
- * Stable 0..3 per feature — use a name/id hash (not FIPS % 4) so light/dark shades
- * are scattered across the map instead of clumping by region.
- */
+/** Shade index 0..3 — adjacency-safe when named; hash fallback for anything else. */
 function stateShadeIndex(geo) {
-  const p = geo.properties || {}
   const stateName = normalizedStateName(geo)
-  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_OVERRIDES, stateName)) {
-    return SHADE_OVERRIDES[stateName]
+  if (stateName && Object.prototype.hasOwnProperty.call(STATE_SHADE_BY_NAME, stateName)) {
+    return STATE_SHADE_BY_NAME[stateName]
   }
+  const p = geo.properties || {}
   const label = [p.name, p.NAME, p.nam, p.stusps, p.STUSPS, geo.id].filter(Boolean).join('|')
   if (!label) return 0
   let h = 2166136261
   for (let i = 0; i < label.length; i++) h = Math.imul(h ^ label.charCodeAt(i), 16777619)
-  h = (h ^ (h >>> 16)) | 0
-  h = Math.imul(h, 2246822507) | 0
-  h = (h ^ (h >>> 13)) | 0
-  const base = (h >>> 0) & 3
-  if (stateName && Object.prototype.hasOwnProperty.call(SHADE_ADJUSTMENTS, stateName)) {
-    return Math.max(0, Math.min(3, base + SHADE_ADJUSTMENTS[stateName]))
-  }
-  return base
+  return (h >>> 0) & 3
 }
 const PIN_DEFAULT = PIN_BODY_DEFAULT
 const PIN_HOVER = PIN_BODY_HOVER
