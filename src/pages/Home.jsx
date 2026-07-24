@@ -85,8 +85,6 @@ export default function Home() {
       {/* 2. Inspiration — same quiet road field as Contact */}
       <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
-          <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
           <svg
             className="absolute inset-0 h-full w-full"
             viewBox="0 0 1000 400"
@@ -120,7 +118,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className={`relative z-10 ${sectionShell} pt-7 pb-5 sm:pt-8 sm:pb-6`}>
+        <div className={`relative z-10 ${sectionShell} pt-7 pb-0 sm:pt-8`}>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
             <div className="min-w-0 md:col-start-1 md:row-start-1">
               <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
@@ -165,9 +163,19 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <p className="mx-auto mt-5 max-w-[min(100%,52rem)] border-t border-rust-300/40 pt-3.5 text-center text-xs leading-snug text-earth-600 italic sm:mt-5 sm:pt-4 sm:text-sm">
-            This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
-          </p>
+        </div>
+
+        {/* Orange band begins exactly at the Dale award divider */}
+        <div className="relative z-10 mt-5">
+          <div
+            className="pointer-events-none absolute inset-0 bg-rust-200/55"
+            aria-hidden
+          />
+          <div className={`relative ${sectionShell} border-t border-rust-400/45 pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
+            <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
+              This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
+            </p>
+          </div>
         </div>
       </section>
 
