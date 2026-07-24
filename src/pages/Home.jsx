@@ -83,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* 2. Inspiration — same quiet road field as Contact */}
-      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
+      <section className="relative overflow-hidden border-t-[5px] border-t-rust-500 bg-sage-100">
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
           <svg
             className="absolute inset-0 h-full w-full"
@@ -165,24 +165,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Light orange footing — darker rust bar separates it from the sage field */}
+        {/* Light orange Dale footing */}
         <div className="relative z-10 mt-5">
           <div
             className="pointer-events-none absolute inset-0 bg-rust-200/55"
             aria-hidden
           />
-          <div className={`relative ${sectionShell} border-t-[3px] border-rust-500 pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
+          <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
             <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
               This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
             </p>
           </div>
         </div>
+
+        {/* Full-bleed rust bar between Hannah orange footing and the map */}
+        <div className="relative z-10 h-[5px] w-full bg-rust-500" aria-hidden />
       </section>
 
       {/* 3. Map */}
       <section
         id="map"
-        className="relative overflow-hidden border-t border-sage-200/50 bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50 scroll-mt-20 sm:scroll-mt-24"
+        className="relative overflow-hidden bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50 scroll-mt-20 sm:scroll-mt-24"
       >
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
