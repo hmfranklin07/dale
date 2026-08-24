@@ -170,6 +170,66 @@
     "credit": "Inspired by conversations with local FFA members"
   },
   {
+    "id": "stem-camp-and-math-engagement",
+    "townSlug": "grand-island-ne",
+    "townLabel": "Wood River",
+    "date": "2026-06-12",
+    "title": "STEM Camp and Math Engagement",
+    "featured": true,
+    "summary": "Mrs. Canfield, an elementary teacher who runs Wood River's summer STEM camp, talks about drawing in a wide range of kids, making math feel low-stress and fun, and stretching every learner—not only those who struggle. Looking at these newer approaches on the elementary side can give us important insights into educational reform at the high school level.",
+    "intro": "Wood River is a small Nebraska community where options after school are limited—and where Mrs. Canfield has built a STEM camp that kids actually want to come to. In this conversation, she reflects on who shows up, how math engagement has shifted at the elementary level, and what happens when schools invest in both struggling and high-ability learners.",
+    "personName": "Mrs. Canfield",
+    "role": "Elementary teacher & STEM camp director",
+    "school": "Wood River",
+    "photo": "",
+    "questions": [
+      {
+        "q": "Do students who come to STEM camp tend to already be interested in science and math, or do you get a wide range?",
+        "a": [
+          "We get a really wide range. It's also because of the partnerships we're making. So I'll tell you, we have three different groups of kids. The elementary does summer school—that's where I work. Well, after summer school, we offer an after-school program. Kids' parents work; I mean, this is kind of a bedroom community. So they go to the after-school program until five, so I get all of their kids.",
+          "They just have to come. Whether they want to or not, if they're part of that, they have to come. Then I was the board chair at [unclear organization] this entire time until a year ago, but I'm just a board member now. We bring them; they don't get a choice, they just come. Their families sign them up to come here based on the activities you offer, too.",
+          "But the public kids—there's a sign-up, and anyone that lives here can come. I would say, for the most part, those are my kids that are kind of into science and math and smart. But I think some kids just come because I do a lot of fun things at school.",
+          "Like, if there's an event at school, I hold the Wood River Express every November. Our buses turn into a train, and we'll go to the high school, to the theater, we go to the elementary school and go to the community center. Their families are in their pajamas, and they get on a train, and we have a fake train station made out of foam board, but it looks and sounds real. That's what I do at this point. I plan family engagement outside of my real job there.",
+          "So I think they just—they're some of my favorite kids. We get a wide range, but there's not a lot offered here either. If you want to do anything that's right in town, there's just not [much]."
+        ]
+      },
+      {
+        "q": "Have you seen students who weren't strong or interested in math become more engaged with it?",
+        "a": [
+          "Yeah, I have. I just had my—not exit, but my end-of-year review—in May, and my principal was leaving. It was really good, and she's been there six years. She was just like, kids used to—when I said, \"What's your favorite subject?\" at the end of the year—nobody would have said math.",
+          "And she goes, now, over half our kids said math was their favorite. Well, because I think we're doing it in such a low-stress environment now.",
+          "Like for STEM camp, I'm trying to think of some of the math things we're doing. They have to build—I'm not, like, engineering; it's really a paper airplane, but we're calling them our Raptors. We'll have to time them: how long were they in the air? How far did they travel? And then we graph all that. Well, that's all math.",
+          "They think they're just in, like, a laser competition. So I think we've made it not [feel like school]. I think math used to be so high-stress.",
+          "We were timing them and giving them timed tests. So I think, probably around the last ten years, our school has made an even bigger commitment to math, and we don't do any timed tests now. If the teacher wants to do one, you can do a little spot a couple times a month, that's fine. But years ago, they got timed almost every day, and that's terrible."
+        ]
+      },
+      {
+        "q": "What changed in how you teach math once that high-stress approach fell away?",
+        "a": [
+          "What we found out, and what teachers can reflect on, is your kids that were good with it were good from the beginning. They didn't get any better. They were just always good. And your kids that weren't never got better. So you were basically just celebrating these kids that could naturally do it. They didn't grow; they just naturally could do it.",
+          "And I think now, in light of calculators and things like that, we don't need to have speed to do it. So we're teaching math—and I know some people don't agree with the way—we're not Common Core in Nebraska; we have our own state standards. But we teach lots of strategies for everything, and everyone should pick which way works the best for them.",
+          "When I was growing up, it was like, this was the way, and we had a standard algorithm. So we all panicked when we had to do that standard algorithm."
+        ]
+      },
+      {
+        "q": "How do you make sure both struggling students and high-ability learners get what they need in a small school?",
+        "a": [
+          "We have a really good MTSS program at our school—it used to be called RTI, Response to Intervention, but now it's called a Multi-Tiered System of Support. We used to only focus on struggling kids. Well, now our high-ability learners are part of that conversation.",
+          "When we're forming the small groups because the kids struggle, what's the lesson you planned for that extension group? So when we've had small groups in the past, now we're having intentional conversations. I also noticed our kids that are just good at math—they weren't growing.",
+          "We were spending all our time worrying about the struggling kids, and we weren't stretching those other kids. So I feel like Wood River is doing a lot of good things in education.",
+          "We have a really good superintendent, really progressive. In fact, I was just in Tulsa two weeks ago for four days with a team of six other teachers, just learning more about the tiered system and intervention, and extending as part of that, too.",
+          "I feel like they're investing. There's a whole other group going through it here in a couple months. They do a good job of investing in us teachers. We might not know it now, but they'll help us get an education, or help us [learn] a little."
+        ]
+      },
+      {
+        "q": "Has Wood River been the only school you've taught at?",
+        "a": [
+          "It's the only school I've ever worked at. I came here fresh from graduating. Never thought it in a million years. But yeah, we're here, and our kids love it here."
+        ]
+      }
+    ]
+  },
+  {
     "id": "a-new-generation",
     "townSlug": "grand-island-ne",
     "townLabel": "Reflection",
