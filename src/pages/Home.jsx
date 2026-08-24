@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
-import SocialLinks from '../components/SocialLinks'
 import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { useInView } from '../hooks/useInView'
@@ -209,14 +208,6 @@ export default function Home() {
               <USMap />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 4. Follow */}
-      <section className="relative overflow-hidden bg-sage-900 py-6 text-white sm:py-8">
-        <div className={`relative z-10 ${shell} text-center`}>
-          <h2 className="font-display mb-3 text-xl text-white sm:mb-4 sm:text-2xl">Follow the Trip!</h2>
-          <SocialLinks variant="inline" />
         </div>
       </section>
     </div>
