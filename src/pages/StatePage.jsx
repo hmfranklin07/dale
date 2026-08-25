@@ -170,10 +170,8 @@ export default function StatePage() {
   return (
     <>
       <section
-        className={`relative overflow-hidden border-b flex flex-col ${
-          photoHero
-            ? `${STATE_PHOTO_HERO_MIN_H} border-sage-800/30`
-            : `${STATE_HERO_MIN_H} border-sage-400/45 ${stateHeroBandSectionClass}`
+        className={`relative flex flex-col overflow-hidden ${
+          photoHero ? STATE_PHOTO_HERO_MIN_H : `${STATE_HERO_MIN_H} ${stateHeroBandSectionClass}`
         }`}
       >
         {photoHero && (
@@ -244,7 +242,7 @@ export default function StatePage() {
         </div>
       </section>
 
-      <PageContentBand variant="sage">
+      <PageContentBand field="route">
         {!stateHasContent ? (
           state.checkBackSoon ? (
             <CheckBackSoonCard stateName={state.name} />
