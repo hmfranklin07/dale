@@ -1,9 +1,92 @@
 import PageContentBand from '../components/PageContentBand'
-import SectionHeading from '../components/SectionHeading'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+
+const SECTIONS = [
+  {
+    id: 'what',
+    question: 'What is this project?',
+    tone: 'white',
+    paragraphs: [
+      'STEM Across Rural America is a storytelling project aimed to highlight the voices of rural Americans in educational communities. Most of the project comes from in-person conversations with people I met around the country this summer, as well as virtual conversations when I couldn\u2019t be in their community. Through conversations and reflections with teachers, students, and more, I hope to shed light on their lived experiences to look at rural education through people, not numbers.',
+    ],
+  },
+  {
+    id: 'why',
+    question: 'Why rural STEM stories?',
+    tone: 'sage',
+    paragraphs: [
+      'Growing up frustrated with the rural education system and educational access in my small town, I knew I wanted to help improve education in rural communities like my own. When I started researching access to education in rural areas, I found something interesting: rural education is usually looked at through limited access to structural and institutional opportunities (such as online college courses, nearby universities, access to laboratory materials, etc.). However, there isn\u2019t much research on the sides of identity and belonging, which play a huge role in educational settings.',
+      'I saw this in my own life; I wasn\u2019t going to apply to Princeton because I thought my identity as a rural student meant I\u2019d never be able to get in. I hadn\u2019t seen others in my town do it and I accepted it as a fact of life that I couldn\u2019t have that opportunity before I even tried to achieve it. Luckily, my parents convinced me to apply, but how many other capable rural students are out there unaware of what they can achieve?',
+      'So, I decided to do research through storytelling. Rather than looking at data or structural access, I wanted to go straight to the people in rural areas to hear their own experiences and thoughts. My heart is in rural America and we cannot work to improve education for rural communities unless we go directly to them and hear what they have to say.',
+    ],
+  },
+  {
+    id: 'goal',
+    question: 'What is the goal of this project?',
+    tone: 'rust',
+    paragraphs: [
+      'The goal of this project is to provide a space where rural voices are heard. Oftentimes rural education is seen through a lens of funding; throw more money at them for better science materials, or, this school is suffering because they don\u2019t have enough staffing and there\u2019s no other way to help them.',
+      'These narrow views of rural districts are harmful; the fact of the matter is that if we aren\u2019t listening to the people who are actually teaching and learning in these schools every day, progress will be stunted. We need to hear what\u2019s working, what\u2019s not, and how education can be improved regardless of access to resources. I met countless amazing teachers and students who are resourceful and passionate in their communities, and their stories need to be uplifted to show the capability, beauty, and hope in rural education.',
+    ],
+  },
+]
+
+function SectionBlock({ question, paragraphs, tone, index }) {
+  const shell =
+    tone === 'sage'
+      ? 'border-sage-600/40 bg-sage-700 text-sage-50 shadow-lg shadow-sage-900/20'
+      : tone === 'rust'
+        ? 'border-rust-400/60 bg-rust-200/55 text-earth-900 shadow-lg shadow-rust-900/10'
+        : 'border-rust-400/50 bg-white text-earth-900 shadow-xl shadow-rust-900/10'
+
+  const questionClass =
+    tone === 'sage'
+      ? 'text-white'
+      : 'text-earth-900'
+
+  const bodyClass =
+    tone === 'sage'
+      ? 'text-sage-100/95'
+      : 'text-earth-800'
+
+  const ruleClass = tone === 'sage' ? 'bg-rust-400' : 'bg-rust-500'
+
+  return (
+    <article
+      className={`overflow-hidden rounded-[1.35rem] border-2 ${shell}`}
+    >
+      <div className="px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12 lg:px-12 lg:py-14">
+        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rust-600 sm:text-[0.75rem]">
+          {String(index + 1).padStart(2, '0')}
+        </p>
+        <h2
+          className={`mt-3 font-display text-[1.85rem] italic leading-[1.15] sm:text-[2.35rem] lg:text-[2.65rem] ${questionClass}`}
+        >
+          {question}
+        </h2>
+        <div className={`mt-4 h-1 w-14 rounded-full sm:mt-5 sm:w-16 ${ruleClass}`} aria-hidden />
+        <div className={`mt-6 space-y-5 text-lg leading-relaxed sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65] ${bodyClass}`}>
+          {paragraphs.map((paragraph) => {
+            const hugeIdx = paragraph.indexOf('huge')
+            if (hugeIdx === -1) {
+              return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            }
+            return (
+              <p key={paragraph.slice(0, 48)}>
+                {paragraph.slice(0, hugeIdx)}
+                <em className={tone === 'sage' ? 'text-white' : undefined}>huge</em>
+                {paragraph.slice(hugeIdx + 4)}
+              </p>
+            )
+          })}
+        </div>
+      </div>
+    </article>
+  )
+}
 
 export default function About() {
   return (
@@ -37,66 +120,10 @@ export default function About() {
       </section>
 
       <PageContentBand field="route">
-        <div className="mx-auto max-w-3xl space-y-14 sm:space-y-16">
-          <section>
-            <SectionHeading>What is this project?</SectionHeading>
-            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
-              <p>
-                STEM Across Rural America is a storytelling project aimed to highlight the voices of rural Americans in
-                educational communities. Most of the project comes from in-person conversations with people I met around
-                the country this summer, as well as virtual conversations when I couldn&apos;t be in their community.
-                Through conversations and reflections with teachers, students, and more, I hope to shed light on their
-                lived experiences to look at rural education through people, not numbers.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <SectionHeading>Why rural STEM stories?</SectionHeading>
-            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
-              <p>
-                Growing up frustrated with the rural education system and educational access in my small town, I knew I
-                wanted to help improve education in rural communities like my own. When I started researching access to
-                education in rural areas, I found something interesting: rural education is usually looked at through
-                limited access to structural and institutional opportunities (such as online college courses, nearby
-                universities, access to laboratory materials, etc.). However, there isn&apos;t much research on the sides
-                of identity and belonging, which play a <em>huge</em> role in educational settings.
-              </p>
-              <p>
-                I saw this in my own life; I wasn&apos;t going to apply to Princeton because I thought my identity as a
-                rural student meant I&apos;d never be able to get in. I hadn&apos;t seen others in my town do it and I
-                accepted it as a fact of life that I couldn&apos;t have that opportunity before I even tried to achieve
-                it. Luckily, my parents convinced me to apply, but how many other capable rural students are out there
-                unaware of what they can achieve?
-              </p>
-              <p>
-                So, I decided to do research through storytelling. Rather than looking at data or structural access, I
-                wanted to go straight to the people in rural areas to hear their own experiences and thoughts. My heart
-                is in rural America and we cannot work to improve education for rural communities unless we go directly
-                to them and hear what they have to say.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <SectionHeading>What is the goal of this project?</SectionHeading>
-            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
-              <p>
-                The goal of this project is to provide a space where rural voices are heard. Oftentimes rural education
-                is seen through a lens of funding; throw more money at them for better science materials, or, this
-                school is suffering because they don&apos;t have enough staffing and there&apos;s no other way to help
-                them.
-              </p>
-              <p>
-                These narrow views of rural districts are harmful; the fact of the matter is that if we aren&apos;t
-                listening to the people who are actually teaching and learning in these schools every day, progress will
-                be stunted. We need to hear what&apos;s working, what&apos;s not, and how education can be improved
-                regardless of access to resources. I met countless amazing teachers and students who are resourceful and
-                passionate in their communities, and their stories need to be uplifted to show the capability, beauty,
-                and hope in rural education.
-              </p>
-            </div>
-          </section>
+        <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10 lg:space-y-12">
+          {SECTIONS.map((section, index) => (
+            <SectionBlock key={section.id} {...section} index={index} />
+          ))}
         </div>
       </PageContentBand>
     </>
