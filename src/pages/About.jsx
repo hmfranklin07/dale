@@ -34,7 +34,7 @@ const SECTIONS = [
 function SectionBlock({ question, paragraphs }) {
   return (
     <article className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/10 ring-2 ring-rust-300/30">
-      <div className="border-l-[6px] border-l-sage-700 px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12">
+      <div className="border-l-[14px] border-l-sage-700 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
         <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
           {question}
         </h2>
