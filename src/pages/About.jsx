@@ -8,7 +8,6 @@ const SECTIONS = [
   {
     id: 'what',
     question: 'What is this project?',
-    tone: 'white',
     paragraphs: [
       'STEM Across Rural America is a storytelling project aimed to highlight the voices of rural Americans in educational communities. Most of the project comes from in-person conversations with people I met around the country this summer, as well as virtual conversations when I couldn\u2019t be in their community. Through conversations and reflections with teachers, students, and more, I hope to shed light on their lived experiences to look at rural education through people, not numbers.',
     ],
@@ -16,7 +15,6 @@ const SECTIONS = [
   {
     id: 'why',
     question: 'Why rural STEM stories?',
-    tone: 'sage',
     paragraphs: [
       'Growing up frustrated with the rural education system and educational access in my small town, I knew I wanted to help improve education in rural communities like my own. When I started researching access to education in rural areas, I found something interesting: rural education is usually looked at through limited access to structural and institutional opportunities (such as online college courses, nearby universities, access to laboratory materials, etc.). However, there isn\u2019t much research on the sides of identity and belonging, which play a huge role in educational settings.',
       'I saw this in my own life; I wasn\u2019t going to apply to Princeton because I thought my identity as a rural student meant I\u2019d never be able to get in. I hadn\u2019t seen others in my town do it and I accepted it as a fact of life that I couldn\u2019t have that opportunity before I even tried to achieve it. Luckily, my parents convinced me to apply, but how many other capable rural students are out there unaware of what they can achieve?',
@@ -26,7 +24,6 @@ const SECTIONS = [
   {
     id: 'goal',
     question: 'What is the goal of this project?',
-    tone: 'rust',
     paragraphs: [
       'The goal of this project is to provide a space where rural voices are heard. Oftentimes rural education is seen through a lens of funding; throw more money at them for better science materials, or, this school is suffering because they don\u2019t have enough staffing and there\u2019s no other way to help them.',
       'These narrow views of rural districts are harmful; the fact of the matter is that if we aren\u2019t listening to the people who are actually teaching and learning in these schools every day, progress will be stunted. We need to hear what\u2019s working, what\u2019s not, and how education can be improved regardless of access to resources. I met countless amazing teachers and students who are resourceful and passionate in their communities, and their stories need to be uplifted to show the capability, beauty, and hope in rural education.',
@@ -34,54 +31,36 @@ const SECTIONS = [
   },
 ]
 
-function SectionBlock({ question, paragraphs, tone, index }) {
-  const shell =
-    tone === 'sage'
-      ? 'border-sage-600/40 bg-sage-700 text-sage-50 shadow-lg shadow-sage-900/20'
-      : tone === 'rust'
-        ? 'border-rust-400/60 bg-rust-200/55 text-earth-900 shadow-lg shadow-rust-900/10'
-        : 'border-rust-400/50 bg-white text-earth-900 shadow-xl shadow-rust-900/10'
-
-  const questionClass =
-    tone === 'sage'
-      ? 'text-white'
-      : 'text-earth-900'
-
-  const bodyClass =
-    tone === 'sage'
-      ? 'text-sage-100/95'
-      : 'text-earth-800'
-
-  const ruleClass = tone === 'sage' ? 'bg-rust-400' : 'bg-rust-500'
-
+function SectionBlock({ question, paragraphs, index }) {
   return (
-    <article
-      className={`overflow-hidden rounded-[1.35rem] border-2 ${shell}`}
-    >
-      <div className="px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12 lg:px-12 lg:py-14">
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rust-600 sm:text-[0.75rem]">
-          {String(index + 1).padStart(2, '0')}
-        </p>
-        <h2
-          className={`mt-3 font-display text-[1.85rem] italic leading-[1.15] sm:text-[2.35rem] lg:text-[2.65rem] ${questionClass}`}
-        >
-          {question}
-        </h2>
-        <div className={`mt-4 h-1 w-14 rounded-full sm:mt-5 sm:w-16 ${ruleClass}`} aria-hidden />
-        <div className={`mt-6 space-y-5 text-lg leading-relaxed sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65] ${bodyClass}`}>
-          {paragraphs.map((paragraph) => {
-            const hugeIdx = paragraph.indexOf('huge')
-            if (hugeIdx === -1) {
-              return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            }
-            return (
-              <p key={paragraph.slice(0, 48)}>
-                {paragraph.slice(0, hugeIdx)}
-                <em className={tone === 'sage' ? 'text-white' : undefined}>huge</em>
-                {paragraph.slice(hugeIdx + 4)}
-              </p>
-            )
-          })}
+    <article className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/10 ring-2 ring-rust-300/30">
+      <div className="grid sm:grid-cols-[auto_minmax(0,1fr)]">
+        <div className="flex items-center justify-center bg-sage-700 px-5 py-6 sm:w-[4.75rem] sm:px-0 sm:py-0">
+          <span className="font-display text-3xl text-sage-50/95 sm:text-4xl">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+
+        <div className="px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12">
+          <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
+            {question}
+          </h2>
+          <div className="mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-16" aria-hidden />
+          <div className="mt-6 space-y-5 text-lg leading-relaxed text-earth-800 sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65]">
+            {paragraphs.map((paragraph) => {
+              const hugeIdx = paragraph.indexOf('huge')
+              if (hugeIdx === -1) {
+                return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              }
+              return (
+                <p key={paragraph.slice(0, 48)}>
+                  {paragraph.slice(0, hugeIdx)}
+                  <em>huge</em>
+                  {paragraph.slice(hugeIdx + 4)}
+                </p>
+              )
+            })}
+          </div>
         </div>
       </div>
     </article>

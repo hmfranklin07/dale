@@ -348,11 +348,13 @@ function routePathD(points) {
 
 const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
 
-function popTransform([cx, cy], scale = POP_SCALE, lift = POP_LIFT) {
+function popTransform([cx, cy], scale = 1, lift = 0) {
+  // Keep the same transform function list at rest and when popped so CSS
+  // interpolates as a straight vertical lift + scale (no sideways drift).
   return `translate(${cx.toFixed(2)}px, ${(cy - lift).toFixed(2)}px) scale(${scale}) translate(${(-cx).toFixed(2)}px, ${(-cy).toFixed(2)}px)`
 }
 
-const POP_TRANSITION = 'transform 0.42s cubic-bezier(0.34, 1.28, 0.64, 1), filter 0.42s ease'
+const POP_TRANSITION = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), filter 0.38s ease'
 
 export default function USMap() {
   const navigate = useNavigate()
@@ -491,7 +493,9 @@ export default function USMap() {
                   <g
                     key={geo.rsmKey || geo.id}
                     style={{
-                      transform: isPopped ? popTransform([cx, cy]) : 'translate(0px, 0px) scale(1)',
+                      transform: isPopped
+                        ? popTransform([cx, cy], POP_SCALE, POP_LIFT)
+                        : popTransform([cx, cy], 1, 0),
                       transition: POP_TRANSITION,
                       filter: isPopped ? 'url(#statePopShadow)' : 'none',
                     }}
