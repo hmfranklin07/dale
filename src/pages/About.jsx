@@ -31,36 +31,28 @@ const SECTIONS = [
   },
 ]
 
-function SectionBlock({ question, paragraphs, index }) {
+function SectionBlock({ question, paragraphs }) {
   return (
     <article className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/10 ring-2 ring-rust-300/30">
-      <div className="grid sm:grid-cols-[auto_minmax(0,1fr)]">
-        <div className="flex items-center justify-center bg-sage-700 px-5 py-6 sm:w-[4.75rem] sm:px-0 sm:py-0">
-          <span className="font-display text-3xl text-sage-50/95 sm:text-4xl">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-        </div>
-
-        <div className="px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12">
-          <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
-            {question}
-          </h2>
-          <div className="mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-16" aria-hidden />
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-earth-800 sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65]">
-            {paragraphs.map((paragraph) => {
-              const hugeIdx = paragraph.indexOf('huge')
-              if (hugeIdx === -1) {
-                return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              }
-              return (
-                <p key={paragraph.slice(0, 48)}>
-                  {paragraph.slice(0, hugeIdx)}
-                  <em>huge</em>
-                  {paragraph.slice(hugeIdx + 4)}
-                </p>
-              )
-            })}
-          </div>
+      <div className="border-l-[6px] border-l-sage-700 px-6 py-8 sm:px-9 sm:py-10 md:px-11 md:py-12">
+        <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
+          {question}
+        </h2>
+        <div className="mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-16" aria-hidden />
+        <div className="mt-6 space-y-5 text-lg leading-relaxed text-earth-800 sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65]">
+          {paragraphs.map((paragraph) => {
+            const hugeIdx = paragraph.indexOf('huge')
+            if (hugeIdx === -1) {
+              return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            }
+            return (
+              <p key={paragraph.slice(0, 48)}>
+                {paragraph.slice(0, hugeIdx)}
+                <em>huge</em>
+                {paragraph.slice(hugeIdx + 4)}
+              </p>
+            )
+          })}
         </div>
       </div>
     </article>
@@ -100,8 +92,8 @@ export default function About() {
 
       <PageContentBand field="route">
         <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10 lg:space-y-12">
-          {SECTIONS.map((section, index) => (
-            <SectionBlock key={section.id} {...section} index={index} />
+          {SECTIONS.map((section) => (
+            <SectionBlock key={section.id} {...section} />
           ))}
         </div>
       </PageContentBand>
