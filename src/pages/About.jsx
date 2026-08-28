@@ -60,7 +60,7 @@ export default function About() {
                 education in rural areas, I found something interesting: rural education is usually looked at through
                 limited access to structural and institutional opportunities (such as online college courses, nearby
                 universities, access to laboratory materials, etc.). However, there isn&apos;t much research on the sides
-                of identity and belonging, which play a huge role in educational settings.
+                of identity and belonging, which play a <em>huge</em> role in educational settings.
               </p>
               <p>
                 I saw this in my own life; I wasn&apos;t going to apply to Princeton because I thought my identity as a
