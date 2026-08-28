@@ -1,5 +1,5 @@
 import PageContentBand from '../components/PageContentBand'
-import UnderConstructionCard from '../components/UnderConstructionCard'
+import SectionHeading from '../components/SectionHeading'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -8,9 +8,7 @@ const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
 export default function About() {
   return (
     <>
-      <section
-        className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${HERO_MIN_H}`}
-      >
+      <section className={`relative flex flex-col overflow-hidden ${HERO_MIN_H}`}>
         <div className="absolute inset-0 z-0">
           <img
             src={aboutHeroUrl}
@@ -38,8 +36,68 @@ export default function About() {
         </div>
       </section>
 
-      <PageContentBand compact>
-        <UnderConstructionCard />
+      <PageContentBand field="route">
+        <div className="mx-auto max-w-3xl space-y-14 sm:space-y-16">
+          <section>
+            <SectionHeading>What is this project?</SectionHeading>
+            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
+              <p>
+                STEM Across Rural America is a storytelling project aimed to highlight the voices of rural Americans in
+                educational communities. Most of the project comes from in-person conversations with people I met around
+                the country this summer, as well as virtual conversations when I couldn&apos;t be in their community.
+                Through conversations and reflections with teachers, students, and more, I hope to shed light on their
+                lived experiences to look at rural education through people, not numbers.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <SectionHeading>Why rural STEM stories?</SectionHeading>
+            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
+              <p>
+                Growing up frustrated with the rural education system and educational access in my small town, I knew I
+                wanted to help improve education in rural communities like my own. When I started researching access to
+                education in rural areas, I found something interesting: rural education is usually looked at through
+                limited access to structural and institutional opportunities (such as online college courses, nearby
+                universities, access to laboratory materials, etc.). However, there isn&apos;t much research on the sides
+                of identity and belonging, which play a huge role in educational settings.
+              </p>
+              <p>
+                I saw this in my own life; I wasn&apos;t going to apply to Princeton because I thought my identity as a
+                rural student meant I&apos;d never be able to get in. I hadn&apos;t seen others in my town do it and I
+                accepted it as a fact of life that I couldn&apos;t have that opportunity before I even tried to achieve
+                it. Luckily, my parents convinced me to apply, but how many other capable rural students are out there
+                unaware of what they can achieve?
+              </p>
+              <p>
+                So, I decided to do research through storytelling. Rather than looking at data or structural access, I
+                wanted to go straight to the people in rural areas to hear their own experiences and thoughts. My heart
+                is in rural America and we cannot work to improve education for rural communities unless we go directly
+                to them and hear what they have to say.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <SectionHeading>What is the goal of this project?</SectionHeading>
+            <div className="space-y-4 text-base leading-relaxed text-earth-800 sm:text-lg">
+              <p>
+                The goal of this project is to provide a space where rural voices are heard. Oftentimes rural education
+                is seen through a lens of funding; throw more money at them for better science materials, or, this
+                school is suffering because they don&apos;t have enough staffing and there&apos;s no other way to help
+                them.
+              </p>
+              <p>
+                These narrow views of rural districts are harmful; the fact of the matter is that if we aren&apos;t
+                listening to the people who are actually teaching and learning in these schools every day, progress will
+                be stunted. We need to hear what&apos;s working, what&apos;s not, and how education can be improved
+                regardless of access to resources. I met countless amazing teachers and students who are resourceful and
+                passionate in their communities, and their stories need to be uplifted to show the capability, beauty,
+                and hope in rural education.
+              </p>
+            </div>
+          </section>
+        </div>
       </PageContentBand>
     </>
   )
