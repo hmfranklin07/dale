@@ -193,6 +193,17 @@ export default function StateTranscription() {
               })}
             </div>
           )}
+          {interview.relatedLink?.interviewId && interview.relatedLink?.text ? (
+            <p className="mt-10 sm:mt-12">
+              <Link
+                to={`/${stateSlug}/transcriptions/${interview.relatedLink.interviewId}`}
+                state={{ from: fromStatePage ? 'state' : 'transcriptions' }}
+                className="text-sm font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950 hover:decoration-rust-600 sm:text-base"
+              >
+                {interview.relatedLink.text} →
+              </Link>
+            </p>
+          ) : null}
         </article>
       </PageContentBand>
     </>
