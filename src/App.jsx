@@ -28,6 +28,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/more" element={<MorePage />} />
           <Route path="/florida" element={<Navigate to="/more" replace />} />
+          <Route path="/oklahoma" element={<Navigate to="/arkansas" replace />} />
           <Route path="/blog/*" element={<Navigate to="/" replace />} />
           <Route path="/vlog" element={<Navigate to="/" replace />} />
           <Route path="/:stateSlug/videos/:videoId" element={<StateVideo />} />
