@@ -268,62 +268,6 @@
     ]
   },
   {
-    "id": "rural-opportunity-and-pathways",
-    "townSlug": "grand-island-ne",
-    "townLabel": "Wood River",
-    "date": "2026-06-12",
-    "title": "Rural Opportunity and Pathways",
-    "featured": true,
-    "summary": "Farming is something we need—but it should be a choice, not the only door kids can see. Mrs. Canfield talks about parents who pushed their kids to leave and look around, about Wood River feeling less isolated than people think, and about opening up paths beyond \"college or just get a job\"—trades, the Air Force, grants, whatever gets someone where they want to go.",
-    "intro": "This stretch of the conversation is about options. Hannah's parents told her to go somewhere that wasn't home first. Mrs. Canfield's did the same. From there they get into what small-town life actually feels like now—Dollar General and a short drive to Kearney—and how hard it still is for kids to imagine more than a couple of futures.",
-    "personName": "Mrs. Canfield",
-    "role": "Elementary teacher & STEM camp director",
-    "school": "Wood River",
-    "photo": "",
-    "questions": [
-      {
-        "q": "We need farmers—but it needs to be a choice, not just the only opportunity kids know. Did your parents push you to see more?",
-        "a": [
-          "Yes.",
-          "Okay. We don't have anywhere really big around here. My daughter just got back—she went to Washington, D.C., and then they went to New York City.",
-          "My parents were very much like, \"Go out, see the world. You guys have lived here your whole life; you don't know what's out there.\" So if you like it here, great. My sister is in the Omaha kind of area. I'm still close to my parents, an hour and a half away.",
-          "I met my husband in college, and he was from Kearney, this little bit bigger town. I was always the one that was going to [leave], and then look—I'm the one that ended up closest.",
-          "We still try to go [places]. My husband and I make sure the kids get to travel, just so they [see more]. I remember the first time that I really talked with people of a different race [was when I was older]. That wasn't a choice growing up. Now I love my town, but I would love [more exposure to a diverse world]."
-        ]
-      },
-      {
-        "q": "Does Wood River feel isolated, or is it different from places that really are in the middle of nowhere?",
-        "a": [
-          "My husband works [nearby]. He grew up [near Kearney], so he still drives there to work. It is easier living here in a rural community knowing in 15 minutes you could have Walmart or McDonald's—conveniences. Where my folks are up north, they have to drive all the way down here.",
-          "So it doesn't feel as isolated. And we're along the interstate, so it just seems that we can get around the state.",
-          "Exactly. That's why when people at school say, \"I live in the middle of nowhere,\" I'm like, \"No, no, no.\"",
-          "We didn't have a Dollar General until a few years ago. We didn't have a Subway. When my kids were little and they got sick, we had to drive to Grand Island. If you didn't have time, there would have been nowhere in town to buy formula, diapers.",
-          "I know people hate on Dollar General—you always want to support small business—but I'm so thankful these Dollar Generals came to these small towns. Emergency milk, little things. It was hard not having that, and now we do.",
-          "Yeah. We've got the bank. I mean, this [sale/store]—the reason this stays open year-round is [partly so] if you come to town and you don't have food or money, people can [get help]. We really do large sales for money, but it's the daycare that this supports. We also have a food pantry, and that's where the city runs the food [program] through the daycare.",
-          "Compared to 15 years ago when I got here, what's starting is bigger support for all kinds of community [activities]. Years and years ago, it felt kind of like the rich side—they were at everything. If you didn't have the money to go, even [to the swimming pool], [you couldn't].",
-          "This town has grown so much in the many years I've been here, in such good ways. It's really good to see."
-        ]
-      },
-      {
-        "q": "At a lot of schools it feels like you either go straight into the workforce, get a trades degree and come back, or leave with a four-year degree. How do you talk about pathways with kids?",
-        "a": [
-          "I think we were lucky. My husband graduated in actuarial science, so he's really good at that. I was able to still live here because it was a half-hour away [from work]. They don't hire actuaries here. In fact, he used to work in Omaha, and then he moved back. Even in Kearney, it was hard to find work with his degree. But it's at least close enough that he can still live here and just drive there for work.",
-          "We are trying to push the trades, too. Our kids think they either need to go to college or just go work.",
-          "My son joining the Air Force was such a big deal. People were like, \"Why would one of your kids—you guys live in a nice house...\" Well, no. Anybody can do this. We can all do that.",
-          "He was able to tell the whole elementary school [about it]. Just telling these kids, \"It's paying for all of his college.\" I haven't given him a dollar since he was in high school. Now he's in college, and he goes to the university in Kearney, and he's got that paid for.",
-          "Even teaching these kids, there are other ways to get [where you want]. If you can't get this opportunity, find a way to get it.",
-          "You don't have to."
-        ]
-      },
-      {
-        "q": "It can feel like there is no way out of that cycle. What do you tell kids?",
-        "a": [
-          "Look for that. Look for those grants. Look for that money. There is a way. It's not always going to be easy, but find a way."
-        ]
-      }
-    ]
-  },
-  {
     "id": "a-new-generation",
     "townSlug": "grand-island-ne",
     "townLabel": "Reflection",
