@@ -42,12 +42,30 @@ const HIGHLIGHT_STATE_NAMES = new Set([
 const STATE_ROUTE_SLUG_OVERRIDES = {
   arizona: 'more',
   'south dakota': 'more',
+  florida: 'more',
   oklahoma: 'arkansas',
+}
+
+/** Geography names that pop together as one multi-state stop (e.g. AR & OK). */
+const POP_GROUP_BY_STATE = {
+  arkansas: ['arkansas', 'oklahoma'],
+  oklahoma: ['arkansas', 'oklahoma'],
+}
+
+function isInPopGroup(stateName, poppedState) {
+  if (!stateName || !poppedState) return false
+  if (stateName === poppedState) return true
+  const group = POP_GROUP_BY_STATE[poppedState]
+  return Boolean(group?.includes(stateName))
 }
 
 /** Rapid City corridor — shared by route curve and see-more pin */
 const RAPID_CITY_LNG = -103.25
 const RAPID_CITY_LAT = 44.05
+
+/** North Florida — see-more side pin (coords shared with route curve). */
+const NORTH_FLORIDA_LNG = -82.1221
+const NORTH_FLORIDA_LAT = 30.2819
 
 /** Side-trip pins — not full research stops; visually distinct from stop markers. */
 const MAP_SIDE_PINS = [
@@ -71,6 +89,17 @@ const MAP_SIDE_PINS = [
     lat: RAPID_CITY_LAT,
     linkSlug: 'more',
     geoStateName: 'south dakota',
+    isSidePin: true,
+  },
+  {
+    id: 'north-florida',
+    name: 'North Florida',
+    heroIntro: 'See more · Florida',
+    badgeLabel: 'See more',
+    lng: NORTH_FLORIDA_LNG,
+    lat: NORTH_FLORIDA_LAT,
+    linkSlug: 'more',
+    geoStateName: 'florida',
     isSidePin: true,
   },
 ]
@@ -199,7 +228,6 @@ const STOP_LABELS_BY_SLUG = {
   nebraska: 'Stop 3',
   idaho: 'Stop 4',
   arkansas: 'Stop 5',
-  florida: 'Stop 6',
 }
 
 // Route control points: actual driving corridors (I-90/I-80 west, Black Hills/Yellowstone,
@@ -287,9 +315,9 @@ const ROUTE_CONTROL_POINTS = [
   [-84.75, 30.48], // Panhandle eastbound
   [-84.0, 30.4], // Tallahassee corridor
   [-83.15, 30.35], // North Florida east
-  stateBySlug.florida && [stateBySlug.florida.lng, stateBySlug.florida.lat],
+  [NORTH_FLORIDA_LNG, NORTH_FLORIDA_LAT],
 
-  // Swing back north-east: Florida pin -> DC -> New York pin
+  // Swing back north-east: Florida see-more pin -> DC -> New York pin
   [-81.1, 32.08], // Savannah
   [-79.93, 32.78], // Charleston corridor
   [-78.64, 35.78], // Raleigh
@@ -465,7 +493,7 @@ export default function USMap() {
               return visible.map((geo) => {
                 const stateName = normalizedStateName(geo)
                 const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
-                const isPopped = stateName && stateName === poppedState
+                const isPopped = isInPopGroup(stateName, poppedState)
                 const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
                 const stateSlug = stateName
@@ -558,7 +586,7 @@ export default function USMap() {
 
           {states.map((s) => {
             const stateName = STATE_NAME_BY_SLUG[s.slug]
-            const isPinPopped = poppedState === stateName
+            const isPinPopped = isInPopGroup(stateName, poppedState)
 
             return (
             <Marker

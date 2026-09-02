@@ -53,17 +53,5 @@
     "summary": "Northwest Arkansas and nearby Oklahoma: small-community schools against the shadow of a fast-growing region, and who gets seen in STEM.",
     "date": "2026-06-15",
     "image": "/images/towns/placeholder.jpg"
-  },
-  {
-    "slug": "north-florida-fl",
-    "name": "North Florida",
-    "isRegion": true,
-    "state": "Florida",
-    "stateSlug": "florida",
-    "lat": 30.2819,
-    "lng": -82.1221,
-    "summary": "North Florida: a big city with rural-adjacent districts—stories of access, college pathways, and STEM identity in the South.",
-    "date": "2026-08-10",
-    "image": "/images/towns/placeholder.jpg"
   }
 ]

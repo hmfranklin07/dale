@@ -1,0 +1,28 @@
+---
+description: Automatically commit and push completed work to git without waiting to be asked
+alwaysApply: true
+---
+
+# Auto commit & push
+
+After finishing a task that changes project files, **commit and push to `origin` without waiting for the user to ask.**
+
+## When
+
+- Do this at the end of a completed change set (feature, fix, content update, etc.)
+- Skip empty commits (no file changes)
+- Do not commit secrets (`.env`, credentials, API keys)
+
+## How
+
+Follow the repo’s normal commit protocol (status, diff, log style, HEREDOC message), then:
+
+1. Stage relevant files
+2. Commit with a concise message focused on why
+3. `git push` to the tracked remote branch (usually `origin/main`)
+4. Confirm success with a brief status note to the user
+
+## Still require explicit ask for
+
+- Force push, hard reset, rebase onto remote, or other destructive git ops
+- Amending commits already pushed (unless the user asks)
