@@ -165,7 +165,11 @@ export default function StatePage() {
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
   const skyPhotoHero =
     photoHero &&
-    (stateSlug === 'arkansas' || stateSlug === 'illinois' || stateSlug === 'nebraska' || stateSlug === 'idaho')
+    (stateSlug === 'arkansas' ||
+      stateSlug === 'oklahoma' ||
+      stateSlug === 'illinois' ||
+      stateSlug === 'nebraska' ||
+      stateSlug === 'idaho')
 
   return (
     <>
@@ -201,7 +205,7 @@ export default function StatePage() {
           {photoHero ? (
             <div
               className={`${stateHeroShell} w-full text-center ${
-                stateSlug === 'arkansas'
+                stateSlug === 'arkansas' || stateSlug === 'oklahoma'
                   ? 'pb-16 pt-[4.75rem] sm:pb-20 sm:pt-[5.25rem] md:pb-24 md:pt-[5.75rem]'
                   : skyPhotoHero
                     ? 'pb-20 pt-14 sm:pb-24 sm:pt-[3.75rem] md:pb-28 md:pt-16'

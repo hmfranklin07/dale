@@ -43,7 +43,6 @@ const STATE_ROUTE_SLUG_OVERRIDES = {
   arizona: 'more',
   'south dakota': 'more',
   florida: 'more',
-  oklahoma: 'arkansas',
 }
 
 /** Rapid City corridor — shared by route curve and see-more pin */
@@ -214,7 +213,7 @@ const STOP_LABELS_BY_SLUG = {
   illinois: 'Stop 2',
   nebraska: 'Stop 3',
   idaho: 'Stop 4',
-  arkansas: 'Stop 5',
+  oklahoma: 'Stop 5',
 }
 
 // Route control points: actual driving corridors (I-90/I-80 west, Black Hills/Yellowstone,
@@ -288,6 +287,7 @@ const ROUTE_CONTROL_POINTS = [
   [-95.9928, 36.154], // Tulsa
   [-94.16, 36.08], // NW Arkansas approach
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
+  stateBySlug.oklahoma && [stateBySlug.oklahoma.lng, stateBySlug.oklahoma.lat],
 
   // Eastern return — unchanged
   [-92.3, 35.2], // Central AR bend
@@ -572,10 +572,12 @@ export default function USMap() {
           )}
 
           {states.map((s) => {
-            // Multi-state stops (e.g. AR & OK): pin rises with either hovered state
-            const pinPopNames = (s.mapStateNames?.length
-              ? s.mapStateNames
-              : [s.mapStateName || s.name]
+            // Multi-state stops: pin can rise with related hovered states (e.g. Stop 5 with AR or OK)
+            const pinPopNames = (s.pinPopStateNames?.length
+              ? s.pinPopStateNames
+              : s.mapStateNames?.length
+                ? s.mapStateNames
+                : [s.mapStateName || s.name]
             ).map((n) => String(n).trim().toLowerCase())
             const isPinPopped = Boolean(poppedState && pinPopNames.includes(poppedState))
 
