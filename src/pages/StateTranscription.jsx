@@ -160,27 +160,39 @@ export default function StateTranscription() {
               <p className="mb-8 text-earth-800 leading-relaxed italic sm:mb-10 sm:text-lg">{interview.intro}</p>
             </>
           )}
-          <div className="space-y-8 sm:space-y-10">
-            {(interview.questions ?? []).map((qa, idx) => {
-              const paragraphs = answerParagraphs(qa.a)
-              const lastIdx = paragraphs.length - 1
+          {Array.isArray(interview.body) && interview.body.length > 0 ? (
+            <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+              {interview.body.map((paragraph, pIdx) => (
+                <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
+                  {pIdx === 0 && '\u201C'}
+                  {paragraph}
+                  {pIdx === interview.body.length - 1 && '\u201D'}
+                </p>
+              ))}
+            </blockquote>
+          ) : (
+            <div className="space-y-8 sm:space-y-10">
+              {(interview.questions ?? []).map((qa, idx) => {
+                const paragraphs = answerParagraphs(qa.a)
+                const lastIdx = paragraphs.length - 1
 
-              return (
-                <div key={idx}>
-                  <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
-                  <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
-                    {paragraphs.map((paragraph, pIdx) => (
-                      <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
-                        {pIdx === 0 && '\u201C'}
-                        {paragraph}
-                        {pIdx === lastIdx && '\u201D'}
-                      </p>
-                    ))}
-                  </blockquote>
-                </div>
-              )
-            })}
-          </div>
+                return (
+                  <div key={idx}>
+                    <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
+                    <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+                      {paragraphs.map((paragraph, pIdx) => (
+                        <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
+                          {pIdx === 0 && '\u201C'}
+                          {paragraph}
+                          {pIdx === lastIdx && '\u201D'}
+                        </p>
+                      ))}
+                    </blockquote>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </article>
       </PageContentBand>
     </>
