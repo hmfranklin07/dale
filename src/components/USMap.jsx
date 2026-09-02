@@ -286,7 +286,6 @@ const ROUTE_CONTROL_POINTS = [
   [-97.5164, 35.4676], // Oklahoma City
   [-95.9928, 36.154], // Tulsa
   [-94.16, 36.08], // NW Arkansas approach
-  stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
   stateBySlug.oklahoma && [stateBySlug.oklahoma.lng, stateBySlug.oklahoma.lat],
 
   // Eastern return — unchanged
@@ -571,7 +570,9 @@ export default function USMap() {
             </>
           )}
 
-          {states.map((s) => {
+          {states
+            .filter((s) => !s.hideMapPin)
+            .map((s) => {
             // Multi-state stops: pin can rise with related hovered states (e.g. Stop 5 with AR or OK)
             const pinPopNames = (s.pinPopStateNames?.length
               ? s.pinPopStateNames
