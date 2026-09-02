@@ -46,19 +46,6 @@ const STATE_ROUTE_SLUG_OVERRIDES = {
   oklahoma: 'arkansas',
 }
 
-/** Geography names that pop together as one multi-state stop (e.g. AR & OK). */
-const POP_GROUP_BY_STATE = {
-  arkansas: ['arkansas', 'oklahoma'],
-  oklahoma: ['arkansas', 'oklahoma'],
-}
-
-function isInPopGroup(stateName, poppedState) {
-  if (!stateName || !poppedState) return false
-  if (stateName === poppedState) return true
-  const group = POP_GROUP_BY_STATE[poppedState]
-  return Boolean(group?.includes(stateName))
-}
-
 /** Rapid City corridor — shared by route curve and see-more pin */
 const RAPID_CITY_LNG = -103.25
 const RAPID_CITY_LAT = 44.05
@@ -493,7 +480,7 @@ export default function USMap() {
               return visible.map((geo) => {
                 const stateName = normalizedStateName(geo)
                 const isHighlight = stateName && HIGHLIGHT_STATE_NAMES.has(stateName)
-                const isPopped = isInPopGroup(stateName, poppedState)
+                const isPopped = stateName && stateName === poppedState
                 const fill = isPopped ? FILL_POP : STATE_FILLS[stateShadeIndex(geo)]
                 const [cx, cy] = isHighlight ? geoCentroid(geo) : [0, 0]
                 const stateSlug = stateName
@@ -585,8 +572,12 @@ export default function USMap() {
           )}
 
           {states.map((s) => {
-            const stateName = STATE_NAME_BY_SLUG[s.slug]
-            const isPinPopped = isInPopGroup(stateName, poppedState)
+            // Multi-state stops (e.g. AR & OK): pin rises with either hovered state
+            const pinPopNames = (s.mapStateNames?.length
+              ? s.mapStateNames
+              : [s.mapStateName || s.name]
+            ).map((n) => String(n).trim().toLowerCase())
+            const isPinPopped = Boolean(poppedState && pinPopNames.includes(poppedState))
 
             return (
             <Marker
