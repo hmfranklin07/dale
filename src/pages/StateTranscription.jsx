@@ -89,27 +89,37 @@ export default function StateTranscription() {
               <div
                 className={`${heroShell} w-full pb-10 pt-14 text-center sm:pb-12 sm:pt-16 md:pb-14 md:pt-[4.25rem]`}
               >
-                <div className="relative mx-auto w-full max-w-2xl py-3 sm:py-4">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/20 bg-sage-950/25 backdrop-blur-md"
-                  />
+                <div className="relative mx-auto w-full max-w-4xl">
                   {(interview.townLabel || town) && (
                     <span className="inline-block rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/95 backdrop-blur-sm">
                       {interview.townLabel ?? town?.name}
                     </span>
                   )}
-                  <h1 className="font-display mt-3 text-[2.5rem] leading-[1.02] text-white drop-shadow-md sm:mt-4 sm:text-[3.25rem] lg:text-[3.75rem]">
-                    {displayTitle}
-                  </h1>
-                  <div
-                    className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                    aria-hidden
-                  />
-                  <p className="mx-auto mt-2.5 max-w-xl text-base leading-snug text-white/90 sm:mt-3 sm:text-lg">
-                    {interview.personName} · {interview.role} · {interview.school}
-                  </p>
-                  <time className="mt-2 block text-xs text-white/75 sm:text-sm">{formatDate(interview.date)}</time>
+                  <div className="relative mt-3 py-2 sm:mt-3.5 sm:py-2.5">
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/20 bg-sage-950/20 backdrop-blur-sm"
+                    />
+                    <h1
+                      className={`font-display mx-auto whitespace-nowrap leading-none text-white drop-shadow-md ${
+                        displayTitle.length > 22
+                          ? 'text-[1.55rem] sm:text-[2.35rem] lg:text-[2.85rem]'
+                          : 'text-[2.15rem] sm:text-[3rem] lg:text-[3.5rem]'
+                      }`}
+                    >
+                      {displayTitle}
+                    </h1>
+                    <div
+                      className="mx-auto mt-2 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-2.5 sm:w-20"
+                      aria-hidden
+                    />
+                    <p className="mx-auto mt-2 whitespace-nowrap text-sm leading-none text-white/90 sm:mt-2.5 sm:text-base">
+                      {interview.personName} · {interview.role} · {interview.school}
+                    </p>
+                  </div>
+                  <time className="mt-2.5 block text-xs text-white/75 sm:mt-3 sm:text-sm">
+                    {formatDate(interview.date)}
+                  </time>
                 </div>
               </div>
             </div>
