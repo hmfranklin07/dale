@@ -230,7 +230,7 @@
     "personName": "Mrs. Canfield",
     "role": "Elementary teacher & STEM camp director",
     "school": "Wood River",
-    "photo": "",
+    "photo": "/images/summer-school-banner.png",
     "questions": [
       {
         "q": "I wasn't familiar with elementary summer school—I'm used to the high school version, where you struggled and then it's a terrible summer. How do you structure it?",
@@ -260,7 +260,9 @@
           "Parents are good when they're little. You get a little bit older, and I don't know that parents will make them do it. At the elementary, you're passing no matter what. We have parents that call and want their kids to come that don't even qualify, and if we have the time, we take them."
         ]
       }
-    ]
+    ],
+    "cardPhoto": "/images/summer-school-banner-card.jpg",
+    "heroPositionClass": "object-contain object-center bg-[#f6d3b8]"
   },
   {
     "id": "community-minded",
