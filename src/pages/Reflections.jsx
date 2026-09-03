@@ -53,7 +53,7 @@ export default function Reflections() {
             src={reflectionsHeroUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[48%_40%] sm:object-[50%_38%] lg:object-[52%_36%] xl:object-[54%_34%]"
+            className="h-full w-full object-cover object-[48%_62%] sm:object-[50%_66%] lg:object-[52%_70%] xl:object-[54%_74%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
