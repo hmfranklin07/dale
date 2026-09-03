@@ -75,7 +75,8 @@ export default function Reflections() {
                 aria-hidden
               />
               <p className={`${photoHeroIntroClass} text-white/90`}>
-                Written pieces from the trip—housed here and on each state’s page as they come together.
+                Written reflections based on interviews, highlighting themes, questions, and important topics
+                discussed by teachers, administrators, and students.
               </p>
             </div>
           </div>
