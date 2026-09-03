@@ -4,11 +4,14 @@ import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { useInView } from '../hooks/useInView'
 /** Home hero background photo, bundled as-is. */
-import homeHeroBgUrl from '../assets/home/IMG_3286.jpg?url'
+import homeHeroBgUrl from '../assets/reflections/reflections-hero.jpg?url'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
+/** Fill the viewport below the sticky navbar (h-16); tablet second nav row is taller. */
+const heroViewportH =
+  'min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-7rem)] lg:min-h-[calc(100dvh-4rem)]'
 
 export default function Home() {
   const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView({
@@ -23,26 +26,26 @@ export default function Home() {
 
   return (
     <div className="overflow-x-clip">
-      {/* 1. Hero — editorial vignette (no card overlay) */}
-      <section className="relative min-h-[20rem] overflow-hidden sm:min-h-[24rem] md:min-h-[28rem]">
+      {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
+      <section className={`relative flex flex-col overflow-hidden ${heroViewportH}`}>
         <div className="absolute inset-0 z-0">
           <img
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[50%_72%] sm:object-[50%_76%] lg:object-[48%_82%]"
+            className="h-full w-full object-cover object-[48%_48%] sm:object-[50%_50%] lg:object-[52%_52%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/35 via-sage-950/15 to-transparent"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/45 via-sage-950/20 to-sage-950/35"
           aria-hidden
         />
 
-        <div className="relative z-10 flex min-h-[inherit] items-start justify-center">
-          <div className={`${shell} w-full pb-10 pt-4 text-center sm:pb-12 sm:pt-5 md:pb-14 md:pt-6`}>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center">
+          <div className={`${shell} w-full py-8 text-center sm:py-10 md:py-12`}>
             <div className="relative py-3 sm:py-4 md:py-5">
               <div
                 aria-hidden
@@ -64,7 +67,7 @@ export default function Home() {
                 className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
                 aria-hidden
               />
-              <div className="mx-auto mt-3 w-full space-y-2.5 text-[0.9375rem] leading-snug text-sage-100/92 sm:text-base sm:leading-normal lg:text-lg">
+              <div className="mx-auto mt-3 w-full space-y-2.5 text-[0.9375rem] leading-snug text-sage-100/95 drop-shadow-sm sm:text-base sm:leading-normal lg:text-lg">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
