@@ -262,7 +262,7 @@
       }
     ],
     "cardPhoto": "/images/summer-school-banner-card.jpg",
-    "heroPositionClass": "object-[50%_50%]"
+    "heroBanner": true
   },
   {
     "id": "community-minded",
