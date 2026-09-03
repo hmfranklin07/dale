@@ -79,7 +79,7 @@ export default function About() {
           <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
             <div className="mx-auto w-full max-w-4xl">
               <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-                About this project
+                About Rural STEM Stories
               </h1>
               <div
                 className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
