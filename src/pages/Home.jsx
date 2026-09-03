@@ -13,33 +13,34 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const heroViewportH =
   'min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-7rem)] lg:min-h-[calc(100dvh-4rem)]'
 
-const revealTransition =
-  'motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)]'
-
-function revealClass(inView, exitEdge) {
-  if (inView) return `${revealTransition} opacity-100 translate-y-0 scale-100`
-  const hidden =
-    exitEdge === 'top'
-      ? 'opacity-0 -translate-y-8 scale-[0.965]'
-      : 'opacity-0 translate-y-10 scale-[0.96]'
-  return `${revealTransition} ${hidden}`
+function revealState(inView, exitEdge) {
+  return [
+    inView ? 'is-revealed' : '',
+    !inView && exitEdge === 'top' ? 'scroll-reveal-exit-top' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
 
-const revealOpts = { threshold: 0.12, rootMargin: '0px 0px -5%' }
+const revealOpts = { threshold: 0.14, rootMargin: '0px 0px -8%' }
 
 export default function Home() {
-  const { ref: heroRevealRef, inView: heroInView, exitEdge: heroExitEdge } = useInView(revealOpts)
+  const { ref: heroRevealRef, inView: heroInView, exitEdge: heroExitEdge } = useInView({
+    ...revealOpts,
+    enterDelay: 40,
+  })
   const { ref: introRevealRef, inView: introInView, exitEdge: introExitEdge } = useInView(revealOpts)
   const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView(revealOpts)
+
+  const heroState = revealState(heroInView, heroExitEdge)
+  const introState = revealState(introInView, introExitEdge)
+  const mapState = revealState(mapInView, mapExitEdge)
 
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
-      <section className={`relative flex flex-col overflow-hidden ${heroViewportH}`}>
-        <div
-          ref={heroRevealRef}
-          className={`absolute inset-0 z-0 ${revealClass(heroInView, heroExitEdge)}`}
-        >
+      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden ${heroViewportH}`}>
+        <div className={`absolute inset-0 z-0 scroll-reveal-photo ${heroInView ? 'is-revealed' : ''}`}>
           <img
             src={homeHeroBgUrl}
             alt=""
@@ -50,11 +51,9 @@ export default function Home() {
             fetchPriority="high"
           />
         </div>
-        <div
-          className={`relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start ${revealClass(heroInView, heroExitEdge)}`}
-        >
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
           <div className={`${shell} w-full pb-8 pt-9 text-center sm:pb-10 sm:pt-11 md:pb-12 md:pt-14`}>
-            <div className="relative py-3 sm:py-4 md:py-5">
+            <div className={`relative py-3 sm:py-4 md:py-5 scroll-reveal scroll-reveal-delay-1 ${heroState}`}>
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
@@ -71,10 +70,12 @@ export default function Home() {
               </div>
             </div>
             <div
-              className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-24"
+              className={`mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-24 scroll-reveal scroll-reveal-delay-2 ${heroState}`}
               aria-hidden
             />
-            <div className="mx-auto mt-3 w-full max-w-md space-y-2.5 text-[0.9375rem] leading-snug text-earth-900 sm:mt-4 sm:max-w-lg sm:text-base sm:leading-normal lg:max-w-xl lg:text-lg">
+            <div
+              className={`mx-auto mt-3 w-full max-w-md space-y-2.5 text-[0.9375rem] leading-snug text-earth-900 sm:mt-4 sm:max-w-lg sm:text-base sm:leading-normal lg:max-w-xl lg:text-lg scroll-reveal scroll-reveal-delay-3 ${heroState}`}
+            >
               <p>
                 This summer, I am driving across the country to document experiences with STEM education in rural high
                 schools, not from numbers and statistics, but from the students and educators who live it every day.
@@ -126,17 +127,16 @@ export default function Home() {
           </svg>
         </div>
 
-        <div
-          ref={introRevealRef}
-          className={`relative z-10 ${revealClass(introInView, introExitEdge)}`}
-        >
+        <div ref={introRevealRef} className="relative z-10">
           <div className={`${sectionShell} pt-7 pb-0 sm:pt-8`}>
             <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
-              <div className="min-w-0 md:col-start-1 md:row-start-1">
+              <div className={`min-w-0 md:col-start-1 md:row-start-1 scroll-reveal scroll-reveal-delay-1 ${introState}`}>
                 <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
               </div>
 
-              <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
+              <figure
+                className={`mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end scroll-reveal scroll-reveal-delay-2 ${introState}`}
+              >
                 <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-r from-rust-700 via-rust-500 to-rust-300 p-1.5 shadow-xl shadow-rust-900/20 ring-1 ring-rust-300/60 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
                   <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
                     <img
@@ -151,7 +151,7 @@ export default function Home() {
                 </div>
               </figure>
 
-              <div className="min-w-0 md:col-start-1 md:row-start-2">
+              <div className={`min-w-0 md:col-start-1 md:row-start-2 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
                 <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
                   <p>
                     I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
@@ -178,7 +178,7 @@ export default function Home() {
           </div>
 
           {/* Light orange Dale footing */}
-          <div className="relative mt-5">
+          <div className={`relative mt-5 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
             <div
               className="pointer-events-none absolute inset-0 bg-rust-200/55"
               aria-hidden
@@ -202,8 +202,8 @@ export default function Home() {
       >
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
-          <div ref={mapRevealRef} className={revealClass(mapInView, mapExitEdge)}>
-            <div className="mb-6 sm:mb-8 text-center">
+          <div ref={mapRevealRef}>
+            <div className={`mb-6 sm:mb-8 text-center scroll-reveal scroll-reveal-delay-1 ${mapState}`}>
               <div
                 className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
                 aria-hidden
@@ -213,7 +213,7 @@ export default function Home() {
                 Click a pin to explore each area!
               </p>
             </div>
-            <div className="w-full rounded-[1.25rem] sm:rounded-[1.4rem]">
+            <div className={`w-full rounded-[1.25rem] sm:rounded-[1.4rem] scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
               <USMap />
             </div>
           </div>
