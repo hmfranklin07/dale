@@ -181,7 +181,7 @@
     "personName": "Mrs. Canfield",
     "role": "Elementary teacher & STEM camp director",
     "school": "Wood River",
-    "photo": "",
+    "photo": "/images/stem-camp-osprey.jpg",
     "questions": [
       {
         "q": "Do students who come to STEM camp tend to already be interested in science and math, or do you get a wide range?",
@@ -214,7 +214,9 @@
           "We have a really good superintendent. In fact, I was just in Tulsa two weeks ago for four days with a team of six other teachers, just learning more about the tiered system and intervention, and extending as part of that, too. I feel like they're investing. There's a whole other group going through it here in a couple months. They do a good job of investing in us teachers. We might not know it now, but they'll help us get an education, or help us learn a little."
         ]
       }
-    ]
+    ],
+    "cardPhoto": "/images/stem-camp-osprey-card.jpg",
+    "heroPositionClass": "object-[50%_42%] sm:object-[50%_40%]"
   },
   {
     "id": "elementary-summer-school",
