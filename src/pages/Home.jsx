@@ -13,22 +13,33 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const heroViewportH =
   'min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-7rem)] lg:min-h-[calc(100dvh-4rem)]'
 
-export default function Home() {
-  const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView({
-    threshold: 0.12,
-    rootMargin: '0px 0px -5%',
-  })
+const revealTransition =
+  'motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)]'
 
-  const mapHiddenClass =
-    mapExitEdge === 'top'
+function revealClass(inView, exitEdge) {
+  if (inView) return `${revealTransition} opacity-100 translate-y-0 scale-100`
+  const hidden =
+    exitEdge === 'top'
       ? 'opacity-0 -translate-y-8 scale-[0.965]'
       : 'opacity-0 translate-y-10 scale-[0.96]'
+  return `${revealTransition} ${hidden}`
+}
+
+const revealOpts = { threshold: 0.12, rootMargin: '0px 0px -5%' }
+
+export default function Home() {
+  const { ref: heroRevealRef, inView: heroInView, exitEdge: heroExitEdge } = useInView(revealOpts)
+  const { ref: introRevealRef, inView: introInView, exitEdge: introExitEdge } = useInView(revealOpts)
+  const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView(revealOpts)
 
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
       <section className={`relative flex flex-col overflow-hidden ${heroViewportH}`}>
-        <div className="absolute inset-0 z-0">
+        <div
+          ref={heroRevealRef}
+          className={`absolute inset-0 z-0 ${revealClass(heroInView, heroExitEdge)}`}
+        >
           <img
             src={homeHeroBgUrl}
             alt=""
@@ -39,7 +50,9 @@ export default function Home() {
             fetchPriority="high"
           />
         </div>
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
+        <div
+          className={`relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start ${revealClass(heroInView, heroExitEdge)}`}
+        >
           <div className={`${shell} w-full pb-8 pt-9 text-center sm:pb-10 sm:pt-11 md:pb-12 md:pt-14`}>
             <div className="relative py-3 sm:py-4 md:py-5">
               <div
@@ -113,63 +126,68 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className={`relative z-10 ${sectionShell} pt-7 pb-0 sm:pt-8`}>
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
-            <div className="min-w-0 md:col-start-1 md:row-start-1">
-              <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
-            </div>
+        <div
+          ref={introRevealRef}
+          className={`relative z-10 ${revealClass(introInView, introExitEdge)}`}
+        >
+          <div className={`${sectionShell} pt-7 pb-0 sm:pt-8`}>
+            <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
+              <div className="min-w-0 md:col-start-1 md:row-start-1">
+                <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
+              </div>
 
-            <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
-              <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-r from-rust-700 via-rust-500 to-rust-300 p-1.5 shadow-xl shadow-rust-900/20 ring-1 ring-rust-300/60 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
-                <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
-                  <img
-                    src="/images/researcher.png"
-                    alt="Portrait of the project researcher, outdoors with two dogs"
-                    width={768}
-                    height={1024}
-                    decoding="async"
-                    className="h-full w-full object-cover object-top"
-                  />
+              <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end">
+                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-r from-rust-700 via-rust-500 to-rust-300 p-1.5 shadow-xl shadow-rust-900/20 ring-1 ring-rust-300/60 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+                  <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
+                    <img
+                      src="/images/researcher.png"
+                      alt="Portrait of the project researcher, outdoors with two dogs"
+                      width={768}
+                      height={1024}
+                      decoding="async"
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
                 </div>
-              </div>
-            </figure>
+              </figure>
 
-            <div className="min-w-0 md:col-start-1 md:row-start-2">
-              <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
-                <p>
-                  I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
-                  my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
-                  rest of my life, and the opportunities that existed beyond my community didn&apos;t feel within reach.
-                </p>
-                <p>
-                  This project comes from my love for rural America and a desire to understand how students and
-                  educators experience and think about education in their own communities, through conversations and
-                  shared stories. It grew out of my work in Sophomore Research Seminar,{' '}
-                  <em>The Curious Scientist</em>, at Princeton during the 2025–26 school year.
+              <div className="min-w-0 md:col-start-1 md:row-start-2">
+                <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
+                  <p>
+                    I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
+                    my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
+                    rest of my life, and the opportunities that existed beyond my community didn&apos;t feel within reach.
+                  </p>
+                  <p>
+                    This project comes from my love for rural America and a desire to understand how students and
+                    educators experience and think about education in their own communities, through conversations and
+                    shared stories. It grew out of my work in Sophomore Research Seminar,{' '}
+                    <em>The Curious Scientist</em>, at Princeton during the 2025–26 school year.
+                  </p>
+                </div>
+                <p className="mt-4 sm:mt-5">
+                  <Link
+                    to="/about"
+                    className="text-sm font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950 hover:decoration-rust-600 sm:text-base"
+                  >
+                    See more about this project →
+                  </Link>
                 </p>
               </div>
-              <p className="mt-4 sm:mt-5">
-                <Link
-                  to="/about"
-                  className="text-sm font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950 hover:decoration-rust-600 sm:text-base"
-                >
-                  See more about this project →
-                </Link>
-              </p>
             </div>
           </div>
-        </div>
 
-        {/* Light orange Dale footing */}
-        <div className="relative z-10 mt-5">
-          <div
-            className="pointer-events-none absolute inset-0 bg-rust-200/55"
-            aria-hidden
-          />
-          <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
-            <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
-              This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
-            </p>
+          {/* Light orange Dale footing */}
+          <div className="relative mt-5">
+            <div
+              className="pointer-events-none absolute inset-0 bg-rust-200/55"
+              aria-hidden
+            />
+            <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
+              <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
+                This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -184,12 +202,7 @@ export default function Home() {
       >
         <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
-          <div
-            ref={mapRevealRef}
-            className={`motion-reduce:transform-none motion-reduce:opacity-100 transition-[opacity,transform] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              mapInView ? 'opacity-100 translate-y-0 scale-100' : mapHiddenClass
-            }`}
-          >
+          <div ref={mapRevealRef} className={revealClass(mapInView, mapExitEdge)}>
             <div className="mb-6 sm:mb-8 text-center">
               <div
                 className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
