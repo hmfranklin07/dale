@@ -41,31 +41,24 @@ export default function StateTranscription() {
   const backTo = fromStatePage ? `/${stateSlug}` : `/${stateSlug}/transcriptions`
   const backLabel = fromStatePage ? `Back to ${state.name}` : 'Back to all conversations'
   const heroPositionClass = interview.heroPositionClass || 'object-[50%_42%] sm:object-[50%_38%]'
-  const bannerHero = Boolean(interview.heroBanner)
 
   return (
     <>
       <section
         className={`relative flex flex-col overflow-hidden border-b ${
-          bannerHero
-            ? 'w-full border-sage-800/30'
-            : photoHero
-              ? `${TRANSCRIPTION_PHOTO_HERO_MIN_H} border-sage-800/30`
-              : 'min-h-[14rem] border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]'
+          photoHero
+            ? `${TRANSCRIPTION_PHOTO_HERO_MIN_H} border-sage-800/30`
+            : 'min-h-[14rem] border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]'
         }`}
       >
         {photoHero ? (
           <>
-            <div className={bannerHero ? 'relative z-0 w-full' : 'absolute inset-0 z-0'}>
+            <div className="absolute inset-0 z-0">
               <img
                 src={interview.photo}
                 alt=""
                 sizes="100vw"
-                className={
-                  bannerHero
-                    ? 'block h-auto w-full'
-                    : `h-full w-full object-cover ${heroPositionClass}`
-                }
+                className={`h-full w-full object-cover ${heroPositionClass}`}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -92,13 +85,7 @@ export default function StateTranscription() {
               </Link>
             </div>
 
-            <div
-              className={
-                bannerHero
-                  ? 'absolute inset-0 z-10 flex flex-col items-start justify-center'
-                  : 'relative z-10 flex min-h-[inherit] flex-1 flex-col items-start justify-start'
-              }
-            >
+            <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-start justify-start">
               <div
                 className={`${heroShell} w-full pb-10 pt-14 text-center sm:pb-12 sm:pt-16 md:pb-14 md:pt-[4.25rem]`}
               >

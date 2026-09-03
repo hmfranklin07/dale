@@ -230,7 +230,7 @@
     "personName": "Mrs. Canfield",
     "role": "Elementary teacher & STEM camp director",
     "school": "Wood River",
-    "photo": "/images/summer-school-banner.png",
+    "photo": "/images/summer-school-doodle.jpg",
     "questions": [
       {
         "q": "I wasn't familiar with elementary summer school—I'm used to the high school version, where you struggled and then it's a terrible summer. How do you structure it?",
@@ -261,8 +261,8 @@
         ]
       }
     ],
-    "cardPhoto": "/images/summer-school-banner-card.jpg",
-    "heroBanner": true
+    "cardPhoto": "/images/summer-school-doodle-card.jpg",
+    "heroPositionClass": "object-[50%_50%]"
   },
   {
     "id": "community-minded",
