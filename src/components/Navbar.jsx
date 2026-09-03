@@ -152,11 +152,11 @@ function DesktopNavLinks({ statesOn }) {
         About
       </NavLink>
       <StatesDropdown linkClassBase={linkClassBase} statesOn={statesOn} />
-      <NavLink to="/reflections" className={linkClass}>
-        Reflections
-      </NavLink>
       <NavLink to={`/${more.slug}`} className={linkClass}>
         More
+      </NavLink>
+      <NavLink to="/reflections" className={linkClass}>
+        Reflections
       </NavLink>
       <NavLink to="/contact" className={linkClass}>
         Contact
@@ -279,11 +279,11 @@ export default function Navbar() {
               </div>
             )}
 
-            <NavLink to="/reflections" onClick={() => setOpen(false)} className={mobileLink}>
-              Reflections
-            </NavLink>
             <NavLink to={`/${more.slug}`} onClick={() => setOpen(false)} className={mobileLink}>
               More
+            </NavLink>
+            <NavLink to="/reflections" onClick={() => setOpen(false)} className={mobileLink}>
+              Reflections
             </NavLink>
             <NavLink to="/contact" onClick={() => setOpen(false)} className={mobileLink}>
               Contact
