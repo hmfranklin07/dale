@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import MorePage from './pages/MorePage'
+import Reflections from './pages/Reflections'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
 import StateVideo from './pages/StateVideo'
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/more" element={<MorePage />} />
+          <Route path="/reflections" element={<Reflections />} />
           <Route path="/florida" element={<Navigate to="/more" replace />} />
           <Route path="/oklahoma" element={<Navigate to="/arkansas" replace />} />
           <Route path="/blog/*" element={<Navigate to="/" replace />} />

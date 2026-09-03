@@ -1,8 +1,12 @@
 import towns from '../data/towns.json'
+import states from '../data/states.json'
 import vlogs from '../data/vlogs.json'
 import interviews from '../data/interviews.json'
 import reflections from '../data/reflections.json'
 import { sortDateValue } from '../pages/blogData'
+
+const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
+const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
 
 export function townSlugsInState(stateSlug) {
   return new Set(towns.filter((t) => t.stateSlug === stateSlug).map((t) => t.slug))
@@ -76,4 +80,23 @@ export function reflectionsForState(stateSlug) {
   return [...reflections]
     .filter((r) => r.stateSlug === stateSlug)
     .sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
+}
+
+export function comingSoonReflectionsAll() {
+  return interviews
+    .map((i, index) => ({ i, index }))
+    .filter(({ i }) => i.comingSoon === true && i.townLabel === 'Reflection')
+    .sort((a, b) => a.index - b.index)
+    .map(({ i }) => {
+      const stateSlug = townBySlug[i.townSlug]?.stateSlug ?? null
+      return {
+        ...i,
+        stateSlug,
+        stateName: stateSlug ? stateBySlug[stateSlug]?.name : null,
+      }
+    })
+}
+
+export function publishedReflectionsAll() {
+  return [...reflections].sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
 }

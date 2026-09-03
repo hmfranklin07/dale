@@ -4,9 +4,10 @@ import towns from '../data/towns.json'
 import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import { formatDate } from './blogData'
-import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, comingSoonInterviewsForState, vlogsForState } from '../lib/stateContent'
+import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, comingSoonInterviewsForState, vlogsForState, reflectionsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
@@ -89,24 +90,6 @@ function TranscriptionFillerCard({ stateSlug }) {
   )
 }
 
-function ComingSoonConversationCard({ interview }) {
-  return (
-    <article className="card overflow-hidden !border-2 !border-dashed !border-sage-500/75 !bg-gradient-to-br !from-sage-50/95 !via-white !to-rust-50/40 !ring-0 !shadow-sm">
-      <div className="card-body p-5 sm:p-6">
-        {interview.townLabel && <span className="badge-rust inline-block">{interview.townLabel}</span>}
-        <h2 className="font-display mt-3 text-xl leading-snug text-earth-900 sm:mt-3.5 sm:text-2xl">
-          {interview.title}
-        </h2>
-        <div className="mt-2.5 h-px w-14 bg-gradient-to-r from-rust-400/90 to-transparent sm:w-16" aria-hidden />
-        {interview.credit && <p className="mt-2.5 text-sm font-medium text-sage-800/90">{interview.credit}</p>}
-        {interview.summary && (
-          <p className="mt-3 text-sm leading-relaxed text-earth-800 sm:text-base">{interview.summary}</p>
-        )}
-      </div>
-    </article>
-  )
-}
-
 function CheckBackSoonCard({ stateName }) {
   return (
     <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
@@ -152,6 +135,7 @@ export default function StatePage() {
   const featuredVlogs = featuredVlogsForState(stateSlug)
   const featuredInterviews = featuredInterviewsForState(stateSlug)
   const comingSoonInterviews = comingSoonInterviewsForState(stateSlug)
+  const publishedReflections = reflectionsForState(stateSlug)
   const allVlogs = vlogsForState(stateSlug)
   const allInterviews = interviewsForState(stateSlug)
   const hasVideos = allVlogs.length > 0
@@ -159,7 +143,8 @@ export default function StatePage() {
   const totalVideos = allVlogs.length
   const totalInterviews = allInterviews.length
   const hasConversationSection = hasInterviews || comingSoonInterviews.length > 0
-  const stateHasContent = hasVideos || hasConversationSection
+  const hasReflections = publishedReflections.length > 0
+  const stateHasContent = hasVideos || hasConversationSection || hasReflections
 
   const photoHero = STATE_PHOTO_HEROES[stateSlug]
   const nyPhotoHero = stateSlug === 'new-york' && photoHero
@@ -337,12 +322,31 @@ export default function StatePage() {
           </section>
           )}
 
+          {hasReflections && (
+          <section>
+            <SectionHeading>Reflections</SectionHeading>
+            <div className="space-y-4">
+              {publishedReflections.map((paper) => (
+                <article key={paper.id} className="card card-body">
+                  {paper.date && (
+                    <time className="mb-2 block text-xs text-earth-500">{formatDate(paper.date)}</time>
+                  )}
+                  <h2 className="font-display mb-3 text-2xl text-earth-900">{paper.title}</h2>
+                  {paper.text && (
+                    <p className="leading-relaxed text-earth-800 whitespace-pre-line">{paper.text}</p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+          )}
+
           {comingSoonInterviews.length > 0 && (
           <section>
             <SectionHeading>Coming soon</SectionHeading>
             <div className="space-y-4">
               {comingSoonInterviews.map((interview) => (
-                <ComingSoonConversationCard key={interview.id} interview={interview} />
+                <ComingSoonReflectionCard key={interview.id} item={interview} />
               ))}
             </div>
           </section>
