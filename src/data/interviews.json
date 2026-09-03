@@ -262,7 +262,8 @@
       }
     ],
     "cardPhoto": "/images/summer-school-pattern-card.jpg",
-    "heroPositionClass": "object-[50%_50%]"
+    "heroPositionClass": "object-[50%_50%]",
+    "heroDarkText": true
   },
   {
     "id": "community-minded",

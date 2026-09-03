@@ -41,6 +41,7 @@ export default function StateTranscription() {
   const backTo = fromStatePage ? `/${stateSlug}` : `/${stateSlug}/transcriptions`
   const backLabel = fromStatePage ? `Back to ${state.name}` : 'Back to all conversations'
   const heroPositionClass = interview.heroPositionClass || 'object-[50%_42%] sm:object-[50%_38%]'
+  const darkHeroText = Boolean(interview.heroDarkText)
 
   return (
     <>
@@ -64,19 +65,27 @@ export default function StateTranscription() {
                 fetchPriority="high"
               />
             </div>
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/55 via-sage-950/15 to-sage-950/65"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(15,23,20,0.45)_100%)]"
-              aria-hidden
-            />
+            {!darkHeroText && (
+              <>
+                <div
+                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/55 via-sage-950/15 to-sage-950/65"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(15,23,20,0.45)_100%)]"
+                  aria-hidden
+                />
+              </>
+            )}
 
             <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
               <Link
                 to={backTo}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/95 drop-shadow-sm transition-colors hover:text-white"
+                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                  darkHeroText
+                    ? 'text-earth-900 hover:text-rust-800'
+                    : 'text-white/95 drop-shadow-sm hover:text-white'
+                }`}
               >
                 <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -91,17 +100,29 @@ export default function StateTranscription() {
               >
                 <div className="relative mx-auto w-full max-w-4xl">
                   {(interview.townLabel || town) && (
-                    <span className="inline-block rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/95 backdrop-blur-sm">
+                    <span
+                      className={`inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm ${
+                        darkHeroText
+                          ? 'border-earth-900/25 bg-white/55 text-earth-900'
+                          : 'border-white/30 bg-white/10 text-white/95'
+                      }`}
+                    >
                       {interview.townLabel ?? town?.name}
                     </span>
                   )}
                   <div className="relative mt-3 py-3 sm:mt-3.5 sm:py-3.5">
                     <div
                       aria-hidden
-                      className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/20 bg-sage-950/20 backdrop-blur-sm"
+                      className={`pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y backdrop-blur-sm ${
+                        darkHeroText
+                          ? 'border-earth-900/15 bg-white/50'
+                          : 'border-white/20 bg-sage-950/20'
+                      }`}
                     />
                     <h1
-                      className={`font-display mx-auto whitespace-nowrap leading-none text-white drop-shadow-md ${
+                      className={`font-display mx-auto whitespace-nowrap leading-none ${
+                        darkHeroText ? 'text-earth-900' : 'text-white drop-shadow-md'
+                      } ${
                         displayTitle.length > 22
                           ? 'text-[1.55rem] sm:text-[2.35rem] lg:text-[2.85rem]'
                           : 'text-[2.15rem] sm:text-[3rem] lg:text-[3.5rem]'
@@ -113,11 +134,19 @@ export default function StateTranscription() {
                       className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                       aria-hidden
                     />
-                    <p className="mx-auto mt-2.5 whitespace-nowrap text-sm leading-none text-white/90 sm:mt-3 sm:text-base">
+                    <p
+                      className={`mx-auto mt-2.5 whitespace-nowrap text-sm leading-none sm:mt-3 sm:text-base ${
+                        darkHeroText ? 'text-earth-800' : 'text-white/90'
+                      }`}
+                    >
                       {interview.personName} · {interview.role} · {interview.school}
                     </p>
                   </div>
-                  <time className="mt-2.5 block text-xs text-white/75 sm:mt-3 sm:text-sm">
+                  <time
+                    className={`mt-2.5 block text-xs sm:mt-3 sm:text-sm ${
+                      darkHeroText ? 'text-earth-700' : 'text-white/75'
+                    }`}
+                  >
                     {formatDate(interview.date)}
                   </time>
                 </div>
