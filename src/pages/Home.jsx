@@ -4,7 +4,7 @@ import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { useInView } from '../hooks/useInView'
 /** Home hero background photo, bundled as-is. */
-import homeHeroBgUrl from '../assets/reflections/reflections-hero.jpg?url'
+import homeHeroBgUrl from '../assets/home/home-hero.jpg?url'
 
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
