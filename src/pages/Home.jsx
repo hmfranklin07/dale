@@ -33,7 +33,7 @@ export default function Home() {
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[48%_48%] sm:object-[50%_50%] lg:object-[52%_52%]"
+            className="h-full w-full object-cover object-[48%_58%] sm:object-[50%_62%] lg:object-[52%_66%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
