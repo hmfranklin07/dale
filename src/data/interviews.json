@@ -181,7 +181,7 @@
     "personName": "Mrs. Canfield",
     "role": "Elementary teacher & STEM camp director",
     "school": "Wood River",
-    "photo": "/images/stem-camp-osprey.jpg",
+    "photo": "/images/stem-camp-osprey.png",
     "questions": [
       {
         "q": "Do students who come to STEM camp tend to already be interested in science and math, or do you get a wide range?",
@@ -216,7 +216,7 @@
       }
     ],
     "cardPhoto": "/images/stem-camp-osprey-card.jpg",
-    "heroPositionClass": "object-[50%_42%] sm:object-[50%_40%]"
+    "heroPositionClass": "object-[50%_28%] sm:object-[50%_26%]"
   },
   {
     "id": "elementary-summer-school",
