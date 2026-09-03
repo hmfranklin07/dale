@@ -95,7 +95,7 @@ export default function StateTranscription() {
                       {interview.townLabel ?? town?.name}
                     </span>
                   )}
-                  <div className="relative mt-3 py-2 sm:mt-3.5 sm:py-2.5">
+                  <div className="relative mt-3 py-3 sm:mt-3.5 sm:py-3.5">
                     <div
                       aria-hidden
                       className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/20 bg-sage-950/20 backdrop-blur-sm"
@@ -110,10 +110,10 @@ export default function StateTranscription() {
                       {displayTitle}
                     </h1>
                     <div
-                      className="mx-auto mt-2 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-2.5 sm:w-20"
+                      className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
                       aria-hidden
                     />
-                    <p className="mx-auto mt-2 whitespace-nowrap text-sm leading-none text-white/90 sm:mt-2.5 sm:text-base">
+                    <p className="mx-auto mt-2.5 whitespace-nowrap text-sm leading-none text-white/90 sm:mt-3 sm:text-base">
                       {interview.personName} · {interview.role} · {interview.school}
                     </p>
                   </div>
