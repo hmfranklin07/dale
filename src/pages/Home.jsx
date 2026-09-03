@@ -39,35 +39,22 @@ export default function Home() {
             fetchPriority="high"
           />
         </div>
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/45 via-sage-950/20 to-sage-950/35"
-          aria-hidden
-        />
-
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center">
-          <div className={`${shell} w-full py-8 text-center sm:py-10 md:py-12`}>
-            <div className="relative py-3 sm:py-4 md:py-5">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
-              />
-              <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-                <h1
-                  className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
-                >
-                  STEM Across Rural America
-                </h1>
-                <p className="mt-2 font-display text-lg leading-snug text-earth-800 sm:mt-2.5 sm:text-xl lg:text-2xl">
-                  The Stories Behind the Data
-                </p>
-              </div>
-            </div>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
+          <div className={`${shell} w-full pb-8 pt-5 text-center sm:pb-10 sm:pt-6 md:pb-12 md:pt-7`}>
             <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
+              <h1
+                className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
+              >
+                STEM Across Rural America
+              </h1>
+              <p className="mt-2 font-display text-lg leading-snug text-earth-900 sm:mt-2.5 sm:text-xl lg:text-2xl">
+                The Stories Behind the Data
+              </p>
               <div
                 className="mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:w-24"
                 aria-hidden
               />
-              <div className="mx-auto mt-3 w-full space-y-2.5 text-[0.9375rem] leading-snug text-sage-100/95 drop-shadow-sm sm:text-base sm:leading-normal lg:text-lg">
+              <div className="mx-auto mt-3 w-full space-y-2.5 text-[0.9375rem] leading-snug text-earth-900 sm:text-base sm:leading-normal lg:text-lg">
                 <p>
                   This summer, I am driving across the country to document experiences with STEM education in rural high
                   schools, not from numbers and statistics, but from the students and educators who live it every day.
