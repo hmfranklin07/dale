@@ -1,5 +1,5 @@
 /** Light sage band (flat) — kept for reference / one-off uses */
-export const STATE_HERO_BAND_BG = '#CED6C4'
+export const STATE_HERO_BAND_BG = '#d2d6c4'
 
 /**
  * Tailwind utility string: soft sage gradient for blog + state intro bands

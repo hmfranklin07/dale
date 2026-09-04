@@ -5,11 +5,11 @@
 @layer base {
   body {
     @apply font-body text-earth-800 antialiased;
-    background-color: #eef0e7;
+    background-color: #f0f0e7;
     background-image:
       radial-gradient(ellipse 120% 80% at 100% -20%, rgba(206, 87, 51, 0.07), transparent 50%),
-      radial-gradient(ellipse 80% 50% at 0% 100%, rgba(118, 137, 99, 0.12), transparent 45%),
-      linear-gradient(180deg, #faf7f1 0%, #eef1e8 50%, #e4e8dc 100%);
+      radial-gradient(ellipse 80% 50% at 0% 100%, rgba(126, 137, 99, 0.12), transparent 45%),
+      linear-gradient(180deg, #faf7f1 0%, #f0f1e8 50%, #e6e8dc 100%);
   }
 
   h1, h2, h3, h4 {
