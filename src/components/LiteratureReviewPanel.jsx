@@ -1,5 +1,4 @@
 import literatureReview from '../data/literatureReview.json'
-import ScrollReveal from './ScrollReveal'
 
 const bodyClass = 'text-base leading-relaxed text-earth-800 sm:text-lg sm:leading-[1.65]'
 
@@ -78,11 +77,10 @@ export default function LiteratureReviewPanel({ showHeader = true }) {
   const doc = literatureReview
 
   return (
-    <ScrollReveal>
-      <article
-        id="literature-review"
-        className="overflow-hidden rounded-[1.35rem] border-2 border-sage-500/50 bg-white shadow-xl shadow-sage-900/10 ring-2 ring-sage-300/25"
-      >
+    <article
+      id="literature-review"
+      className="w-full overflow-hidden rounded-[1.35rem] border-2 border-sage-500/50 bg-white shadow-xl shadow-sage-900/10 ring-2 ring-sage-300/25"
+    >
         <div className="border-l-[14px] border-l-rust-500 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
           {showHeader && (
             <>
@@ -142,6 +140,5 @@ export default function LiteratureReviewPanel({ showHeader = true }) {
           </div>
         </div>
       </article>
-    </ScrollReveal>
   )
 }

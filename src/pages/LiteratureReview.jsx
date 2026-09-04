@@ -47,21 +47,19 @@ export default function LiteratureReview() {
 
       <PageContentBand field="route" reveal={false}>
         <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10">
-          <ScrollReveal>
-            <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.65]">
-              {doc.intro.includes('The Curious Scientist') ? (
-                <>
-                  {doc.intro.slice(0, doc.intro.indexOf('The Curious Scientist'))}
-                  <em>The Curious Scientist</em>
-                  {doc.intro.slice(
-                    doc.intro.indexOf('The Curious Scientist') + 'The Curious Scientist'.length,
-                  )}
-                </>
-              ) : (
-                doc.intro
-              )}
-            </p>
-          </ScrollReveal>
+          <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.65]">
+            {doc.intro.includes('The Curious Scientist') ? (
+              <>
+                {doc.intro.slice(0, doc.intro.indexOf('The Curious Scientist'))}
+                <em>The Curious Scientist</em>
+                {doc.intro.slice(
+                  doc.intro.indexOf('The Curious Scientist') + 'The Curious Scientist'.length,
+                )}
+              </>
+            ) : (
+              doc.intro
+            )}
+          </p>
           <LiteratureReviewPanel showHeader={false} />
         </div>
       </PageContentBand>
