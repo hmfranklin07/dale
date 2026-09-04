@@ -8,10 +8,14 @@ function Paragraph({ children, className = '' }) {
 
 function BulletList({ items }) {
   return (
-    <ul className="mt-5 space-y-3.5 border-l border-sage-400/45 pl-5 sm:pl-6">
+    <ul className="mt-5 list-none space-y-3.5 pl-0">
       {items.map((item) => (
-        <li key={item.slice(0, 64)} className={prose}>
-          {item}
+        <li key={item.slice(0, 64)} className={`flex gap-3.5 ${prose}`}>
+          <span
+            className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-rust-600/80"
+            aria-hidden
+          />
+          <span className="min-w-0">{item}</span>
         </li>
       ))}
     </ul>
