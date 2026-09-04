@@ -6,6 +6,7 @@ import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
 import StateVideoTeaser from '../components/StateVideoTeaser'
+import ScrollReveal from '../components/ScrollReveal'
 import { formatDate } from './blogData'
 import { featuredInterviewsForState, featuredVlogsForState, interviewsForState, comingSoonInterviewsForState, vlogsForState, reflectionsForState } from '../lib/stateContent'
 import { stateHeroBandSectionClass } from '../config/mapPinColors'
@@ -162,15 +163,17 @@ export default function StatePage() {
         {photoHero && (
           <>
             <div className="absolute inset-0 z-0">
-              <img
-                src={photoHero.src}
-                alt=""
-                sizes="100vw"
-                className={`h-full w-full object-cover ${photoHero.positionClass}${photoHero.imageClass ? ` ${photoHero.imageClass}` : ''}`}
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
+              <ScrollReveal photo className="absolute inset-0">
+                <img
+                  src={photoHero.src}
+                  alt=""
+                  sizes="100vw"
+                  className={`h-full w-full object-cover ${photoHero.positionClass}${photoHero.imageClass ? ` ${photoHero.imageClass}` : ''}`}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </ScrollReveal>
             </div>
           </>
         )}
@@ -193,35 +196,39 @@ export default function StatePage() {
                     : 'pb-8 pt-14 sm:pb-9 sm:pt-16 md:pb-10 md:pt-[4.25rem]'
               }`}
             >
-              <div className="mx-auto w-full max-w-2xl">
-                <h1
-                  className={`font-display whitespace-nowrap leading-none ${
-                    state.name.length > 14
-                      ? 'text-[1.9rem] sm:text-[2.8rem] lg:text-[3.4rem] xl:text-[3.9rem]'
-                      : 'text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]'
-                  } ${nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass}`}
-                >
-                  {state.name}
-                </h1>
-                <div
-                  className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                  aria-hidden
-                />
-                <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={skyPhotoHero} />
-              </div>
+              <ScrollReveal>
+                <div className="mx-auto w-full max-w-2xl">
+                  <h1
+                    className={`font-display whitespace-nowrap leading-none ${
+                      state.name.length > 14
+                        ? 'text-[1.9rem] sm:text-[2.8rem] lg:text-[3.4rem] xl:text-[3.9rem]'
+                        : 'text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]'
+                    } ${nyPhotoHero ? 'text-white drop-shadow-sm' : pageTitleClass}`}
+                  >
+                    {state.name}
+                  </h1>
+                  <div
+                    className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                    aria-hidden
+                  />
+                  <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={skyPhotoHero} />
+                </div>
+              </ScrollReveal>
             </div>
           ) : (
             <div className={`${stateHeroShell} w-full py-12 sm:py-16 md:py-20`}>
-              <PageHeroPanel tone="statePage" className="mx-auto w-full max-w-2xl text-center !py-4 sm:!py-5 md:!py-6">
-                <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
-                  {state.name}
-                </h1>
-                <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
-                  {state.heroIntro
-                    ? state.heroIntro
-                    : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
-                </p>
-              </PageHeroPanel>
+              <ScrollReveal>
+                <PageHeroPanel tone="statePage" className="mx-auto w-full max-w-2xl text-center !py-4 sm:!py-5 md:!py-6">
+                  <h1 className={`font-display mt-0 mb-2 text-4xl leading-tight sm:mb-3 sm:text-5xl ${pageTitleClass}`}>
+                    {state.name}
+                  </h1>
+                  <p className="text-base leading-relaxed text-earth-800 sm:text-lg">
+                    {state.heroIntro
+                      ? state.heroIntro
+                      : `Short-form field notes, sit-down interviews, and reflections from the towns we visit in ${state.name}. Content updates as the trip goes on.`}
+                  </p>
+                </PageHeroPanel>
+              </ScrollReveal>
             </div>
           )}
         </div>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import states from '../data/states.json'
 import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
 import PageContentBand from '../components/PageContentBand'
+import ScrollReveal from '../components/ScrollReveal'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import reflectionsHeroUrl from '../assets/reflections/reflections-hero.jpg?url'
 import { formatDate } from './blogData'
@@ -49,15 +50,17 @@ export default function Reflections() {
     <>
       <section className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${HERO_MIN_H}`}>
         <div className="absolute inset-0 z-0">
-          <img
-            src={reflectionsHeroUrl}
-            alt=""
-            sizes="100vw"
-            className="h-full w-full object-cover object-[50%_57%] sm:object-[50%_61%] lg:object-[50%_65%] xl:object-[50%_67%]"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <ScrollReveal photo className="absolute inset-0">
+            <img
+              src={reflectionsHeroUrl}
+              alt=""
+              sizes="100vw"
+              className="h-full w-full object-cover object-[50%_57%] sm:object-[50%_61%] lg:object-[50%_65%] xl:object-[50%_67%]"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </ScrollReveal>
         </div>
 
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
@@ -66,19 +69,21 @@ export default function Reflections() {
           </div>
 
           <div className={`${heroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
-            <div className="mx-auto w-full max-w-4xl">
-              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-                Reflections
-              </h1>
-              <div
-                className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                aria-hidden
-              />
-              <p className={`${photoHeroIntroClass} text-white/90`}>
-                Written reflections based on interviews, highlighting themes, questions, and important topics
-                discussed by teachers, administrators, and students.
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="mx-auto w-full max-w-4xl">
+                <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
+                  Reflections
+                </h1>
+                <div
+                  className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                  aria-hidden
+                />
+                <p className={`${photoHeroIntroClass} text-white/90`}>
+                  Written reflections based on interviews, highlighting themes, questions, and important topics
+                  discussed by teachers, administrators, and students.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

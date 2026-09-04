@@ -27,7 +27,7 @@ const revealOpts = { threshold: 0.14, rootMargin: '0px 0px -8%' }
 export default function Home() {
   const { ref: heroRevealRef, inView: heroInView, exitEdge: heroExitEdge } = useInView({
     ...revealOpts,
-    enterDelay: 40,
+    enterDelay: 16,
   })
   const { ref: introRevealRef, inView: introInView, exitEdge: introExitEdge } = useInView(revealOpts)
   const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView(revealOpts)

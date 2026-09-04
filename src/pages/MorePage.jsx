@@ -1,6 +1,7 @@
 import { Link, Navigate } from 'react-router-dom'
 import more from '../data/more.json'
 import PageContentBand from '../components/PageContentBand'
+import ScrollReveal from '../components/ScrollReveal'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -37,15 +38,17 @@ export default function MorePage() {
         className={`relative overflow-hidden border-b flex flex-col ${STATE_PHOTO_HERO_MIN_H} border-sage-800/30`}
       >
         <div className="absolute inset-0 z-0">
-          <img
-            src={photoHero.src}
-            alt=""
-            sizes="100vw"
-            className={`h-full w-full object-cover ${photoHero.positionClass}`}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <ScrollReveal photo className="absolute inset-0">
+            <img
+              src={photoHero.src}
+              alt=""
+              sizes="100vw"
+              className={`h-full w-full object-cover ${photoHero.positionClass}`}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </ScrollReveal>
         </div>
 
         <div className="relative z-10 flex min-h-0 flex-1 flex-col min-h-[inherit] items-center justify-center">
@@ -54,16 +57,18 @@ export default function MorePage() {
           </div>
 
           <div className={`${stateHeroShell} w-full py-8 text-center sm:py-9 md:py-10`}>
-            <div className="mx-auto w-full max-w-4xl">
-              <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-                {more.name}
-              </h1>
-              <div
-                className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                aria-hidden
-              />
-              <p className={`${photoHeroIntroClass} text-white/90`}>{more.heroIntro}</p>
-            </div>
+            <ScrollReveal>
+              <div className="mx-auto w-full max-w-4xl">
+                <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
+                  {more.name}
+                </h1>
+                <div
+                  className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                  aria-hidden
+                />
+                <p className={`${photoHeroIntroClass} text-white/90`}>{more.heroIntro}</p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

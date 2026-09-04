@@ -1,5 +1,6 @@
 import { SectionAmbience } from './SectionAmbience'
 import { RouteFieldAmbience, routeFieldSectionClass } from './RouteFieldAmbience'
+import ScrollReveal from './ScrollReveal'
 
 /** Match Home mid-page sections: wide column + sage-tinted wash */
 const contentShell = 'max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-10'
@@ -21,7 +22,10 @@ export default function PageContentBand({
   wash = 'amber',
   field = 'mesh',
   compact = false,
+  reveal = true,
 }) {
+  const body = reveal ? <ScrollReveal className="w-full">{children}</ScrollReveal> : children
+
   if (field === 'route') {
     return (
       <div className={routeFieldSectionClass}>
@@ -31,7 +35,7 @@ export default function PageContentBand({
             compact ? 'py-5 sm:py-6 lg:py-7' : 'py-10 sm:py-14 lg:py-16'
           }`}
         >
-          {children}
+          {body}
         </div>
       </div>
     )
@@ -49,7 +53,7 @@ export default function PageContentBand({
           compact ? 'py-5 sm:py-6 lg:py-7' : 'py-10 sm:py-14 lg:py-16'
         }`}
       >
-        {children}
+        {body}
       </div>
     </div>
   )
