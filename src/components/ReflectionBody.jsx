@@ -6,12 +6,16 @@ function Paragraph({ children, className = '' }) {
 
 function QuestionCallout({ preface, text }) {
   return (
-    <aside className="my-10 border-l-[3px] border-rust-500 pl-5 sm:my-12 sm:pl-7">
-      {preface && <Paragraph className="text-earth-700">{preface}</Paragraph>}
-      <p className="mt-4 font-display text-[1.4rem] font-semibold leading-snug text-earth-900 sm:mt-5 sm:text-[1.75rem] sm:leading-[1.35] lg:text-[1.95rem]">
-        {text}
-      </p>
-    </aside>
+    <div className="my-10 space-y-5 sm:my-12 sm:space-y-6">
+      {preface && (
+        <Paragraph className="pl-5 text-earth-700 sm:pl-7">{preface}</Paragraph>
+      )}
+      <aside className="border-l-[3px] border-rust-500 pl-5 sm:pl-7">
+        <p className="font-display text-[1.4rem] italic leading-snug text-earth-900 sm:text-[1.75rem] sm:leading-[1.35] lg:text-[1.95rem]">
+          {text}
+        </p>
+      </aside>
+    </div>
   )
 }
 
