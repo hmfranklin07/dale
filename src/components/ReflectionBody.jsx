@@ -4,9 +4,20 @@ function Paragraph({ children, className = '' }) {
   return <p className={`${prose} ${className}`.trim()}>{children}</p>
 }
 
+function QuestionCallout({ preface, text }) {
+  return (
+    <aside className="my-10 border-l-[3px] border-rust-500 pl-5 sm:my-12 sm:pl-7">
+      {preface && <Paragraph className="text-earth-700">{preface}</Paragraph>}
+      <p className="mt-4 font-display text-[1.4rem] font-semibold leading-snug text-earth-900 sm:mt-5 sm:text-[1.75rem] sm:leading-[1.35] lg:text-[1.95rem]">
+        {text}
+      </p>
+    </aside>
+  )
+}
+
 function LabeledText({ label, text }) {
   return (
-    <div className="my-8 sm:my-10">
+    <div className="my-8 border-l-[3px] border-sage-500/70 pl-5 sm:my-10 sm:pl-6">
       <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rust-700 sm:text-xs">
         {label}
       </p>
@@ -22,12 +33,19 @@ function Blocks({ blocks }) {
   return (
     <div className="space-y-5 sm:space-y-6">
       {blocks.map((block, index) => {
+        if (block.type === 'question') {
+          return (
+            <QuestionCallout
+              key={`q-${index}`}
+              preface={block.preface}
+              text={block.text}
+            />
+          )
+        }
         if (block.type === 'labeled') {
           return <LabeledText key={`${block.label}-${index}`} label={block.label} text={block.text} />
         }
-        return (
-          <Paragraph key={block.text.slice(0, 48)}>{block.text}</Paragraph>
-        )
+        return <Paragraph key={block.text.slice(0, 48)}>{block.text}</Paragraph>
       })}
     </div>
   )
@@ -37,18 +55,30 @@ export default function ReflectionBody({ reflection }) {
   return (
     <article className="w-full">
       <div className="space-y-16 sm:space-y-20">
-        {reflection.sections.map((section) => (
-          <section key={section.title}>
-            <h2 className="mb-6 font-display text-2xl leading-snug text-earth-900 sm:mb-8 sm:text-[1.85rem] lg:text-[2.1rem]">
-              {section.title}
-            </h2>
+        {reflection.sections.map((section, sectionIndex) => (
+          <section key={section.title} className="scroll-mt-24">
+            <div className="mb-6 flex items-baseline gap-3 sm:mb-8">
+              <span
+                className="font-display text-sm tabular-nums tracking-wide text-rust-600 sm:text-base"
+                aria-hidden
+              >
+                {String(sectionIndex + 1).padStart(2, '0')}
+              </span>
+              <h2 className="font-display text-2xl leading-snug text-earth-900 sm:text-[1.85rem] lg:text-[2.1rem]">
+                {section.title}
+              </h2>
+            </div>
+            <div className="mb-6 h-px w-12 bg-gradient-to-r from-sage-500/80 to-transparent sm:mb-8 sm:w-14" aria-hidden />
             <Blocks blocks={section.blocks} />
             {section.subsections?.map((sub) => (
-              <div key={sub.title} className="mt-10 sm:mt-12">
+              <div
+                key={sub.title}
+                className="mt-10 border-t border-sage-300/50 pt-8 sm:mt-12 sm:pt-10"
+              >
                 <h3 className="font-display text-xl italic leading-snug text-earth-900 sm:text-[1.65rem]">
                   {sub.title}
                 </h3>
-                <div className="mt-4">
+                <div className="mt-4 sm:mt-5">
                   <Blocks blocks={sub.blocks} />
                 </div>
               </div>
@@ -59,7 +89,8 @@ export default function ReflectionBody({ reflection }) {
         {reflection.sources?.length > 0 && (
           <section className="border-t border-sage-400/35 pt-12 sm:pt-14">
             <h2 className="font-display text-2xl text-earth-900 sm:text-[1.85rem]">Sources</h2>
-            <ol className="mt-6 space-y-4 sm:mt-8">
+            <div className="mt-3 h-px w-12 bg-gradient-to-r from-rust-400/80 to-transparent" aria-hidden />
+            <ol className="mt-6 space-y-3.5 sm:mt-8">
               {reflection.sources.map((source, index) => (
                 <li
                   key={source.url ?? source.label}

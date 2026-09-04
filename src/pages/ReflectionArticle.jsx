@@ -61,15 +61,15 @@ export default function ReflectionArticle() {
       <PageContentBand field="route" reveal={false}>
         <div className="mx-auto max-w-2xl lg:max-w-3xl">
           {reflection.summary && (
-            <>
-              <p className="text-center text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.7]">
+            <div className="relative mx-auto max-w-2xl text-center">
+              <p className="text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.7]">
                 {reflection.summary}
               </p>
               <div
                 className="mx-auto mt-8 h-px w-16 bg-gradient-to-r from-transparent via-sage-500/70 to-transparent sm:mt-10"
                 aria-hidden
               />
-            </>
+            </div>
           )}
           <div className={reflection.summary ? 'mt-12 sm:mt-14' : ''}>
             <ReflectionBody reflection={reflection} />

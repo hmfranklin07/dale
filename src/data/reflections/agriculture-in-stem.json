@@ -5,7 +5,7 @@
   "title": "The Inclusion of Agriculture in STEM",
   "credit": "Inspired by a conversation with Mr. Blunier",
   "summary": "This piece explores agriculture as a field deeply rooted in STEM, and addresses the historical and socioeconomic factors that have created divides between agriculture and STEM. I draw from my conversation with Mr. B, programs at top universities, and historical research to highlight that agriculture needs to be regarded by the mainstream as the important STEM field that it is.",
-  "date": "2026-05-20",
+  "date": "2026-06-06",
   "eyebrow": "Illinois",
   "sections": [
     {
@@ -28,8 +28,8 @@
           "text": "This got me thinking: my project is inspired by the fact that rural students pursue STEM education at lower rates than their suburban and urban counterparts. But here, I was seeing STEM at the heart of Midland education and lifestyle. However, it manifested itself in a way that many don’t traditionally think of when they think of STEM; rather than fancy laboratories and advanced math programs, Midland was offering a wide range of agriculture and trade classes. These fields, though they fall under the umbrella of STEM and clearly rely on STEM principles, tend to be overlooked or even ignored in many mainstream STEM education talks. Despite the sheer importance of agriculture to humanity, the advanced careers within agriculture, and the STEM knowledge necessary to pursue these fields, ag has been in the shadows and is sometimes seen as “just farming.”"
         },
         {
-          "type": "labeled",
-          "label": "Central question",
+          "type": "question",
+          "preface": "This interaction with Mr. B led me to the question at the center of this paper:",
           "text": "When talking about rural students, are they actually disconnected from STEM as much as we commonly believe, or is it that certain forms of STEM education are being overlooked?"
         }
       ]
