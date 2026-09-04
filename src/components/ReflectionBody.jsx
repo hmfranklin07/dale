@@ -1,5 +1,5 @@
 const prose =
-  'pl-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:pl-7 sm:text-lg sm:leading-[1.8]'
+  'indent-8 text-[1.05rem] leading-[1.75] text-earth-800 sm:indent-10 sm:text-lg sm:leading-[1.8]'
 
 function Paragraph({ children, className = '' }) {
   return <p className={`${prose} ${className}`.trim()}>{children}</p>
