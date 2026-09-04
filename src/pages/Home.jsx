@@ -74,17 +74,24 @@ export default function Home() {
               aria-hidden
             />
             <div
-              className={`mx-auto mt-2.5 w-full max-w-[15.5rem] space-y-2 text-[0.8125rem] leading-snug text-earth-900 sm:mt-3 sm:max-w-[18rem] sm:text-sm sm:leading-snug md:max-w-[20rem] md:text-[0.9375rem] lg:max-w-[22rem] scroll-reveal scroll-reveal-delay-3 ${heroState}`}
+              className={`mx-auto mt-3 w-full space-y-1.5 text-center text-sm leading-snug text-earth-900 sm:mt-3.5 sm:text-base sm:leading-snug scroll-reveal scroll-reveal-delay-3 ${heroState}`}
             >
-              <p>
+              <p className="mx-auto max-w-[20rem] sm:max-w-md md:max-w-lg">
                 This summer, I drove across the country to document experiences with STEM education in rural high
-                schools, not from numbers and statistics, but from the students and educators who live it every day.
+                schools,
+              </p>
+              <p className="mx-auto max-w-[22rem] sm:max-w-lg md:max-w-xl">
+                not from numbers and statistics, but from the students and educators who live it every day.
+              </p>
+              <p className="mx-auto max-w-[24rem] sm:max-w-[30rem] md:max-w-[36rem]">
                 Drawing from conversations and interviews in 5 different areas, I&apos;ll be sharing what STEM looks
                 like in the classroom and how students connect with it.
               </p>
-              <p>
-                This site is home to all of the videos, conversations, and reflections from each place I
-                visit, highlighting rural voices and telling stories from across the nation.
+              <p className="mx-auto max-w-[18rem] pt-1 sm:max-w-md md:max-w-lg">
+                This site is home to all of the videos, conversations, and reflections from each place I visit,
+              </p>
+              <p className="mx-auto max-w-[16rem] sm:max-w-sm md:max-w-md">
+                highlighting rural voices and telling stories from across the nation.
               </p>
             </div>
           </div>
