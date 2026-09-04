@@ -52,7 +52,7 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-8 pt-9 text-center sm:pb-10 sm:pt-11 md:pb-12 md:pt-14`}>
+          <div className={`${shell} w-full pb-8 pt-7 text-center sm:pb-10 sm:pt-8 md:pb-12 md:pt-10`}>
             <div className={`relative py-3 sm:py-4 md:py-5 scroll-reveal scroll-reveal-delay-1 ${heroState}`}>
               <div
                 aria-hidden
@@ -70,14 +70,14 @@ export default function Home() {
               </div>
             </div>
             <div
-              className={`mx-auto mt-3 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-4 sm:w-24 scroll-reveal scroll-reveal-delay-2 ${heroState}`}
+              className={`mx-auto mt-2.5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-24 scroll-reveal scroll-reveal-delay-2 ${heroState}`}
               aria-hidden
             />
             <div
-              className={`mx-auto mt-3 w-full max-w-md space-y-2.5 text-[0.9375rem] leading-snug text-earth-900 sm:mt-4 sm:max-w-lg sm:text-base sm:leading-normal lg:max-w-xl lg:text-lg scroll-reveal scroll-reveal-delay-3 ${heroState}`}
+              className={`mx-auto mt-2.5 w-full max-w-[15.5rem] space-y-2 text-[0.8125rem] leading-snug text-earth-900 sm:mt-3 sm:max-w-[18rem] sm:text-sm sm:leading-snug md:max-w-[20rem] md:text-[0.9375rem] lg:max-w-[22rem] scroll-reveal scroll-reveal-delay-3 ${heroState}`}
             >
               <p>
-                This summer, I am driving across the country to document experiences with STEM education in rural high
+                This summer, I drove across the country to document experiences with STEM education in rural high
                 schools, not from numbers and statistics, but from the students and educators who live it every day.
                 Drawing from conversations and interviews in 5 different areas, I&apos;ll be sharing what STEM looks
                 like in the classroom and how students connect with it.
