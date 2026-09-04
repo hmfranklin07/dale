@@ -276,7 +276,10 @@
     "personName": "Mrs. Burns",
     "role": "Science teacher",
     "school": "Cave Springs Public School",
-    "photo": "",
+    "photo": "/images/community-outside-classroom.jpg",
+    "cardPhoto": "/images/community-outside-classroom-card.jpg",
+    "heroPositionClass": "object-contain object-center bg-white",
+    "heroDarkText": true,
     "body": [
       "When Ashley started as principal, this school was in chaos. I mean, kids didn’t go to class if they didn't feel like it. They would go to some random class and teachers would just let them because they had no support as far as behavior management or anything like that. Kids were graduating without having done anything, gained nothing. There were a lot of drugs. She started to require things like lesson plans, and you gotta turn your grades in at this time, and so you would have to actually be teaching in your classroom, and just things that you would expect to happen at school that had not been happening here. It was a hard year, because students have been used to doing whatever they wanted. We still had a lot of fights here, and a lot of drugs that she was suspending people for bringing to school. Then it was like, oh, okay, I can't do that anymore. She started bringing in a sheriff with a drug dog. That 1st year was a big shift.",
       "She’s brought in programs to our school, and one of them is called capturing kids' hearts. It's a big organization in Texas, and they have trainers that go all around, and the goal was behavior management through relationships. You greet your students at the door when they come in, and you're supposed to shake their hand and check in with them. And we sit down and make a social contract at the beginning of the year. How do you want to be treated? How do I want you to treat me? What do we do if there's conflict? Those are the expectations for the year. It has really helped with managing expectations of students and teachers.",
