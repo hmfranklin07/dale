@@ -3,8 +3,8 @@ import states from '../data/states.json'
 import { innerPageTopBandSectionClass, stateSubpageHeroSectionClass } from '../config/mapPinColors'
 import { SectionAmbience } from '../components/SectionAmbience'
 import PageContentBand from '../components/PageContentBand'
+import ReflectionCard from '../components/ReflectionCard'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
-import { formatDate } from './blogData'
 import { reflectionsForState } from '../lib/stateContent'
 
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
@@ -56,11 +56,7 @@ export default function StateReflections() {
         ) : (
           <div className="space-y-8">
             {list.map((r) => (
-              <article key={r.id} className="card card-body">
-                <time className="mb-2 block text-xs text-earth-500">{formatDate(r.date)}</time>
-                <h2 className="font-display mb-3 text-2xl text-earth-900">{r.title}</h2>
-                <p className="leading-relaxed text-earth-800 whitespace-pre-line">{r.text}</p>
-              </article>
+              <ReflectionCard key={r.id} paper={r} />
             ))}
           </div>
         )}

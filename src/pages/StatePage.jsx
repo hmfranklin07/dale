@@ -5,6 +5,7 @@ import { PageHeroPanel } from '../components/PageHeroPanel'
 import PageContentBand from '../components/PageContentBand'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
+import ReflectionCard from '../components/ReflectionCard'
 import StateVideoTeaser from '../components/StateVideoTeaser'
 import ScrollReveal from '../components/ScrollReveal'
 import { formatDate } from './blogData'
@@ -334,15 +335,7 @@ export default function StatePage() {
             <SectionHeading>Reflections</SectionHeading>
             <div className="space-y-4">
               {publishedReflections.map((paper) => (
-                <article key={paper.id} className="card card-body">
-                  {paper.date && (
-                    <time className="mb-2 block text-xs text-earth-500">{formatDate(paper.date)}</time>
-                  )}
-                  <h2 className="font-display mb-3 text-2xl text-earth-900">{paper.title}</h2>
-                  {paper.text && (
-                    <p className="leading-relaxed text-earth-800 whitespace-pre-line">{paper.text}</p>
-                  )}
-                </article>
+                <ReflectionCard key={paper.id} paper={paper} />
               ))}
             </div>
           </section>

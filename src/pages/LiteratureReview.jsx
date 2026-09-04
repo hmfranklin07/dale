@@ -1,39 +1,11 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import literatureReview from '../data/literatureReview.json'
 import LiteratureReviewPanel from '../components/LiteratureReviewPanel'
+import MountFade from '../components/MountFade'
 import PageContentBand from '../components/PageContentBand'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[14rem] sm:min-h-[15.5rem] md:min-h-[17rem]'
-
-/** Fade in on load (header + body together) — not scroll-gated. */
-function MountFade({ children, className = '' }) {
-  const [revealed, setRevealed] = useState(false)
-
-  useEffect(() => {
-    const reduced =
-      typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) {
-      setRevealed(true)
-      return
-    }
-    let raf2 = 0
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(() => setRevealed(true))
-    })
-    return () => {
-      cancelAnimationFrame(raf1)
-      if (raf2) cancelAnimationFrame(raf2)
-    }
-  }, [])
-
-  return (
-    <div className={`scroll-reveal ${revealed ? 'is-revealed' : ''} ${className}`.trim()}>
-      {children}
-    </div>
-  )
-}
 
 function IntroCopy({ text }) {
   const mark = 'The Curious Scientist'

@@ -2,7 +2,7 @@ import towns from '../data/towns.json'
 import states from '../data/states.json'
 import vlogs from '../data/vlogs.json'
 import interviews from '../data/interviews.json'
-import reflections from '../data/reflections.json'
+import reflections from '../data/reflections'
 import { sortDateValue } from '../pages/blogData'
 
 const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t]))
@@ -99,4 +99,8 @@ export function comingSoonReflectionsAll() {
 
 export function publishedReflectionsAll() {
   return [...reflections].sort((a, b) => sortDateValue(b.date) - sortDateValue(a.date))
+}
+
+export function reflectionById(id) {
+  return reflections.find((r) => r.id === id)
 }

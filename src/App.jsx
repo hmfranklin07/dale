@@ -9,6 +9,7 @@ import LiteratureReview from './pages/LiteratureReview'
 import Contact from './pages/Contact'
 import MorePage from './pages/MorePage'
 import Reflections from './pages/Reflections'
+import ReflectionArticle from './pages/ReflectionArticle'
 import StatePage from './pages/StatePage'
 import StateVideos from './pages/StateVideos'
 import StateVideo from './pages/StateVideo'
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/more" element={<MorePage />} />
           <Route path="/reflections" element={<Reflections />} />
+          <Route path="/reflections/:reflectionId" element={<ReflectionArticle />} />
           <Route path="/florida" element={<Navigate to="/more" replace />} />
           <Route path="/oklahoma" element={<Navigate to="/arkansas" replace />} />
           <Route path="/blog/*" element={<Navigate to="/" replace />} />

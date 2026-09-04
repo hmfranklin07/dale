@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import states from '../data/states.json'
 import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
 import PageContentBand from '../components/PageContentBand'
+import ReflectionCard from '../components/ReflectionCard'
 import ScrollReveal from '../components/ScrollReveal'
-import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
+import SectionHeading from '../components/SectionHeading'
 import reflectionsHeroUrl from '../assets/reflections/reflections-hero.jpg?url'
-import { formatDate } from './blogData'
 import { comingSoonReflectionsAll, publishedReflectionsAll } from '../lib/stateContent'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -107,15 +107,7 @@ export default function Reflections() {
                     </div>
                     <div className="space-y-6">
                       {items.map((paper) => (
-                        <article key={paper.id} id={paper.id} className="card card-body">
-                          {paper.date && (
-                            <time className="mb-2 block text-xs text-earth-500">{formatDate(paper.date)}</time>
-                          )}
-                          <h2 className={`font-display mb-3 text-2xl ${pageTitleClass}`}>{paper.title}</h2>
-                          {paper.text && (
-                            <p className="leading-relaxed text-earth-800 whitespace-pre-line">{paper.text}</p>
-                          )}
-                        </article>
+                        <ReflectionCard key={paper.id} paper={paper} badge={state.name} />
                       ))}
                     </div>
                   </div>
@@ -123,15 +115,7 @@ export default function Reflections() {
                 {publishedOther.length > 0 && (
                   <div className="space-y-6">
                     {publishedOther.map((paper) => (
-                      <article key={paper.id} id={paper.id} className="card card-body">
-                        {paper.date && (
-                          <time className="mb-2 block text-xs text-earth-500">{formatDate(paper.date)}</time>
-                        )}
-                        <h2 className={`font-display mb-3 text-2xl ${pageTitleClass}`}>{paper.title}</h2>
-                        {paper.text && (
-                          <p className="leading-relaxed text-earth-800 whitespace-pre-line">{paper.text}</p>
-                        )}
-                      </article>
+                      <ReflectionCard key={paper.id} paper={paper} />
                     ))}
                   </div>
                 )}

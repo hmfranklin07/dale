@@ -1,0 +1,231 @@
+{
+  "id": "agriculture-in-stem",
+  "stateSlug": "illinois",
+  "townSlug": "bradford-il",
+  "title": "The Inclusion of Agriculture in STEM",
+  "credit": "Inspired by a conversation with Mr. Blunier",
+  "summary": "This piece explores agriculture as a field deeply rooted in STEM, and addresses the historical and socioeconomic factors that have created divides between agriculture and STEM. I draw from my conversation with Mr. B, programs at top universities, and historical research to highlight that agriculture needs to be regarded by the mainstream as the important STEM field that it is.",
+  "date": "2026-05-20",
+  "eyebrow": "Illinois",
+  "sections": [
+    {
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "I’m driving through acres of corn, 100,000 ears harvested annually by hand to produce popcorn through a rigorous process that takes the entire year. This is Darin Blunier’s laborious popcorn operation, just one part of the larger produce operation he runs at Bluhaven farm on top of being a father of 8 as well as an agriculture and FFA advisor at Midland High School."
+        },
+        {
+          "type": "p",
+          "text": "Midland High School in Varna, Illinois serves around 190 students 9–12. I grew up in a high school of similar size, so I was taken aback when Mr. Blunier, or Mr. B as the students call him, described all of the classes offered by himself and Midland’s other agriculture teacher. Between the two of them, they teach Animal Science, Plant Science, Introduction to Horticulture, Horticulture Production, Introduction to Agriculture, Welding, Construction, Power & Machinery, Electricity, Animal Processing, Vet Science, Wildlife Biology, Food Science, Ag Communications, and Agbusiness Management. That’s 15 unique classes that many schools have never offered, all taught at this small school in central Illinois."
+        },
+        {
+          "type": "p",
+          "text": "All of these classes rely heavily on STEM (science, technology, engineering, and math) principles and require these principles to be applied through problem-solving in order to perform tasks and tackle real-world issues. At Midland, Mr. B said that these are the classes students associate with STEM, as compared to the smaller science and math departments in the school."
+        },
+        {
+          "type": "p",
+          "text": "This got me thinking: my project is inspired by the fact that rural students pursue STEM education at lower rates than their suburban and urban counterparts. But here, I was seeing STEM at the heart of Midland education and lifestyle. However, it manifested itself in a way that many don’t traditionally think of when they think of STEM; rather than fancy laboratories and advanced math programs, Midland was offering a wide range of agriculture and trade classes. These fields, though they fall under the umbrella of STEM and clearly rely on STEM principles, tend to be overlooked or even ignored in many mainstream STEM education talks. Despite the sheer importance of agriculture to humanity, the advanced careers within agriculture, and the STEM knowledge necessary to pursue these fields, ag has been in the shadows and is sometimes seen as “just farming.”"
+        },
+        {
+          "type": "labeled",
+          "label": "Central question",
+          "text": "When talking about rural students, are they actually disconnected from STEM as much as we commonly believe, or is it that certain forms of STEM education are being overlooked?"
+        }
+      ]
+    },
+    {
+      "title": "Agriculture & the Rural Connection",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "First, it’s important to get an understanding of what agriculture actually is. Historically, agriculture has been regarded by the masses as manual labor carried out on farms to grow and harvest crops. The truth is, modern agriculture is a scientifically complex field that combines living systems, advanced technology, chemistry, land management, and environmental problem-solving, among other fields."
+        },
+        {
+          "type": "p",
+          "text": "In traditional agriculture, knowledge came mostly from experience, family practice, and local land and weather familiarity. Because this knowledge was learned through work and family practice, it was not always given the same respect as knowledge learned in the classroom. Over time, agriculture became more mechanized, tying farming to machinery, electricity, and engineering. The Green Revolution in the 20th century pushed agriculture further into scientific research through plant breeding, fertilizers, pest control, and high-yield crop varieties. Nowadays, we see precision farming, which incorporates highly technical components like GPS, satellite, and health data to optimize operations."
+        },
+        {
+          "type": "p",
+          "text": "Modern-day agriculture isn’t just manual labor; it covers a wide variety of fields in engineering, environmental science, and technology to name a few, and it is one of the clearest examples of STEM applications."
+        },
+        {
+          "type": "p",
+          "text": "For many rural students, agriculture is one of the most visible career paths around them due to exposure to farms, equipment, animals, food production, and mechanics. Many rural students go into agriculture or ag-adjacent fields as a result of this exposure. These fields, as we just saw, are not limited to traditional farming, but can require many different levels of education, from technical training to four-year degrees and even beyond that to doctorate degrees. For example, from Illinois and New York alone, I have met multiple people pursuing PhDs in agronomy and soil science, as well as some who have attended Cornell for their agriculture program."
+        },
+        {
+          "type": "p",
+          "text": "Considering what Mr. B had said about agriculture as STEM, reflecting on people I had met who pursued high levels of education to go into agriculture careers, and understanding the incredible importance of agriculture in our world, I wondered — why is it still overlooked as a STEM field?"
+        }
+      ]
+    },
+    {
+      "title": "STEM: A History",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Before we fully address this main question, we must first look at the origins of STEM as an acronym and the goals that brought it into existence. In the early 2000s, several international studies indicated that students in the U.S. were underperforming on assessments of scientific competency and knowledge, placing 21 out of 30 countries. Reports also “emphasized the links between prosperity, knowledge-intensive jobs dependent on science and technology, and continued innovation to address societal problems.” These reports signaled dire consequences resulting from a poorly prepared workforce, drawing attention to science, mathematics, and technology within American education."
+        },
+        {
+          "type": "p",
+          "text": "The economic and competitive motives behind the STEM movement created opportunities for state funding, increasing the capacities of schools to analyze STEM in the workforce, adjust and create curricula, and expand academic and extracurricular STEM opportunities. Along with these developments came a definition for STEM as “an interdisciplinary approach to learning where rigorous academic concepts are coupled with real-world lessons as students apply science, technology, engineering, and mathematics in contexts that make connections between school, community, work, and the global enterprise enabling the development of STEM literacy and with it the ability to compete in the new economy.”"
+        },
+        {
+          "type": "p",
+          "text": "It appears as though agriculture is one of the most fitting subjects for this formal definition of STEM in rural areas; the real-world applications of science, tech, and math, the interdisciplinary approach, the work and community ties, and the global importance. So why is it still overlooked in STEM?"
+        },
+        {
+          "type": "p",
+          "text": "Does a field need to be considered STEM by the government in order to be a STEM frontrunner? Agriculture passes this test according to the U.S. Department of Homeland Security’s classifications of STEM fields. Does a field require a high level of education in order to be a STEM frontrunner? Well, agriculture passes this test, too, as we saw from the example of agriculture in the Ivy League at Cornell. So, the problem of agriculture in STEM is not a result of definitions or rules, but rather, is the result of historic and systematic factors that play into recognition."
+        }
+      ]
+    },
+    {
+      "title": "The Gap: Recognition",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Two main factors play into the mainstream, initial perceived separation between agriculture and other STEM fields like biology, chemistry, and mathematics: the vocational education system and funding silos. Both of these factors are deeply rooted in American history and came about to serve specific purposes, strengthening this divide."
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Vocational Education",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The Smith-Hughes Act of 1917 was the first federal legislation to provide funding for vocational education (education preparing individuals for a specific occupation) in public high schools. It was signed into law by President Woodrow Wilson in reaction to the shortage of skilled laborers caused by the rapid industrialization of the United States, an issue exacerbated by the pressure of World War I. This act established grants for states to teach agriculture, trades, industrial subjects, and home economics, marking the birth of modern career and technical education (CTE) in the U.S."
+            },
+            {
+              "type": "p",
+              "text": "By anchoring agriculture to the vocational track rather than the academic science track, policies under this act institutionalized the idea that agriculture was an alternative to higher education rather than a rigorous science. In order to receive funding, schools had to teach vocational programs entirely separate from general academic courses, isolating agriculture students from higher-level STEM students."
+            },
+            {
+              "type": "p",
+              "text": "A large problem with vocational education from its inception was the way it separated students, capitalizing on socioeconomic divides. Jim Stone states that “the early vocational education was driven by a philosophy of fitting people into their probable destinies,” describing how children of farmers and immigrants were “tracked off into becoming the worker bees” while children from wealthier families were tracked off to universities. So, this allowed for traditional STEM and agriculture, which were divided by the Smith-Hughes Act, to take on completely different profiles: traditional STEM was advanced work for the elites, while agriculture was simple work for the lower-class, and the two became rooted as separate fields."
+            }
+          ]
+        },
+        {
+          "title": "Funding Silos & Model Comparison",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The processes of funding furthered the divide between these fields. In 1950, the NSF was founded. This created government funding for research, driven by the post–World War II desires for scientific and technological advancement, national health and prosperity, and national security. Because the USDA had already existed since 1862, providing funding for research and support in agriculture, agriculture did not need to be included in NSF funding. This created two separate silos for funding between agriculture and traditional STEM fields."
+            },
+            {
+              "type": "p",
+              "text": "The NSF follows a model of national, competitive peer-reviewed grants focused on elite research universities, leading to a very high perceived prestige. The USDA, on the other hand, follows non-competitive capacity funding distributed largely to land-grant universities (LGUs) with focus on state agriculture experiment stations and cooperative extension offices, leading to a perception of service work or localized development rather than high prestige."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Implications of Separation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "While agriculture is clearly not separate from the STEM field, a surface-level perceived separation between ag and STEM has harmful implications when it comes to rural students and STEM. The main problem here is the concept of othering, or “the social process of treating a person or a group as separate, different, or less than the dominant group.” Othering is the antithesis of belonging and creates an “us vs. them” mentality, making it feel as though one cannot belong in both groups, i.e. agriculture and traditional STEM."
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Implications: From the Inside",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "For students, othering can shape not only where they feel they belong, but also what they believe they are capable of doing. This is especially harmful because the separation between agriculture and STEM is largely rooted in a socioeconomic hierarchy. The divide doesn’t just tell agriculture students that they are different from other STEM students; it can also imply that they are somehow less than them: less intelligent, less academic, or less capable."
+            },
+            {
+              "type": "p",
+              "text": "Agriculture requires no less problem-solving, technical knowledge, or scientific understanding than many fields that are more commonly associated with STEM, yet the historical separation between vocational and academic education has helped preserve this perception. Over time, that status hierarchy can become internalized as part of a student’s identity. A student who sees themself as “an ag student” may begin to see engineering, advanced science, or other STEM pathways as belonging to a different kind of person, even when those fields closely overlap with the work they already enjoy and understand. In this way, an artificial distinction between agriculture and STEM can become an artificial limit on what students imagine is “for them.”"
+            }
+          ]
+        },
+        {
+          "title": "Implications: From the Outside",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "This same separation also shapes how researchers, policymakers, and the broader public understand rural students and rural education. If they interpret agriculture as separate from STEM, then much of the STEM activity already taking place in rural schools can become invisible. While a school like Midland may appear to have fewer traditional STEM opportunities than a larger suburban school, I saw that its students are actually applying science, engineering, technology, and mathematics across a wide range of agriculture and trade courses."
+            },
+            {
+              "type": "p",
+              "text": "This matters because it can distort the way the rural STEM gap itself is understood. When rural students are described as disconnected from STEM, part of what may be missing is not STEM engagement, but recognition of the forms that engagement can take. If researchers and policymakers fail to recognize that distinction, they may also design the wrong solutions, focusing only on bringing new STEM opportunities into rural schools rather than building on the technical knowledge, interests, and pathways that are already there."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What Then?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We see that although ag and STEM are largely intertwined, they are often perceived as different fields. We also see how harmful this separation can be. So, what now? It’s not enough to just acknowledge that there is an issue. How do we mend the divide? What does this look like practically? I propose three remedies to the split between agriculture and STEM."
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Representation",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "If the separation is mainly a problem of mainstream recognition, then one place to start is by broadening what is seen as STEM through a greater recognition of agriculture in the STEM conversation. Laboratories, robotics, medicine, and other high-tech settings take the spotlight in most mainstream conversations, while rural students, rural settings, and agriculture are rarely represented. Increasing agricultural representation challenges the idea that STEM belongs to a certain type of student, school, or community, bridging that perceived gap. When we see things, we tend to categorize them; including agriculture in representation would begin to associate it with the STEM category. This representation would also help students see that the knowledge and problem-solving they already use in agriculture are not separate from STEM, but are part of it."
+            }
+          ]
+        },
+        {
+          "title": "Recognize & Build",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Efforts to improve STEM education in rural areas should begin with a better understanding of what STEM already looks like in these schools. Researchers, policymakers, educators, and organizations working in rural education should not assume that these communities completely lack STEM opportunities. Midland showed that there was no absence of unique STEM classes available for students to take, providing them with extensive experience in science, technology, engineering, and mathematics through courses closely connected to their communities, careers, and interests. Rather than simply bringing in outside programs or adding more chemistry classes, efforts to promote rural STEM should look at what existing programs are successful, why they are successful, and how those strengths can be expanded and built upon, expanding on the STEM that is already present rather than overlooking it because it does not fit a traditional image."
+            }
+          ]
+        },
+        {
+          "title": "Explicit Connections",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Finally, schools can continue efforts to make the connections between agriculture and other STEM pathways explicit. A student interested in machinery may also be interested in mechanical engineering. A student drawn to plant or animal science may have pathways into biology, agronomy, veterinary medicine, or environmental science. It is important to note that making these relationships more visible does not mean that agriculture is replaced with traditional STEM or that it only has value when associated with other STEM fields; rather, it breaks down the boundary between ag and STEM and shows students there are more opportunities available to them than they may have previously believed, without feeling like one identity excludes the other."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This paper looked to explore the question of whether rural students are truly as disconnected from STEM as they are often believed to be, or whether certain forms of STEM have simply been overlooked. Focusing on agriculture and pulling from the experiences of Mr. B at Midland, we can see that some forms of STEM are, indeed, overlooked. The science, technology, engineering, and mathematics embedded in agriculture have long existed in rural schools and communities, but historical divisions between vocational and academic education have prevented that work from receiving the same recognition as more traditional STEM fields."
+        },
+        {
+          "type": "p",
+          "text": "That separation matters because it shapes both how rural students see themselves and how outsiders understand rural education. Closing the rural STEM gap, then, should not only be about bringing more STEM into rural communities. It should also be about recognizing the STEM that has been there all along."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Britannica — STEM education",
+      "url": "https://www.britannica.com/topic/STEM-education"
+    },
+    {
+      "label": "U.S. ICE — STEM Designated Degree Program List (2024)",
+      "url": "https://www.ice.gov/doclib/sevis/pdf/stemList2024.pdf"
+    },
+    {
+      "label": "USDA ERS — Charts of Note",
+      "url": "https://www.ers.usda.gov/data-products/charts-of-note/104153"
+    },
+    {
+      "label": "APM Reports — The troubled history of vocational education",
+      "url": "https://www.apmreports.org/episode/2014/09/09/the-troubled-history-of-vocational-education"
+    }
+  ]
+}
