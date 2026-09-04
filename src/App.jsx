@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import SiteBackgroundUnderlay from './components/SiteBackgroundUnderlay'
 import Home from './pages/Home'
 import About from './pages/About'
+import LiteratureReview from './pages/LiteratureReview'
 import Contact from './pages/Contact'
 import MorePage from './pages/MorePage'
 import Reflections from './pages/Reflections'
@@ -26,6 +27,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/literature-review" element={<LiteratureReview />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/more" element={<MorePage />} />
           <Route path="/reflections" element={<Reflections />} />

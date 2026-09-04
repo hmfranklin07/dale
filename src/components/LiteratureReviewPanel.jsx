@@ -74,7 +74,7 @@ function SectionBody({ section }) {
   )
 }
 
-export default function LiteratureReviewPanel() {
+export default function LiteratureReviewPanel({ showHeader = true }) {
   const doc = literatureReview
 
   return (
@@ -84,27 +84,33 @@ export default function LiteratureReviewPanel() {
         className="overflow-hidden rounded-[1.35rem] border-2 border-sage-500/50 bg-white shadow-xl shadow-sage-900/10 ring-2 ring-sage-300/25"
       >
         <div className="border-l-[14px] border-l-rust-500 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-700 sm:text-[0.8rem]">
-            {doc.eyebrow}
-          </p>
-          <h2 className="mt-2 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
-            {doc.title}
-          </h2>
-          <div className="mt-4 h-1 w-14 rounded-full bg-sage-600 sm:mt-5 sm:w-16" aria-hidden />
-          <Paragraph className="mt-6 max-w-3xl sm:mt-7">
-            {doc.intro.includes('The Curious Scientist') ? (
-              <>
-                {doc.intro.slice(0, doc.intro.indexOf('The Curious Scientist'))}
-                <em>The Curious Scientist</em>
-                {doc.intro.slice(doc.intro.indexOf('The Curious Scientist') + 'The Curious Scientist'.length)}
-              </>
-            ) : (
-              doc.intro
-            )}
-          </Paragraph>
-          <p className="mt-3 text-sm text-earth-600 sm:text-base">{doc.courseLine}</p>
+          {showHeader && (
+            <>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-700 sm:text-[0.8rem]">
+                {doc.eyebrow}
+              </p>
+              <h2 className="mt-2 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
+                {doc.title}
+              </h2>
+              <div className="mt-4 h-1 w-14 rounded-full bg-sage-600 sm:mt-5 sm:w-16" aria-hidden />
+              <Paragraph className="mt-6 max-w-3xl sm:mt-7">
+                {doc.intro.includes('The Curious Scientist') ? (
+                  <>
+                    {doc.intro.slice(0, doc.intro.indexOf('The Curious Scientist'))}
+                    <em>The Curious Scientist</em>
+                    {doc.intro.slice(
+                      doc.intro.indexOf('The Curious Scientist') + 'The Curious Scientist'.length,
+                    )}
+                  </>
+                ) : (
+                  doc.intro
+                )}
+              </Paragraph>
+              <p className="mt-3 text-sm text-earth-600 sm:text-base">{doc.courseLine}</p>
+            </>
+          )}
 
-          <div className="mt-10 space-y-12 sm:mt-12 sm:space-y-14">
+          <div className={showHeader ? 'mt-10 space-y-12 sm:mt-12 sm:space-y-14' : 'space-y-12 sm:space-y-14'}>
             {doc.sections.map((section) => (
               <section key={section.number} className="space-y-5 sm:space-y-6">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
