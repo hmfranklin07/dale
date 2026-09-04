@@ -1,4 +1,5 @@
 import PageContentBand from '../components/PageContentBand'
+import LiteratureReviewPanel from '../components/LiteratureReviewPanel'
 import ScrollReveal from '../components/ScrollReveal'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
@@ -103,36 +104,7 @@ export default function About() {
             <SectionBlock key={section.id} {...section} />
           ))}
 
-          <ScrollReveal>
-            <article className="overflow-hidden rounded-[1.35rem] border-2 border-sage-500/50 bg-white shadow-xl shadow-sage-900/10 ring-2 ring-sage-300/25">
-              <div className="border-l-[14px] border-l-rust-500 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-700 sm:text-[0.8rem]">
-                  Fall 2025
-                </p>
-                <h2 className="mt-2 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
-                  Literature Review &amp; Project Information
-                </h2>
-                <div className="mt-4 h-1 w-14 rounded-full bg-sage-600 sm:mt-5 sm:w-16" aria-hidden />
-                <p className="mt-6 max-w-3xl text-lg leading-relaxed text-earth-800 sm:mt-7 sm:text-xl sm:leading-[1.65]">
-                  This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
-                  <em>The Curious Scientist</em> taught by Dr. Andrea DiGiorgio. This literature review and
-                  project overview was written at the end of my fall semester in 2025 and contains the readings
-                  and analysis that informed my project.
-                </p>
-                <a
-                  href="/documents/literature-review-project-information.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-sage-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-sage-900/20 transition hover:bg-sage-800 sm:mt-8 sm:text-base"
-                >
-                  Open the PDF
-                  <span aria-hidden className="text-lg leading-none">
-                    →
-                  </span>
-                </a>
-              </div>
-            </article>
-          </ScrollReveal>
+          <LiteratureReviewPanel />
         </div>
       </PageContentBand>
     </>

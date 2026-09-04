@@ -1,0 +1,143 @@
+{
+  "eyebrow": "Fall 2025",
+  "title": "Literature Review & Project Information",
+  "intro": "This project was born out of my work in Princeton’s sophomore research seminar The Curious Scientist taught by Dr. Andrea DiGiorgio. This literature review and project overview was written at the end of my fall semester in 2025 and contains the readings and analysis that informed my project.",
+  "courseLine": "WRI 270 · Dr. DiGiorgio · 4 December 2025",
+  "sections": [
+    {
+      "number": "1",
+      "title": "Brief Intro: Big Question and Project Vision",
+      "blocks": [
+        {
+          "type": "labeled",
+          "label": "Big Question",
+          "text": "How can we better reach rural American high school students to give them better STEM education opportunities whilst also increasing excitement over education?"
+        },
+        {
+          "type": "labeled",
+          "label": "Focus within question",
+          "text": "The role identity plays in perception and pursuit of education, and how this can be tapped into for better intervention."
+        },
+        {
+          "type": "p",
+          "text": "Why? Literature shows that there are major disparities in STEM access and continued pursuit in rural students (Harris & Hodges 2018; Barshay 2021). While many structural solutions such as science centers, university partnerships, and greater online access have been successfully implemented to help increase access to STEM opportunities in rural areas (Ntsanwisi 2024), there’s another factor that plays into a lower rate of STEM pursuit in rural students: a disconnect between personal/cultural identity and an education that can seem abstract."
+        },
+        {
+          "type": "p",
+          "text": "Research shows that identity and belonging strongly influence educational engagement (Wallace 2008; Allen et al. 2021). However, there is a gap between theoretical frameworks and the actual implementation of interventions in classrooms. Allen et al. propose four components (competencies, opportunities, motivations, and perceptions) that all contribute to a higher sense of belonging in educational spaces (Allen et al. 2021). Allen et al. also point out that implementation practices are often one-dimensional and do not incorporate these four components, usually only one or two (Allen et al. 2025), and therefore students may not feel like they belong in educational spaces, creating a gap between their personal identities and their role in academics."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, I would like to make a documentary to lift the voices of rural students, educators, and community members, shedding light on their own experiences, perceptions, relationships, and opinions on education. Sharing these stories in documentary form not only provides more firsthand information from the target group I’m looking to help which can inform the creation of new interventions, but it also humanizes this group being studied, creating a platform for voices, not just statistics."
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "title": "Readings & Data",
+      "subsections": [
+        {
+          "title": "I. Rural STEM Disparities",
+          "lead": "Some evidence that confirms rural students face disparities in STEM education. Just evidence; reading analysis comes in section II.",
+          "sources": [
+            {
+              "cite": "Harris & Hodges (2018)",
+              "items": [
+                "Less funding than urban schools (p. 4–6)",
+                "Lack of access to well-qualified teachers (both due to funding, incentives, and remoteness) (p. 6–7)",
+                "Pages 7–8 discuss the factor that parental values play. The pursuit of STEM careers often means leaving one’s rural community, and this is a difficult proposition for parents in these areas. Combined with their own educational opportunities and a lack of emphasis on the applicability of education to rural life, support for education systems drops. Lack of parental support was cited by teachers to be a “serious to moderate issue” (7), suggesting that the issue is persistent and widespread enough to influence students’ educational trajectories. This parental/community support is vital due to the fact that parents and community members play a major role in both how students perceive the value of education, especially in rural areas where families and local culture play a central role in identity formation.",
+                "Rural students are “drastically unrepresented in the population of undergraduate engineering majors in Tennessee” (7)",
+                "Place-based education mentioned on page 8: a common theme across papers. Essentially, incorporating one’s surroundings into education produces more eager learning as education becomes familiar and more easily applicable as compared to simply abstract concepts.",
+                "Lack of programs (p. 9). Programs are successful, but even when brought to rural towns like Ntsanwisi (2024), providing broad access to all rural students is difficult."
+              ]
+            },
+            {
+              "cite": "Barshay (2021)",
+              "items": [
+                "“Only 13 percent of rural and small town students major in math and science in college, compared with almost 17 percent of students in the suburbs. That’s a large 4 percentage point gap.”",
+                "“For example, 63 percent of rural students had access to an in-person calculus class at their school compared with 83 percent of suburban students.”",
+                "“Rural math and science teachers didn’t participate in professional development as often or feel as confident in their teaching ability or subject knowledge as suburban math and science teachers.”",
+                "“Had fewer opportunities to do math and science outside of the classroom, activities such as science fairs, robotics competitions and math clubs.”"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "II. Identity and Belonging",
+          "lead": "While structural issues like funding, access to programs, and access to teachers was a common major problem throughout these readings, there was another problem: personal identity and how there can be disconnect to education. A big theme I saw across papers is that how we perceive learning is based on our personal and cultural identities and how these interact with the education being given. It has been found that there can be a disconnect between personal identity and abstract topics learned in school.",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "When students do not see themselves, their communities, or their lived experiences reflected in what they are learning, school can feel irrelevant or distant from real life. When this happens, student engagement drops, not due to lack of ability, but because learning does not feel meaningful or valuable."
+            }
+          ],
+          "sources": [
+            {
+              "cite": "Wallace (2008)",
+              "items": [
+                "“Experiences and attitudes about learning were essentially informed by the attitudes and approaches of their families and communities” (10). Those around us have a huge impact on our identity and how we view things, especially growing up. The influences over students can tell us a lot as well about how education relates to a student body, not just the students themselves.",
+                "“Recognising learners’ identities is key to their educational engagement” (12). Understanding the cultural identities of learners can help educators teach content in a more relevant way to students. Understanding cultural/personal identities helps teachers connect with students, which can be highly influential in the effort and excitement a student puts into their work."
+              ],
+              "after": [
+                "In practice, however, this can be difficult, as there’s no one straightforward way to incorporate a classroom of identities into lessons. It’s not about learning surface-level facts or making forced analogies in lessons, but rather relating abstract concepts to lived realities that students already understand and connect with. For instance, if we are using the rancher and chemistry scenario, a teacher could carefully frame lessons in chemistry that speak to topics of land/soil, resources, or problem-solving that are applicable to many backgrounds yet are specifically geared towards making connections between the outside world and the school world. Again, there is a gap between theory and practice, and there isn’t one fixed solution to address the complexities of identity in education.",
+                "There’s a certain teacher I remember from my school who made even the students who most hated school love going to her class, not because she forced excitement about the subject, but she listened to them and truly cared about them and their identities, as well as always connecting our learned topics back to our current world and how it applies to us, and our excitement for her class and subject followed. (Connecting quote: “if they do attempt to ‘speak’, their voices are almost universally misunderstood in mainstream high schools” (7)). Students need to be seen!",
+                "Also important for those who develop curricula and interventions: understanding the cultural identity of a group can help them better cater to those identities and make learning more applicable and interesting to the groups.",
+                "Two main aspects of this article include how identity shapes willingness to engage in education and how family responsibilities and local cultural factors also influence."
+              ]
+            },
+            {
+              "cite": "Gibbons et al. (2020)",
+              "items": [
+                "Reiterates statements seen throughout the papers that cultural values, limited role models, gender norms, and place-based identity affect educational aspirations.",
+                "Personal quotes from students (12–13), e.g. “A lot of people think that since they’re from [rural community], we don’t really have a lot of options. And we’re not really going to go far,” “oh I’m from [rural community] I’m not gonna be able to go there. We got a bad last name so we’re not gonna be able to get anywhere in life,” and the “pull yourself up by your bootstraps” mentality."
+              ],
+              "after": [
+                "These were super important to me when combined with the fact that students reported a low level of barriers. Students in this study weren’t citing accessibility and opportunities as barriers to further education, so when combined with their quotes, this gives us insight into the fact that it’s not always structural problems that can lead rural students not to further pursue education. Quotes align with the above agreements about community influence, perceptions of education, and feeling of belonging. Pull yourself up by your bootstraps → students said that if there were challenges they could overcome them. This means that for some of them they simply didn’t want to pursue a higher education, which plays into the motivation and perception components."
+              ]
+            },
+            {
+              "cite": "Allen et al. (2021)",
+              "items": [
+                "“Belonging is a fundamental human need that all people seek to satisfy” (2). Identities are who we are, and we need to belong to something. When identities clash or aren’t being addressed, it can be hard to feel like we belong. This isn’t something small or something that can be ignored by teachers or school systems; it is fundamental. As Allen et al. say, everyone has the need to belong, and this belonging underlies students’ willingness to participate, engage in content, and persist through difficulties. If students do not feel that they belong in an educational space, effort and motivation decline regardless of their abilities or access to resources. As a main factor in educational pursuit as well as something everyone seeks to satisfy, belonging is fundamental to students. The importance of making students feel like they belong in school if they are forced to be there for most of their day cannot be understated.",
+                "This belonging is strongly tied to place. Again, cultural implications, family, and other place-related factors play a huge role. If belonging is fundamental, and this fundamental need is strongly tied to place, then to me it follows that place must be incorporated into education when trying to more effectively reach students (Jones 2025).",
+                "Four-component model: competencies, opportunities, motivations, perceptions. Helps direct thought on belonging. It’s multilayered, and each component of belonging is crucial to making a student feel like they truly belong. Informs ideas about interventions. Also directs thought on barriers; rural students don’t only face opportunity barriers, nor is it only a problem of their motivations and perceptions, but a mix of many different factors. Many solutions/interventions do not address all these → think the science centers (lacking motivations and perceptions) or the SDR schools (Jones 2025) (have place-based learning but lack sufficient staffing, opportunities)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "III. Informing my Project",
+          "lead": "The readings helped me confirm that rural students do not only face accessibility and opportunity disparities in their education, but identity and belonging factors also play into a lower rate of further STEM education pursuit. Reading more about belonging and the four components helped me understand the rest of my readings more and will help me in my project design. A few ties to my readings that inspire my project are also bulleted below.",
+          "items": [
+            "Barshay (2021) stated that “Rural students began high school with the same interest in science and math careers as their suburban counterparts.” However, this interest dropped much more drastically for rural students than suburban students by 11th grade. One of the reasons I would like to focus on high school students. → Add to reading list for this semester as I look more into identity, how belonging can be fostered, and how students can see themselves in different careers. I will be asking the following questions and see what I can find / what other relevant questions I ask / where it takes me: how do elementary schools keep students’ minds open? How does identity change with age? What does incorporating identity look like at different ages and how can we best use this information to reach high school students?",
+            "Harris & Hodges (2018) state that there is a “detrimental lack of research” combining rural education and STEM curricula (9). My documentary would provide more qualitative evidence and inspire more research on this topic, helping develop curricula and theory application.",
+            "Wallace p. 10 quote: When looking at the identity aspect of educational barriers, it is important to look at the views not just of students, but of their families and communities as well. A big reason I’d like to involve the interviewing of community members in my project.",
+            "Gibbons et al. → straight quotes from the students brought life into what they were talking about. The quotes from the students as well as my own experiences are a huge aspect in what inspired me to do this project, and I’d really like to have direct content from students across the nation."
+          ]
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Project Focus & Methods",
+      "blocks": [
+        {
+          "type": "labeled",
+          "label": "Why a website?",
+          "text": "A documentary is a great way to combine my passion for expressing stories and emotions through art while also making voices be heard. Rather than presenting my findings with tables and numbers, I can humanize the people behind the data and give them the opportunity to be heard within their identities. A website would make these stories accessible not only to researchers, policymakers, and educators, but any general audience could learn more about these stories and why they’re important."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "Allen, Kelly-Ann. “School Belonging: Evidence, Experts, and Everyday Gaps.” Educational Psychology Review 37, no. 3 (2025): 84. https://doi.org/10.1007/s10648-025-10055-x.",
+    "Allen, Kelly-Ann, Margaret L. Kern, Christopher S. Rozek, Dennis M. McInerney, and George M. Slavich. “Belonging: A Review of Conceptual Issues, an Integrative Framework, and Directions for Future Research.” Australian Journal of Psychology 73, no. 1 (2021): 87–102. https://doi.org/10.1080/00049530.2021.1883409.",
+    "Barshay, Jill. “Proof Points: Rural American Students Shift Away from Math and Science during High School, Study Finds.” The Hechinger Report, 27 Jan. 2023. https://hechingerreport.org/proof-points-rural-american-students-shift-away-from-math-and-science-during-high-school-study-finds/",
+    "Gibbons, Melinda M., Anna Lora Taylor, Emily Brown, Stephanie K. Daniels, Erin E. Hardin, and Sam Manring. “Assessing Postsecondary Barriers for Rural Appalachian High School Students.” Journal of Career Assessment 28, no. 1 (2020): 165–81. https://doi.org/10.1177/1069072719845329.",
+    "Harris, Rachel S., and Charles Hodges. “STEM Education in Rural Schools: Implications of Untapped Potential.” National Youth at Risk Journal 3, no. 1 (2018). https://doi.org/10.20429/nyarj.2018.030102.",
+    "Jones, Devan A. “Integrating STEM Education in Sustained Deep Rural Schools: Innovative Strategies for Multi-Grade, Multi-Subject Classrooms.” Frontiers in Education 10 (April 2025): 1569489. https://doi.org/10.3389/feduc.2025.1569489.",
+    "Ntsanwisi, Samuel. “Bridging Gaps in STEM Education: The Case for Dedicated Learning Centres in South African Townships and Rural Areas.” European Journal of STEM Education 9, no. 1 (2024): 15. https://doi.org/10.20897/ejsteme/15481.",
+    "Rivera, Seema, Kathleen Kavanagh, Jan DeWaters, et al. “Secondary School-University Partnerships Foster STEMM Interest and Self-Agency in Rural Students.” Frontiers in Education 10 (June 2025): 1578370. https://doi.org/10.3389/feduc.2025.1578370.",
+    "Wallace, Ruth. Reluctant Learners: Their Identities and Educational Experiences. NCVER, 2008."
+  ]
+}
