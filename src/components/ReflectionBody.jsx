@@ -1,4 +1,5 @@
-const prose = 'text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]'
+const prose =
+  'pl-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:pl-7 sm:text-lg sm:leading-[1.8]'
 
 function Paragraph({ children, className = '' }) {
   return <p className={`${prose} ${className}`.trim()}>{children}</p>
@@ -7,9 +8,7 @@ function Paragraph({ children, className = '' }) {
 function QuestionCallout({ preface, text }) {
   return (
     <div className="my-10 space-y-5 sm:my-12 sm:space-y-6">
-      {preface && (
-        <Paragraph className="pl-5 text-earth-700 sm:pl-7">{preface}</Paragraph>
-      )}
+      {preface && <Paragraph className="text-earth-700">{preface}</Paragraph>}
       <aside className="border-l-[3px] border-rust-500 pl-5 sm:pl-7">
         <p className="font-display text-[1.4rem] italic leading-snug text-earth-900 sm:text-[1.75rem] sm:leading-[1.35] lg:text-[1.95rem]">
           {text}
