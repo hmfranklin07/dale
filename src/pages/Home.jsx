@@ -74,23 +74,16 @@ export default function Home() {
               aria-hidden
             />
             <div
-              className={`ml-[10%] mr-[4%] mt-3 w-auto space-y-1 text-center text-sm leading-snug text-earth-900 sm:ml-[14%] sm:mr-[6%] sm:mt-3.5 sm:space-y-1.5 sm:text-base sm:leading-snug md:ml-[18%] md:mr-[8%] scroll-reveal scroll-reveal-delay-3 ${heroState}`}
+              className={`ml-[10%] mr-[4%] mt-3 w-auto max-w-none space-y-2.5 text-center text-sm leading-snug text-earth-900 sm:ml-[14%] sm:mr-[6%] sm:mt-3.5 sm:text-base sm:leading-normal md:ml-[18%] md:mr-[8%] scroll-reveal scroll-reveal-delay-3 ${heroState}`}
             >
-              <p className="mx-auto w-[78%] max-w-xl">
+              <p className="mx-auto max-w-[34rem] sm:max-w-[38rem] md:max-w-[42rem]">
                 This summer, I drove across the country to document experiences with STEM education in rural high
-                schools,
-              </p>
-              <p className="mx-auto w-[92%] max-w-2xl">
-                not from numbers and statistics, but from the students and educators who live it every day.
-              </p>
-              <p className="mx-auto w-full max-w-2xl">
+                schools, not from numbers and statistics, but from the students and educators who live it every day.
                 Drawing from conversations and interviews in 5 different areas, I&apos;ll be sharing what STEM looks
                 like in the classroom and how students connect with it.
               </p>
-              <p className="mx-auto w-[88%] max-w-xl pt-0.5">
+              <p className="mx-auto max-w-[28rem] sm:max-w-[32rem] md:max-w-[36rem]">
                 This site is home to all of the videos, conversations, and reflections from each place I visit,
-              </p>
-              <p className="mx-auto w-[68%] max-w-lg">
                 highlighting rural voices and telling stories from across the nation.
               </p>
             </div>
