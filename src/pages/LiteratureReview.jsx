@@ -1,17 +1,58 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import literatureReview from '../data/literatureReview.json'
 import LiteratureReviewPanel from '../components/LiteratureReviewPanel'
 import PageContentBand from '../components/PageContentBand'
-import ScrollReveal from '../components/ScrollReveal'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[14rem] sm:min-h-[15.5rem] md:min-h-[17rem]'
+
+/** Fade in on load (header + body together) — not scroll-gated. */
+function MountFade({ children, className = '' }) {
+  const [revealed, setRevealed] = useState(false)
+
+  useEffect(() => {
+    const reduced =
+      typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) {
+      setRevealed(true)
+      return
+    }
+    let raf2 = 0
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setRevealed(true))
+    })
+    return () => {
+      cancelAnimationFrame(raf1)
+      if (raf2) cancelAnimationFrame(raf2)
+    }
+  }, [])
+
+  return (
+    <div className={`scroll-reveal ${revealed ? 'is-revealed' : ''} ${className}`.trim()}>
+      {children}
+    </div>
+  )
+}
+
+function IntroCopy({ text }) {
+  const mark = 'The Curious Scientist'
+  const i = text.indexOf(mark)
+  if (i === -1) return text
+  return (
+    <>
+      {text.slice(0, i)}
+      <em>{mark}</em>
+      {text.slice(i + mark.length)}
+    </>
+  )
+}
 
 export default function LiteratureReview() {
   const doc = literatureReview
 
   return (
-    <>
+    <MountFade>
       <section className={`relative flex flex-col overflow-hidden border-b border-sage-300/40 bg-sage-700 ${HERO_MIN_H}`}>
         <div className="absolute inset-0 bg-gradient-to-br from-sage-800 via-sage-700 to-earth-800" aria-hidden />
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col">
@@ -28,41 +69,30 @@ export default function LiteratureReview() {
           </div>
 
           <div className={`${heroShell} flex flex-1 flex-col items-center justify-center py-8 text-center sm:py-9`}>
-            <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80 sm:text-[0.8rem]">
-                {doc.eyebrow}
-              </p>
-              <h1 className="mt-2 font-display text-[2rem] leading-none text-white drop-shadow-sm sm:text-[2.75rem] lg:text-[3.25rem]">
-                {doc.title}
-              </h1>
-              <div
-                className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                aria-hidden
-              />
-              <p className="mx-auto mt-3 max-w-2xl text-sm text-white/85 sm:text-base">{doc.courseLine}</p>
-            </ScrollReveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80 sm:text-[0.8rem]">
+              {doc.eyebrow}
+            </p>
+            <h1 className="mt-2 font-display text-[2rem] leading-none text-white drop-shadow-sm sm:text-[2.75rem] lg:text-[3.25rem]">
+              {doc.title}
+            </h1>
+            <div
+              className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+              aria-hidden
+            />
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-white/85 sm:text-base">{doc.courseLine}</p>
           </div>
         </div>
       </section>
 
       <PageContentBand field="route" reveal={false}>
-        <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10">
-          <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.65]">
-            {doc.intro.includes('The Curious Scientist') ? (
-              <>
-                {doc.intro.slice(0, doc.intro.indexOf('The Curious Scientist'))}
-                <em>The Curious Scientist</em>
-                {doc.intro.slice(
-                  doc.intro.indexOf('The Curious Scientist') + 'The Curious Scientist'.length,
-                )}
-              </>
-            ) : (
-              doc.intro
-            )}
+        <div className="mx-auto max-w-2xl lg:max-w-3xl">
+          <p className="text-center text-lg leading-relaxed text-earth-800 sm:text-xl sm:leading-[1.7]">
+            <IntroCopy text={doc.intro} />
           </p>
+          <div className="mx-auto mt-8 h-px w-16 bg-gradient-to-r from-transparent via-sage-500/70 to-transparent sm:mt-10" aria-hidden />
           <LiteratureReviewPanel showHeader={false} />
         </div>
       </PageContentBand>
-    </>
+    </MountFade>
   )
 }
