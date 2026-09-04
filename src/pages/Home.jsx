@@ -39,8 +39,8 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
-      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden ${heroViewportH}`}>
-        <div className={`absolute inset-0 z-0 scroll-reveal-photo ${heroInView ? 'is-revealed' : ''}`}>
+      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-sage-200/50 ${heroViewportH}`}>
+        <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
           <img
             src={homeHeroBgUrl}
             alt=""
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
           <div className={`${shell} w-full pb-8 pt-7 text-center sm:pb-10 sm:pt-8 md:pb-12 md:pt-10`}>
-            <div className={`relative py-3 sm:py-4 md:py-5 scroll-reveal scroll-reveal-delay-1 ${heroState}`}>
+            <div className={`relative py-3 sm:py-4 md:py-5 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}>
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
@@ -70,11 +70,11 @@ export default function Home() {
               </div>
             </div>
             <div
-              className={`mx-auto mt-2.5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-24 scroll-reveal scroll-reveal-delay-2 ${heroState}`}
+              className={`mx-auto mt-2.5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-24 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
               aria-hidden
             />
             <div
-              className={`mx-auto mt-3 w-full max-w-[22rem] space-y-2.5 text-center text-sm leading-snug text-earth-900 sm:mt-3.5 sm:max-w-[26rem] sm:text-base sm:leading-normal md:max-w-[30rem] scroll-reveal scroll-reveal-delay-3 ${heroState}`}
+              className={`mx-auto mt-3 w-full max-w-[22rem] space-y-2.5 text-center text-sm leading-snug text-earth-900 sm:mt-3.5 sm:max-w-[26rem] sm:text-base sm:leading-normal md:max-w-[30rem] scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
             >
               <p>
                 This summer, I drove across the country to document experiences with STEM education in rural high
