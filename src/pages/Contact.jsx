@@ -126,7 +126,7 @@ export default function Contact() {
                         </span>
                       </a>
                       <p className="mt-4 text-sm leading-relaxed text-sage-100/90">
-                        Tap the address to open your email app — I read every message.
+                        Tap the address to open your email app.
                       </p>
                     </div>
                   </div>
