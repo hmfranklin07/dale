@@ -276,7 +276,7 @@
     "personName": "Mrs. Burns",
     "role": "Science teacher",
     "school": "Cave Springs Public School",
-    "photo": "/images/community-outside-classroom.jpg",
+    "photo": "/images/community-outside-classroom.png",
     "cardPhoto": "/images/community-outside-classroom-card.jpg",
     "heroPositionClass": "object-cover object-center",
     "heroDarkText": true,
