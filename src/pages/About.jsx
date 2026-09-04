@@ -114,9 +114,10 @@ export default function About() {
                 </h2>
                 <div className="mt-4 h-1 w-14 rounded-full bg-sage-600 sm:mt-5 sm:w-16" aria-hidden />
                 <p className="mt-6 max-w-3xl text-lg leading-relaxed text-earth-800 sm:mt-7 sm:text-xl sm:leading-[1.65]">
-                  Before the trip structure was set in stone, I wrote this literature review and project
-                  overview in fall 2025. It lays out the research question and approach, informed by
-                  existing scholarship on rural STEM education, identity, and belonging.
+                  This project was born out of my work in Princeton’s sophomore research seminar The Curious
+                  Scientist taught by Dr. Andrea DiGiorgio. This literature review and project overview was
+                  written at the end of my fall semester in 2025 and contains the readings and analysis that
+                  informed my project.
                 </p>
                 <a
                   href="/documents/literature-review-project-information.pdf"
