@@ -74,17 +74,11 @@ export default function Home() {
               aria-hidden
             />
             <div
-              className={`mx-auto mt-3 w-full max-w-[22rem] space-y-2.5 text-center text-sm leading-snug text-white drop-shadow-[0_1px_8px_rgba(20,28,18,0.55)] sm:mt-3.5 sm:max-w-[26rem] sm:text-base sm:leading-normal sm:text-earth-900 sm:drop-shadow-none md:max-w-[30rem] scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+              className={`mx-auto mt-3 w-full max-w-[22rem] text-center text-sm leading-snug text-white drop-shadow-[0_1px_8px_rgba(20,28,18,0.55)] sm:mt-3.5 sm:max-w-[26rem] sm:text-base sm:leading-normal sm:text-earth-900 sm:drop-shadow-none md:max-w-[30rem] scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
             >
               <p>
-                This summer, I drove across the country to document experiences with STEM education in rural high
-                schools, not from numbers and statistics, but from the students and educators who live it every day.
-                Drawing from conversations and interviews in 5 different areas, I&apos;ll be sharing what STEM looks
-                like in the classroom and how students connect with it.
-              </p>
-              <p>
-                This site is home to all of the videos, conversations, and reflections from each place I visit,
-                highlighting rural voices and telling stories from across the nation.
+                This summer I drove across the country collecting stories about STEM education in rural communities —
+                from the teachers and students who live it every day.
               </p>
             </div>
           </div>
