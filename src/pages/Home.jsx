@@ -52,31 +52,33 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-8 pt-7 text-center sm:pb-10 sm:pt-8 md:pb-12 md:pt-10`}>
-            <div className={`relative py-3 sm:py-4 md:py-5 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}>
+          <div className={`${shell} w-full pb-10 pt-8 text-center sm:pb-12 sm:pt-9 md:pb-14 md:pt-11`}>
+            <div
+              className={`relative mx-auto w-full max-w-4xl px-3 py-7 sm:max-w-5xl sm:px-6 sm:py-9 md:py-10 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+            >
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/30 bg-white/40 backdrop-blur-md"
+                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/35 bg-white/45 shadow-[0_18px_45px_-20px_rgba(60,71,53,0.35)] backdrop-blur-md"
               />
-              <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
-                <h1
-                  className={`font-display text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
-                >
-                  STEM Across Rural America
-                </h1>
-                <p className="mt-2 font-display text-lg leading-snug text-earth-900 sm:mt-2.5 sm:text-xl lg:text-2xl">
-                  The Stories Behind the Data
-                </p>
-              </div>
-            </div>
-            <div
-              className={`mx-auto mt-2.5 h-px w-16 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-24 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
-              aria-hidden
-            />
-            <div
-              className={`mx-auto mt-6 w-full max-w-4xl px-2 text-center sm:mt-8 lg:max-w-5xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
-            >
-              <p className="font-display text-[1.15rem] leading-[1.45] tracking-[0.01em] text-white drop-shadow-[0_2px_14px_rgba(20,28,18,0.45)] sm:text-[1.45rem] sm:leading-[1.5] lg:text-[1.7rem] lg:leading-[1.45]">
+
+              <h1
+                className={`font-display text-[2.5rem] leading-[1.05] tracking-[-0.01em] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
+              >
+                STEM Across Rural America
+              </h1>
+
+              <p className="mt-3 font-display text-xl leading-snug text-earth-800 sm:mt-3.5 sm:text-2xl lg:text-[1.85rem]">
+                The Stories Behind the Data
+              </p>
+
+              <div
+                className={`mx-auto mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-20 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                aria-hidden
+              />
+
+              <p
+                className={`mx-auto mt-5 max-w-3xl text-base leading-relaxed text-earth-800 sm:mt-6 sm:text-lg sm:leading-[1.65] lg:text-xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+              >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
               </p>
