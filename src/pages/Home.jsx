@@ -74,9 +74,9 @@ export default function Home() {
               aria-hidden
             />
             <div
-              className={`mx-auto mt-4 w-full max-w-xl px-1 text-center text-base leading-relaxed text-white drop-shadow-[0_1px_8px_rgba(20,28,18,0.55)] sm:mt-5 sm:max-w-2xl sm:text-lg sm:leading-relaxed sm:text-earth-900 sm:drop-shadow-none lg:max-w-3xl lg:text-xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+              className={`mx-auto mt-6 w-full max-w-4xl px-2 text-center sm:mt-8 lg:max-w-5xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
             >
-              <p>
+              <p className="font-display text-[1.15rem] leading-[1.45] tracking-[0.01em] text-white drop-shadow-[0_2px_14px_rgba(20,28,18,0.45)] sm:text-[1.45rem] sm:leading-[1.5] lg:text-[1.7rem] lg:leading-[1.45]">
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
               </p>
