@@ -4,7 +4,7 @@ import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
-const essay = 'mx-auto w-full max-w-[40rem]'
+const essay = 'mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-12'
 
 const SECTIONS = [
   {
@@ -78,11 +78,11 @@ export default function About() {
       </section>
 
       <section className="border-t border-earth-200/80 bg-white">
-        <div className={`${essay} px-5 py-16 sm:px-6 sm:py-20 lg:py-24`}>
+        <div className={`${essay} py-16 sm:py-20 lg:py-24`}>
           {SECTIONS.map((section, index) => (
             <ScrollReveal key={section.id} delay={index === 0 ? undefined : 1}>
               <section className={index === 0 ? '' : 'mt-14 border-t border-earth-200 pt-14 sm:mt-16 sm:pt-16'}>
-                <h2 className="font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem]">
+                <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.6rem]">
                   {section.question}
                 </h2>
                 <div className="mt-6 space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:mt-7 sm:text-lg sm:leading-[1.8]">
@@ -97,7 +97,7 @@ export default function About() {
           <ScrollReveal>
             <section className="mt-16 border-t border-earth-200 pt-14 sm:mt-20 sm:pt-16">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth-500">Fall 2025</p>
-              <h2 className="mt-3 font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem]">
+              <h2 className="mt-3 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.6rem]">
                 Literature review
               </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
