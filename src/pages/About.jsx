@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { RouteFieldAmbience, routeFieldSectionClass } from '../components/RouteFieldAmbience'
 import ScrollReveal from '../components/ScrollReveal'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
@@ -77,15 +78,23 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-t border-earth-200/80 bg-white">
-        <div className={`${essay} py-16 sm:py-20 lg:py-24`}>
+      <section className={routeFieldSectionClass}>
+        <RouteFieldAmbience />
+        <div className={`relative z-10 ${essay} py-12 sm:py-16 lg:py-20`}>
           {SECTIONS.map((section, index) => (
             <ScrollReveal key={section.id} delay={index === 0 ? undefined : 1}>
-              <section className={index === 0 ? '' : 'mt-14 border-t border-earth-200 pt-14 sm:mt-16 sm:pt-16'}>
-                <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.6rem]">
+              <section
+                className={
+                  index === 0
+                    ? 'grid gap-5 lg:grid-cols-[minmax(16rem,0.42fr)_minmax(0,1fr)] lg:items-start lg:gap-x-16'
+                    : 'mt-12 grid gap-5 border-t border-rust-400/35 pt-12 sm:mt-14 sm:pt-14 lg:grid-cols-[minmax(16rem,0.42fr)_minmax(0,1fr)] lg:items-start lg:gap-x-16'
+                }
+              >
+                <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:sticky lg:top-24 lg:text-[2.45rem]">
                   {section.question}
+                  <span className="mt-4 block h-1 w-12 rounded-full bg-rust-500" aria-hidden />
                 </h2>
-                <div className="mt-6 space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:mt-7 sm:text-lg sm:leading-[1.8]">
+                <div className="space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{renderParagraph(paragraph)}</p>
                   ))}
@@ -93,25 +102,33 @@ export default function About() {
               </section>
             </ScrollReveal>
           ))}
+        </div>
 
+        <div className="relative z-10 h-[5px] w-full bg-rust-500" aria-hidden />
+        <div className="relative z-10 bg-rust-200/55">
           <ScrollReveal>
-            <section className="mt-16 border-t border-earth-200 pt-14 sm:mt-20 sm:pt-16">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth-500">Fall 2025</p>
-              <h2 className="mt-3 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.6rem]">
-                Literature review
-              </h2>
-              <p className="mt-6 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
-                This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
-                <em>The Curious Scientist</em>, taught by Dr. Andrea DiGiorgio. This literature review and project
-                overview was written at the end of my fall semester in 2025 and contains the readings and analysis that
-                informed my project.
-              </p>
-              <Link
-                to="/about/literature-review"
-                className="mt-6 inline-block text-base font-medium text-earth-900 underline decoration-rust-500/80 decoration-1 underline-offset-[0.28em] transition-colors hover:text-rust-800"
-              >
-                Read the literature review
-              </Link>
+            <section className={`${essay} grid gap-5 py-12 sm:py-14 lg:grid-cols-[minmax(16rem,0.42fr)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:py-16`}>
+              <div>
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth-600">Fall 2025</p>
+                <h2 className="mt-3 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:text-[2.45rem]">
+                  Literature review
+                </h2>
+                <span className="mt-4 block h-1 w-12 rounded-full bg-rust-600" aria-hidden />
+              </div>
+              <div>
+                <p className="text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
+                  This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
+                  <em>The Curious Scientist</em>, taught by Dr. Andrea DiGiorgio. This literature review and project
+                  overview was written at the end of my fall semester in 2025 and contains the readings and analysis that
+                  informed my project.
+                </p>
+                <Link
+                  to="/about/literature-review"
+                  className="mt-6 inline-block text-base font-medium text-earth-900 underline decoration-rust-600 decoration-1 underline-offset-[0.28em] transition-colors hover:text-rust-800"
+                >
+                  Read the literature review
+                </Link>
+              </div>
             </section>
           </ScrollReveal>
         </div>
