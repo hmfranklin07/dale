@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import PageContentBand from '../components/PageContentBand'
 import ScrollReveal from '../components/ScrollReveal'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+const essay = 'mx-auto w-full max-w-[40rem]'
 
 const SECTIONS = [
   {
@@ -33,33 +33,15 @@ const SECTIONS = [
   },
 ]
 
-function SectionBlock({ question, paragraphs }) {
+function renderParagraph(paragraph) {
+  const hugeIdx = paragraph.indexOf('huge')
+  if (hugeIdx === -1) return paragraph
   return (
-    <ScrollReveal>
-      <article className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/10 ring-2 ring-rust-300/30">
-        <div className="border-l-[14px] border-l-sage-700 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
-          <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
-            {question}
-          </h2>
-          <div className="mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-16" aria-hidden />
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-earth-800 sm:mt-7 sm:space-y-6 sm:text-xl sm:leading-[1.65]">
-            {paragraphs.map((paragraph) => {
-              const hugeIdx = paragraph.indexOf('huge')
-              if (hugeIdx === -1) {
-                return <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              }
-              return (
-                <p key={paragraph.slice(0, 48)}>
-                  {paragraph.slice(0, hugeIdx)}
-                  <em>huge</em>
-                  {paragraph.slice(hugeIdx + 4)}
-                </p>
-              )
-            })}
-          </div>
-        </div>
-      </article>
-    </ScrollReveal>
+    <>
+      {paragraph.slice(0, hugeIdx)}
+      <em>huge</em>
+      {paragraph.slice(hugeIdx + 4)}
+    </>
   )
 }
 
@@ -88,52 +70,52 @@ export default function About() {
                 <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-sm sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                   About Rural STEM Stories
                 </h1>
-                <div
-                  className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                  aria-hidden
-                />
+                <div className="mx-auto mt-3 h-px w-12 bg-white/70 sm:mt-4" aria-hidden />
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      <PageContentBand field="route" reveal={false}>
-        <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10 lg:space-y-12">
-          {SECTIONS.map((section) => (
-            <SectionBlock key={section.id} {...section} />
+      <section className="border-t border-earth-200/80 bg-white">
+        <div className={`${essay} px-5 py-16 sm:px-6 sm:py-20 lg:py-24`}>
+          {SECTIONS.map((section, index) => (
+            <ScrollReveal key={section.id} delay={index === 0 ? undefined : 1}>
+              <section className={index === 0 ? '' : 'mt-14 border-t border-earth-200 pt-14 sm:mt-16 sm:pt-16'}>
+                <h2 className="font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem]">
+                  {section.question}
+                </h2>
+                <div className="mt-6 space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:mt-7 sm:text-lg sm:leading-[1.8]">
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{renderParagraph(paragraph)}</p>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
           ))}
 
           <ScrollReveal>
-            <article className="overflow-hidden rounded-[1.35rem] border-2 border-sage-500/50 bg-white shadow-xl shadow-sage-900/10 ring-2 ring-sage-300/25">
-              <div className="border-l-[14px] border-l-rust-500 px-6 py-8 sm:border-l-[18px] sm:px-9 sm:py-10 md:px-11 md:py-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-700 sm:text-[0.8rem]">
-                  Fall 2025
-                </p>
-                <h2 className="mt-2 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.35rem] lg:text-[2.65rem]">
-                  Literature Review &amp; Project Information
-                </h2>
-                <div className="mt-4 h-1 w-14 rounded-full bg-sage-600 sm:mt-5 sm:w-16" aria-hidden />
-                <p className="mt-6 max-w-3xl text-lg leading-relaxed text-earth-800 sm:mt-7 sm:text-xl sm:leading-[1.65]">
-                  This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
-                  <em>The Curious Scientist</em> taught by Dr. Andrea DiGiorgio. This literature review and
-                  project overview was written at the end of my fall semester in 2025 and contains the readings
-                  and analysis that informed my project.
-                </p>
-                <Link
-                  to="/about/literature-review"
-                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-sage-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-sage-900/20 transition hover:bg-sage-800 sm:mt-8 sm:text-base"
-                >
-                  Read the literature review
-                  <span aria-hidden className="text-lg leading-none">
-                    →
-                  </span>
-                </Link>
-              </div>
-            </article>
+            <section className="mt-16 border-t border-earth-200 pt-14 sm:mt-20 sm:pt-16">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth-500">Fall 2025</p>
+              <h2 className="mt-3 font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem]">
+                Literature review
+              </h2>
+              <p className="mt-6 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
+                This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
+                <em>The Curious Scientist</em>, taught by Dr. Andrea DiGiorgio. This literature review and project
+                overview was written at the end of my fall semester in 2025 and contains the readings and analysis that
+                informed my project.
+              </p>
+              <Link
+                to="/about/literature-review"
+                className="mt-6 inline-block text-base font-medium text-earth-900 underline decoration-rust-500/80 decoration-1 underline-offset-[0.28em] transition-colors hover:text-rust-800"
+              >
+                Read the literature review
+              </Link>
+            </section>
           </ScrollReveal>
         </div>
-      </PageContentBand>
+      </section>
     </>
   )
 }
