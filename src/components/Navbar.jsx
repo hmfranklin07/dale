@@ -84,7 +84,7 @@ function StatesDropdown({ linkClassBase, statesOn }) {
         className={triggerClass}
         aria-expanded={open}
         aria-haspopup="menu"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => setOpen(true)}
       >
         States
         <svg
@@ -99,7 +99,7 @@ function StatesDropdown({ linkClassBase, statesOn }) {
       </button>
 
       {open && (
-        <div role="menu" className="absolute left-0 top-full z-50 min-w-[13.5rem] pt-1.5">
+        <div role="menu" className="absolute left-0 top-full z-[60] min-w-[13.5rem] pt-2">
           <div className="border border-earth-200 bg-white p-1 shadow-md">
             {states.map((s) => (
               <NavLink
@@ -194,7 +194,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-x-auto lg:flex">
+          <div className="hidden min-w-0 flex-1 items-center justify-end gap-4 lg:flex">
             <DesktopNavLinks statesOn={statesOn} />
           </div>
 
@@ -217,7 +217,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="hidden items-center justify-end gap-1.5 overflow-x-auto border-t border-sage-800/15 bg-sage-900/5 py-2 md:flex lg:hidden">
+        <div className="hidden items-center justify-end gap-4 border-t border-earth-200 py-2 md:flex lg:hidden">
           <DesktopNavLinks statesOn={statesOn} />
         </div>
       </div>
