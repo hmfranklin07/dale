@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background-color: #f6f3ec;
+  }
+
   body {
-    @apply font-body text-earth-800 antialiased;
-    background-color: #f7f6f2;
+    @apply font-body text-[1.0625rem] leading-[1.7] text-earth-800 antialiased;
+    background-color: #f6f3ec;
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
   h1, h2, h3, h4 {
-    @apply font-display;
+    @apply font-display font-medium tracking-[-0.025em] text-earth-900;
   }
 }
 
@@ -26,19 +31,23 @@
     @apply text-earth-700 text-lg mb-8;
   }
 
-  .card {
-    @apply overflow-hidden border border-earth-200 bg-white shadow-sm transition-shadow duration-200
-           hover:shadow-md;
+  .kicker {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-[0.18em] text-rust-700;
   }
 
-  /** Quiet lift for linked conversation / video cards (parent must be `<a>` or `<Link>`). */
+  .card {
+    @apply overflow-hidden border border-earth-200 bg-white transition-colors duration-200
+           hover:border-earth-400;
+  }
+
+  /** Quiet border change for linked conversation / video cards. */
   .card-hover-pop {
-    @apply transition-shadow duration-200;
+    @apply transition-colors duration-200;
   }
 
   a:hover > .card-hover-pop,
   a:focus-visible > .card-hover-pop {
-    @apply shadow-md;
+    @apply border-earth-400;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -57,7 +66,7 @@
   }
 
   .badge {
-    @apply inline-block px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em];
+    @apply font-sans inline-block px-2 py-0.5 text-[0.68rem] font-medium uppercase tracking-[0.14em];
   }
 
   .badge-sage {

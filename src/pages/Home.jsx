@@ -53,30 +53,32 @@ export default function Home() {
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
           <div className={`${shell} w-full pb-10 pt-8 text-center sm:pb-12 sm:pt-9 md:pb-14 md:pt-11`}>
             <div
-              className={`relative mx-auto w-full max-w-4xl px-3 py-7 sm:max-w-5xl sm:px-6 sm:py-9 md:py-10 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className={`relative mx-auto w-full max-w-3xl px-1 py-8 text-center sm:max-w-4xl sm:py-10 md:py-12 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
             >
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-white/35 bg-white/45 shadow-[0_18px_45px_-20px_rgba(60,71,53,0.35)] backdrop-blur-md"
+                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-earth-900/10 bg-[#f6f3ec]"
               />
 
+              <p className="kicker">Summer 2026 · Field research</p>
+
               <h1
-                className={`font-display text-[2.5rem] leading-[1.05] tracking-[-0.01em] sm:text-6xl lg:text-7xl xl:text-[4.75rem] ${pageTitleClass}`}
+                className={`mt-3 font-display text-[2.6rem] font-medium leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.25rem] ${pageTitleClass}`}
               >
                 STEM Across Rural America
               </h1>
 
-              <p className="mt-3 font-display text-xl leading-snug text-earth-800 sm:mt-3.5 sm:text-2xl lg:text-[1.85rem]">
+              <p className="mt-3 font-display text-xl italic leading-snug text-earth-700 sm:mt-4 sm:text-[1.65rem]">
                 The Stories Behind the Data
               </p>
 
               <div
-                className={`mx-auto mt-4 h-0.5 w-14 bg-rust-500 sm:mt-5 sm:w-20 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className={`mx-auto mt-5 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
                 aria-hidden
               />
 
               <p
-                className={`mx-auto mt-5 max-w-3xl text-base leading-relaxed text-earth-800 sm:mt-6 sm:text-lg sm:leading-[1.65] lg:text-xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+                className={`mx-auto mt-5 max-w-2xl font-body text-[1.05rem] leading-[1.7] text-earth-700 sm:text-lg scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
               >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
@@ -147,7 +149,7 @@ export default function Home() {
               </figure>
 
               <div className={`min-w-0 md:col-start-1 md:row-start-2 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
-                <div className="w-full space-y-3 text-base text-earth-800 sm:text-lg leading-relaxed">
+                <div className="w-full space-y-4 font-body text-[1.05rem] leading-[1.75] text-earth-800 sm:text-[1.125rem]">
                   <p>
                     I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
                     my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
@@ -163,7 +165,7 @@ export default function Home() {
                 <p className="mt-4 sm:mt-5">
                   <Link
                     to="/about"
-                    className="text-sm font-semibold text-rust-800 underline decoration-rust-400/60 underline-offset-2 transition-colors hover:text-rust-950 hover:decoration-rust-600 sm:text-base"
+                    className="font-sans text-[0.95rem] text-rust-800 underline decoration-rust-600/50 underline-offset-4 transition-colors hover:text-earth-900 hover:decoration-earth-900"
                   >
                     See more about this project →
                   </Link>
@@ -179,7 +181,7 @@ export default function Home() {
               aria-hidden
             />
             <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
-              <p className="mx-auto max-w-[min(100%,52rem)] text-center text-xs leading-snug text-earth-600 italic sm:text-sm">
+              <p className="mx-auto max-w-[min(100%,52rem)] text-center font-sans text-[0.8rem] leading-relaxed tracking-wide text-earth-700">
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
             </div>
@@ -197,14 +199,11 @@ export default function Home() {
       >
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div ref={mapRevealRef}>
-            <div className={`mb-6 sm:mb-8 text-center scroll-reveal scroll-reveal-delay-1 ${mapState}`}>
-              <div
-                className="mx-auto mb-3 h-0.5 w-16 bg-rust-600"
-                aria-hidden
-              />
-              <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
-              <p className="text-earth-600 mx-auto mt-2 max-w-2xl text-base sm:text-lg">
-                Click a pin to explore each area!
+            <div className={`mb-8 text-center scroll-reveal scroll-reveal-delay-1 sm:mb-10 ${mapState}`}>
+              <p className="kicker">The route</p>
+              <h2 className="mt-3 font-display text-[2rem] text-earth-900 sm:text-[2.5rem]">Summer 2026 Stops</h2>
+              <p className="mx-auto mt-3 max-w-xl font-body text-base leading-relaxed text-earth-700 sm:text-lg">
+                Select a stop to read from that community.
               </p>
             </div>
             <div className={`w-full rounded-none sm:rounded-none scroll-reveal scroll-reveal-delay-2 ${mapState}`}>

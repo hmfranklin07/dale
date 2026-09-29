@@ -46,7 +46,7 @@ export default function Contact() {
                           aria-hidden
                         />
                       )}
-                      <span className="px-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/95 drop-shadow-[0_1px_6px_rgba(20,28,18,0.45)] sm:text-[0.78rem] sm:tracking-[0.2em]">
+                      <span className="px-1 font-sans text-[0.72rem] font-medium uppercase tracking-[0.18em] text-white">
                         {label}
                       </span>
                     </li>

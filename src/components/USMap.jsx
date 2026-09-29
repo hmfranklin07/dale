@@ -769,12 +769,12 @@ export default function USMap() {
             transform: 'translate(-50%, 0)',
           }}
         >
-          <p className="font-display text-[18px] font-semibold uppercase leading-none tracking-wider text-earth-900 sm:text-[20px] sm:leading-none">
+          <p className="font-display text-[1.35rem] leading-none tracking-[-0.02em] text-earth-900">
             {hovered.name}
           </p>
           {hovered.heroIntro ? (
             <p
-              className="mt-2 font-display text-[13px] font-semibold leading-none tracking-wider sm:text-sm sm:leading-none"
+              className="mt-2 font-sans text-[0.72rem] font-medium uppercase leading-none tracking-[0.14em]"
               style={{ color: PIN_BODY_DEFAULT }}
             >
               {hovered.heroIntro}

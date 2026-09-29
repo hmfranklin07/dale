@@ -195,12 +195,12 @@ export default function StateTranscription() {
         <article className="mx-auto max-w-3xl">
           {interview.intro && (
             <>
-              <div className="mx-auto mb-6 h-0.5 w-20 bg-orange-400/80 sm:mb-8 sm:w-28" aria-hidden />
+              <div className="mx-auto mb-6 h-px w-16 bg-rust-500 sm:mb-8 sm:w-20" aria-hidden />
               <p className="mb-8 text-earth-800 leading-relaxed italic sm:mb-10 sm:text-lg">{interview.intro}</p>
             </>
           )}
           {Array.isArray(interview.body) && interview.body.length > 0 ? (
-            <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+            <blockquote className="border-l-2 border-rust-600 pl-4 text-[1.02rem] leading-relaxed text-earth-800">
               {interview.body.map((paragraph, pIdx) => (
                 <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
                   {pIdx === 0 && '\u201C'}
@@ -218,7 +218,7 @@ export default function StateTranscription() {
                 return (
                   <div key={idx}>
                     <p className="mb-2 text-sm font-semibold text-sage-700 sm:text-base">Q: {qa.q}</p>
-                    <blockquote className="border-l-[3px] border-orange-400 pl-4 text-sm leading-relaxed text-earth-800 sm:text-base">
+                    <blockquote className="border-l-2 border-rust-600 pl-4 text-[1.02rem] leading-relaxed text-earth-800">
                       {paragraphs.map((paragraph, pIdx) => (
                         <p key={pIdx} className={pIdx > 0 ? 'mt-4' : undefined}>
                           {pIdx === 0 && '\u201C'}

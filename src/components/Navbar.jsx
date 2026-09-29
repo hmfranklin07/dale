@@ -61,15 +61,15 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
   const triggerClass = `${linkClassBase} inline-flex items-center gap-1 ${
     statesOn || open
-      ? 'text-earth-900 underline decoration-rust-600 decoration-2 underline-offset-[0.4em]'
-      : 'text-earth-700 hover:text-earth-900'
+      ? 'text-earth-900 underline decoration-rust-600 decoration-1 underline-offset-[0.45em]'
+      : 'text-earth-600 hover:text-earth-900'
   }`
 
   const stateItemClass = ({ isActive }) =>
-    `block w-full px-3 py-2 text-left text-sm font-medium transition-colors ${
+    `block w-full px-3 py-2 text-left font-sans text-sm transition-colors ${
       isActive
         ? 'bg-sage-100 text-earth-900'
-        : 'text-earth-800 hover:bg-sage-50 hover:text-earth-900'
+        : 'text-earth-700 hover:bg-sage-50 hover:text-earth-900'
     }`
 
   return (
@@ -134,14 +134,14 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
 function DesktopNavLinks({ statesOn }) {
   const linkClass = ({ isActive }) =>
-    `px-2.5 py-2 text-sm font-medium transition-colors shrink-0 ${
+    `px-1 py-2 font-sans text-[0.84rem] tracking-[-0.01em] transition-colors shrink-0 ${
       isActive
-        ? 'text-earth-900 underline decoration-rust-600 decoration-2 underline-offset-[0.4em]'
-        : 'text-earth-700 hover:text-earth-900'
+        ? 'text-earth-900 underline decoration-rust-600 decoration-1 underline-offset-[0.45em]'
+        : 'text-earth-600 hover:text-earth-900'
     }`
 
   const linkClassBase =
-    'px-2.5 py-2 text-sm font-medium transition-colors shrink-0'
+    'px-1 py-2 font-sans text-[0.84rem] tracking-[-0.01em] transition-colors shrink-0'
 
   return (
     <>
@@ -177,24 +177,24 @@ export default function Navbar() {
   }, [location.pathname])
 
   const mobileLink = ({ isActive }) =>
-    `block border-l-2 px-3 py-2.5 text-sm font-medium ${
+    `block border-l-2 px-3 py-2.5 font-sans text-[0.95rem] ${
       isActive
-        ? 'border-rust-600 bg-sage-50 text-earth-900'
-        : 'border-transparent text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+        ? 'border-rust-600 text-earth-900'
+        : 'border-transparent text-earth-700 hover:border-earth-300 hover:text-earth-900'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-earth-200 bg-[#faf9f5]/95 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-earth-200 bg-[#f6f3ec]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-3">
-          <Link to="/" className="flex shrink-0 items-center gap-2">
-            <NavbarMicroscopeIcon className="h-7 w-7 shrink-0 text-rust-500 sm:h-8 sm:w-8" />
-            <span className="font-display text-lg text-earth-900 sm:text-xl">
+        <div className="flex h-16 items-center justify-between gap-6">
+          <Link to="/" className="flex shrink-0 items-center gap-2.5">
+            <NavbarMicroscopeIcon className="h-5 w-5 shrink-0 text-earth-800" />
+            <span className="font-display text-[1.05rem] leading-none tracking-[-0.02em] text-earth-900">
               STEM Across Rural America
             </span>
           </Link>
 
-          <div className="hidden min-w-0 flex-1 items-center justify-end gap-1.5 lg:flex">
+          <div className="hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-x-auto lg:flex">
             <DesktopNavLinks statesOn={statesOn} />
           </div>
 
@@ -223,7 +223,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-sage-800/15 bg-gradient-to-b from-white to-sage-50/95 lg:hidden">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-earth-200 bg-[#f6f3ec] lg:hidden">
           <div className="space-y-0.5 px-4 py-3">
             <NavLink to="/" end onClick={() => setOpen(false)} className={mobileLink}>
               Home
@@ -234,10 +234,10 @@ export default function Navbar() {
 
             <button
               type="button"
-              className={`flex w-full items-center justify-between border-l-2 px-3 py-2.5 text-left text-sm font-medium ${
+              className={`flex w-full items-center justify-between border-l-2 px-3 py-2.5 text-left font-sans text-[0.95rem] ${
                 statesOn
-                  ? 'border-rust-600 bg-sage-50 text-earth-900'
-                  : 'border-transparent text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+                  ? 'border-rust-600 text-earth-900'
+                  : 'border-transparent text-earth-700 hover:border-earth-300 hover:text-earth-900'
               }`}
               aria-expanded={mobileStatesOpen}
               onClick={() => setMobileStatesOpen((value) => !value)}

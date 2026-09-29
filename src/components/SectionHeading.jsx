@@ -3,18 +3,16 @@ export default function SectionHeading({ children, align = 'left', className = '
     <div className={`mb-6 sm:mb-8 ${align === 'center' ? 'text-center' : ''} ${className}`.trim()}>
       <h2
         id={id}
-        className={`font-display flex gap-3 text-2xl text-earth-900 sm:gap-4 sm:text-3xl ${
-          align === 'center' ? 'mx-auto max-w-3xl justify-center' : 'items-start'
+        className={`font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem] ${
+          align === 'center' ? 'mx-auto max-w-3xl' : ''
         }`}
       >
-        {align === 'left' && (
-          <span
-            className="mt-1 h-8 w-0.5 shrink-0 bg-rust-600"
-            aria-hidden
-          />
-        )}
-        <span className="min-w-0 text-left leading-tight">{children}</span>
+        {children}
       </h2>
+      <span
+        className={`mt-3 block h-px w-10 bg-rust-600 ${align === 'center' ? 'mx-auto' : ''}`}
+        aria-hidden
+      />
     </div>
   )
 }

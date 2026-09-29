@@ -209,7 +209,7 @@ export default function StatePage() {
                     {state.name}
                   </h1>
                   <div
-                    className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                    className="mx-auto mt-3 h-px w-12 bg-rust-500 sm:w-16"
                     aria-hidden
                   />
                   <PhotoHeroIntro state={state} nyPhotoHero={nyPhotoHero} darkOnSky={skyPhotoHero} />

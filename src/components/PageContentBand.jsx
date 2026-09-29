@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal'
 const contentShell = 'max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-10'
 
 const washBg = {
-  amber: 'bg-[#f7f6f2]',
+  amber: 'bg-[#f6f3ec]',
   rust: 'bg-sage-50',
 }
 
