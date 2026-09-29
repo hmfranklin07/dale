@@ -204,8 +204,8 @@ const STOP_BADGE_WIDTH = 64
 const STOP_BADGE_INNER_WIDTH = 59
 const BADGE_HEIGHT = 23
 const BADGE_INNER_HEIGHT = 18.8
-const BADGE_RX = 11.5
-const BADGE_INNER_RX = 9.6
+const BADGE_RX = 0
+const BADGE_INNER_RX = 0
 const BADGE_FONT_SIZE = 14.4
 const BADGE_Y_OFFSET = 26.5
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
@@ -437,8 +437,7 @@ export default function USMap() {
       }}
     >
       <div
-        className="overflow-hidden rounded-2xl border-2 border-rust-200/50 bg-gradient-to-b from-white/98 via-sage-50/95 to-sage-100/75 p-1.5 shadow-lg shadow-rust-900/10 ring-1 ring-amber-100/60 sm:p-2"
-        style={{ boxShadow: 'inset 0 1px 0 0 rgba(255, 252, 245, 0.45), 0 8px 24px -6px rgba(100, 70, 55, 0.1)' }}
+        className="overflow-hidden border border-earth-200 bg-white p-1 shadow-sm sm:p-1.5"
       >
         <ComposableMap
           width={1200}
@@ -763,7 +762,7 @@ export default function USMap() {
 
       {hovered && (
         <div
-          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm rounded-xl border-2 border-rust-400 bg-white px-4 py-2.5 text-center shadow-lg shadow-rust-900/20"
+          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm border border-earth-200 bg-white px-4 py-2.5 text-center shadow-md"
           style={{
             left: tooltipPos.x,
             top: tooltipPos.y,

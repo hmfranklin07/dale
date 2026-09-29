@@ -9,7 +9,7 @@ export default function SectionHeading({ children, align = 'left', className = '
       >
         {align === 'left' && (
           <span
-            className="mt-0.5 h-9 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-rust-400 to-rust-600"
+            className="mt-1 h-8 w-0.5 shrink-0 bg-rust-600"
             aria-hidden
           />
         )}

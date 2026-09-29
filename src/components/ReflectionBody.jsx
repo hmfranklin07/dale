@@ -92,7 +92,7 @@ export default function ReflectionBody({ reflection }) {
         {reflection.sources?.length > 0 && (
           <section className="border-t border-sage-400/35 pt-12 sm:pt-14">
             <h2 className="font-display text-2xl text-earth-900 sm:text-[1.85rem]">Sources</h2>
-            <div className="mt-3 h-px w-12 bg-gradient-to-r from-rust-400/80 to-transparent" aria-hidden />
+            <div className="mt-3 h-px w-12 bg-rust-500" aria-hidden />
             <ol className="mt-6 space-y-3.5 sm:mt-8">
               {reflection.sources.map((source, index) => (
                 <li

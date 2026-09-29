@@ -92,7 +92,7 @@ export default function About() {
               >
                 <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:sticky lg:top-24 lg:text-[2.45rem]">
                   {section.question}
-                  <span className="mt-4 block h-1 w-12 rounded-full bg-rust-500" aria-hidden />
+                  <span className="mt-4 block h-0.5 w-12 bg-rust-500" aria-hidden />
                 </h2>
                 <div className="space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
                   {section.paragraphs.map((paragraph) => (
@@ -113,7 +113,7 @@ export default function About() {
                 <h2 className="mt-3 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:text-[2.45rem]">
                   Literature review
                 </h2>
-                <span className="mt-4 block h-1 w-12 rounded-full bg-rust-600" aria-hidden />
+                <span className="mt-4 block h-0.5 w-12 bg-rust-600" aria-hidden />
               </div>
               <div>
                 <p className="text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">

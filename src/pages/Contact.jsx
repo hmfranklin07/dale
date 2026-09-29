@@ -35,7 +35,7 @@ export default function Contact() {
                 <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-[0_2px_12px_rgba(20,28,18,0.55)] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                   Connect
                 </h1>
-                <div className="mx-auto mt-2.5 h-1 w-14 rounded-full bg-rust-400 sm:mt-3 sm:w-20" aria-hidden />
+                <div className="mx-auto mt-2.5 h-0.5 w-14 bg-rust-400 sm:mt-3 sm:w-20" aria-hidden />
 
                 <ul className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-center gap-x-0 gap-y-2 sm:mt-5">
                   {CONTACT_LABELS.map((label, index) => (
@@ -98,13 +98,13 @@ export default function Contact() {
         <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
           <ScrollReveal>
             <div className="mx-auto max-w-5xl">
-              <div className="overflow-hidden rounded-[1.35rem] border-2 border-rust-400/55 bg-white shadow-xl shadow-rust-900/15 ring-2 ring-rust-300/35">
+              <div className="overflow-hidden border border-earth-200 bg-white shadow-sm">
                 <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
                   <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-12">
                     <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.9rem]">
                       I&apos;d love to hear from you!
                     </p>
-                    <div className="mt-5 h-1 w-16 rounded-full bg-rust-500 sm:mt-6 sm:w-20" aria-hidden />
+                    <div className="mt-5 h-0.5 w-16 bg-rust-500 sm:mt-6 sm:w-20" aria-hidden />
                     <p className="mt-6 max-w-none text-lg leading-relaxed text-earth-700 sm:mt-7 sm:text-xl sm:leading-[1.65]">
                       Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
                       know, or have any questions, send me an email!
@@ -116,10 +116,10 @@ export default function Contact() {
                       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100/90">
                         Write to me
                       </p>
-                      <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-rust-400" aria-hidden />
+                      <div className="mx-auto mt-3 h-0.5 w-10 bg-rust-400" aria-hidden />
                       <a
                         href={mailto}
-                        className="mt-5 block rounded-2xl border-2 border-rust-400 bg-white px-4 py-5 shadow-md shadow-sage-950/25 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-rust-500 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:px-5 sm:py-6"
+                        className="mt-5 block border border-earth-200 bg-white px-4 py-5 transition-colors duration-200 hover:border-rust-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:px-5 sm:py-6"
                       >
                         <span className="font-display text-[1.45rem] leading-snug text-earth-900 sm:text-[1.7rem]">
                           {siteMeta.contactEmail}

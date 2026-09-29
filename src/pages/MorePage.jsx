@@ -74,7 +74,7 @@ export default function MorePage() {
       </section>
 
       <PageContentBand variant="sage">
-        <div className="card card-body mx-auto max-w-2xl border-2 border-sage-500/75 text-center !ring-sage-400/45 ring-2 sm:p-10">
+        <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
           <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
           <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
             More conversations and reflections on the way. Stay tuned!

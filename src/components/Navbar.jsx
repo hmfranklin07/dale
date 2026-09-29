@@ -61,15 +61,15 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
   const triggerClass = `${linkClassBase} inline-flex items-center gap-1 ${
     statesOn || open
-      ? 'bg-rust-500 text-white shadow-sm shadow-rust-900/20 ring-1 ring-rust-700/45'
-      : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+      ? 'text-earth-900 underline decoration-rust-600 decoration-2 underline-offset-[0.4em]'
+      : 'text-earth-700 hover:text-earth-900'
   }`
 
   const stateItemClass = ({ isActive }) =>
-    `block w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors ${
+    `block w-full px-3 py-2 text-left text-sm font-medium transition-colors ${
       isActive
-        ? 'bg-rust-500 text-white'
-        : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+        ? 'bg-sage-100 text-earth-900'
+        : 'text-earth-800 hover:bg-sage-50 hover:text-earth-900'
     }`
 
   return (
@@ -100,7 +100,7 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
       {open && (
         <div role="menu" className="absolute left-0 top-full z-50 min-w-[13.5rem] pt-1.5">
-          <div className="rounded-xl border border-sage-300/80 bg-white/95 p-1.5 shadow-lg shadow-sage-900/15 ring-1 ring-amber-100/60 backdrop-blur-md">
+          <div className="border border-earth-200 bg-white p-1 shadow-md">
             {states.map((s) => (
               <NavLink
                 key={s.slug}
@@ -134,14 +134,14 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
 function DesktopNavLinks({ statesOn }) {
   const linkClass = ({ isActive }) =>
-    `px-2.5 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${
+    `px-2.5 py-2 text-sm font-medium transition-colors shrink-0 ${
       isActive
-        ? 'bg-rust-500 text-white shadow-sm shadow-rust-900/20 ring-1 ring-rust-700/45'
-        : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+        ? 'text-earth-900 underline decoration-rust-600 decoration-2 underline-offset-[0.4em]'
+        : 'text-earth-700 hover:text-earth-900'
     }`
 
   const linkClassBase =
-    'px-2.5 py-2 rounded-lg text-sm font-medium transition-colors shrink-0'
+    'px-2.5 py-2 text-sm font-medium transition-colors shrink-0'
 
   return (
     <>
@@ -177,14 +177,14 @@ export default function Navbar() {
   }, [location.pathname])
 
   const mobileLink = ({ isActive }) =>
-    `block px-3 py-2.5 text-sm font-medium rounded-lg ${
+    `block border-l-2 px-3 py-2.5 text-sm font-medium ${
       isActive
-        ? 'bg-rust-500 text-white ring-1 ring-rust-700/45'
-        : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+        ? 'border-rust-600 bg-sage-50 text-earth-900'
+        : 'border-transparent text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-sage-800/25 bg-gradient-to-r from-sage-100/92 via-amber-50/95 to-sage-900/18 shadow-sm shadow-sage-900/10 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-earth-200 bg-[#faf9f5]/95 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3">
           <Link to="/" className="flex shrink-0 items-center gap-2">
@@ -202,7 +202,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="rounded-lg p-2 text-earth-800 hover:bg-sage-200/80 hover:text-sage-900"
+              className="p-2 text-earth-800 hover:bg-sage-200/80 hover:text-sage-900"
               aria-label="Toggle menu"
               aria-expanded={open}
             >
@@ -234,10 +234,10 @@ export default function Navbar() {
 
             <button
               type="button"
-              className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-medium ${
+              className={`flex w-full items-center justify-between border-l-2 px-3 py-2.5 text-left text-sm font-medium ${
                 statesOn
-                  ? 'bg-rust-500 text-white ring-1 ring-rust-700/45'
-                  : 'text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
+                  ? 'border-rust-600 bg-sage-50 text-earth-900'
+                  : 'border-transparent text-earth-800 hover:bg-sage-100/95 hover:text-sage-900'
               }`}
               aria-expanded={mobileStatesOpen}
               onClick={() => setMobileStatesOpen((value) => !value)}

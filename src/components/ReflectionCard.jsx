@@ -21,7 +21,7 @@ export default function ReflectionCard({ paper, badge }) {
           >
             {paper.title}
           </h2>
-          <div className="mt-2.5 h-px w-14 bg-gradient-to-r from-rust-400/90 to-transparent sm:w-16" aria-hidden />
+          <div className="mt-2.5 h-px w-14 bg-rust-500 sm:w-16" aria-hidden />
           {paper.credit && <p className="mt-2.5 text-sm font-medium text-sage-800/90">{paper.credit}</p>}
           {paper.summary && (
             <p className="mt-3 text-sm leading-relaxed text-earth-800 sm:text-base">{paper.summary}</p>

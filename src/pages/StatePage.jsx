@@ -72,7 +72,7 @@ function TranscriptionFillerCard({ stateSlug }) {
   return (
     <Link
       to={`/${stateSlug}/transcriptions`}
-      className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+      className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
       <article className="card card-hover-pop group overflow-hidden !ring-rust-300/45">
         <div className="card-body sm:p-8">
@@ -94,7 +94,7 @@ function TranscriptionFillerCard({ stateSlug }) {
 
 function CheckBackSoonCard({ stateName }) {
   return (
-    <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
+    <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
       <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
       <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
         More conversations from {stateName} are on the way. Stay tuned!
@@ -107,17 +107,17 @@ function ViewAllBanner({ to, title, count, countLabel }) {
   return (
     <Link
       to={to}
-      className="group flex w-full items-center justify-between gap-3 rounded-xl border-2 border-rust-500/90 bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-1.5 shadow-lg shadow-rust-900/20 ring-2 ring-rust-400/70 transition-[transform,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:from-rust-600 hover:to-rust-700 hover:shadow-xl hover:shadow-rust-900/28 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 motion-reduce:hover:translate-y-0 sm:gap-4 sm:px-6 sm:py-2"
+      className="group flex w-full items-center justify-between gap-3 border border-rust-700 bg-rust-700 px-5 py-2.5 text-white transition-colors duration-200 hover:bg-rust-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:gap-4 sm:px-6"
     >
       <p className="min-w-0 font-display text-base leading-none text-white sm:text-lg">{title}</p>
       <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
         {count != null && countLabel && (
-          <span className="rounded-full bg-white/18 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-white/95 ring-1 ring-white/25 sm:text-[0.7rem]">
+          <span className="bg-white/15 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white sm:text-[0.7rem]">
             {count} {countLabel}
           </span>
         )}
         <span
-          className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-sm text-white ring-1 ring-white/25 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-8 sm:w-8 sm:text-base"
+          className="flex h-7 w-7 items-center justify-center border border-white/30 text-sm text-white sm:h-8 sm:w-8 sm:text-base"
           aria-hidden
         >
           →
@@ -240,7 +240,7 @@ export default function StatePage() {
           state.checkBackSoon ? (
             <CheckBackSoonCard stateName={state.name} />
           ) : (
-          <div className="card card-body mx-auto max-w-2xl border-2 border-rust-400/80 text-center !ring-rust-300/55 ring-2 sm:p-10">
+          <div className="card card-body mx-auto max-w-2xl border-rust-400 text-center sm:p-10">
             <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
             <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
               This stop is still ahead on the trip. Videos and conversations from {state.name} will show up here as I
@@ -283,9 +283,9 @@ export default function StatePage() {
                     key={interview.id}
                     to={`/${stateSlug}/transcriptions/${interview.id}`}
                     state={{ from: 'state' }}
-                    className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                    className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                   >
-                    <article className="card card-hover-pop group overflow-hidden !border-2 !border-sage-700 !ring-0 hover:!border-sage-800 hover:shadow-lg hover:shadow-sage-900/12">
+                    <article className="card card-hover-pop group overflow-hidden">
                       <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>
                         {interview.cardPhoto && (
                           <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[#0a1628] sm:aspect-auto sm:w-44 sm:self-stretch md:w-48">

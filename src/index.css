@@ -5,11 +5,7 @@
 @layer base {
   body {
     @apply font-body text-earth-800 antialiased;
-    background-color: #f0f0e7;
-    background-image:
-      radial-gradient(ellipse 120% 80% at 100% -20%, rgba(206, 87, 51, 0.07), transparent 50%),
-      radial-gradient(ellipse 80% 50% at 0% 100%, rgba(126, 137, 99, 0.12), transparent 45%),
-      linear-gradient(180deg, #faf7f1 0%, #f0f1e8 50%, #e6e8dc 100%);
+    background-color: #f7f6f2;
   }
 
   h1, h2, h3, h4 {
@@ -31,21 +27,18 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-sage-300/80 overflow-hidden shadow-md
-           shadow-rust-900/10 ring-1 ring-amber-200/45 transition-shadow duration-300
-           hover:shadow-lg hover:shadow-rust-900/20;
+    @apply overflow-hidden border border-earth-200 bg-white shadow-sm transition-shadow duration-200
+           hover:shadow-md;
   }
 
-  /** Subtle lift for linked conversation / video cards (parent must be `<a>` or `<Link>`). */
+  /** Quiet lift for linked conversation / video cards (parent must be `<a>` or `<Link>`). */
   .card-hover-pop {
-    @apply transition-[transform,box-shadow] duration-[420ms] ease-[cubic-bezier(0.34,1.28,0.64,1)];
-    transform: translate3d(0, 0, 0) scale(1);
+    @apply transition-shadow duration-200;
   }
 
   a:hover > .card-hover-pop,
   a:focus-visible > .card-hover-pop {
-    transform: translate3d(0, -5px, 0) scale(1.016);
-    @apply shadow-xl shadow-rust-900/[0.14];
+    @apply shadow-md;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -64,7 +57,7 @@
   }
 
   .badge {
-    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+    @apply inline-block px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em];
   }
 
   .badge-sage {

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
-import { SectionAmbience } from '../components/SectionAmbience'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
 import { useInView } from '../hooks/useInView'
 /** Home hero background photo, bundled as-is. */
@@ -72,7 +71,7 @@ export default function Home() {
               </p>
 
               <div
-                className={`mx-auto mt-4 h-1 w-14 rounded-full bg-rust-500 sm:mt-5 sm:w-20 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className={`mx-auto mt-4 h-0.5 w-14 bg-rust-500 sm:mt-5 sm:w-20 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
                 aria-hidden
               />
 
@@ -133,8 +132,8 @@ export default function Home() {
               <figure
                 className={`mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end scroll-reveal scroll-reveal-delay-2 ${introState}`}
               >
-                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-2xl bg-gradient-to-r from-rust-700 via-rust-500 to-rust-300 p-1.5 shadow-xl shadow-rust-900/20 ring-1 ring-rust-300/60 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
-                  <div className="h-full w-full overflow-hidden rounded-[0.6rem] ring-1 ring-white/50">
+                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden border border-earth-300 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+                  <div className="h-full w-full overflow-hidden">
                     <img
                       src="/images/researcher.png"
                       alt="Portrait of the project researcher, outdoors with two dogs"
@@ -194,14 +193,13 @@ export default function Home() {
       {/* 3. Map */}
       <section
         id="map"
-        className="relative overflow-hidden bg-gradient-to-b from-earth-100/55 via-amber-50/30 to-sage-100/50 scroll-mt-20 sm:scroll-mt-24"
+        className="relative overflow-hidden bg-sage-100 scroll-mt-20 sm:scroll-mt-24"
       >
-        <SectionAmbience variant="map" />
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div ref={mapRevealRef}>
             <div className={`mb-6 sm:mb-8 text-center scroll-reveal scroll-reveal-delay-1 ${mapState}`}>
               <div
-                className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-rust-600 via-rust-500 to-rust-400"
+                className="mx-auto mb-3 h-0.5 w-16 bg-rust-600"
                 aria-hidden
               />
               <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
@@ -209,7 +207,7 @@ export default function Home() {
                 Click a pin to explore each area!
               </p>
             </div>
-            <div className={`w-full rounded-[1.25rem] sm:rounded-[1.4rem] scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
+            <div className={`w-full rounded-none sm:rounded-none scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
               <USMap />
             </div>
           </div>
