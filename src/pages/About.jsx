@@ -90,11 +90,11 @@ export default function About() {
                     : 'mt-12 grid gap-5 border-t border-rust-400/35 pt-12 sm:mt-14 sm:pt-14 lg:grid-cols-[minmax(16rem,0.42fr)_minmax(0,1fr)] lg:items-start lg:gap-x-16'
                 }
               >
-                <h2 className="font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:sticky lg:top-24 lg:text-[2.45rem]">
+                <h2 className="font-display text-3xl italic leading-tight text-earth-900 sm:text-4xl lg:sticky lg:top-24">
                   {section.question}
                   <span className="mt-4 block h-0.5 w-12 bg-rust-500" aria-hidden />
                 </h2>
-                <div className="space-y-5 text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
+                <div className="space-y-5 text-lg leading-relaxed text-earth-800 sm:text-xl">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{renderParagraph(paragraph)}</p>
                   ))}
@@ -109,14 +109,14 @@ export default function About() {
           <ScrollReveal>
             <section className={`${essay} grid gap-5 py-12 sm:py-14 lg:grid-cols-[minmax(16rem,0.42fr)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:py-16`}>
               <div>
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-earth-600">Fall 2025</p>
-                <h2 className="mt-3 font-display text-[1.85rem] italic leading-[1.15] text-earth-900 sm:text-[2.2rem] lg:text-[2.45rem]">
+                <p className="text-base font-medium text-earth-700">Fall 2025</p>
+                <h2 className="mt-3 font-display text-3xl italic leading-tight text-earth-900 sm:text-4xl">
                   Literature review
                 </h2>
                 <span className="mt-4 block h-0.5 w-12 bg-rust-600" aria-hidden />
               </div>
               <div>
-                <p className="text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]">
+                <p className="text-lg leading-relaxed text-earth-800 sm:text-xl">
                   This project was born out of my work in Princeton&apos;s sophomore research seminar{' '}
                   <em>The Curious Scientist</em>, taught by Dr. Andrea DiGiorgio. This literature review and project
                   overview was written at the end of my fall semester in 2025 and contains the readings and analysis that

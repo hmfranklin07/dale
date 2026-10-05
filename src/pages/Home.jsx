@@ -44,41 +44,41 @@ export default function Home() {
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[46%_42%] sm:object-[48%_46%] lg:object-[50%_48%]"
+            className="h-full w-full object-cover object-[48%_58%] sm:object-[50%_62%] lg:object-[52%_66%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-10 pt-6 text-center sm:pb-12 sm:pt-8 md:pt-9`}>
+          <div className={`${shell} w-full pb-8 pt-4 text-center sm:pb-10 sm:pt-5`}>
             <div
-              className={`relative mx-auto w-full max-w-3xl px-2 py-6 text-center sm:max-w-4xl sm:py-7 md:py-8 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className={`relative mx-auto w-full max-w-4xl px-2 py-5 text-center sm:py-6 md:py-7 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
             >
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-earth-900/10 bg-[#f6f3ec]"
               />
 
-              <p className="kicker">Summer 2026 · Field research</p>
+              <p className="font-sans text-base text-earth-700 sm:text-lg">Summer 2026</p>
 
               <h1
-                className={`mt-3 font-display text-[2.45rem] font-medium leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.65rem] ${pageTitleClass}`}
+                className={`mt-2 font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl ${pageTitleClass}`}
               >
                 STEM Across Rural America
               </h1>
 
-              <p className="mt-3 font-display text-xl italic leading-snug text-earth-700 sm:text-[1.65rem]">
+              <p className="mt-2 font-display text-2xl leading-snug text-earth-800 sm:text-3xl">
                 The Stories Behind the Data
               </p>
 
               <div
-                className={`mx-auto mt-4 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className={`mx-auto mt-4 h-px w-16 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
                 aria-hidden
               />
 
               <p
-                className={`mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed text-earth-700 sm:text-lg scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+                className={`mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-earth-800 sm:text-xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
               >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
@@ -149,7 +149,7 @@ export default function Home() {
               </figure>
 
               <div className={`min-w-0 md:col-start-1 md:row-start-2 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
-                <div className="w-full space-y-4 font-body text-[1.05rem] leading-[1.75] text-earth-800 sm:text-[1.125rem]">
+                <div className="w-full space-y-4 text-lg leading-relaxed text-earth-800 sm:text-xl">
                   <p>
                     I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
                     my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
@@ -165,7 +165,7 @@ export default function Home() {
                 <p className="mt-4 sm:mt-5">
                   <Link
                     to="/about"
-                    className="font-sans text-[0.95rem] text-rust-800 underline decoration-rust-600/50 underline-offset-4 transition-colors hover:text-earth-900 hover:decoration-earth-900"
+                    className="text-lg text-rust-800 underline decoration-rust-600/70 underline-offset-4 transition-colors hover:text-earth-900"
                   >
                     See more about this project →
                   </Link>
@@ -181,7 +181,7 @@ export default function Home() {
               aria-hidden
             />
             <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
-              <p className="mx-auto max-w-[min(100%,52rem)] text-center font-sans text-[0.8rem] leading-relaxed tracking-wide text-earth-700">
+              <p className="mx-auto max-w-[min(100%,52rem)] text-center text-base leading-relaxed text-earth-800 sm:text-lg">
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
             </div>
@@ -201,8 +201,8 @@ export default function Home() {
           <div ref={mapRevealRef}>
             <div className={`mb-8 text-center scroll-reveal scroll-reveal-delay-1 sm:mb-10 ${mapState}`}>
               <p className="kicker">The route</p>
-              <h2 className="mt-3 font-display text-[2rem] text-earth-900 sm:text-[2.5rem]">Summer 2026 Stops</h2>
-              <p className="mx-auto mt-3 max-w-xl font-body text-base leading-relaxed text-earth-700 sm:text-lg">
+              <h2 className="mt-2 font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
+              <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-earth-800 sm:text-xl">
                 Select a stop to read from that community.
               </p>
             </div>

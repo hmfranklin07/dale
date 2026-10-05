@@ -3,7 +3,7 @@ export default function SectionHeading({ children, align = 'left', className = '
     <div className={`mb-6 sm:mb-8 ${align === 'center' ? 'text-center' : ''} ${className}`.trim()}>
       <h2
         id={id}
-        className={`font-display text-[1.85rem] leading-[1.15] text-earth-900 sm:text-[2.15rem] ${
+        className={`font-display text-3xl leading-tight text-earth-900 sm:text-4xl ${
           align === 'center' ? 'mx-auto max-w-3xl' : ''
         }`}
       >

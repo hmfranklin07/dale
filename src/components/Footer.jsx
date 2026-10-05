@@ -15,20 +15,20 @@ export default function Footer() {
         <ScrollReveal>
           <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3 md:gap-8 md:text-left">
             <div>
-              <h2 className="font-sans mb-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-rust-300">
+              <h2 className="mb-3 font-sans text-base font-semibold text-white">
                 About this site
               </h2>
-              <p className="font-body text-[0.95rem] leading-relaxed text-sage-200">
+              <p className="text-base leading-relaxed text-sage-100 sm:text-lg">
                 Everything published here is shared only with informed consent.
               </p>
             </div>
 
             <div className="flex justify-center">
               <a href={mailto} className="group inline-flex flex-col items-center text-center">
-                <span className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.18em] text-rust-300 group-hover:text-white">
+                <span className="font-sans text-base font-semibold text-white group-hover:text-rust-200">
                   Contact
                 </span>
-                <span className="mt-2 font-body text-[0.95rem] text-white underline decoration-rust-400/60 underline-offset-4 group-hover:decoration-white">
+                <span className="mt-2 text-base text-white underline decoration-rust-400 underline-offset-4 group-hover:decoration-white sm:text-lg">
                   {siteMeta.contactEmail}
                 </span>
               </a>
@@ -36,7 +36,7 @@ export default function Footer() {
 
             <div className="md:text-right">
               <h2 className="font-display mb-3 text-xl text-white">{siteMeta.researcherName}</h2>
-              <div className="flex items-center justify-center gap-3 font-sans text-sm md:justify-end">
+              <div className="flex items-center justify-center gap-3 text-base md:justify-end">
                 <a
                   href={youtubeHref}
                   target="_blank"

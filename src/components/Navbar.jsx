@@ -134,14 +134,14 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
 function DesktopNavLinks({ statesOn }) {
   const linkClass = ({ isActive }) =>
-    `px-1 py-2 font-sans text-[0.84rem] tracking-[-0.01em] transition-colors shrink-0 ${
+    `px-1 py-2 font-sans text-base transition-colors shrink-0 ${
       isActive
         ? 'text-earth-900 underline decoration-rust-600 decoration-1 underline-offset-[0.45em]'
         : 'text-earth-600 hover:text-earth-900'
     }`
 
   const linkClassBase =
-    'px-1 py-2 font-sans text-[0.84rem] tracking-[-0.01em] transition-colors shrink-0'
+    'px-1 py-2 font-sans text-base transition-colors shrink-0'
 
   return (
     <>
@@ -177,7 +177,7 @@ export default function Navbar() {
   }, [location.pathname])
 
   const mobileLink = ({ isActive }) =>
-    `block border-l-2 px-3 py-2.5 font-sans text-[0.95rem] ${
+    `block border-l-2 px-3 py-2.5 font-sans text-base ${
       isActive
         ? 'border-rust-600 text-earth-900'
         : 'border-transparent text-earth-700 hover:border-earth-300 hover:text-earth-900'
@@ -188,8 +188,8 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-6">
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
-            <NavbarMicroscopeIcon className="h-5 w-5 shrink-0 text-earth-800" />
-            <span className="font-display text-[1.05rem] leading-none tracking-[-0.02em] text-earth-900">
+            <NavbarMicroscopeIcon className="h-6 w-6 shrink-0 text-earth-800" />
+            <span className="font-display text-xl leading-none text-earth-900">
               STEM Across Rural America
             </span>
           </Link>

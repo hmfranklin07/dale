@@ -49,8 +49,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Newsreader"', 'Georgia', 'serif'],
-        body: ['"Source Serif 4"', 'Georgia', 'serif'],
+        display: ['"Source Serif 4"', 'Georgia', 'serif'],
+        body: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
         sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
       },
     },
