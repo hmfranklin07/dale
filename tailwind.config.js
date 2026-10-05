@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        /** Warm paper. Also used for type set on photographs. */
-        white: '#f6f3ec',
+        /** Real white for type on photographs. Page paper is #f6f3ec, not this. */
+        white: '#ffffff',
         sage: {
           50: '#f3f4ef',
           100: '#e3e6dc',
