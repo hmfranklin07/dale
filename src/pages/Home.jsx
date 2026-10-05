@@ -51,9 +51,9 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-10 pt-8 text-center sm:pb-12 sm:pt-9 md:pb-14 md:pt-11`}>
+          <div className={`${shell} w-full pb-6 pt-3 text-center sm:pb-8 sm:pt-4`}>
             <div
-              className={`relative mx-auto w-full max-w-3xl px-1 py-8 text-center sm:max-w-4xl sm:py-10 md:py-12 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className={`relative mx-auto w-full max-w-3xl px-1 py-3 text-center sm:max-w-4xl sm:py-3.5 md:py-4 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
             >
               <div
                 aria-hidden
@@ -63,22 +63,22 @@ export default function Home() {
               <p className="kicker">Summer 2026 · Field research</p>
 
               <h1
-                className={`mt-3 font-display text-[2.6rem] font-medium leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.25rem] ${pageTitleClass}`}
+                className={`mt-1.5 font-display text-[2.15rem] font-medium leading-none tracking-[-0.03em] sm:text-5xl lg:text-[3.35rem] ${pageTitleClass}`}
               >
                 STEM Across Rural America
               </h1>
 
-              <p className="mt-3 font-display text-xl italic leading-snug text-earth-700 sm:mt-4 sm:text-[1.65rem]">
+              <p className="mt-1.5 font-display text-lg italic leading-snug text-earth-700 sm:text-2xl">
                 The Stories Behind the Data
               </p>
 
               <div
-                className={`mx-auto mt-5 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className={`mx-auto mt-2.5 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
                 aria-hidden
               />
 
               <p
-                className={`mx-auto mt-5 max-w-2xl font-body text-[1.05rem] leading-[1.7] text-earth-700 sm:text-lg scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+                className={`mx-auto mt-2.5 max-w-2xl font-body text-base leading-snug text-earth-700 sm:text-[1.05rem] scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
               >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
