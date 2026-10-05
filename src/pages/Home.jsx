@@ -44,16 +44,16 @@ export default function Home() {
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[48%_58%] sm:object-[50%_62%] lg:object-[52%_66%]"
+            className="h-full w-full object-cover object-[46%_42%] sm:object-[48%_46%] lg:object-[50%_48%]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-6 pt-3 text-center sm:pb-8 sm:pt-4`}>
+          <div className={`${shell} w-full pb-10 pt-6 text-center sm:pb-12 sm:pt-8 md:pt-9`}>
             <div
-              className={`relative mx-auto w-full max-w-3xl px-1 py-3 text-center sm:max-w-4xl sm:py-3.5 md:py-4 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className={`relative mx-auto w-full max-w-3xl px-2 py-6 text-center sm:max-w-4xl sm:py-7 md:py-8 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
             >
               <div
                 aria-hidden
@@ -63,22 +63,22 @@ export default function Home() {
               <p className="kicker">Summer 2026 · Field research</p>
 
               <h1
-                className={`mt-1.5 font-display text-[2.15rem] font-medium leading-none tracking-[-0.03em] sm:text-5xl lg:text-[3.35rem] ${pageTitleClass}`}
+                className={`mt-3 font-display text-[2.45rem] font-medium leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.65rem] ${pageTitleClass}`}
               >
                 STEM Across Rural America
               </h1>
 
-              <p className="mt-1.5 font-display text-lg italic leading-snug text-earth-700 sm:text-2xl">
+              <p className="mt-3 font-display text-xl italic leading-snug text-earth-700 sm:text-[1.65rem]">
                 The Stories Behind the Data
               </p>
 
               <div
-                className={`mx-auto mt-2.5 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className={`mx-auto mt-4 h-px w-12 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
                 aria-hidden
               />
 
               <p
-                className={`mx-auto mt-2.5 max-w-2xl font-body text-base leading-snug text-earth-700 sm:text-[1.05rem] scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+                className={`mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed text-earth-700 sm:text-lg scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
               >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
