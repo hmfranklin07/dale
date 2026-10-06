@@ -13,7 +13,7 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-display font-semibold text-earth-900;
+    @apply font-display text-earth-900;
   }
 }
 
