@@ -204,8 +204,8 @@ const STOP_BADGE_WIDTH = 64
 const STOP_BADGE_INNER_WIDTH = 59
 const BADGE_HEIGHT = 23
 const BADGE_INNER_HEIGHT = 18.8
-const BADGE_RX = 0
-const BADGE_INNER_RX = 0
+const BADGE_RX = 3
+const BADGE_INNER_RX = 2
 const BADGE_FONT_SIZE = 14.4
 const BADGE_Y_OFFSET = 26.5
 const stateBySlug = Object.fromEntries(states.map((s) => [s.slug, s]))
@@ -437,7 +437,7 @@ export default function USMap() {
       }}
     >
       <div
-        className="overflow-hidden border border-earth-200 bg-white p-1 shadow-sm sm:p-1.5"
+        className="overflow-hidden rounded-md border border-earth-200 bg-white p-1 shadow-sm sm:p-1.5"
       >
         <ComposableMap
           width={1200}
@@ -762,7 +762,7 @@ export default function USMap() {
 
       {hovered && (
         <div
-          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm border border-earth-200 bg-white px-4 py-2.5 text-center shadow-md"
+          className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1.5rem))] max-w-sm rounded-md border border-earth-200 bg-white px-4 py-2.5 text-center shadow-md"
           style={{
             left: tooltipPos.x,
             top: tooltipPos.y,

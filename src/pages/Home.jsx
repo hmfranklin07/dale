@@ -134,7 +134,7 @@ export default function Home() {
               <figure
                 className={`mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end scroll-reveal scroll-reveal-delay-2 ${introState}`}
               >
-                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden border border-earth-300 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
+                <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-md border border-earth-300 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
                   <div className="h-full w-full overflow-hidden">
                     <img
                       src="/images/researcher.png"
@@ -206,7 +206,7 @@ export default function Home() {
                 Select a stop to read from that community.
               </p>
             </div>
-            <div className={`w-full rounded-none sm:rounded-none scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
+            <div className={`w-full rounded-md sm:rounded-md scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
               <USMap />
             </div>
           </div>

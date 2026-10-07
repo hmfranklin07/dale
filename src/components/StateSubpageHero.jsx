@@ -24,7 +24,7 @@ export default function StateSubpageHero({ backTo, backLabel, title, description
         <div className={`${heroShell} w-full py-10 pt-14 sm:py-12 sm:pt-16 md:py-14 md:pt-[4.25rem]`}>
           <ScrollReveal>
             <div
-              className="mx-auto max-w-3xl border border-earth-200 bg-white px-6 py-8 text-center sm:px-10 sm:py-10"
+              className="mx-auto max-w-3xl rounded-md border border-earth-200 bg-white px-6 py-8 text-center sm:px-10 sm:py-10"
               style={{ borderColor: HERO_ACCENT_RUST }}
             >
               <h1 className={`font-display text-[2rem] leading-[1.08] sm:text-4xl lg:text-[2.75rem] ${pageTitleClass}`}>

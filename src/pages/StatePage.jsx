@@ -72,7 +72,7 @@ function TranscriptionFillerCard({ stateSlug }) {
   return (
     <Link
       to={`/${stateSlug}/transcriptions`}
-      className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+      className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
       <article className="card card-hover-pop group overflow-hidden !ring-rust-300/45">
         <div className="card-body sm:p-8">
@@ -107,7 +107,7 @@ function ViewAllBanner({ to, title, count, countLabel }) {
   return (
     <Link
       to={to}
-      className="group flex w-full items-center justify-between gap-3 border border-rust-700 bg-rust-700 px-5 py-2.5 text-white transition-colors duration-200 hover:bg-rust-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:gap-4 sm:px-6"
+      className="group flex w-full items-center justify-between gap-3 rounded-md border border-rust-700 bg-rust-700 px-5 py-2.5 text-white transition-colors duration-200 hover:bg-rust-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:gap-4 sm:px-6"
     >
       <p className="min-w-0 font-display text-base leading-none text-white sm:text-lg">{title}</p>
       <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
@@ -283,7 +283,7 @@ export default function StatePage() {
                     key={interview.id}
                     to={`/${stateSlug}/transcriptions/${interview.id}`}
                     state={{ from: 'state' }}
-                    className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                    className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                   >
                     <article className="card card-hover-pop group overflow-hidden">
                       <div className={interview.cardPhoto ? 'flex flex-col sm:flex-row' : undefined}>

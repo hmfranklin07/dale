@@ -100,7 +100,7 @@ function StatesDropdown({ linkClassBase, statesOn }) {
 
       {open && (
         <div role="menu" className="absolute left-0 top-full z-[60] min-w-[13.5rem] pt-2">
-          <div className="border border-earth-200 bg-white p-1 shadow-md">
+          <div className="rounded-md border border-earth-200 bg-white p-1 shadow-md">
             {states.map((s) => (
               <NavLink
                 key={s.slug}

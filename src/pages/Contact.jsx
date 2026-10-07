@@ -98,7 +98,7 @@ export default function Contact() {
         <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
           <ScrollReveal>
             <div className="mx-auto max-w-5xl">
-              <div className="overflow-hidden border border-earth-200 bg-white shadow-sm">
+              <div className="overflow-hidden rounded-md border border-earth-200 bg-white shadow-sm">
                 <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
                   <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-12">
                     <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.9rem]">
@@ -119,7 +119,7 @@ export default function Contact() {
                       <div className="mx-auto mt-3 h-0.5 w-10 bg-rust-400" aria-hidden />
                       <a
                         href={mailto}
-                        className="mt-5 block border border-earth-200 bg-white px-4 py-5 transition-colors duration-200 hover:border-rust-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:px-5 sm:py-6"
+                        className="mt-5 block rounded-md border border-earth-200 bg-white px-4 py-5 transition-colors duration-200 hover:border-rust-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:px-5 sm:py-6"
                       >
                         <span className="font-display text-[1.45rem] leading-snug text-earth-900 sm:text-[1.7rem]">
                           {siteMeta.contactEmail}

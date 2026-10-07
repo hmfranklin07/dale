@@ -36,7 +36,7 @@ export default function StateVideos() {
               <Link
                 key={v.id}
                 to={`/${stateSlug}/videos/${v.id}`}
-                className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
               >
                 <article className="card card-hover-pop group flex h-full min-w-0 flex-col overflow-hidden">
                   <VideoEmbed youtubeId={v.youtubeId} videoSrc={v.videoSrc} title={v.title} />

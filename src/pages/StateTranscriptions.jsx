@@ -43,7 +43,7 @@ export default function StateTranscriptions() {
                   key={interview.id}
                   to={`/${stateSlug}/transcriptions/${interview.id}`}
                   state={{ from: 'transcriptions' }}
-                  className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                  className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card card-hover-pop card-body group">
                     <div className="flex flex-col items-start gap-2">

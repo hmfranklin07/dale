@@ -6,7 +6,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
   return (
     <Link
       to={`/${stateSlug}/videos/${vlog.id}`}
-      className="block h-full min-w-0 rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+      className="block h-full min-w-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
       <article className="card card-hover-pop group flex h-full flex-col overflow-hidden">
         <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5">

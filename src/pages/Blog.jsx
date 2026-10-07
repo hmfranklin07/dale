@@ -55,7 +55,7 @@ export default function Blog() {
               <div className="space-y-6">
                 <Link
                   to={`/blog/post/${latestBlog.id}`}
-                  className="block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                  className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card group overflow-hidden !ring-rust-300/45 transition-shadow hover:shadow-lg hover:shadow-rust-900/15">
                     <div className="card-body sm:p-8">
@@ -78,7 +78,7 @@ export default function Blog() {
                 <div className="flex justify-start">
                   <Link
                     to="/blog/posts"
-                    className="inline-flex items-center gap-2 border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
+                    className="inline-flex items-center gap-2 rounded-md border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
                   >
                     View more
                     <span aria-hidden>→</span>
@@ -102,7 +102,7 @@ export default function Blog() {
                 <Link
                   key={s.slug}
                   to={`/blog/state/${s.slug}`}
-                  className="group block rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
+                  className="group block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
                 >
                   <article className="card relative flex min-h-[9.5rem] flex-col items-center justify-center !ring-rust-300/45 px-6 py-8 text-center transition-all duration-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 before:rounded-t-2xl before:bg-rust-500 group-hover:-translate-y-0.5 group-hover:border-sage-400/90 group-hover:ring-rust-400/55 sm:min-h-[10.25rem] sm:px-8 sm:py-9">
                     <span className="relative z-10 font-display text-2xl leading-tight tracking-tight text-earth-900 transition-colors duration-300 group-hover:text-rust-800 sm:text-3xl">
@@ -135,7 +135,7 @@ export default function Blog() {
                   href="https://www.youtube.com/@hannahfranklin07"
                   target="_blank"
                   rel="noreferrer"
-                    className="inline-flex items-center gap-2 border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
+                    className="inline-flex items-center gap-2 rounded-md border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
                 >
                   YouTube
                   <span aria-hidden>↗</span>
@@ -144,7 +144,7 @@ export default function Blog() {
                   href="https://www.instagram.com/hannuh.in.americuh/"
                   target="_blank"
                   rel="noreferrer"
-                    className="inline-flex items-center gap-2 border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
+                    className="inline-flex items-center gap-2 rounded-md border border-earth-300 bg-white px-5 py-2.5 text-sm font-medium text-earth-800 transition-colors hover:border-earth-800 hover:text-earth-900"
                 >
                   Instagram
                   <span aria-hidden>↗</span>
