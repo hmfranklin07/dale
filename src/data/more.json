@@ -1,5 +1,13 @@
 {
   "slug": "more",
   "name": "More",
-  "heroIntro": "Conversations and reflections from brief surprise stops along the way"
+  "heroIntro": "Conversations and reflections from brief surprise stops along the way",
+  "comingSoonReflections": [
+    {
+      "id": "from-rural-america-to-the-ivy-league",
+      "title": "From Rural America to the Ivy League",
+      "townLabel": "Harvard",
+      "summary": "Drawing from my conversations with students at the Ivy+ Rural Symposium at Harvard College in October, I discuss what it looks like to be a rural student in the Ivy League, barriers to entry, and how my college peers are helping students in their own hometowns see what they can achieve."
+    }
+  ]
 }

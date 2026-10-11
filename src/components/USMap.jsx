@@ -103,6 +103,7 @@ const MAP_SIDE_PINS = [
     lng: HARVARD_LNG,
     lat: HARVARD_LAT,
     linkSlug: 'more',
+    linkHash: 'from-rural-america-to-the-ivy-league',
     geoStateName: 'massachusetts',
     isSidePin: true,
   },
@@ -414,10 +415,10 @@ export default function USMap() {
     navigate(`/${slug}`)
   }
 
-  const goToSlug = (slug) => {
+  const goToSlug = (slug, hash) => {
     if (!slug) return
     preloadStatePhotoHero(slug)
-    navigate(`/${slug}`)
+    navigate(hash ? `/${slug}#${hash}` : `/${slug}`)
   }
 
   /** Pin anchor from lat/lng → SVG viewBox coords, then map to CSS px under the marker (not cursor). */
@@ -693,7 +694,7 @@ export default function USMap() {
               <Marker
                 key={pin.id}
                 coordinates={[pin.lng, pin.lat]}
-                onClick={() => goToSlug(pin.linkSlug)}
+                onClick={() => goToSlug(pin.linkSlug, pin.linkHash)}
                 onMouseEnter={() => {
                   setHoveredGeo(pin.geoStateName)
                   setHovered(pin)

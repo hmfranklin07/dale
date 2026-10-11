@@ -1,7 +1,9 @@
 import { Link, Navigate } from 'react-router-dom'
 import more from '../data/more.json'
+import ComingSoonReflectionCard from '../components/ComingSoonReflectionCard'
 import PageContentBand from '../components/PageContentBand'
 import ScrollReveal from '../components/ScrollReveal'
+import SectionHeading from '../components/SectionHeading'
 import { STATE_PHOTO_HEROES } from '../lib/statePhotoHeroes'
 
 const stateHeroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -74,12 +76,23 @@ export default function MorePage() {
       </section>
 
       <PageContentBand variant="sage">
-        <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
-          <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
-          <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
-            More conversations and reflections on the way. Stay tuned!
-          </p>
-        </div>
+        {more.comingSoonReflections?.length > 0 ? (
+          <section>
+            <SectionHeading>Coming soon</SectionHeading>
+            <div className="space-y-4">
+              {more.comingSoonReflections.map((item) => (
+                <ComingSoonReflectionCard key={item.id} item={item} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className="card card-body mx-auto max-w-2xl text-center sm:p-10">
+            <p className="font-display text-2xl text-earth-900 sm:text-3xl">Check back soon!</p>
+            <p className="mt-4 text-earth-700 leading-relaxed sm:text-lg">
+              More conversations and reflections on the way. Stay tuned!
+            </p>
+          </div>
+        )}
       </PageContentBand>
     </>
   )

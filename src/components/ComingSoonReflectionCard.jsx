@@ -2,7 +2,7 @@ export default function ComingSoonReflectionCard({ item, badge }) {
   const label = badge ?? item.townLabel
 
   return (
-    <article className="card overflow-hidden border-2 border-dashed border-earth-500 bg-white">
+    <article id={item.id} className="card overflow-hidden border-2 border-dashed border-earth-500 bg-white">
       <div className="card-body p-5 sm:p-6">
         {label && <span className="badge-rust inline-block">{label}</span>}
         <h2 className="font-display mt-3 text-xl leading-snug text-earth-900 sm:mt-3.5 sm:text-2xl">
