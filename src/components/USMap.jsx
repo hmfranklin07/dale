@@ -70,6 +70,7 @@ const MAP_SIDE_PINS = [
     lng: -112.1401,
     lat: 36.0544,
     linkSlug: 'more',
+    linkHash: 'grand-canyon',
     geoStateName: 'arizona',
     isSidePin: true,
   },
