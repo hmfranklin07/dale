@@ -36,6 +36,7 @@ const HIGHLIGHT_STATE_NAMES = new Set([
   'nebraska',
   'arizona',
   'south dakota',
+  'massachusetts',
 ])
 
 /** Map geography names that route to a different page slug (e.g. Arizona → More). */
@@ -43,6 +44,7 @@ const STATE_ROUTE_SLUG_OVERRIDES = {
   arizona: 'more',
   'south dakota': 'more',
   florida: 'more',
+  massachusetts: 'more',
   oklahoma: 'arkansas',
 }
 
@@ -53,6 +55,10 @@ const RAPID_CITY_LAT = 44.05
 /** North Florida — see-more side pin (coords shared with route curve). */
 const NORTH_FLORIDA_LNG = -82.1221
 const NORTH_FLORIDA_LAT = 30.2819
+
+/** Harvard University — reflection pin only; not a road-trip stop. */
+const HARVARD_LNG = -71.1167
+const HARVARD_LAT = 42.3744
 
 /** Side-trip pins — not full research stops; visually distinct from stop markers. */
 const MAP_SIDE_PINS = [
@@ -87,6 +93,17 @@ const MAP_SIDE_PINS = [
     lat: NORTH_FLORIDA_LAT,
     linkSlug: 'more',
     geoStateName: 'florida',
+    isSidePin: true,
+  },
+  {
+    id: 'harvard',
+    name: 'Harvard',
+    heroIntro: 'See more · Massachusetts',
+    badgeLabel: 'See more',
+    lng: HARVARD_LNG,
+    lat: HARVARD_LAT,
+    linkSlug: 'more',
+    geoStateName: 'massachusetts',
     isSidePin: true,
   },
 ]
