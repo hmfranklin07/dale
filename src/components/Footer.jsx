@@ -1,13 +1,11 @@
 import siteMeta from '../data/siteMeta.json'
 import social from '../data/social.json'
-import { YOUTUBE_CHANNEL_URL } from '../config/externalUrls'
 import ScrollReveal from './ScrollReveal'
 
 const shell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'
 
 export default function Footer() {
   const mailto = `mailto:${siteMeta.contactEmail}`
-  const youtubeHref = social.youtubeUrl || YOUTUBE_CHANNEL_URL
 
   return (
     <footer className="relative z-10 mt-auto border-t border-rust-600 bg-earth-900 text-sage-100">
@@ -38,12 +36,12 @@ export default function Footer() {
               <h2 className="font-display mb-3 text-xl text-white">{siteMeta.researcherName}</h2>
               <div className="flex items-center justify-center gap-3 text-base md:justify-end">
                 <a
-                  href={youtubeHref}
+                  href={social.linkedinUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="text-sage-200 underline decoration-transparent underline-offset-4 transition-colors hover:text-white hover:decoration-white"
                 >
-                  YouTube
+                  LinkedIn
                 </a>
                 <span className="text-sage-400" aria-hidden>
                   ·
