@@ -49,7 +49,7 @@ export default function StateTranscription() {
         className={`relative flex flex-col overflow-hidden border-b ${
           photoHero
             ? `${TRANSCRIPTION_PHOTO_HERO_MIN_H} border-sage-800/30`
-            : 'min-h-[14rem] border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]'
+            : 'min-h-[14rem] border-sage-600/50 bg-paper sm:min-h-[16rem] md:min-h-[17rem]'
         }`}
       >
         {photoHero ? (
@@ -68,7 +68,7 @@ export default function StateTranscription() {
             {!darkHeroText && (
               <>
                 <div
-                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/55 via-sage-950/15 to-sage-950/65"
+                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-earth-900/55 via-earth-900/15 to-earth-900/65"
                   aria-hidden
                 />
                 <div
@@ -116,7 +116,7 @@ export default function StateTranscription() {
                       className={`pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y backdrop-blur-sm ${
                         darkHeroText
                           ? 'border-earth-900/15 bg-white/50'
-                          : 'border-white/20 bg-sage-950/20'
+                          : 'border-white/20 bg-earth-900/20'
                       }`}
                     />
                     <h1
@@ -158,9 +158,9 @@ export default function StateTranscription() {
         <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
           <Link
             to={backTo}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-white transition-colors hover:text-orange-100"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
           >
-            <svg className="h-4 w-4 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             {backLabel}

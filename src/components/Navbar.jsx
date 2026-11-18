@@ -68,8 +68,8 @@ function StatesDropdown({ linkClassBase, statesOn }) {
   const stateItemClass = ({ isActive }) =>
     `block w-full px-3 py-2 text-left font-sans text-sm transition-colors ${
       isActive
-        ? 'bg-sage-100 text-earth-900'
-        : 'text-earth-700 hover:bg-sage-50 hover:text-earth-900'
+        ? 'bg-paper text-earth-900'
+        : 'text-earth-700 hover:bg-paper hover:text-earth-900'
     }`
 
   return (
@@ -184,7 +184,7 @@ export default function Navbar() {
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-earth-200 bg-[#f6f3ec]">
+    <nav className="sticky top-0 z-50 border-b border-earth-200 bg-paper">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-6">
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
@@ -202,7 +202,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="p-2 text-earth-800 hover:bg-sage-200/80 hover:text-sage-900"
+              className="p-2 text-earth-800 hover:text-rust-800"
               aria-label="Toggle menu"
               aria-expanded={open}
             >
@@ -223,7 +223,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-earth-200 bg-[#f6f3ec] lg:hidden">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-earth-200 bg-paper lg:hidden">
           <div className="space-y-0.5 px-4 py-3">
             <NavLink to="/" end onClick={() => setOpen(false)} className={mobileLink}>
               Home

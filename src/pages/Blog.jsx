@@ -26,7 +26,7 @@ export default function Blog() {
           />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-sage-950/50 via-sage-950/58 to-sage-950/72"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-earth-900/50 via-earth-900/[0.58] to-earth-900/[0.72]"
           aria-hidden
         />
         <div className="relative z-10 flex min-h-[inherit] flex-col items-center justify-center">
@@ -47,7 +47,7 @@ export default function Blog() {
         </div>
       </section>
 
-      <PageContentBand wash="rust" variant="sage">
+      <PageContentBand variant="sage">
         <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           <section>
             <SectionHeading>Latest</SectionHeading>

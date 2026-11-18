@@ -1,19 +1,5 @@
-/** Light sage band (flat) — kept for reference / one-off uses */
-export const STATE_HERO_BAND_BG = '#d2d6c4'
-
-/**
- * Tailwind utility string: soft sage gradient for blog + state intro bands
- * (replaces flat STATE_HERO_BAND_BG for more depth).
- */
-/** Dark on the left → light on the right; slight amber lift on the right for warmth */
-export const stateHeroBandSectionClass =
-  'bg-gradient-to-r from-sage-700/90 via-sage-400/95 to-amber-50/80'
-
-/**
- * Inner page headers — right stop stays sage-tinted so white content blocks don’t disappear into it.
- */
-export const innerPageTopBandSectionClass =
-  'bg-gradient-to-r from-sage-600/90 via-sage-300/85 to-sage-200'
+export const stateHeroBandSectionClass = 'bg-paper'
+export const innerPageTopBandSectionClass = 'bg-paper'
 
 /**
  * State subpage heroes (videos / transcriptions / reflections): min height + flex parent so title blocks vertically center.

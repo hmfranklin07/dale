@@ -9,7 +9,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
       className="block h-full min-w-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-400/70"
     >
       <article className="card card-hover-pop group flex h-full flex-col overflow-hidden">
-        <div className="relative aspect-video shrink-0 overflow-hidden bg-sage-900/5">
+        <div className="relative aspect-video shrink-0 overflow-hidden bg-paper">
           {vlog.videoSrc ? (
             <video
               src={vlog.videoSrc}
@@ -26,7 +26,7 @@ export default function StateVideoTeaser({ vlog, stateSlug }) {
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             />
           ) : (
-            <div className="flex h-full min-h-[6.5rem] items-center justify-center bg-gradient-to-br from-sage-100 to-sage-200/70 px-3">
+            <div className="flex h-full min-h-[6.5rem] items-center justify-center px-3">
               <p className="text-center text-xs font-medium text-earth-600">Add a YouTube ID for a thumbnail</p>
             </div>
           )}

@@ -7,13 +7,13 @@ const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 
 export default function StateSubpageHero({ backTo, backLabel, title, description }) {
   return (
-    <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-600/50 bg-sage-500 sm:min-h-[16rem] md:min-h-[17rem]">
+    <section className="relative flex min-h-[14rem] flex-col overflow-hidden border-b border-sage-600/50 bg-paper sm:min-h-[16rem] md:min-h-[17rem]">
       <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
         <Link
           to={backTo}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-white transition-colors hover:text-orange-100"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
         >
-          <svg className="h-4 w-4 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           {backLabel}

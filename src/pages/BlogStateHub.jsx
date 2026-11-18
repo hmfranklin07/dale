@@ -51,7 +51,7 @@ export default function BlogStateHub() {
           <section>
             <SectionHeading>Blog posts</SectionHeading>
             <p className="text-earth-800 -mt-2 mb-6 text-sm leading-relaxed sm:text-base">
-              Optional: add a <code className="rounded bg-sage-100/90 px-1 py-0.5">stateSlug</code> field
+              Optional: add a <code className="rounded bg-paper px-1 py-0.5">stateSlug</code> field
               (matching this state&apos;s slug) to a blog post to list it here.
             </p>
             {blogsHere.length === 0 ? (

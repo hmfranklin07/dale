@@ -24,7 +24,7 @@ export default function Contact() {
               decoding="async"
               fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-sage-950/40" aria-hidden />
+            <div className="absolute inset-0 bg-earth-900/40" aria-hidden />
           </ScrollReveal>
         </div>
 
@@ -58,7 +58,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-sage-100">
+      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-paper">
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
           <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
@@ -80,9 +80,9 @@ export default function Contact() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center bg-sage-700 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
+                  <div className="flex flex-col items-center justify-center bg-paper px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
                     <div className="w-full max-w-sm">
-                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100/90">
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-earth-800">
                         Write to me
                       </p>
                       <div className="mx-auto mt-3 h-0.5 w-10 bg-rust-400" aria-hidden />
@@ -94,7 +94,7 @@ export default function Contact() {
                           {siteMeta.contactEmail}
                         </span>
                       </a>
-                      <p className="mt-4 text-sm leading-relaxed text-sage-100/90">
+                      <p className="mt-4 text-sm leading-relaxed text-earth-800">
                         Tap the address to open your email app.
                       </p>
                     </div>

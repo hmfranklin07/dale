@@ -9,7 +9,7 @@ export default function VideoEmbed({ youtubeId, videoSrc, title, className = '' 
       <div
         className={`aspect-video overflow-hidden rounded-md shadow-lg shadow-rust-900/10 ring-1 ring-sage-200/50 ${className}`.trim()}
       >
-        <video className="h-full w-full bg-sage-900 object-contain" src={videoSrc} controls playsInline preload="metadata" title={title || 'Video'}>
+        <video className="h-full w-full bg-paper object-contain" src={videoSrc} controls playsInline preload="metadata" title={title || 'Video'}>
           <track kind="captions" />
         </video>
       </div>
@@ -19,7 +19,7 @@ export default function VideoEmbed({ youtubeId, videoSrc, title, className = '' 
   if (!youtubeId) {
     return (
       <div
-        className={`flex aspect-video items-center justify-center rounded-md bg-sage-100/80 ring-1 ring-sage-200/50 ${className}`.trim()}
+        className={`flex aspect-video items-center justify-center rounded-md bg-paper ring-1 ring-sage-200/50 ${className}`.trim()}
       >
         <div className="text-center text-earth-600">
           <svg className="mx-auto mb-3 h-16 w-16 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">

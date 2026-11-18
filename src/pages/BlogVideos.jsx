@@ -46,7 +46,7 @@ export default function BlogVideos() {
                       {town && (
                         <Link
                           to={`/${town.stateSlug}`}
-                          className="badge-sage max-w-full truncate text-[0.65rem] transition-colors hover:bg-sage-300/90"
+                          className="badge-sage max-w-full truncate text-[0.65rem]"
                         >
                           {vlogLocationLabel(v)}
                         </Link>

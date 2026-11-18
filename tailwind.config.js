@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        /** Real white for type on photographs. Page paper is #f6f3ec, not this. */
+        paper: '#f6f3ec',
         white: '#ffffff',
         sage: {
           50: '#f3f4ef',

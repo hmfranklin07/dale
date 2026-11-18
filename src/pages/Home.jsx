@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
-      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-sage-200/50 ${heroViewportH}`}>
+      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportH}`}>
         <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
           <img
             src={homeHeroBgUrl}
@@ -57,7 +57,7 @@ export default function Home() {
             >
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-earth-900/10 bg-[#f6f3ec]"
+                className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-earth-900/10 bg-paper"
               />
 
               <p className="font-sans text-base text-earth-700 sm:text-lg">Summer 2026</p>
@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* 2. Inspiration */}
-      <section className="relative overflow-hidden border-t-[5px] border-t-rust-500 bg-sage-100">
+      <section className="relative overflow-hidden border-t-[5px] border-t-rust-500 bg-paper">
         <div ref={introRevealRef} className="relative z-10">
           <div className={`${sectionShell} pt-7 pb-0 sm:pt-8`}>
             <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
@@ -161,7 +161,7 @@ export default function Home() {
       {/* 3. Map */}
       <section
         id="map"
-        className="relative overflow-hidden bg-sage-100 scroll-mt-20 sm:scroll-mt-24"
+        className="relative overflow-hidden bg-paper scroll-mt-20 sm:scroll-mt-24"
       >
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div ref={mapRevealRef}>
