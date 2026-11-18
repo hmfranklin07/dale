@@ -237,7 +237,7 @@ const STOP_LABELS_BY_SLUG = {
 }
 
 // Route control points: actual driving corridors (I-90/I-80 west, Black Hills/Yellowstone,
-// I-84 through Idaho, CA/NV return south, I-40 east, OKC/Tulsa to Arkansas).
+// I-84 through Idaho, Yosemite across to Arizona, I-40 east, OKC/Tulsa to Arkansas).
 const ROUTE_CONTROL_POINTS = [
   // Arkport, NY → Bradford, IL (I-90 / I-80) — stay on land along southern Lake Erie
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
@@ -280,18 +280,19 @@ const ROUTE_CONTROL_POINTS = [
   [-115.6912, 43.1329], // Mountain Home (I-84)
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
-  // Boise → Los Angeles (smooth southwest arc, no Sierra detour)
-  [-117.5, 41.4], // Southern Idaho / Nevada corridor
-  [-119.0, 38.6], // Eastern California sweep
-  [-119.1, 36.0], // Central Valley
-  [-118.6, 34.8], // Tejon Pass approach
-  [-118.2437, 34.0522], // Los Angeles
+  // Boise → Yosemite via northern Nevada and the Sierra foothills
+  [-117.05, 42.5], // Southeast Oregon
+  [-117.7357, 40.973], // Winnemucca, NV
+  [-119.8138, 39.5296], // Reno, NV
+  [-120.2, 38.62], // Sierra foothills
+  [-119.59, 37.74], // Yosemite Valley
 
-  // Los Angeles → Grand Canyon
-  [-117.0228, 34.8958], // Barstow (I-15/I-40)
-  [-114.6147, 34.8481], // Needles, CA
+  // Yosemite → Grand Canyon via the eastern Sierra and southern Nevada
+  [-119.12, 37.96], // Lee Vining, CA (Highway 120)
+  [-117.23, 38.07], // Tonopah, NV
+  [-115.14, 36.17], // Las Vegas, NV
   [-114.053, 35.1894], // Kingman, AZ (I-40)
-  [-111.6513, 35.1983], // Flagstaff (I-40)
+  [-112.95, 35.42], // Toward Williams, AZ
   [-112.1401, 36.0544], // Grand Canyon
 
   // Grand Canyon → Amarillo (I-40)
