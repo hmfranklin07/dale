@@ -8,9 +8,6 @@ import homeHeroBgUrl from '../assets/home/home-hero.jpg?url'
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
-/** Fill the viewport below the sticky navbar (h-16); tablet second nav row is taller. */
-const heroViewportH =
-  'min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-7rem)] lg:min-h-[calc(100dvh-4rem)]'
 
 function revealState(inView, exitEdge) {
   return [
@@ -37,8 +34,8 @@ export default function Home() {
 
   return (
     <div className="overflow-x-clip">
-      {/* 1. Hero — full-viewport editorial vignette (no card overlay) */}
-      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportH}`}>
+      {/* 1. Hero */}
+      <section ref={heroRevealRef} className="relative flex min-h-[clamp(25rem,65dvh,42rem)] flex-col overflow-hidden bg-paper">
         <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
           <img
             src={homeHeroBgUrl}
@@ -51,19 +48,17 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
-          <div className={`${shell} w-full pb-8 pt-4 text-center sm:pb-10 sm:pt-5`}>
+          <div className={`${shell} w-full pb-6 pt-3 text-center sm:pt-4`}>
             <div
-              className={`relative mx-auto w-full max-w-4xl px-2 py-5 text-center sm:py-6 md:py-7 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className={`relative mx-auto w-full max-w-4xl px-2 py-4 text-center sm:py-5 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
             >
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y border-earth-900/10 bg-paper"
               />
 
-              <p className="font-sans text-base text-earth-700 sm:text-lg">Summer 2026</p>
-
               <h1
-                className={`mt-2 font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl ${pageTitleClass}`}
+                className={`font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl ${pageTitleClass}`}
               >
                 STEM Across Rural America
               </h1>
@@ -146,8 +141,8 @@ export default function Home() {
               className="pointer-events-none absolute inset-0 bg-rust-200/55"
               aria-hidden
             />
-            <div className={`relative ${sectionShell} pb-5 pt-3.5 sm:pb-6 sm:pt-4`}>
-              <p className="mx-auto max-w-[min(100%,52rem)] text-center text-base leading-relaxed text-earth-800 sm:text-lg">
+            <div className="relative mx-auto max-w-7xl px-4 py-2 sm:py-2.5">
+              <p className="text-balance text-center text-sm leading-snug text-earth-800 lg:text-base">
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
             </div>

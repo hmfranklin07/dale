@@ -116,17 +116,6 @@
           ]
         }
       ]
-    },
-    {
-      "number": "3",
-      "title": "Project Focus & Methods",
-      "blocks": [
-        {
-          "type": "labeled",
-          "label": "Why a website?",
-          "text": "A documentary is a great way to combine my passion for expressing stories and emotions through art while also making voices be heard. Rather than presenting my findings with tables and numbers, I can humanize the people behind the data and give them the opportunity to be heard within their identities. A website would make these stories accessible not only to researchers, policymakers, and educators, but any general audience could learn more about these stories and why they’re important."
-        }
-      ]
     }
   ],
   "sources": [
