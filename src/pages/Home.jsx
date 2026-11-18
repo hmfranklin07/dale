@@ -139,7 +139,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Light orange Dale footing */}
+          {/* Dale Award funding banner */}
           <div className={`relative mt-5 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
             <div
               className="pointer-events-none absolute inset-0 bg-rust-200/55"
@@ -153,7 +153,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Full-bleed rust bar between Hannah orange footing and the map — matches top bar */}
+        {/* Full-width divider above the map */}
         <div className="relative z-10 h-[5px] w-full bg-rust-500" aria-hidden />
       </section>
 

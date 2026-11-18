@@ -66,7 +66,7 @@ export default function SocialLinks({ className = '', size = 'default', variant 
         href={social.instagramUrl}
         target="_blank"
         rel="noreferrer"
-        className={`${btn} bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white hover:opacity-95 shadow-sm`}
+        className={`${btn} bg-gradient-to-br from-purple-600 via-pink-500 to-rust-600 text-white hover:opacity-95 shadow-sm`}
       >
         <span aria-hidden>◉</span> {social.instagramLabel}
       </a>

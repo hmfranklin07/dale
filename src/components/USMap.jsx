@@ -468,10 +468,10 @@ export default function USMap() {
           <defs>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
-              <stop offset="100%" stopColor="#f9efe7" />
+              <stop offset="100%" stopColor="#f0e6d9" />
             </linearGradient>
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
-              <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#6a2e1d" floodOpacity="0.2" />
+              <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#563a27" floodOpacity="0.2" />
             </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
@@ -578,7 +578,7 @@ export default function USMap() {
               <path
                 d={ROUTE_PATH_D}
                 fill="none"
-                stroke="#f97316"
+                stroke={PIN_BODY_DEFAULT}
                 strokeWidth={2.6}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -652,7 +652,7 @@ export default function USMap() {
                     height={BADGE_HEIGHT}
                     rx={BADGE_RX}
                     fill="url(#stopBadgeFill)"
-                    stroke="#e8a188"
+                    stroke={PIN_RIM_COLOR}
                     strokeWidth={1.15}
                     filter="url(#stopBadgeShadow)"
                   />
@@ -672,8 +672,7 @@ export default function USMap() {
                     textAnchor="middle"
                     dominantBaseline="central"
                     alignmentBaseline="middle"
-                    fill="#8f3b24"
-                    className="font-display"
+                    className="font-display fill-rust-700"
                     fontSize={BADGE_FONT_SIZE}
                     fontWeight="400"
                     letterSpacing="0.15"
@@ -743,7 +742,7 @@ export default function USMap() {
                       height={BADGE_HEIGHT}
                       rx={BADGE_RX}
                       fill="url(#stopBadgeFill)"
-                      stroke="#e8a188"
+                      stroke={PIN_RIM_COLOR}
                       strokeWidth={1.15}
                       filter="url(#stopBadgeShadow)"
                     />
@@ -763,8 +762,7 @@ export default function USMap() {
                       textAnchor="middle"
                       dominantBaseline="central"
                       alignmentBaseline="middle"
-                      fill="#8f3b24"
-                      className="font-display"
+                      className="font-display fill-rust-700"
                       fontSize={BADGE_FONT_SIZE}
                       fontWeight="400"
                       letterSpacing="0.15"
