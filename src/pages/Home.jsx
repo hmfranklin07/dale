@@ -40,11 +40,12 @@ export default function Home() {
       {/* 1. Hero */}
       <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportHeight}`}>
         <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
+          {/* Cap the desktop crop so the flag stays below the title strip on short screens. */}
           <img
             src={homeHeroBgUrl}
             alt=""
             sizes="100vw"
-            className="h-full w-full object-cover object-[48%_58%] sm:object-[50%_62%] lg:object-[52%_66%]"
+            className="h-full w-full object-cover object-[62%_68%] sm:object-[50%_76%] lg:object-[52%_max(76%,calc(16.5rem_-_76vw))]"
             loading="eager"
             decoding="async"
             fetchPriority="high"
