@@ -8,6 +8,9 @@ import homeHeroBgUrl from '../assets/home/home-hero.jpg?url'
 const shell = 'max-w-6xl mx-auto px-2.5 sm:px-4'
 /** Slightly roomier side insets for mid-page narrative sections */
 const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
+/** Fill the viewport below the sticky navigation, including the extra row on tablets. */
+const heroViewportHeight =
+  'min-h-[calc(100dvh-4rem-1px)] md:min-h-[calc(100dvh-7.5rem-2px)] lg:min-h-[calc(100dvh-4rem-1px)]'
 
 function revealState(inView, exitEdge) {
   return [
@@ -35,7 +38,7 @@ export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero */}
-      <section ref={heroRevealRef} className="relative flex min-h-[clamp(25rem,65dvh,42rem)] flex-col overflow-hidden bg-paper">
+      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportHeight}`}>
         <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
           <img
             src={homeHeroBgUrl}
@@ -141,7 +144,7 @@ export default function Home() {
               className="pointer-events-none absolute inset-0 bg-rust-200/55"
               aria-hidden
             />
-            <div className="relative mx-auto max-w-7xl px-4 py-2 sm:py-2.5">
+            <div className="relative mx-auto max-w-7xl px-4 py-3 sm:py-3.5">
               <p className="text-balance text-center text-sm leading-snug text-earth-800 lg:text-base">
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
