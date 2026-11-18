@@ -130,9 +130,9 @@ export default function Home() {
                 <p className="mt-4 sm:mt-5">
                   <Link
                     to="/about"
-                    className="text-lg text-rust-800 underline decoration-rust-600/70 underline-offset-4 transition-colors hover:text-earth-900"
+                    className="inline-block rounded-md border border-rust-700 bg-rust-700 px-5 py-2.5 text-center font-display text-lg text-white transition-colors duration-200 hover:bg-rust-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-rust-300 sm:px-6"
                   >
-                    See more about this project →
+                    See more about this project
                   </Link>
                 </p>
               </div>
