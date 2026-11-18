@@ -468,10 +468,10 @@ export default function USMap() {
           <defs>
             <linearGradient id="stopBadgeFill" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#faf9f5" />
-              <stop offset="100%" stopColor="#f0e6d9" />
+              <stop offset="100%" stopColor="#f3e6d6" />
             </linearGradient>
             <filter id="stopBadgeShadow" x="-30%" y="-40%" width="160%" height="220%">
-              <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#563a27" floodOpacity="0.2" />
+              <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#5e3a26" floodOpacity="0.2" />
             </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
