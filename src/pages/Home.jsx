@@ -146,7 +146,7 @@ export default function Home() {
               aria-hidden
             />
             <div className="relative mx-auto max-w-7xl px-4 py-3 sm:py-3.5">
-              <p className="text-balance text-center text-sm leading-snug text-earth-800 lg:text-base">
+              <p className="text-balance text-center text-sm italic leading-snug text-earth-800 lg:text-base">
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
             </div>
