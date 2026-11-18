@@ -1,4 +1,4 @@
-import { RouteFieldAmbience, routeFieldSectionClass } from './RouteFieldAmbience'
+import { routeFieldSectionClass } from './routeFieldSection'
 import ScrollReveal from './ScrollReveal'
 
 /** Match Home mid-page sections: wide column + flat paper ground */
@@ -26,7 +26,6 @@ export default function PageContentBand({
   if (field === 'route') {
     return (
       <div className={routeFieldSectionClass}>
-        <RouteFieldAmbience />
         <div
           className={`relative z-10 ${contentShell} ${
             compact ? 'py-5 sm:py-6 lg:py-7' : 'py-10 sm:py-14 lg:py-16'

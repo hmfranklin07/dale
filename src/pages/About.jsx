@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { RouteFieldAmbience, routeFieldSectionClass } from '../components/RouteFieldAmbience'
+import { routeFieldSectionClass } from '../components/routeFieldSection'
 import ScrollReveal from '../components/ScrollReveal'
 import aboutHeroUrl from '../assets/about/about-hero.jpg?url'
 
@@ -79,7 +79,6 @@ export default function About() {
       </section>
 
       <section className={routeFieldSectionClass}>
-        <RouteFieldAmbience />
         <div className={`relative z-10 ${essay} py-12 sm:py-16 lg:py-20`}>
           {SECTIONS.map((section, index) => (
             <ScrollReveal key={section.id} delay={index === 0 ? undefined : 1}>

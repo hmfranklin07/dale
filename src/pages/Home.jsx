@@ -88,42 +88,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Inspiration — same quiet road field as Contact */}
+      {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-t-[5px] border-t-rust-500 bg-sage-100">
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-          <svg
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 1000 400"
-            preserveAspectRatio="xMidYMid slice"
-            fill="none"
-          >
-            <path
-              d="M -40 95 C 160 55, 280 165, 460 110 S 720 50, 900 140 S 980 210, 1040 190"
-              stroke="#c45a3a"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeDasharray="5 13"
-              opacity="0.42"
-            />
-            <path
-              d="M -20 210 C 180 175, 320 265, 500 205 S 780 145, 960 245 S 1020 300, 1060 285"
-              stroke="#b4532a"
-              strokeWidth="1.45"
-              strokeLinecap="round"
-              strokeDasharray="4 15"
-              opacity="0.32"
-            />
-            <path
-              d="M -30 325 C 200 285, 360 365, 540 300 S 820 230, 1000 340"
-              stroke="#d9774f"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeDasharray="3 16"
-              opacity="0.28"
-            />
-          </svg>
-        </div>
-
         <div ref={introRevealRef} className="relative z-10">
           <div className={`${sectionShell} pt-7 pb-0 sm:pt-8`}>
             <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">

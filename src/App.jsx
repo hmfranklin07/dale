@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import SiteBackgroundUnderlay from './components/SiteBackgroundUnderlay'
 import Home from './pages/Home'
 import About from './pages/About'
 import LiteratureReview from './pages/LiteratureReview'
@@ -22,7 +21,6 @@ export default function App() {
     <div className="relative min-h-screen flex flex-col">
       <StatePhotoHeroCache />
       <ScrollToTop />
-      <SiteBackgroundUnderlay />
       <Navbar />
       <main className="relative z-10 flex-1">
         <Routes>
