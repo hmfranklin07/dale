@@ -673,7 +673,7 @@ export default function USMap() {
                     dominantBaseline="central"
                     alignmentBaseline="middle"
                     fill="#8f3b24"
-                    fontFamily="'DM Serif Display', Georgia, serif"
+                    className="font-display"
                     fontSize={BADGE_FONT_SIZE}
                     fontWeight="400"
                     letterSpacing="0.15"
@@ -764,7 +764,7 @@ export default function USMap() {
                       dominantBaseline="central"
                       alignmentBaseline="middle"
                       fill="#8f3b24"
-                      fontFamily="'DM Serif Display', Georgia, serif"
+                      className="font-display"
                       fontSize={BADGE_FONT_SIZE}
                       fontWeight="400"
                       letterSpacing="0.15"
