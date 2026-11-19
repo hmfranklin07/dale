@@ -18,11 +18,11 @@ import {
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
 // Four sage steps — index 0 = darkest … 3 = lightest (more dark states than light)
-const STATE_FILLS = ['#5c6a47', '#81986a', '#a7b58c', '#c4d1b2']
-const FILL_HOVER = '#8da56e'
-const FILL_POP = '#a3bc84'
-const STROKE = '#343b2e'
-const STROKE_POP = '#4a5638'
+const STATE_FILLS = ['#656d44', '#8d9962', '#b1b584', '#ced1aa']
+const FILL_HOVER = '#99a667'
+const FILL_POP = '#afbd7d'
+const STROKE = '#3b3f2b'
+const STROKE_POP = '#535a34'
 const EXCLUDED_STATE_NAMES = new Set(['alaska', 'hawaii'])
 
 /** Trip-stop states that lift slightly on hover. */
@@ -466,9 +466,9 @@ export default function USMap() {
               <feDropShadow dx="0" dy="1.2" stdDeviation="0.9" floodColor="#5e3a26" floodOpacity="0.2" />
             </filter>
             <filter id="statePopShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1f2618" floodOpacity="0.22" />
-              <feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#2a3322" floodOpacity="0.28" />
-              <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#1a1f14" floodOpacity="0.16" />
+              <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#262916" floodOpacity="0.22" />
+              <feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#32361f" floodOpacity="0.28" />
+              <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#202212" floodOpacity="0.16" />
             </filter>
           </defs>
 
