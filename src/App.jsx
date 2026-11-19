@@ -24,7 +24,7 @@ export default function App() {
       <StatePhotoHeroCache />
       <ScrollToTop />
       <Navbar />
-      <main key={pathname} className="page-enter relative z-10 flex-1">
+      <main key={pathname} className="relative z-10 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

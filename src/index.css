@@ -81,10 +81,6 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .page-enter {
-      animation: page-enter 360ms ease-out;
-    }
-
     .scroll-reveal {
       --reveal-duration: 580ms;
       --reveal-delay: 0ms;
@@ -92,9 +88,21 @@
       --reveal-start-transform: translateY(0.75rem);
     }
 
-    /* Trigger the fade on entry while keeping the default state visible. */
+    /* Set the starting style before the block reaches the viewport. */
+    .scroll-reveal:not(.is-revealed):not(:focus-within) {
+      opacity: 0.25;
+      transform: var(--reveal-start-transform);
+    }
+
     .scroll-reveal.is-revealed {
-      animation: scroll-reveal var(--reveal-duration) var(--reveal-easing) var(--reveal-delay) backwards;
+      transition-property: opacity, transform;
+      transition-duration: var(--reveal-duration);
+      transition-timing-function: var(--reveal-easing);
+      transition-delay: var(--reveal-delay);
+    }
+
+    .scroll-reveal:focus-within {
+      transition: none;
     }
 
     .scroll-reveal-photo {
@@ -115,21 +123,5 @@
     .scroll-reveal-delay-2 {
       --reveal-delay: 120ms;
     }
-  }
-}
-
-@keyframes page-enter {
-  from { opacity: 0.3; }
-  to { opacity: 1; }
-}
-
-@keyframes scroll-reveal {
-  from {
-    opacity: 0.25;
-    transform: var(--reveal-start-transform);
-  }
-  to {
-    opacity: 1;
-    transform: none;
   }
 }
