@@ -145,10 +145,9 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
           <div>
             <ScrollReveal className="mb-8 text-center sm:mb-10">
-              <p className="kicker">The route</p>
-              <h2 className="mt-2 font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
+              <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">STEM Across Rural America</h2>
               <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-earth-800 sm:text-xl">
-                Select a stop to read from that community.
+                click on a stop to see more!
               </p>
             </ScrollReveal>
             <ScrollReveal delay={1} className="w-full rounded-md">
