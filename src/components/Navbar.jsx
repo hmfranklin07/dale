@@ -190,7 +190,7 @@ export default function Navbar() {
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
             <NavbarMicroscopeIcon className="h-6 w-6 shrink-0 text-earth-800" />
             <span className="font-display text-xl leading-none text-earth-900">
-              STEM Across Rural America
+              Rural STEM Stories
             </span>
           </Link>
 

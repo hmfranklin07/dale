@@ -42,7 +42,7 @@ export default function Home() {
               <h1
                 className={`font-display text-4xl leading-[1.08] sm:text-5xl lg:text-6xl ${pageTitleClass}`}
               >
-                STEM Across Rural America
+                Rural STEM Stories
               </h1>
 
               <p className="mt-2 font-display text-2xl leading-snug text-earth-800 sm:text-3xl">

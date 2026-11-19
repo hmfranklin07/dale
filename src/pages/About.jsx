@@ -12,7 +12,7 @@ const SECTIONS = [
     id: 'what',
     question: 'What is this project?',
     paragraphs: [
-      'STEM Across Rural America is a storytelling project aimed to highlight the voices of rural Americans in educational communities. Most of the project comes from in-person conversations with people I met around the country this summer, as well as virtual conversations when I couldn\u2019t be in their community. Through conversations and reflections with teachers, students, and more, I hope to shed light on their lived experiences to look at rural education through people, not numbers.',
+      'Rural STEM Stories is a storytelling project aimed to highlight the voices of rural Americans in educational communities. Most of the project comes from in-person conversations with people I met around the country this summer, as well as virtual conversations when I couldn\u2019t be in their community. Through conversations and reflections with teachers, students, and more, I hope to shed light on their lived experiences to look at rural education through people, not numbers.',
     ],
   },
   {
