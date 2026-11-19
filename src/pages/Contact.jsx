@@ -79,9 +79,9 @@ export default function Contact() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center bg-paper px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
+                  <div className="flex flex-col items-center justify-center bg-sage-800 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
                     <div className="w-full max-w-sm">
-                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-earth-800">
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100">
                         Write to me
                       </p>
                       <div className="mx-auto mt-3 h-0.5 w-10 bg-rust-400" aria-hidden />
@@ -93,7 +93,7 @@ export default function Contact() {
                           {siteMeta.contactEmail}
                         </span>
                       </a>
-                      <p className="mt-4 text-sm leading-relaxed text-earth-800">
+                      <p className="mt-4 text-sm leading-relaxed text-sage-100">
                         Tap the address to open your email app.
                       </p>
                     </div>
