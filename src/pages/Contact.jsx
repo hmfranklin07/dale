@@ -3,7 +3,7 @@ import siteMeta from '../data/siteMeta.json'
 import ScrollReveal from '../components/ScrollReveal'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
-const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem]'
+const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem] lg:min-h-[clamp(13rem,38dvh,22.5rem)]'
 
 const CONTACT_LABELS = ['Share a story', 'Nominate someone', 'Questions']
 
@@ -11,7 +11,7 @@ export default function Contact() {
   const mailto = `mailto:${siteMeta.contactEmail}`
 
   return (
-    <>
+    <div className="lg:flex lg:min-h-[calc(100dvh-4rem-1px)] lg:flex-col">
       <section className={`relative flex flex-col overflow-hidden ${HERO_MIN_H}`}>
         <div className="absolute inset-0 z-0">
           <ScrollReveal photo className="absolute inset-0">
@@ -28,9 +28,9 @@ export default function Contact() {
         </div>
 
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col items-center justify-center">
-          <div className={`${heroShell} w-full py-8 text-center sm:py-10 md:py-11`}>
+          <div className={`${heroShell} w-full py-8 text-center sm:py-10 md:py-11 lg:py-5`}>
             <ScrollReveal>
-              <div className="relative mx-auto w-full max-w-4xl py-5 sm:py-6">
+              <div className="relative mx-auto w-full max-w-4xl py-5 sm:py-6 lg:py-4">
                 <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-[0_2px_12px_rgba(20,28,18,0.55)] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
                   Connect
                 </h1>
@@ -57,29 +57,29 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-paper">
+      <section className="relative overflow-hidden border-b border-sage-300/50 border-t-[5px] border-t-rust-500 bg-paper lg:flex lg:flex-1 lg:items-center">
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-rust-200/55 sm:h-28" />
           <div className="absolute inset-x-0 bottom-24 h-px bg-rust-400/35 sm:bottom-28" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="relative z-10 mx-auto max-w-6xl w-full px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-[clamp(1rem,3.5dvh,3rem)]">
           <ScrollReveal>
             <div className="mx-auto max-w-5xl">
               <div className="overflow-hidden rounded-md border border-earth-200 bg-white shadow-sm">
                 <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
-                  <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-12">
-                    <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.9rem]">
+                  <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-8 lg:py-[clamp(1.25rem,4dvh,3rem)] xl:px-12">
+                    <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.4rem] xl:text-[2.65rem]">
                       I&apos;d love to hear from you!
                     </p>
-                    <div className="mt-5 h-0.5 w-16 bg-rust-500 sm:mt-6 sm:w-20" aria-hidden />
-                    <p className="mt-6 max-w-none text-lg leading-relaxed text-earth-700 sm:mt-7 sm:text-xl sm:leading-[1.65]">
+                    <div className="mt-5 h-0.5 w-16 bg-rust-500 sm:mt-6 sm:w-20 lg:mt-4" aria-hidden />
+                    <p className="mt-6 max-w-none text-lg leading-relaxed text-earth-700 sm:mt-7 sm:text-xl sm:leading-[1.65] lg:mt-4">
                       Whether you&apos;d like to connect, share a story for the project, put me in touch with someone you
                       know, or have any questions, send me an email!
                     </p>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center bg-sage-800 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14">
+                  <div className="flex flex-col items-center justify-center bg-sage-800 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14 lg:py-[clamp(1.25rem,4dvh,3rem)]">
                     <div className="w-full max-w-sm">
                       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100">
                         Write to me
@@ -104,6 +104,6 @@ export default function Contact() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   )
 }
