@@ -7,10 +7,10 @@ export default function ScrollReveal({
   photo = false,
   as: Tag = 'div',
 }) {
-  const { ref, hasEntered } = useInView()
+  const { ref, inView } = useInView()
   const photoClass = photo ? 'scroll-reveal-photo' : ''
   const delayClass = delay ? `scroll-reveal-delay-${delay}` : ''
-  const state = hasEntered ? 'is-revealed' : ''
+  const state = inView ? 'is-revealed' : ''
 
   return (
     <Tag ref={ref} className={`scroll-reveal ${photoClass} ${delayClass} ${state} ${className}`.trim()}>

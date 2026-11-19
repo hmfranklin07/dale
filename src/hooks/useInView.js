@@ -1,23 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 
-/** Reveal a block once, just before it reaches the visible viewport. */
+/** Track entry and exit so the reveal can replay on the next pass. */
 export function useInView() {
   const ref = useRef(null)
-  const [hasEntered, setHasEntered] = useState(false)
+  const [inView, setInView] = useState(false)
 
   useEffect(() => {
     const node = ref.current
     if (!node || typeof IntersectionObserver !== 'function') return
 
     const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return
-      setHasEntered(true)
-      observer.disconnect()
-    }, { rootMargin: '0px 0px 8px' })
+      setInView(entry.isIntersecting)
+    }, { rootMargin: '20px 0px' })
 
     observer.observe(node)
     return () => observer.disconnect()
   }, [])
 
-  return { ref, hasEntered }
+  return { ref, inView }
 }

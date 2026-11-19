@@ -17,7 +17,7 @@ export default function Home() {
     <div className="overflow-x-clip">
       {/* 1. Hero */}
       <section className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportHeight}`}>
-        <div className="absolute inset-0 z-0">
+        <ScrollReveal photo className="scroll-reveal-home-photo absolute inset-0 z-0">
           {/* Cap the desktop crop so the flag stays below the title strip on short screens. */}
           <img
             src={homeHeroBgUrl}
@@ -28,7 +28,7 @@ export default function Home() {
             decoding="async"
             fetchPriority="high"
           />
-        </div>
+        </ScrollReveal>
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
           <div className={`${shell} w-full pb-6 pt-3 text-center sm:pt-4`}>
             <div
