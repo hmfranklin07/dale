@@ -241,20 +241,17 @@ const STOP_LABELS_BY_SLUG = {
 const ROUTE_CONTROL_POINTS = [
   // Arkport, NY → Bradford, IL (I-90 / I-80) — stay on land along southern Lake Erie
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
-  [-77.9, 42.22], // Southwest toward I-86 (below Lake Ontario)
-  [-78.55, 42.12], // Jamestown / Chautauqua corridor
+  [-78.55, 42.13], // I-86 toward the southern Lake Erie shore
   [-79.35, 42.08], // Dunkirk — southern Lake Erie shore
   [-80.0852, 42.1292], // Erie, PA (I-90)
   [-81.6944, 41.4993], // Cleveland (I-90)
   [-83.5552, 41.6528], // Toledo (I-80/90)
   [-86.252, 41.6761], // South Bend, IN (I-80/90)
-  [-87.75, 41.88], // Chicago area (I-80 west)
-  [-88.42, 41.36], // Morris, IL (I-80)
+  [-88.0, 41.56], // I-80 south of Chicago
   stateBySlug.illinois && [stateBySlug.illinois.lng, stateBySlug.illinois.lat],
 
   // Bradford → Grand Island, NE (I-80)
-  [-90.58, 41.51], // Quad Cities bend (I-80)
-  [-91.5302, 41.6611], // Iowa City (I-80)
+  [-91.15, 41.58], // I-80 into eastern Iowa
   [-93.6091, 41.6005], // Des Moines (I-80)
   [-95.9345, 41.2565], // Omaha (I-80)
   [-97.592, 40.8681], // York, NE (I-80)
@@ -262,82 +259,68 @@ const ROUTE_CONTROL_POINTS = [
 
   // Grand Island → Sturgis, SD
   [-100.7654, 41.1239], // North Platte, NE (I-80)
-  [-102.978, 41.1427], // Sidney, NE (I-80)
-  [-103.6616, 41.8666], // Scottsbluff, NE
+  [-102.95, 41.51], // Western Nebraska
+  [-103.38, 42.67], // Approach the Black Hills from the south
   [RAPID_CITY_LNG, RAPID_CITY_LAT], // Rapid City area (I-90)
   [-103.586, 44.4097], // Sturgis, SD
 
   // Sturgis → Yellowstone
-  [-104.62, 44.35], // Northeast Wyoming (US-16)
+  [-104.62, 44.43], // Northeast Wyoming (US-16)
   [-106.69, 44.35], // Buffalo, WY
   [-109.0568, 44.5263], // Cody, WY
   [-111.105, 44.6621], // West Yellowstone, MT
 
-  // Yellowstone → Idaho Falls → Pocatello → Twin Falls → Boise (I-84)
-  [-112.0339, 43.4917], // Idaho Falls
-  [-112.4454, 42.8713], // Pocatello
+  // Yellowstone → eastern Idaho → Twin Falls → Boise (I-84)
+  [-112.32, 43.14], // Idaho Falls / Pocatello corridor
   [-114.4609, 42.563], // Twin Falls
-  [-115.6912, 43.1329], // Mountain Home (I-84)
   stateBySlug.idaho && [stateBySlug.idaho.lng, stateBySlug.idaho.lat],
 
   // Boise → Yosemite via northern Nevada and the Sierra foothills
-  [-117.05, 42.5], // Southeast Oregon
+  [-117.36, 43.14], // Southeast Oregon
   [-117.7357, 40.973], // Winnemucca, NV
   [-119.8138, 39.5296], // Reno, NV
-  [-120.2, 38.62], // Sierra foothills
+  [-120.32, 38.5], // Sierra foothills
   [-119.59, 37.74], // Yosemite Valley
 
   // Yosemite → Grand Canyon via the eastern Sierra and southern Nevada
-  [-119.12, 37.96], // Lee Vining, CA (Highway 120)
-  [-117.23, 38.07], // Tonopah, NV
+  [-118.77, 37.85], // Eastern Sierra
+  [-117.23, 37.65], // Central Nevada
   [-115.14, 36.17], // Las Vegas, NV
-  [-114.053, 35.1894], // Kingman, AZ (I-40)
-  [-112.95, 35.42], // Toward Williams, AZ
+  [-113.95, 35.37], // Kingman / I-40 corridor
   [-112.1401, 36.0544], // Grand Canyon
 
   // Grand Canyon → Amarillo (I-40)
-  [-110.6979, 35.0242], // Winslow, AZ
-  [-108.7426, 35.5281], // Gallup, NM
+  [-110.82, 35.49], // Toward I-40 in eastern Arizona
+  [-108.72, 35.33], // Western New Mexico
   [-106.6504, 35.0844], // Albuquerque
-  [-103.725, 35.1798], // Tucumcari, NM
   [-101.8313, 35.222], // Amarillo
 
   // Amarillo → Cave Springs, AR (I-40 → OKC → Tulsa)
-  [-99.4043, 35.4117], // Elk City, OK
   [-97.5164, 35.4676], // Oklahoma City
   [-95.9928, 36.154], // Tulsa
-  [-94.16, 36.08], // NW Arkansas approach
   stateBySlug.arkansas && [stateBySlug.arkansas.lng, stateBySlug.arkansas.lat],
 
-  // Eastern return — unchanged
-  [-92.3, 35.2], // Central AR bend
-  [-90.05, 35.15], // Memphis corridor
-  [-89.6, 34.35], // N Mississippi
-  [-88.2, 34.1], // NE Mississippi
-  [-87.1, 33.55], // W Alabama
-  [-86.3, 32.45], // Central Alabama
-  [-85.5, 31.25], // SE Alabama / Dothan corridor
-  [-86.15, 30.95], // Enter Florida panhandle (west)
-  [-85.45, 30.62], // Panhandle curve
-  [-84.75, 30.48], // Panhandle eastbound
-  [-84.0, 30.4], // Tallahassee corridor
-  [-83.15, 30.35], // North Florida east
+  // Arkansas → North Florida through the western Panhandle
+  [-92.3, 35.23], // Central Arkansas
+  [-90.09, 34.91], // Memphis corridor
+  [-88.05, 33.94], // Northeast Mississippi
+  [-86.75, 32.91], // Central Alabama
+  [-86.12, 31.08], // Approach the western Panhandle
+  [-85.17, 30.58], // Panhandle eastbound
+  [-83.73, 30.42], // Tallahassee corridor
   [NORTH_FLORIDA_LNG, NORTH_FLORIDA_LAT],
 
   // Swing back north-east: Florida see-more pin -> DC -> New York pin
-  [-81.1, 32.08], // Savannah
-  [-79.93, 32.78], // Charleston corridor
+  [-81.58, 31.57], // Georgia coastal plain
+  [-80.19, 33.02], // Charleston corridor
   [-78.64, 35.78], // Raleigh
-  [-77.44, 37.54], // Richmond
   [-77.04, 38.91], // Washington, DC
-  [-75.6, 40.6], // East-side PA corridor
-  [-75.3, 41.35], // Right-side approach arc toward NY
-  [-76.2, 41.95], // Enter NY from east/right side
+  [-76.03, 40.46], // Eastern Pennsylvania
+  [-76.28, 41.83], // Arc toward New York
+  [-76.96, 42.28], // Enter from the east
   stateBySlug['new-york'] && [stateBySlug['new-york'].lng, stateBySlug['new-york'].lat],
 ].filter(Boolean)
 
-// Keep exact control points so the curve passes through destination pin tips.
-const ROUTE_WAYPOINTS = ROUTE_CONTROL_POINTS
 /** Must match ComposableMap: translate(center) then scale (see react-simple-maps makeProjection). */
 const MAP_W = 1200
 const MAP_H = 700
@@ -365,23 +348,31 @@ function routePathD(points) {
   }
 
   let d = `M ${projected[0].x.toFixed(2)} ${projected[0].y.toFixed(2)}`
-  for (let i = 0; i < projected.length - 1; i++) {
-    const p0 = i === 0 ? projected[0] : projected[i - 1]
+  const last = projected.length - 1
+  const closed = projected[0].x === projected[last].x && projected[0].y === projected[last].y
+  const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y)
+  for (let i = 0; i < last; i++) {
+    const p0 = projected[i - 1] ?? projected[closed ? last - 1 : 0]
     const p1 = projected[i]
     const p2 = projected[i + 1]
-    const p3 = i + 2 < projected.length ? projected[i + 2] : p2
+    const p3 = projected[i + 2] ?? projected[closed ? 1 : last]
+    const length = distance(p1, p2)
+    if (length === 0) continue
 
-    const cp1x = p1.x + (p2.x - p0.x) / 6
-    const cp1y = p1.y + (p2.y - p0.y) / 6
-    const cp2x = p2.x - (p3.x - p1.x) / 6
-    const cp2y = p2.y - (p3.y - p1.y) / 6
+    // Scale each handle to the length of its segment so short bends do not overshoot.
+    const startWeight = length / (3 * (distance(p0, p1) + length))
+    const endWeight = length / (3 * (length + distance(p2, p3)))
+    const cp1x = p1.x + (p2.x - p0.x) * startWeight
+    const cp1y = p1.y + (p2.y - p0.y) * startWeight
+    const cp2x = p2.x - (p3.x - p1.x) * endWeight
+    const cp2y = p2.y - (p3.y - p1.y) * endWeight
 
     d += ` C ${cp1x.toFixed(2)} ${cp1y.toFixed(2)}, ${cp2x.toFixed(2)} ${cp2y.toFixed(2)}, ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`
   }
   return d
 }
 
-const ROUTE_PATH_D = routePathD(ROUTE_WAYPOINTS)
+const ROUTE_PATH_D = routePathD(ROUTE_CONTROL_POINTS)
 
 function popTransform([cx, cy], scale = 1, lift = 0) {
   // Keep the same transform function list at rest and when popped so CSS
