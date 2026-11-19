@@ -1,4 +1,5 @@
 import literatureReview from '../data/literatureReview.json'
+import ScrollReveal from './ScrollReveal'
 
 const prose = 'text-[1.05rem] leading-[1.75] text-earth-800 sm:text-lg sm:leading-[1.8]'
 
@@ -61,7 +62,7 @@ function SectionBody({ section }) {
       })}
 
       {section.subsections?.map((sub) => (
-        <div key={sub.title} className="pt-2 sm:pt-3">
+        <ScrollReveal key={sub.title} className="pt-2 sm:pt-3">
           <h3 className="font-display text-xl italic leading-snug text-earth-900 sm:text-[1.65rem]">
             {sub.title}
           </h3>
@@ -75,7 +76,7 @@ function SectionBody({ section }) {
             <SourceBlock key={source.cite} source={source} />
           ))}
           {sub.items?.length > 0 && <BulletList items={sub.items} />}
-        </div>
+        </ScrollReveal>
       ))}
     </div>
   )
@@ -102,19 +103,19 @@ export default function LiteratureReviewPanel({ showHeader = true }) {
       <div className={showHeader ? 'space-y-16 sm:space-y-20' : 'mt-12 space-y-16 sm:mt-14 sm:space-y-20'}>
         {doc.sections.map((section) => (
           <section key={section.number}>
-            <div className="mb-6 flex items-baseline gap-3 sm:mb-8">
+            <ScrollReveal className="mb-6 flex items-baseline gap-3 sm:mb-8">
               <span className="font-display text-sm tabular-nums tracking-wide text-rust-600 sm:text-base">
                 {section.number}
               </span>
               <h2 className="font-display text-2xl leading-snug text-earth-900 sm:text-[1.85rem] lg:text-[2.1rem]">
                 {section.title}
               </h2>
-            </div>
+            </ScrollReveal>
             <SectionBody section={section} />
           </section>
         ))}
 
-        <section className="border-t border-sage-400/35 pt-12 sm:pt-14">
+        <ScrollReveal as="section" className="border-t border-sage-400/35 pt-12 sm:pt-14">
           <h2 className="font-display text-2xl text-earth-900 sm:text-[1.85rem]">Sources</h2>
           <ol className="mt-6 space-y-4 sm:mt-8">
             {doc.sources.map((source, index) => (
@@ -127,7 +128,7 @@ export default function LiteratureReviewPanel({ showHeader = true }) {
               </li>
             ))}
           </ol>
-        </section>
+        </ScrollReveal>
       </div>
     </article>
   )

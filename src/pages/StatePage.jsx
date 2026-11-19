@@ -235,7 +235,7 @@ export default function StatePage() {
         </div>
       </section>
 
-      <PageContentBand field="route">
+      <PageContentBand field="route" reveal={!stateHasContent}>
         {!stateHasContent ? (
           state.checkBackSoon ? (
             <CheckBackSoonCard stateName={state.name} />
@@ -251,7 +251,7 @@ export default function StatePage() {
         ) : (
         <div className="space-y-16 sm:space-y-20 [&_article.card]:border-sage-200/90 [&_article.card]:shadow-md [&_article.card]:shadow-sage-900/[0.08] [&_article.card]:ring-1 [&_article.card]:ring-rust-200/30">
           {hasVideos && (
-          <section>
+          <ScrollReveal as="section">
             <SectionHeading>Featured videos</SectionHeading>
             <div className="space-y-6">
               {featuredVlogs.length > 0 && (
@@ -270,11 +270,11 @@ export default function StatePage() {
                 />
               </div>
             </div>
-          </section>
+          </ScrollReveal>
           )}
 
           {featuredInterviews.length > 0 && (
-          <section>
+          <ScrollReveal as="section">
             <SectionHeading>Featured conversations</SectionHeading>
             <div className="space-y-6">
               <div className="space-y-4">
@@ -327,32 +327,34 @@ export default function StatePage() {
                 </div>
               )}
             </div>
-          </section>
+          </ScrollReveal>
           )}
 
           {hasReflections && (
-          <section>
+          <ScrollReveal as="section">
             <SectionHeading>Reflections</SectionHeading>
             <div className="space-y-4">
               {publishedReflections.map((paper) => (
                 <ReflectionCard key={paper.id} paper={paper} />
               ))}
             </div>
-          </section>
+          </ScrollReveal>
           )}
 
           {comingSoonInterviews.length > 0 && (
-          <section>
+          <ScrollReveal as="section">
             <SectionHeading>Coming soon</SectionHeading>
             <div className="space-y-4">
               {comingSoonInterviews.map((interview) => (
                 <ComingSoonReflectionCard key={interview.id} item={interview} />
               ))}
             </div>
-          </section>
+          </ScrollReveal>
           )}
 
-          {state.checkBackSoon && <CheckBackSoonCard stateName={state.name} />}
+          {state.checkBackSoon && (
+            <ScrollReveal><CheckBackSoonCard stateName={state.name} /></ScrollReveal>
+          )}
         </div>
         )}
       </PageContentBand>

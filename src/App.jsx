@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -17,12 +17,14 @@ import StateTranscription from './pages/StateTranscription'
 import StatePhotoHeroCache from './components/StatePhotoHeroCache'
 
 export default function App() {
+  const { pathname } = useLocation()
+
   return (
     <div className="relative min-h-screen flex flex-col">
       <StatePhotoHeroCache />
       <ScrollToTop />
       <Navbar />
-      <main className="relative z-10 flex-1">
+      <main key={pathname} className="page-enter relative z-10 flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

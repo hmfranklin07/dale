@@ -9,7 +9,8 @@ function scrollToHashTarget(el) {
   const alignForFullView = absoluteTop + el.offsetHeight - window.innerHeight + bottomGap
   const scrollTop = Math.max(0, Math.max(alignTop, alignForFullView))
 
-  window.scrollTo({ top: scrollTop, behavior: 'smooth' })
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.scrollTo({ top: scrollTop, behavior: reducedMotion ? 'auto' : 'smooth' })
 }
 
 export default function ScrollToTop() {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import USMap from '../components/USMap'
 import SectionHeading, { pageTitleClass } from '../components/SectionHeading'
-import { useInView } from '../hooks/useInView'
+import ScrollReveal from '../components/ScrollReveal'
 /** Home hero background photo, bundled as-is. */
 import homeHeroBgUrl from '../assets/home/home-hero.jpg?url'
 
@@ -12,34 +12,12 @@ const sectionShell = 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-10'
 const heroViewportHeight =
   'min-h-[calc(100dvh-4rem-1px)] md:min-h-[calc(100dvh-7.5rem-2px)] lg:min-h-[calc(100dvh-4rem-1px)]'
 
-function revealState(inView, exitEdge) {
-  return [
-    inView ? 'is-revealed' : '',
-    !inView && exitEdge === 'top' ? 'scroll-reveal-exit-top' : '',
-  ]
-    .filter(Boolean)
-    .join(' ')
-}
-
-const revealOpts = { threshold: 0.14, rootMargin: '0px 0px -8%' }
-
 export default function Home() {
-  const { ref: heroRevealRef, inView: heroInView, exitEdge: heroExitEdge } = useInView({
-    ...revealOpts,
-    enterDelay: 16,
-  })
-  const { ref: introRevealRef, inView: introInView, exitEdge: introExitEdge } = useInView(revealOpts)
-  const { ref: mapRevealRef, inView: mapInView, exitEdge: mapExitEdge } = useInView(revealOpts)
-
-  const heroState = revealState(heroInView, heroExitEdge)
-  const introState = revealState(introInView, introExitEdge)
-  const mapState = revealState(mapInView, mapExitEdge)
-
   return (
     <div className="overflow-x-clip">
       {/* 1. Hero */}
-      <section ref={heroRevealRef} className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportHeight}`}>
-        <div className={`absolute inset-0 z-0 scroll-reveal-photo-hero ${heroState}`}>
+      <section className={`relative flex flex-col overflow-hidden bg-paper ${heroViewportHeight}`}>
+        <div className="absolute inset-0 z-0">
           {/* Cap the desktop crop so the flag stays below the title strip on short screens. */}
           <img
             src={homeHeroBgUrl}
@@ -54,7 +32,7 @@ export default function Home() {
         <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start">
           <div className={`${shell} w-full pb-6 pt-3 text-center sm:pt-4`}>
             <div
-              className={`relative mx-auto w-full max-w-4xl px-2 py-4 text-center sm:py-5 scroll-reveal scroll-reveal-delay-hero-title ${heroState}`}
+              className="relative mx-auto w-full max-w-4xl px-2 py-4 text-center sm:py-5"
             >
               <div
                 aria-hidden
@@ -72,12 +50,12 @@ export default function Home() {
               </p>
 
               <div
-                className={`mx-auto mt-4 h-px w-16 bg-rust-600 scroll-reveal scroll-reveal-delay-hero-rule ${heroState}`}
+                className="mx-auto mt-4 h-px w-16 bg-rust-600"
                 aria-hidden
               />
 
               <p
-                className={`mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-earth-800 sm:text-xl scroll-reveal scroll-reveal-delay-hero-body ${heroState}`}
+                className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-earth-800 sm:text-xl"
               >
                 This summer I drove across the country collecting stories about STEM education in rural communities —
                 from the teachers and students who live it every day.
@@ -89,15 +67,17 @@ export default function Home() {
 
       {/* 2. Inspiration */}
       <section className="relative overflow-hidden border-t-[5px] border-t-rust-500 bg-paper">
-        <div ref={introRevealRef} className="relative z-10">
+        <div className="relative z-10">
           <div className={`${sectionShell} pt-7 pb-0 sm:pt-8`}>
             <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[minmax(0,1fr)_18.5rem] md:grid-rows-[auto_auto] md:gap-x-2 md:gap-y-3 md:items-stretch lg:grid-cols-[minmax(0,1fr)_19.75rem] lg:gap-x-3">
-              <div className={`min-w-0 md:col-start-1 md:row-start-1 scroll-reveal scroll-reveal-delay-1 ${introState}`}>
+              <ScrollReveal className="min-w-0 md:col-start-1 md:row-start-1">
                 <SectionHeading className="!mt-4 !mb-0 sm:!mt-5 sm:!mb-0.5">Hi, I&apos;m Hannah!</SectionHeading>
-              </div>
+              </ScrollReveal>
 
-              <figure
-                className={`mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end scroll-reveal scroll-reveal-delay-2 ${introState}`}
+              <ScrollReveal
+                as="figure"
+                delay={1}
+                className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18.5rem] md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0 md:flex md:max-w-none md:min-h-0 md:w-full md:items-center md:justify-end"
               >
                 <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(82vw,21rem)] overflow-hidden rounded-md border border-earth-300 sm:max-h-[23rem] md:mx-0 md:aspect-auto md:h-[22rem] md:max-h-none md:w-[16.25rem] lg:h-[23.5rem] lg:w-[17.5rem]">
                   <div className="h-full w-full overflow-hidden">
@@ -111,9 +91,9 @@ export default function Home() {
                     />
                   </div>
                 </div>
-              </figure>
+              </ScrollReveal>
 
-              <div className={`min-w-0 md:col-start-1 md:row-start-2 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
+              <ScrollReveal delay={2} className="min-w-0 md:col-start-1 md:row-start-2">
                 <div className="w-full space-y-4 text-[1.0625rem] leading-relaxed text-earth-800 sm:text-[1.1875rem]">
                   <p>
                     I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
@@ -135,12 +115,12 @@ export default function Home() {
                     See more about this project
                   </Link>
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
 
           {/* Dale Award funding banner */}
-          <div className={`relative mt-5 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
+          <ScrollReveal className="relative mt-5">
             <div
               className="pointer-events-none absolute inset-0 bg-rust-200/55"
               aria-hidden
@@ -150,7 +130,7 @@ export default function Home() {
                 This project was generously funded by the Martin A. Dale &apos;53 Summer Award from Princeton University.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Full-width divider above the map */}
@@ -163,17 +143,17 @@ export default function Home() {
         className="relative overflow-hidden bg-paper scroll-mt-20 sm:scroll-mt-24"
       >
         <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
-          <div ref={mapRevealRef}>
-            <div className={`mb-8 text-center scroll-reveal scroll-reveal-delay-1 sm:mb-10 ${mapState}`}>
+          <div>
+            <ScrollReveal className="mb-8 text-center sm:mb-10">
               <p className="kicker">The route</p>
               <h2 className="mt-2 font-display text-3xl text-earth-900 sm:text-4xl">Summer 2026 Stops</h2>
               <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-earth-800 sm:text-xl">
                 Select a stop to read from that community.
               </p>
-            </div>
-            <div className={`w-full rounded-md sm:rounded-md scroll-reveal scroll-reveal-delay-2 ${mapState}`}>
+            </ScrollReveal>
+            <ScrollReveal delay={1} className="w-full rounded-md">
               <USMap />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

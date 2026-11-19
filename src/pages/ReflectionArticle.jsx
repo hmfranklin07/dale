@@ -1,5 +1,4 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import MountFade from '../components/MountFade'
 import PageContentBand from '../components/PageContentBand'
 import ReflectionBody from '../components/ReflectionBody'
 import { formatDate } from './blogData'
@@ -17,7 +16,7 @@ export default function ReflectionArticle() {
   }
 
   return (
-    <MountFade>
+    <>
       <section
         className={`relative flex flex-col overflow-hidden border-b border-sage-300/40 bg-paper ${HERO_MIN_H}`}
       >
@@ -75,6 +74,6 @@ export default function ReflectionArticle() {
           </div>
         </div>
       </PageContentBand>
-    </MountFade>
+    </>
   )
 }

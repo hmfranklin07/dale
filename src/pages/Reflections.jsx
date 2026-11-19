@@ -88,10 +88,10 @@ export default function Reflections() {
         </div>
       </section>
 
-      <PageContentBand field="route">
+      <PageContentBand field="route" reveal={false}>
         <div className="space-y-16 sm:space-y-20">
           {(publishedByState.length > 0 || publishedOther.length > 0) && (
-            <section>
+            <ScrollReveal as="section">
               <SectionHeading>Papers</SectionHeading>
               <div className="space-y-10 sm:space-y-12">
                 {publishedByState.map(({ state, items }) => (
@@ -120,11 +120,11 @@ export default function Reflections() {
                   </div>
                 )}
               </div>
-            </section>
+            </ScrollReveal>
           )}
 
           {comingSoonByState.length > 0 && (
-            <section>
+            <ScrollReveal as="section">
               <SectionHeading>Coming soon</SectionHeading>
               <div className="space-y-10 sm:space-y-12">
                 {comingSoonByState.map(({ state, items }) => (
@@ -146,7 +146,7 @@ export default function Reflections() {
                   </div>
                 ))}
               </div>
-            </section>
+            </ScrollReveal>
           )}
 
           {published.length === 0 && comingSoonByState.length === 0 && (

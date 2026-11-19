@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal'
+
 const prose =
   'indent-8 text-[1.05rem] leading-[1.75] text-earth-800 sm:indent-10 sm:text-lg sm:leading-[1.8]'
 
@@ -59,7 +61,7 @@ export default function ReflectionBody({ reflection }) {
     <article className="w-full">
       <div className="space-y-16 sm:space-y-20">
         {reflection.sections.map((section, sectionIndex) => (
-          <section key={section.title} className="scroll-mt-24">
+          <ScrollReveal as="section" key={section.title} className="scroll-mt-24">
             <div className="mb-6 flex items-baseline gap-3 sm:mb-8">
               <span
                 className="font-display text-sm tabular-nums tracking-wide text-rust-600 sm:text-base"
@@ -86,11 +88,11 @@ export default function ReflectionBody({ reflection }) {
                 </div>
               </div>
             ))}
-          </section>
+          </ScrollReveal>
         ))}
 
         {reflection.sources?.length > 0 && (
-          <section className="border-t border-sage-400/35 pt-12 sm:pt-14">
+          <ScrollReveal as="section" className="border-t border-sage-400/35 pt-12 sm:pt-14">
             <h2 className="font-display text-2xl text-earth-900 sm:text-[1.85rem]">Sources</h2>
             <div className="mt-3 h-px w-12 bg-rust-500" aria-hidden />
             <ol className="mt-6 space-y-3.5 sm:mt-8">
@@ -117,7 +119,7 @@ export default function ReflectionBody({ reflection }) {
                 </li>
               ))}
             </ol>
-          </section>
+          </ScrollReveal>
         )}
       </div>
     </article>

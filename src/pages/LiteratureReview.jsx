@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import literatureReview from '../data/literatureReview.json'
 import LiteratureReviewPanel from '../components/LiteratureReviewPanel'
-import MountFade from '../components/MountFade'
 import PageContentBand from '../components/PageContentBand'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
@@ -24,7 +23,7 @@ export default function LiteratureReview() {
   const doc = literatureReview
 
   return (
-    <MountFade>
+    <>
       <section className={`relative flex flex-col overflow-hidden border-b border-sage-900 bg-sage-800 ${HERO_MIN_H}`}>
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col">
           <div className={`${heroShell} pt-4 sm:pt-5 md:pt-6`}>
@@ -64,6 +63,6 @@ export default function LiteratureReview() {
           <LiteratureReviewPanel showHeader={false} />
         </div>
       </PageContentBand>
-    </MountFade>
+    </>
   )
 }
