@@ -4,6 +4,7 @@ import ScrollReveal from '../components/ScrollReveal'
 
 const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem] lg:min-h-[clamp(13rem,38dvh,22.5rem)]'
+const cardPadding = 'py-11 sm:py-[3.25rem] md:py-[3.75rem] lg:py-[clamp(1.75rem,5dvh,3.5rem)]'
 
 const CONTACT_LABELS = ['Share a story', 'Nominate someone', 'Questions']
 
@@ -68,7 +69,7 @@ export default function Contact() {
             <div className="mx-auto max-w-5xl">
               <div className="overflow-hidden rounded-md border border-earth-200 bg-white shadow-sm">
                 <div className="grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)]">
-                  <div className="flex flex-col justify-center border-b border-sage-200 bg-white px-6 py-10 sm:px-9 sm:py-12 md:border-b-0 md:border-r md:border-sage-200 md:px-10 md:py-14 lg:px-8 lg:py-[clamp(1.25rem,4dvh,3rem)] xl:px-12">
+                  <div className={`flex flex-col justify-center border-b border-sage-200 bg-white px-6 sm:px-9 md:border-b-0 md:border-r md:border-sage-200 md:px-10 lg:px-8 xl:px-12 ${cardPadding}`}>
                     <p className="font-display text-[2.15rem] leading-[1.15] text-earth-900 sm:text-[2.65rem] lg:text-[2.4rem] xl:text-[2.65rem]">
                       I&apos;d love to hear from you!
                     </p>
@@ -79,7 +80,7 @@ export default function Contact() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center bg-sage-800 px-6 py-10 text-center sm:px-8 sm:py-12 md:px-9 md:py-14 lg:py-[clamp(1.25rem,4dvh,3rem)]">
+                  <div className={`flex flex-col items-center justify-center bg-sage-800 px-6 text-center sm:px-8 md:px-9 ${cardPadding}`}>
                     <div className="w-full max-w-sm">
                       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-sage-100">
                         Write to me
