@@ -142,11 +142,13 @@ export default function Home() {
         id="map"
         className="relative overflow-hidden bg-paper scroll-mt-20 sm:scroll-mt-24"
       >
-        <div className="relative z-10 mx-auto max-w-7xl px-2 py-10 sm:px-3 sm:py-14">
+        <div className="relative z-10 mx-auto max-w-7xl px-2 pb-10 pt-8 sm:px-3 sm:pb-14 sm:pt-10">
           <div>
-            <ScrollReveal className="mb-8 text-center sm:mb-10">
-              <h2 className="font-display text-3xl text-earth-900 sm:text-4xl">STEM Across Rural America</h2>
-              <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-earth-800 sm:text-xl">
+            <ScrollReveal className="mb-6 px-2 text-center sm:mb-7">
+              <h2 className="text-balance font-display text-4xl leading-tight text-earth-900 sm:text-5xl">
+                STEM Across Rural America
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-lg leading-relaxed text-earth-800 sm:text-xl">
                 click on a stop to see more!
               </p>
             </ScrollReveal>
