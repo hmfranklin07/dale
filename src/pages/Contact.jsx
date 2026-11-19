@@ -24,7 +24,6 @@ export default function Contact() {
               decoding="async"
               fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-earth-900/40" aria-hidden />
           </ScrollReveal>
         </div>
 
