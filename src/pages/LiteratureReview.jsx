@@ -25,12 +25,12 @@ export default function LiteratureReview() {
 
   return (
     <MountFade>
-      <section className={`relative flex flex-col overflow-hidden border-b border-sage-300/40 bg-paper ${HERO_MIN_H}`}>
+      <section className={`relative flex flex-col overflow-hidden border-b border-sage-900 bg-sage-800 ${HERO_MIN_H}`}>
         <div className="relative z-10 flex min-h-0 min-h-[inherit] flex-1 flex-col">
           <div className={`${heroShell} pt-4 sm:pt-5 md:pt-6`}>
             <Link
               to="/about"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-sage-100 transition-colors hover:text-rust-200"
             >
               <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -40,17 +40,17 @@ export default function LiteratureReview() {
           </div>
 
           <div className={`${heroShell} flex flex-1 flex-col items-center justify-center py-8 text-center sm:py-9`}>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-earth-700 sm:text-[0.8rem]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-200 sm:text-[0.8rem]">
               {doc.eyebrow}
             </p>
-            <h1 className="mt-2 font-display text-[2rem] leading-none text-earth-900 sm:text-[2.75rem] lg:text-[3.25rem]">
+            <h1 className="mt-2 font-display text-[2rem] leading-none text-paper sm:text-[2.75rem] lg:text-[3.25rem]">
               {doc.title}
             </h1>
             <div
               className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
               aria-hidden
             />
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-earth-800 sm:text-base">{doc.courseLine}</p>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-sage-100 sm:text-base">{doc.courseLine}</p>
           </div>
         </div>
       </section>
