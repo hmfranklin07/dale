@@ -114,7 +114,7 @@ export default function Home() {
               </figure>
 
               <div className={`min-w-0 md:col-start-1 md:row-start-2 scroll-reveal scroll-reveal-delay-3 ${introState}`}>
-                <div className="w-full space-y-4 text-lg leading-relaxed text-earth-800 sm:text-xl">
+                <div className="w-full space-y-4 text-[1.0625rem] leading-relaxed text-earth-800 sm:text-[1.1875rem]">
                   <p>
                     I study chemistry at Princeton University, but I grew up in a small farm town in New York. For most of
                     my life, I didn&apos;t think I could get to where I am now. Education often felt disconnected from the
