@@ -6,7 +6,7 @@ const heroShell = 'max-w-6xl mx-auto w-full px-2.5 sm:px-4 lg:px-6'
 const HERO_MIN_H = 'min-h-[17rem] sm:min-h-[19.5rem] md:min-h-[22.5rem] lg:min-h-[clamp(13rem,38dvh,22.5rem)]'
 const cardPadding = 'py-11 sm:py-[3.25rem] md:py-[3.75rem] lg:py-[clamp(1.75rem,5dvh,3.5rem)]'
 
-const CONTACT_LABELS = ['Share a story', 'Nominate someone', 'Questions']
+const CONTACT_LABELS = ['connect', 'share a story', 'questions']
 
 export default function Contact() {
   const mailto = `mailto:${siteMeta.contactEmail}`
@@ -33,7 +33,7 @@ export default function Contact() {
             <ScrollReveal>
               <div className="relative mx-auto w-full max-w-4xl py-5 sm:py-6 lg:py-4">
                 <h1 className="font-display text-[2.75rem] leading-none text-white drop-shadow-[0_2px_12px_rgba(20,28,18,0.55)] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-                  Connect
+                  Contact
                 </h1>
                 <div className="mx-auto mt-2.5 h-0.5 w-14 bg-rust-400 sm:mt-3 sm:w-20" aria-hidden />
 
@@ -42,11 +42,11 @@ export default function Contact() {
                     <li key={label} className="flex items-center">
                       {index > 0 && (
                         <span
-                          className="mx-2.5 hidden h-3 w-px bg-white/45 sm:mx-3.5 sm:inline-block"
+                          className="mx-1.5 h-3 w-px bg-white/45 sm:mx-3.5"
                           aria-hidden
                         />
                       )}
-                      <span className="px-1 font-sans text-[0.72rem] font-medium uppercase tracking-[0.18em] text-white">
+                      <span className="px-1 font-sans text-[0.72rem] font-medium tracking-[0.18em] text-white">
                         {label}
                       </span>
                     </li>
