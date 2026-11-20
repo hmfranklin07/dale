@@ -21,6 +21,7 @@ export default function StateTranscriptions() {
   return (
     <>
       <StateSubpageHero
+        tone="sage"
         backTo={`/${stateSlug}`}
         backLabel={`Back to ${state.name}`}
         title={`Written conversations · ${state.name}`}

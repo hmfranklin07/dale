@@ -2,8 +2,7 @@ import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import states from '../data/states.json'
 import towns from '../data/towns.json'
 import PageContentBand from '../components/PageContentBand'
-import { pageTitleClass } from '../components/SectionHeading'
-import { HERO_ACCENT_RUST } from '../config/mapPinColors'
+import StateSubpageHero from '../components/StateSubpageHero'
 import { formatDate } from './blogData'
 import { interviewById, interviewBelongsToState } from '../lib/stateContent'
 
@@ -45,151 +44,118 @@ export default function StateTranscription() {
 
   return (
     <>
-      <section
-        className={`relative flex flex-col overflow-hidden border-b ${
-          photoHero
-            ? `${TRANSCRIPTION_PHOTO_HERO_MIN_H} border-sage-800/30`
-            : 'min-h-[14rem] border-sage-600/50 bg-paper sm:min-h-[16rem] md:min-h-[17rem]'
-        }`}
-      >
-        {photoHero ? (
-          <>
-            <div className="absolute inset-0 z-0">
-              <img
-                src={interview.photo}
-                alt=""
-                sizes="100vw"
-                className={`h-full w-full object-cover ${heroPositionClass}`}
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </div>
-            {!darkHeroText && (
-              <>
-                <div
-                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-earth-900/55 via-earth-900/15 to-earth-900/65"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(15,23,20,0.45)_100%)]"
-                  aria-hidden
-                />
-              </>
-            )}
-
-            <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-              <Link
-                to={backTo}
-                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
-                  darkHeroText
-                    ? 'text-earth-900 hover:text-rust-800'
-                    : 'text-white/95 drop-shadow-sm hover:text-white'
-                }`}
-              >
-                <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                {backLabel}
-              </Link>
-            </div>
-
-            <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-start justify-start">
+      {photoHero ? (
+        <section className={`relative flex flex-col overflow-hidden border-b border-sage-800/30 ${TRANSCRIPTION_PHOTO_HERO_MIN_H}`}>
+          <div className="absolute inset-0 z-0">
+            <img
+              src={interview.photo}
+              alt=""
+              sizes="100vw"
+              className={`h-full w-full object-cover ${heroPositionClass}`}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
+          {!darkHeroText && (
+            <>
               <div
-                className={`${heroShell} w-full pb-10 pt-14 text-center sm:pb-12 sm:pt-16 md:pb-14 md:pt-[4.25rem]`}
-              >
-                <div className="relative mx-auto w-full max-w-4xl">
-                  {(interview.townLabel || town) && (
-                    <span
-                      className={`inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm ${
-                        darkHeroText
-                          ? 'border-earth-900/25 bg-white/55 text-earth-900'
-                          : 'border-white/30 bg-white/10 text-white/95'
-                      }`}
-                    >
-                      {interview.townLabel ?? town?.name}
-                    </span>
-                  )}
-                  <div className="relative mt-3 py-3 sm:mt-3.5 sm:py-3.5">
-                    <div
-                      aria-hidden
-                      className={`pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y backdrop-blur-sm ${
-                        darkHeroText
-                          ? 'border-earth-900/15 bg-white/50'
-                          : 'border-white/20 bg-earth-900/20'
-                      }`}
-                    />
-                    <h1
-                      className={`font-display mx-auto whitespace-nowrap leading-none ${
-                        darkHeroText ? 'text-earth-900' : 'text-white drop-shadow-md'
-                      } ${
-                        displayTitle.length > 22
-                          ? 'text-[1.55rem] sm:text-[2.35rem] lg:text-[2.85rem]'
-                          : 'text-[2.15rem] sm:text-[3rem] lg:text-[3.5rem]'
-                      }`}
-                    >
-                      {displayTitle}
-                    </h1>
-                    <div
-                      className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
-                      aria-hidden
-                    />
-                    <p
-                      className={`mx-auto mt-2.5 whitespace-nowrap text-sm leading-none sm:mt-3 sm:text-base ${
-                        darkHeroText ? 'text-earth-800' : 'text-white/90'
-                      }`}
-                    >
-                      {interview.personName} · {interview.role} · {interview.school}
-                    </p>
-                  </div>
-                  <time
-                    className={`mt-2.5 block text-xs sm:mt-3 sm:text-sm ${
-                      darkHeroText ? 'text-earth-700' : 'text-white/75'
+                className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-earth-900/55 via-earth-900/15 to-earth-900/65"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(15,23,20,0.45)_100%)]"
+                aria-hidden
+              />
+            </>
+          )}
+
+          <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
+            <Link
+              to={backTo}
+              className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                darkHeroText
+                  ? 'text-earth-900 hover:text-rust-800'
+                  : 'text-white/95 drop-shadow-sm hover:text-white'
+              }`}
+            >
+              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              {backLabel}
+            </Link>
+          </div>
+
+          <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-start justify-start">
+            <div
+              className={`${heroShell} w-full pb-10 pt-14 text-center sm:pb-12 sm:pt-16 md:pb-14 md:pt-[4.25rem]`}
+            >
+              <div className="relative mx-auto w-full max-w-4xl">
+                {(interview.townLabel || town) && (
+                  <span
+                    className={`inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm ${
+                      darkHeroText
+                        ? 'border-earth-900/25 bg-white/55 text-earth-900'
+                        : 'border-white/30 bg-white/10 text-white/95'
                     }`}
                   >
-                    {formatDate(interview.date)}
-                  </time>
+                    {interview.townLabel ?? town?.name}
+                  </span>
+                )}
+                <div className="relative mt-3 py-3 sm:mt-3.5 sm:py-3.5">
+                  <div
+                    aria-hidden
+                    className={`pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 border-y backdrop-blur-sm ${
+                      darkHeroText
+                        ? 'border-earth-900/15 bg-white/50'
+                        : 'border-white/20 bg-earth-900/20'
+                    }`}
+                  />
+                  <h1
+                    className={`font-display mx-auto whitespace-nowrap leading-none ${
+                      darkHeroText ? 'text-earth-900' : 'text-white drop-shadow-md'
+                    } ${
+                      displayTitle.length > 22
+                        ? 'text-[1.55rem] sm:text-[2.35rem] lg:text-[2.85rem]'
+                        : 'text-[2.15rem] sm:text-[3rem] lg:text-[3.5rem]'
+                    }`}
+                  >
+                    {displayTitle}
+                  </h1>
+                  <div
+                    className="mx-auto mt-2.5 h-px w-14 bg-gradient-to-r from-transparent via-rust-400 to-transparent sm:mt-3 sm:w-20"
+                    aria-hidden
+                  />
+                  <p
+                    className={`mx-auto mt-2.5 whitespace-nowrap text-sm leading-none sm:mt-3 sm:text-base ${
+                      darkHeroText ? 'text-earth-800' : 'text-white/90'
+                    }`}
+                  >
+                    {interview.personName} · {interview.role} · {interview.school}
+                  </p>
                 </div>
+                <time
+                  className={`mt-2.5 block text-xs sm:mt-3 sm:text-sm ${
+                    darkHeroText ? 'text-earth-700' : 'text-white/75'
+                  }`}
+                >
+                  {formatDate(interview.date)}
+                </time>
               </div>
             </div>
-          </>
-        ) : (
-          <>
-        <div className={`${heroShell} absolute inset-x-0 top-0 z-20 pt-4 sm:pt-5 md:pt-6`}>
-          <Link
-            to={backTo}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-earth-800 transition-colors hover:text-rust-800"
-          >
-            <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            {backLabel}
-          </Link>
-        </div>
-
-        <div className="relative z-10 flex min-h-[inherit] flex-1 flex-col items-center justify-center">
-          <div className={`${heroShell} w-full py-10 pt-14 sm:py-12 sm:pt-16 md:py-14 md:pt-[4.25rem]`}>
-            <div
-              className="mx-auto max-w-3xl rounded-md border border-earth-200 bg-white px-6 py-8 text-center sm:px-10 sm:py-10"
-              style={{ borderColor: HERO_ACCENT_RUST }}
-            >
-              {(interview.townLabel || town) && (
-                <span className="badge-sage inline-block">{interview.townLabel ?? town?.name}</span>
-              )}
-              <h1 className={`font-display mt-3 text-[2rem] leading-[1.08] sm:mt-4 sm:text-4xl lg:text-[2.75rem] ${pageTitleClass}`}>
-                {displayTitle}
-              </h1>
-              <div className="mx-auto mt-3 h-0.5 w-16 bg-rust-400 sm:mt-4 sm:w-20" aria-hidden />
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-snug text-earth-800 sm:mt-4 sm:text-base">
-                {interview.personName} · {interview.role} · {interview.school}
-              </p>
-              <time className="mt-2 block text-xs text-sage-700 sm:text-sm">{formatDate(interview.date)}</time>
-            </div>
           </div>
-        </div>
-          </>
-        )}
-      </section>
+        </section>
+      ) : (
+        <StateSubpageHero
+          tone="sage"
+          backTo={backTo}
+          backLabel={backLabel}
+          eyebrow={interview.townLabel ?? town?.name}
+          title={displayTitle}
+          description={`${interview.personName} · ${interview.role} · ${interview.school}`}
+          date={formatDate(interview.date)}
+        />
+      )}
 
       <PageContentBand field="route">
         <article className="mx-auto max-w-3xl">
