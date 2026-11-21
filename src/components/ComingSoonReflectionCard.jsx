@@ -1,5 +1,5 @@
 export default function ComingSoonReflectionCard({ item, badge }) {
-  const label = badge ?? item.townLabel
+  const label = badge ?? item.badge ?? item.townLabel
 
   return (
     <article id={item.id} className="card overflow-hidden border-2 border-dashed border-earth-500 bg-white">

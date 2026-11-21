@@ -47,12 +47,8 @@ export function interviewsForState(stateSlug) {
 }
 
 export function comingSoonInterviewsForState(stateSlug) {
-  const slugs = townSlugsInState(stateSlug)
   return interviews
-    .map((i, index) => ({ i, index }))
-    .filter(({ i }) => slugs.has(i.townSlug) && i.comingSoon === true)
-    .sort((a, b) => a.index - b.index)
-    .map(({ i }) => i)
+    .filter((i) => i.comingSoon === true && (i.stateSlug ?? townBySlug[i.townSlug]?.stateSlug) === stateSlug)
 }
 
 export function featuredInterviewsForState(stateSlug) {
