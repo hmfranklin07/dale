@@ -57,7 +57,7 @@ export default function Home() {
               <p
                 className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-earth-800 sm:text-xl"
               >
-                This summer I drove across the country collecting stories about STEM education in rural communities —
+                This summer I drove across the country collecting stories about STEM education in rural communities
                 from the teachers and students who live it every day.
               </p>
             </div>
